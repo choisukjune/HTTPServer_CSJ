@@ -1,0 +1,143 @@
+<include>_header_info.html</include>
+<include>navi.html</include>
+<include>header.html</include>
+
+<div class="ui padded centered grid">
+	<div class="twelve wide column pad_t_60 pad_b_60">
+		<!----- contents ----->
+<h2 class="ui header">Second header</h2>
+
+<!-- <div class="ui tiny breadcrumb pad_b_60"> -->
+<!--   <a class="section">Home</a> -->
+<!--   <i class="right chevron icon divider"></i> -->
+<!--   <a class="section">Registration</a> -->
+<!--   <i class="right chevron icon divider"></i> -->
+<!--   <div class="active section">Personal Information</div> -->
+<!-- </div> -->
+
+<table class="ui unstackable table">
+  <thead>
+    <tr>
+	<th colspan="2">File</th>
+  </tr>
+  </thead>
+  <tbody id="data">
+  </tbody>
+</table>
+
+
+<div class="ui form">
+	<div class="field">
+		<label></label>
+		<textarea  style="width:100%; min-height:65%; font-size : 1.5em" id="res"></textarea>
+	</div>
+</div>
+
+		<!----- contents ----->
+	</div>
+<!-- <button class="ui labeled icon button"> -->
+<!--   <i class="pause icon"></i> -->
+<!--   Pause -->
+<!-- </button> -->
+<!-- <button class="ui right labeled icon button"> -->
+<!--   <i class="right arrow icon"></i> -->
+<!--   Next -->
+<!-- </button> -->
+</div>
+<include>footer.html</include>
+<include>_footer_info.html</include>
+
+
+<script>
+
+
+var a = function( param ){
+
+//	var p0 = document.getElementById("id").value;
+//	var p1 = document.getElementById("pwd").value;
+
+	var url = "/api/MongoDB_query_excute?path="
+		+ param
+
+	window.service.Request.req_GET_data__Callback( url, function( r ){
+//debugger;
+	console.log( r )
+	//var _res_Object = JSON.parse( r )
+
+	document.getElementById("res").textContent = r
+})
+
+};
+
+var add_evt_listener__click__id = function( id ){
+console.log("add_evt_listener__click__id")
+	 document.getElementById( id ).addEventListener('click', function(){
+	 a(id)
+	 } )
+console.log("add_evt_listener__click__id")
+}
+
+//var remove_evt_listener__click__id = function( id ){
+//	console.log("remove_evt_listener__click__id")
+//	 document.getElementById( id ).removeEventListener('click', null )
+//	console.log("remove_evt_listener__click__id")
+//}
+
+document.getElementById( "aaa" ).addEventListener('click', function(){a()})
+</script>
+
+<script>
+
+
+var check_login = function(){
+
+//	var p0 = document.getElementById("first_Nm").value;
+//	var p1 = document.getElementById("last_Nm").value;
+//	var p2 = document.getElementById("email").value;
+//	var p3 = document.getElementById("pwd").value;
+//debugger;
+	var url = "/api/readdir?"+ "path=dbjs"
+
+	window.service.Request.req_GET_data__Callback( url, function( r ){
+
+	console.log( typeof r )
+	var data = JSON.parse( r )
+
+var _t0 = document.getElementById('data')
+
+
+	for(var i = 0; i < data.length; ++i){
+
+		var tr = document.createElement("tr");
+
+			var td = document.createElement("td")
+			var text = document.createTextNode( data[ i ] );
+			//console.log( text )
+			td.appendChild(text)
+			tr.appendChild(td)
+			var td = document.createElement("td")
+			var button = document.createElement("button")
+			td.setAttribute("class", "ui right aligned");
+			button.setAttribute("class", "ui labeled green icon button");
+			button.setAttribute("id", data[ i ] );
+			var icon =  document.createElement("i")
+			icon.setAttribute("class", "right arrow icon");
+			var text = document.createTextNode( "excute" );
+
+			button.appendChild(icon)
+			button.appendChild(text)
+			td.appendChild(button)
+			tr.appendChild(td)
+
+		_t0.append(tr)
+		add_evt_listener__click__id( data[ i ])
+	}
+
+})
+
+};
+
+check_login();
+</script>
+
+

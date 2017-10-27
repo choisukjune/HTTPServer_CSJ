@@ -1,0 +1,72 @@
+
+<include>_header_info.html</include>
+<include>navi.html</include>
+<include>header.html</include>
+<div class="ui centered grid">
+	<div class="twelve wide column pad_t_60 pad_b_60">
+	<!----- contents ----->
+
+		<div class="ui positive message">
+		<div class="header">You are eligible for a reward</div>
+				<p>Go to your <b>special offers</b> page to see now.</p>
+		</div>
+
+		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
+			<thead>
+				<tr>
+					<th>no</th>
+					<th>email</th>
+					<th>password</th>
+					<th>first name</th>
+					<th>last name</th>
+					<th>session id</th>
+				</tr>
+			</thead>
+			<tbody id="data"></tbody>
+		</table>
+
+	<!----- contents ----->
+	</div>
+</div>
+
+
+<include>footer.html</include>
+<include>_footer_info.html</include>
+<script>
+window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
+alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
+</script>
+<script>
+
+var _t0 = document.getElementById('data')
+
+var url = "/api/get_list?sid=" + window.service.cookie.getCookie('session')
+
+window.service.Request.req_GET_data__Callback(url,function(result){
+	if(result == 0){
+		window.service.session.remove_deleteCookies()
+		location.href = "./login";
+	}
+	var data = JSON.parse( result )
+	for(var i = 0; i < data.length; ++i){
+
+		var tr = document.createElement("tr");
+
+		for(var s in data[ i ]){
+
+			var td = document.createElement("td")
+			var text = document.createTextNode( data[ i ][ s ] );
+			//console.log( text )
+			td.appendChild(text)
+			tr.appendChild(td)
+		}
+
+		_t0.append(tr)
+
+	}
+})
+
+
+
+
+</script>

@@ -1,0 +1,206 @@
+<!-- <div class="ui fixed inverted menu"> -->
+<!--     <div class="ui container"> -->
+<!--       <a href="#" class="header item"> -->
+<!--         <img class="logo" src="assets/images/logo.png"> -->
+<!--         Project Name -->
+<!--       </a> -->
+<!--       <a href="#" class="item">Home</a> -->
+<!--       <div class="ui simple dropdown item"> -->
+<!--         Dropdown -->
+<!-- 		<i class="dropdown icon"></i> -->
+<!--         <div class="menu"> -->
+<!--           <a class="item" href="#">Link Item</a> -->
+<!--           <a class="item" href="#">Link Item</a> -->
+<!--           <div class="divider"></div> -->
+<!--           <div class="header">Header Item</div> -->
+<!--           <div class="item"> -->
+<!--             <i class="dropdown icon"></i> -->
+<!--             Sub Menu -->
+<!--             <div class="menu"> -->
+<!--               <a class="item" href="#">Link Item</a> -->
+<!--               <a class="item" href="#">Link Item</a> -->
+<!--             </div> -->
+<!--           </div> -->
+<!--           <a class="item" href="#">Link Item</a> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!--  -->
+<script>window.service.session.checkSession();</script>
+
+<!-- <div class="ui fixed menu mrg_l_0 right aligned"> -->
+<!--  -->
+<!-- 	<a class="item" id="side_open"> -->
+<!-- 		<i class="big sidebar icon"></i> -->
+<!-- 	</a> -->
+<!-- <a class="item"></i></a> -->
+<!-- <a class="item right aligned"><i class="big user outline icon"></i></a> -->
+<!-- <a class="item"><i class="large frown icon"></i></a> -->
+<!-- <a class="item"><i class="big heart icon"></i></a> -->
+<!-- <a class="item"><i class="big Comment Outline icon"></i></a> -->
+<!-- <a class="item"><i class="large smile icon"></i></a> -->
+<!-- <a class="item"><i class="large star half empty icon"></i></a> -->
+<!-- <a class="item"><i class="large star half icon"></i></a> -->
+<!-- <a class="item"><i class="large star icon"></i></a> -->
+<!-- <a class="item"><i class="large thumbs down icon"></i></a> -->
+<!-- <a class="item"><i class="large thumbs outline down icon"></i></a> -->
+<!-- <a class="item"><i class="large thumbs outline up icon"></i></a> -->
+<!-- <a class="item"><i class="large thumbs up icon"></i></a> -->
+<!-- 		<div class="ui simple dropdown item"> -->
+<!-- 			Dropdown -->
+<!-- 			<i class="dropdown icon"></i> -->
+<!-- 			<div class="menu"> -->
+<!-- 				<a class="item" href="#">Link Item</a> -->
+<!-- 				<a class="item" href="#">Link Item</a> -->
+<!-- 				<div class="divider"></div> -->
+<!-- 				<div class="header">Header Item</div> -->
+<!-- 				<div class="item"> -->
+<!-- 					<i class="dropdown icon"></i> -->
+<!-- 					Sub Menu -->
+<!-- 					<div class="menu"> -->
+<!-- 						<a class="item" href="#">Link Item</a> -->
+<!-- 						<a class="item" href="#">Link Item</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<a class="item" href="#">Link Item</a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
+<style>
+#toaster_container {
+	position: fixed;
+    z-index: 1;
+    right: 5px;
+    top: 0px;
+	z-index : 103;
+}
+.snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    z-index: 1;
+    font-size: 17px;
+	margin-top:5px;
+}
+
+.show {
+    visibility: visible;
+/*    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;*/
+/*    animation: fadein 0.5s, fadeout 0.5s 2.5s;*/
+}
+/**/
+/*@-webkit-keyframes fadein {*/
+/*    from {top: 0; opacity: 0;}*/
+/*    to {top: 0px; opacity: 1;}*/
+/*}*/
+/**/
+/*@keyframes fadein {*/
+/*    from {top 0; opacity: 0;}*/
+/*    to {top: 0px; opacity: 1;}*/
+/*}*/
+/**/
+/*@-webkit-keyframes fadeout {*/
+/*    from {top: 0px; opacity: 1;}*/
+/*    to {top: 0; opacity: 0;}*/
+/*}*/
+/**/
+/*@keyframes fadeout {*/
+/*    from {top: 0px; opacity: 1;}*/
+/*    to {top: 0; opacity: 0;}*/
+/*}*/
+</style>
+<!-- <div id="snackbar">Some text some message..</div> -->
+<!--  -->
+<!-- <div id="snackbar">Some text some message..</div> -->
+<!-- <div id="snackbar">Some text some message..</div> -->
+<!-- <div id="snackbar">Some text some message..</div> -->
+<!-- <div id="snackbar">Some text some message..</div> -->
+<!-- <div id="snackbar">Some text some message..</div> -->
+<!-- <button onclick="window.service.message.toaster('hello!' + window.service.cookie.getCookie('mid'))">Show Snackbar</button> -->
+
+<!-- <div id="snackbar">Some text some message..</div> -->
+
+<!-- </div> -->
+<div class="ui fixed menu">
+	<div class="ui container">
+		<a class="item" id="side_open"><i class="grey big sidebar icon"></i></a>
+		<a class="item"><h2>{ &nbsp;__testServer__&nbsp; }</h2></a>
+		<div class="right menu">
+			<div class="item">
+				<div class="ui floating dropdown" id="test0">
+					<i class="grey big Alarm Outline icon"></i>
+					<div class="menu">
+						<div class="scrolling menu">
+							<div class="item">
+								<div class="ui red empty circular label"></div>test__menu__1
+							</div>
+							<div class="item">
+								<div class="ui blue empty circular label"></div>test__menu__2
+							</div>
+							<div class="item">
+								<div class="ui black empty circular label"></div>test__menu__3
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ui floating dropdown" id="test1">
+<!-- 				<i class="grey big user outline icon"></i> -->
+					<img class="ui avatar Mini image" src="https://semantic-ui.com/images/avatar/small/elliot.jpg"><span id="txt_email">---</span>
+					<div class="menu">
+						<div class="scrolling menu">
+							<div class="header">
+							<i class="User Circle icon"></i>
+							<span id="txt_sid" style="word-break: break-all !important;">---</span>
+							</div>
+							<div class="item">
+								<div class="ui red empty circular label"></div>Important
+							</div>
+							<div class="item">
+								<div class="ui blue empty circular label"></div>Announcement
+							</div>
+							<div class="item">
+								<div class="ui black empty circular label"></div>Cannot Fix
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ui floating dropdown" id="test2">
+					<i class="grey big Empty Heart icon"></i>
+					<div class="menu">
+						<div class="scrolling menu">
+							<div class="item">
+								<div class="ui red empty circular label"></div>test__menu__1
+							</div>
+							<div class="item">
+								<div class="ui blue empty circular label"></div>test__menu__2
+							</div>
+							<div class="item">
+								<div class="ui black empty circular label"></div>test__menu__3
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+$('#test0').dropdown({ transition: 'drop' });
+$('#test1').dropdown({ transition: 'drop' });
+$('#test2').dropdown({ transition: 'drop' });
+var a0 = window.service.cookie.getCookie('mid');
+var a1 = window.service.cookie.getCookie('session');
+
+document.getElementById('txt_email').innerHTML = a0;
+document.getElementById('txt_sid').innerHTML = a1;
+</script>

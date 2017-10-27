@@ -1,0 +1,46 @@
+<script>
+$(document).ready(function () {
+//btn클릭 이벤트 처리
+$('#side_open').click(function () {
+	//alert(‘버튼이 클릭되었습니다.’);
+	$('.ui.sidebar')
+	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('toggle');
+});
+////페이지 로드시 버튼 클릭
+//$(‘#my .hover’).click(function () { alert(‘버튼이 클릭’); });
+//$(‘#my input[type=button]’).one(“click”, function () {
+//alert(‘역시 버튼이 사용자에 의해서 클릭됨’);
+//});
+//$(‘#btn’).bind(“click”, function () { alert(‘버튼이 클릭됨’); });
+////버튼 클릭이 아니라 코드에 의해서 click이벤트를 실행하고 싶다면?
+//$(‘#btn’).trigger(‘click’); //실행하자마자 click이벤트를 트리거 함
+////이것은 정말 고마운거임. ㅎ 사용할일이 많~~~~습니다. ㅋ
+});
+
+</script>
+
+
+<style>
+.word-break
+{
+word-break:break-all !important;
+}
+
+.word-break > a
+{
+line-height: 1.5em !important;
+}
+</style>
+
+
+<div class="ui sidebar inverted vertical menu word-break">
+
+	<a class="item" href="./">ProjectName</a>
+
+	<div class="divider"></div>
+	<!=data=!>
+
+</div>
+
+<div class="pusher">

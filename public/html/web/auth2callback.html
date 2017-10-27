@@ -1,0 +1,43 @@
+<script src="js/common/common.min.js"></script>
+<script>
+var queryString = location.hash.substring(1);
+  // Parse query string to see if page request is coming from OAuth 2.0 server.
+  var params = {};
+  var regex = /([^&=]+)=([^&]*)/g, m;
+  while (m = regex.exec(queryString)) {
+    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    // Try to exchange the param values for an access token.
+    //exchangeOAuth2Token(params);
+  }
+
+//https://www.googleapis.com/auth/userinfo.email
+ // If there's an access token, try an API request.
+  // Otherwise, start OAuth 2.0 flow.
+
+		var url0 = 'https://www.googleapis.com/plus/v1/people/me?' + 'access_token=' + params['access_token'];
+		window.service.Request.req_GET_data__Callback( url0, function( r ){
+
+
+		params.userinfo = JSON.parse( r );
+	console.log( params.uerinfo )
+		var url = "/api/google_auth2?data=" + encodeURIComponent( JSON.stringify( params ) );
+
+		console.log( url )
+
+		window.service.Request.req_GET_data__Callback( url, function( r ){
+			console.log( r )
+			var _res_Object = JSON.parse( r )
+			console.log( _res_Object )
+			if( r != 0 ){
+				window.service.session.setSession( _res_Object.session_state )
+				window.service.cookie.setCookie( "mid", _res_Object.userinfo.emails[0].value, 1000*60*15 )
+				window.service.cookie.setCookie( "sid_type", "google_oauth", 1000*60*15 )
+				location.href = "./"
+			}
+		})
+
+  })
+
+
+
+</script>

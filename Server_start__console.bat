@@ -1,0 +1,1 @@
+call node --expose-gc index.js

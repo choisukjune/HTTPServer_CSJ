@@ -1,0 +1,7 @@
+
+var db0 = db.getSiblingDB("member")
+var col0 = db0.getCollection("member_basic")
+
+var r = col0.find().toArray()
+
+printjson( r )

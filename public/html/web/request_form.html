@@ -1,0 +1,121 @@
+<include>_header_info.html</include>
+<include>navi.html</include>
+<include>header.html</include>
+
+	<div class="ui padded centered grid" style="min-height:100%">
+	<div class="twelve wide column pad_t_60 pad_b_60">
+			<!----- contents ----->
+
+			<h3>Requester</h3>
+			<!-- Contents -->
+
+<div class="ui form attached fluid segment">
+
+	<div class="field">
+		<label>Host</label>
+		<input type="text" id="host" value="www.gibmall.com" placeholder="Host"/>
+	</div>
+	<div class="field">
+		<label>Path</label>
+		<input type="text" id="path" value="/" placeholder="Path"/>
+	</div>
+	<div class="three fields">
+		<div class="field">
+			<label>Method</label>
+			<div class="ui fluid selection dropdown" id="select_box">
+				<input type="hidden" id="method" value="GET">
+				<i class="dropdown icon"></i>
+				<div class="default text">Method</div>
+				<div class="menu">
+					<div class="item" data-value="GET">
+						GET
+					</div>
+					<div class="item" data-value="POST">
+						POST
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="field">
+			<label>Port</label>
+			<input type="text" id="port" value="80" placeholder="Port"/>
+		</div>
+		<div class="field">
+			<label>characterSet</label>
+			<div class="ui fluid selection dropdown" id="select_box1">
+				<input type="hidden" id="characterSet" value="euc-kr">
+				<i class="dropdown icon"></i>
+				<div class="default text">characterSet</div>
+				<div class="menu">
+					<div class="item" data-value="euc-kr">
+						euc-kr
+					</div>
+					<div class="item" data-value="utf-8">
+						utf-8
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ui fluid blue submit button" id="aaa">Sned_Request</div>
+</div>
+<div class="ui form">
+	<div class="field">
+		<label></label>
+		<textarea id="res" style="width:100%; min-height: 100%;"></textarea>
+	</div>
+</div>
+
+			<!----- contents ----->
+		</div>
+
+<include>footer.html</include>
+<include>_footer_info.html</include>
+<script	type="text/JavaScript">
+
+	$('#select_box').dropdown();
+	$('#select_box1').dropdown();
+
+	var	a =	function( _el_request ){
+	var	_el_request	= {}
+	_el_request[ 'host'	] =	document.getElementById('host').value;
+	_el_request[ 'method' ]	= document.getElementById('method').value;
+	_el_request[ 'path'	] =	document.getElementById('path').value;
+	_el_request[ 'port'	] =	document.getElementById('port').value *	1;
+	_el_request[ 'characterSet'	] =	document.getElementById('characterSet').value;
+
+	var	url	= "/api/request?data=" + JSON.stringify( _el_request );
+
+	//console.log( url )
+
+	var	http = new XMLHttpRequest();
+		http.open("GET", url, true);
+
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		//http.setRequestHeader("Content-length", params.length);
+		//http.setRequestHeader("Connection", "close");
+		http.setRequestHeader('Access-Control-Allow-Origin','*')
+		http.onreadystatechange	= function(){
+			console.log('onreadystatechange');
+			if (http.readyState	== 4 &&	http.status	== 200)	{
+				//alert(http.responseText);
+				console.log( http.responseText)
+				//console.log( decodeURIComponent( http.responseText ) )
+				document.getElementById("res").textContent = http.responseText;
+			}
+			else {
+				console.log('readyState=' +	http.readyState	+ ', status: ' + http.status);
+			}
+		}
+
+		console.log('sending...')
+		http.send();
+		console.log('end');
+	}
+
+	document.getElementById('aaa').addEventListener('click', function(){
+		a()
+		document.getElementById('aaa').removeEventListener('click',a);
+	})
+
+</script>
