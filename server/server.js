@@ -59,7 +59,6 @@ global.SERVER.make_navi_resource = function(){
 			}
 		}
 	}
-
 	make_resource( r )
 };
 
