@@ -27,15 +27,15 @@ global.SERVER.make_navi_resource = function(){
 
 	var make_resource = function( r ){
 
-		var file = "D:/sukjune_js_util/httpServer_csj/public/html/thtml/navi.thtml";
-		var file1 = "D:/sukjune_js_util/httpServer_csj/public/html/include/navi.html";
+		var file = "./public/html/thtml/navi.thtml";
+		var file1 = "./public/html/include/navi.html";
 
 		var b0 = global.REQUIRES.fs.readFileSync( file, 'utf8' );
 		var b1 = b0.replace("<!=data=!>", r)
 		global.REQUIRES.fs.writeFileSync( file1, b1 ,{ flag : "w" } );
 
 	}
-	var path = "D:/sukjune_js_util/httpServer_csj/js/router/web/";
+	var path = "./js/router/web/";
 	var a0 = global.REQUIRES.fs.readdirSync( path );
 
 	var i = 0,iLen = a0.length;

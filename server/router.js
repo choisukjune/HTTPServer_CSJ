@@ -23,15 +23,15 @@ global.ROUTER.INFO = {};
 
 global.ROUTER.Initialize_router	= function(	param ){
 
-	var	path = global.ROOTPath + global.ROUTER.CONST.CONFIG[ param ];
+	var path = global.ROOTPath + global.ROUTER.CONST.CONFIG[ param ];
 	var path___define_web = global.ROOTPath + "/js/router/web/__define/"
 	var path___define_api = global.ROOTPath + "/js/router/api/__define/"
 
-	var	a0 = global.api.File.readdirSync__except_underscore_dir( path );
+	var a0 = global.api.File.readdirSync__except_underscore_dir( path );
 	var a2 = global.REQUIRES.fs.readdirSync( path___define_web );
 	var a3 = global.REQUIRES.fs.readdirSync( path___define_api );
 
-	console.log( a0 )
+	//console.log( a0 )
 
 	var t,s;
 	var	e =	function( name ){ return eval( name	) }
