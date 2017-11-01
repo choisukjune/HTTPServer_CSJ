@@ -13,7 +13,7 @@ global.ROUTER.api.File.file_upload__single_textAsdataURL = function( req, res, d
 	var q = global.REQUIRES.querystring.parse( _q );
 
 	var _storage_key = q._storage_key;
-	var uploadPath =  global.ROOTPath + "\\upload\\"
+	var uploadPath =  global.ROOTPath + "/upload/"
 
 	var data = "";
 	req.on('data', function( chunk ){
