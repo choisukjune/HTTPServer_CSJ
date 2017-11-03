@@ -15,6 +15,7 @@ global.REQUIRES.querystring = require('querystring')
 global.REQUIRES.iconv = require('iconv-lite')
 global.REQUIRES.child_process = require('child_process');
 global.REQUIRES.uglify = require("uglify-js");
+global.REQUIRES.redis = require("redis");
 
 //------------------------------;
 
