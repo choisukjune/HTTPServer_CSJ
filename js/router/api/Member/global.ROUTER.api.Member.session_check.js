@@ -9,9 +9,10 @@ global.ROUTER.api.Member.session_check = function( req, res ){
 	//*/
 	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
 		r.auth( global.REDIS.CONFIG.pass );
+		global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get(_p.sid, function(err, data){
-			global.CSJLog.timeStamp( "Session - ", _p.sid);
-			global.CSJLog.timeStamp( "Session__data - ", data);
+
+			global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
 			global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
 		});
 
