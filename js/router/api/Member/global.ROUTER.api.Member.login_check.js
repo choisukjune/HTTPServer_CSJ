@@ -28,8 +28,7 @@ global.ROUTER.api.Member.login_check = function( req, res ){
 // global.REDIS.CONFIG.port = 6379;
 // global.REDIS.CONFIG.pass = 'tjrwns12';
 
-	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
-		r.auth( global.REDIS.CONFIG.pass );
+
 	global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 		global.CSJLog.log("Connected correctly to server");
 
@@ -46,7 +45,8 @@ global.ROUTER.api.Member.login_check = function( req, res ){
 
 				db0.collection("member_session").updateOne({ id :_p.id }, {$set:{ sid : _p.sid }});
 
-
+				var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+					r.auth( global.REDIS.CONFIG.pass );
 				// for(var i = 0;i < 100000; ++i)
 				// {
 				//   //r.set(i, "test" + i, 'EX', 10);
