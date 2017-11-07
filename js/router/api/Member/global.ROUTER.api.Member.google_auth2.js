@@ -55,6 +55,11 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 
 					db0.collection("member_session").insert( data_session );
 
+					var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+						redis.auth( global.REDIS.CONFIG.pass );
+						redis.set( _po.state, JSON.stringify( doc ), 'EX', 15*60)
+						redis.quit()
+						
 					r = 1
 					db.close();
 				global.api.Response.res_200_ok_String( req, res, JSON.stringify( _po ) );
