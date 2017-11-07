@@ -31,7 +31,7 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 
 				console.log('update 해야함.')
 				db0.collection("member_oauth_google").updateOne({ id :_p.id },{$set: doc});
-				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.session_state }});
+				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.state }});
 				global.api.Response.res_200_ok_String( req, res, JSON.stringify( _po ));
 			}
 			else
@@ -50,7 +50,7 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 					var data_session = {
 						_id : idx
 						, id : _po.userinfo.emails[0].value
-						, sid : _po.session_state
+						, sid : _po.state
 					}
 
 					db0.collection("member_session").insert( data_session );
