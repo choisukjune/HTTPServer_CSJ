@@ -1,5 +1,5 @@
 global.api.Session.session_check = function( req, res, sid, _cbFunction ){
-console.log( sid );
+
 	var r = 0;
 
 	//*/
