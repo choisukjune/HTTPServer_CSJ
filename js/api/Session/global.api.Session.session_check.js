@@ -2,6 +2,22 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 console.log( sid );
 	var r = 0;
 
+	//*/
+	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+		r.auth( global.REDIS.CONFIG.pass );
+		// global.CSJLog.timeStamp( "Session - ", _p.sid);
+		r.get( sid, function(err, data){
+			console.log( sid )
+			console.log( data )
+			//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
+			//global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
+			_cbFunction( JSON.stringify( data ) )
+		});
+
+	r.quit()
+
+	/*/
+
 	global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 		global.CSJLog.log("Connected correctly to server");
 
@@ -31,7 +47,7 @@ console.log( sid );
 
 	});
 
-
+//*/
 };
 
 
