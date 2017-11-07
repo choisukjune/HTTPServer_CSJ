@@ -37,7 +37,6 @@ global.ROUTER.api.Member.sign_up = function( req, res ){
 					}
 					db0.collection("member_basic").insert( data )
 
-
 					var data_session = {
 						_id : idx
 						, id : _q.email
