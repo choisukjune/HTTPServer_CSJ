@@ -6,6 +6,12 @@ global.DB.CONFIG.driver_connect_url = 'mongodb://' + global.DB.Info.ID + ':' + g
 global.DB.CONFIG.console_excute_command_js = [ global.DB.Info.mongoPath, global.DB.Info.MongoDBServerURL, '-u', global.DB.Info.ID, '-p', global.DB.Info.PASS, '<' ];
 global.DB.CONFIG.console_excute_command_eval = [ global.DB.Info.mongoPath, global.DB.Info.MongoDBServerURL, '-u', global.DB.Info.ID, '-p', global.DB.Info.PASS, '--eval' ];
 
+global.REDIS = {};
+global.REDIS.CONFIG = {};
+global.REDIS.CONFIG.connect_url = '127.0.0.1';
+global.REDIS.CONFIG.port = 6379;
+global.REDIS.CONFIG.pass = 'tjrwns12';
+
 global.ROOTPath = __dirname;
 
 require('./server/server');

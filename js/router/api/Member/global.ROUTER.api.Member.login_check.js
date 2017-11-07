@@ -24,6 +24,11 @@ global.ROUTER.api.Member.login_check = function( req, res ){
 //		return a[ 0 ];
 //
 //	}
+// global.REDIS.CONFIG.connect_url = '127.0.0.1';
+// global.REDIS.CONFIG.port = 6379;
+// global.REDIS.CONFIG.pass = 'tjrwns12';
+
+	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url).auth( global.REDIS.CONFIG.pass );
 
 	global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 		global.CSJLog.log("Connected correctly to server");
@@ -40,6 +45,30 @@ global.ROUTER.api.Member.login_check = function( req, res ){
 			}
 
 				db0.collection("member_session").updateOne({ id :_p.id }, {$set:{ sid : _p.sid }});
+
+
+				// for(var i = 0;i < 100000; ++i)
+				// {
+				//   //r.set(i, "test" + i, 'EX', 10);
+				//   r.set(i, "test" + i, 'EX', 60*60);
+				//   // var todayEnd = new Date().setHours(0, 0, 30, 999);
+				// }
+
+				r.set( _p.sid, _p.sid, 'EX', 15*60)
+				// r.keys('*', function(err, keys){
+				//   if(err) return console.log(err);
+				//   //for(var i = 0, len = keys.length; i < len; i++) {
+				//     console.log("MULTI got " + keys.length + " replies");
+				//            keys.forEach( function(reply, index ){
+				//                console.log("Reply " + index + ": " + reply.toString());
+				//                r.get(reply, function(err, data){
+				//                        console.log(data);
+				//                });
+				//            });
+				//   //}
+				// });
+
+				r.quit()
 
 
 			db.close();
