@@ -27,7 +27,7 @@ global.ROUTER.api.Member.session_check = function( req, res ){
 	//   // var todayEnd = new Date().setHours(0, 0, 30, 999);
 	// }
 
-	r.get(reply, function(err, data){
+	r.get(_p.sid, function(err, data){
 	                       console.log(data);
 						   global.api.Response.res_200_ok_String( req, res, data)
 	               });
