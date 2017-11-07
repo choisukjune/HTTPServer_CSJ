@@ -14,8 +14,10 @@ body > .grid {
 </style>
 
 <script>
-  var YOUR_CLIENT_ID = '708197277050-5f4v5h3tbj9s968i3d0sb3h2vag5p5i6.apps.googleusercontent.com';
-  var YOUR_REDIRECT_URI = 'http://localhost:8888/auth2callback';
+//569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com
+//24YPRuDtSWf2oo29PzRu7-8q
+  var YOUR_CLIENT_ID = '569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com';
+  var YOUR_REDIRECT_URI = 'http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/auth2callback';
   var queryString = location.hash.substring(1);
 
   // Parse query string to see if page request is coming from OAuth 2.0 server.
@@ -112,12 +114,13 @@ body > .grid {
 
 
 function oauth_google_get_token(){
-
-var clientID ="708197277050-5f4v5h3tbj9s968i3d0sb3h2vag5p5i6.apps.googleusercontent.com";
+	//569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com
+	//24YPRuDtSWf2oo29PzRu7-8q
+var clientID ="569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com";
 
 var authorizationUrlBase="https://accounts.google.com/o/oauth2/auth";
 
-var redirectUri='http://localhost:8888/auth2callback';
+var redirectUri='http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/auth2callback';
 
 var scope1='https://www.googleapis.com/auth/calendar ';     //캘린더 접근 및 수정 권한 요청
 var scope2='https://www.googleapis.com/auth/userinfo.profile ';     //유저 데이터 열람 요청
@@ -211,5 +214,3 @@ var check_login = function(){
 
 document.getElementById("login_btn").addEventListener('click', function(){ check_login() })
 </script>
-
-
