@@ -54,7 +54,7 @@ global.ROUTER.api.Member.login_check = function( req, res ){
 				//   // var todayEnd = new Date().setHours(0, 0, 30, 999);
 				// }
 
-				r.set( _p.sid, doc, 'EX', 15*60)
+				r.set( _p.sid, JSON.stringify( doc ), 'EX', 15*60)
 				// r.keys('*', function(err, keys){
 				//   if(err) return console.log(err);
 				//   //for(var i = 0, len = keys.length; i < len; i++) {
