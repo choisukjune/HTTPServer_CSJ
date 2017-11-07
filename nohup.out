@@ -1,0 +1,188 @@
+-[S]- Initialize_commonJS -- ./public/js/_define/000_window.service.js
+-[E]- Initialize_commonJS -- ./public/js/_define/000_window.service.js
+-[S]- Initialize_commonJS -- ./public/js/_define/001_window.service.Request.js
+-[E]- Initialize_commonJS -- ./public/js/_define/001_window.service.Request.js
+-[S]- Initialize_commonJS -- ./public/js/_define/001_window.service.cookie.js
+-[E]- Initialize_commonJS -- ./public/js/_define/001_window.service.cookie.js
+-[S]- Initialize_commonJS -- ./public/js/_define/001_window.service.event.js
+-[E]- Initialize_commonJS -- ./public/js/_define/001_window.service.event.js
+-[S]- Initialize_commonJS -- ./public/js/_define/001_window.service.file_upload.js
+-[E]- Initialize_commonJS -- ./public/js/_define/001_window.service.file_upload.js
+-[S]- Initialize_commonJS -- ./public/js/_define/001_window.service.message.js
+-[E]- Initialize_commonJS -- ./public/js/_define/001_window.service.message.js
+-[S]- Initialize_commonJS -- ./public/js/_define/001_window.service.session.js
+-[E]- Initialize_commonJS -- ./public/js/_define/001_window.service.session.js
+-[S]- Initialize_commonJS -- ./public/js/_define/001_window.service.util.js
+-[E]- Initialize_commonJS -- ./public/js/_define/001_window.service.util.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/000_global.api.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/000_global.api.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.DB_console.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.DB_console.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.DB_driver.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.DB_driver.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Date.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Date.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.File.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.File.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.HTML.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.HTML.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Log.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Log.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.REQUIRES.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.REQUIRES.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Request.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Request.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Response.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Response.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Session.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.Session.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.String.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/__define/001_global.api.String.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/DB_console/global.api.DB.console_excute_command_eval.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/DB_console/global.api.DB.console_excute_command_eval.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/DB_console/global.api.DB.console_excute_command_js.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/DB_console/global.api.DB.console_excute_command_js.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/DB_driver/global.api.DB.console_excute_command_eval.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/DB_driver/global.api.DB.console_excute_command_eval.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Date/global.api.Date.now.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Date/global.api.Date.now.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/File/global.api.File.readdirSync__except_underscore_dir.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/File/global.api.File.readdirSync__except_underscore_dir.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.include__html.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.include__html.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.include__html__repalce_data.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.include__html__repalce_data.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.render_all_data.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.render_all_data.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.render_html.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.render_html.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.replace_keyword.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/HTML/global.api.HTML.replace_keyword.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Request/global.api.Request.req_GET.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Request/global.api.Request.req_GET.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Request/global.api.Request.req_POST.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Request/global.api.Request.req_POST.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Response/global.api.Response.res_200_ok_String.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Response/global.api.Response.res_200_ok_String.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Session/global.api.Session.session.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Session/global.api.Session.session.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Session/global.api.Session.session_check.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/Session/global.api.Session.session_check.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/String/global.api.String.convert_encoding__KR.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/String/global.api.String.convert_encoding__KR.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/String/global.api.String.escapeHTML.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/String/global.api.String.escapeHTML.js
+-[S]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/String/global.api.String.pad.js
+-[E]- Initialize_api -- /home/ubuntu/github/httpServer_csj/js/api/String/global.api.String.pad.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/000_global.ROUTER.web.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/000_global.ROUTER.web.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Common.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Common.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.DB.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.DB.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.File.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.File.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Member.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Member.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Request.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Request.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/000_global.ROUTER.api.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/000_global.ROUTER.api.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Common.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Common.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.DB.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.DB.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.File.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.File.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Member.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Member.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Request.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Request.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Common/global.ROUTER.web.Common.index.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Common/global.ROUTER.web.Common.index.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//DB/global.ROUTER.DB.MongoDB_query_tester.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//DB/global.ROUTER.DB.MongoDB_query_tester.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//File/global.ROUTER.web.File.file_upload__single_form_readAsArrayBuffer.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//File/global.ROUTER.web.File.file_upload__single_form_readAsArrayBuffer.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//File/global.ROUTER.web.File.file_upload__single_form_textAsdataURL.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//File/global.ROUTER.web.File.file_upload__single_form_textAsdataURL.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Member/global.ROUTER.web.Member.auth2callback.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Member/global.ROUTER.web.Member.auth2callback.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Member/global.ROUTER.web.Member.login.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Member/global.ROUTER.web.Member.login.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Member/global.ROUTER.web.Member.sign_up.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Member/global.ROUTER.web.Member.sign_up.js
+-[S]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Request/global.ROUTER.web.Request.request_form.js
+-[E]- Initialize_router_web-- /home/ubuntu/github/httpServer_csj/js/router/web//Request/global.ROUTER.web.Request.request_form.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/000_global.ROUTER.web.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/000_global.ROUTER.web.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Common.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Common.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.DB.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.DB.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.File.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.File.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Member.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Member.js
+-[S]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Request.js
+-[E]- Initialize_router_web__define -- /home/ubuntu/github/httpServer_csj/js/router/web/__define/001_global.ROUTER.web.Request.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/000_global.ROUTER.api.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/000_global.ROUTER.api.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Common.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Common.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.DB.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.DB.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.File.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.File.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Member.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Member.js
+-[S]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Request.js
+-[E]- Initialize_api__define -- /home/ubuntu/github/httpServer_csj/js/router/api/__define/001_global.ROUTER.api.Request.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Common/global.ROUTER.api.Common.indexget_list.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Common/global.ROUTER.api.Common.indexget_list.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//DB/global.ROUTER.api.Common.get_list.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//DB/global.ROUTER.api.Common.get_list.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//DB/global.ROUTER.api.DB.MongoDB_query_excute.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//DB/global.ROUTER.api.DB.MongoDB_query_excute.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//File/global.ROUTER.api.File.file_upload__single_readAsArrayBuffer.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//File/global.ROUTER.api.File.file_upload__single_readAsArrayBuffer.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//File/global.ROUTER.api.File.file_upload__single_textAsdataURL.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//File/global.ROUTER.api.File.file_upload__single_textAsdataURL.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//File/global.ROUTER.api.File.readdir.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//File/global.ROUTER.api.File.readdir.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.google_auth2.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.google_auth2.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.google_oauth_session_check.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.google_oauth_session_check.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.login_check.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.login_check.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.session_check.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.session_check.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.sign_up.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Member/global.ROUTER.api.Member.sign_up.js
+-[S]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Request/global.ROUTER.api.request.js
+-[E]- Initialize_router_api-- /home/ubuntu/github/httpServer_csj/js/router/api//Request/global.ROUTER.api.request.js
+[ 'global.ROUTER.web.Common.index.js' ]
+[ 'global.ROUTER.DB.MongoDB_query_tester.js' ]
+[ 'global.ROUTER.web.File.file_upload__single_form_readAsArrayBuffer.js',
+  'global.ROUTER.web.File.file_upload__single_form_textAsdataURL.js' ]
+[ 'global.ROUTER.web.Member.auth2callback.js',
+  'global.ROUTER.web.Member.login.js',
+  'global.ROUTER.web.Member.sign_up.js' ]
+[ 'global.ROUTER.web.Request.request_form.js' ]
+[Sukjune:D][07/11/2017 02:43:36 AM] -- server has started.
+events.js:193
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8888
+    at Object._errnoException (util.js:1031:13)
+    at _exceptionWithHostPort (util.js:1052:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Object.global.SERVER.serverStart (/home/ubuntu/github/httpServer_csj/server/server.js:167:49)
+    at Object.<anonymous> (/home/ubuntu/github/httpServer_csj/index.js:15:15)
+    at Module._compile (module.js:641:30)
+    at Object.Module._extensions..js (module.js:652:10)
+    at Module.load (module.js:560:32)
