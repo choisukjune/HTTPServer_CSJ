@@ -32,6 +32,11 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 				console.log('update 해야함.')
 				db0.collection("member_oauth_google").updateOne({ id :_p.id },{$set: doc});
 				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.state }});
+				var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+					redis.auth( global.REDIS.CONFIG.pass );
+					redis.set( _po.state, JSON.stringify( doc ), 'EX', 15*60)
+					redis.quit()
+					
 				global.api.Response.res_200_ok_String( req, res, JSON.stringify( _po ));
 			}
 			else
@@ -59,7 +64,7 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 						redis.auth( global.REDIS.CONFIG.pass );
 						redis.set( _po.state, JSON.stringify( doc ), 'EX', 15*60)
 						redis.quit()
-						
+
 					r = 1
 					db.close();
 				global.api.Response.res_200_ok_String( req, res, JSON.stringify( _po ) );
