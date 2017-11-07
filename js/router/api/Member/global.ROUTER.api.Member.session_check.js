@@ -3,9 +3,9 @@ global.ROUTER.api.Member.session_check = function( req, res ){
 	var	_d = decodeURIComponent( req.url );
 	var	_q = _d.split("?")
 		_q.shift();
-
+console.log( _q )
 	var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
-
+	console.log( _p );
 		_p.sid = global.api.Session.session( _q.id );
 
 	//	global.api.DB.query_excute( _q, 'D:/global.ROUTER.api.Member.login.dbjs',function(r){
