@@ -23,13 +23,13 @@ var queryString = location.hash.substring(1);
 		var url = "/api/google_auth2?data=" + encodeURIComponent( JSON.stringify( params ) );
 
 		console.log( url )
-
+debugger;
 		window.service.Request.req_GET_data__Callback( url, function( r ){
 			console.log( r )
 			var _res_Object = JSON.parse( r )
 			console.log( _res_Object )
 			if( r != 0 ){
-				window.service.session.setSession( _res_Object.session_state )
+				window.service.session.setSession( _res_Object.state )
 				window.service.cookie.setCookie( "mid", _res_Object.userinfo.emails[0].value, 1000*60*15 )
 				window.service.cookie.setCookie( "sid_type", "google_oauth", 1000*60*15 )
 				location.href = "./"
