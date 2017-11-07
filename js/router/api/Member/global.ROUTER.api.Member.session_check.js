@@ -18,26 +18,56 @@ global.ROUTER.api.Member.session_check = function( req, res ){
 	//
 	//	})
 
-	global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
-		global.CSJLog.log("Connected correctly to server");
+	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+		r.auth( global.REDIS.CONFIG.pass );
+	// for(var i = 0;i < 100000; ++i)
+	// {
+	//   //r.set(i, "test" + i, 'EX', 10);
+	//   r.set(i, "test" + i, 'EX', 60*60);
+	//   // var todayEnd = new Date().setHours(0, 0, 30, 999);
+	// }
 
-		//------------------------------;
-		var db0 = db.db('member')
+	r.get(reply, function(err, data){
+	                       console.log(data);
+						   global.api.Response.res_200_ok_String( req, res, data)
+	               });
 
-		db0.collection("member_basic").find({ id : _p.id,pwd : _p.pwd}).limit(1).next(function(err, doc){
+	//r.set( _p.sid, JSON.stringify( doc ), 'EX', 15*60)
+	// r.keys('*', function(err, keys){
+	//   if(err) return console.log(err);
+	//   //for(var i = 0, len = keys.length; i < len; i++) {
+	//     console.log("MULTI got " + keys.length + " replies");
+	//            keys.forEach( function(reply, index ){
+	//                console.log("Reply " + index + ": " + reply.toString());
+	//                r.get(reply, function(err, data){
+	//                        console.log(data);
+	//                });
+	//            });
+	//   //}
+	// });
 
-			if( doc )
-			{
-				db0.collection("member_basic").updateOne({ id :_p.id }, {$set:{ sid : _p.sid }});
-				doc.sid = _p.sid
-			}
+	r.quit()
 
-			db.close();
-
-			global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
-
-		//------------------------------;
-
-		});
-	});
+	// global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
+	// 	global.CSJLog.log("Connected correctly to server");
+	//
+	// 	//------------------------------;
+	// 	var db0 = db.db('member')
+	//
+	// 	db0.collection("member_basic").find({ id : _p.id,pwd : _p.pwd}).limit(1).next(function(err, doc){
+	//
+	// 		if( doc )
+	// 		{
+	// 			db0.collection("member_basic").updateOne({ id :_p.id }, {$set:{ sid : _p.sid }});
+	// 			doc.sid = _p.sid
+	// 		}
+	//
+	// 		db.close();
+	//
+	// 		global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
+	//
+	// 	//------------------------------;
+	//
+	// 	});
+	// });
 };
