@@ -26,10 +26,10 @@ global.ROUTER.api.Member.session_check = function( req, res ){
 	//   r.set(i, "test" + i, 'EX', 60*60);
 	//   // var todayEnd = new Date().setHours(0, 0, 30, 999);
 	// }
-
+	console.log( _p.sid )
 	r.get(_p.sid, function(err, data){
 	                       console.log(data);
-						   global.api.Response.res_200_ok_String( req, res, data)
+						   global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
 	               });
 
 	//r.set( _p.sid, JSON.stringify( doc ), 'EX', 15*60)
