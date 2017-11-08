@@ -2154,3 +2154,35 @@
 2017-11-08T03:27:37.179+0000 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
 2017-11-08T03:27:37.179+0000 I CONTROL  [signalProcessingThread] now exiting
 2017-11-08T03:27:37.179+0000 I CONTROL  [signalProcessingThread] shutting down with code:0
+2017-11-08T03:28:44.337+0000 I CONTROL  [main] ***** SERVER RESTARTED *****
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] MongoDB starting : pid=5310 port=55555 dbpath=/home/ubuntu/github/httpServer_csj/./DataBase/0 64-bit host=ip-172-31-11-106
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] db version v3.6.0-rc2
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] git version: ced3d3341a2aac6a11297f7dcc2c3c6d2c0e3bec
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] modules: none
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] build environment:
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten]     distarch: x86_64
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-11-08T03:28:44.343+0000 I CONTROL  [initandlisten] options: { config: "./MongoDB/Config/0.conf", net: { bindIp: "0.0.0.0", port: 55555, wireObjectCheck: false }, processManagement: { fork: true }, security: { authorization: "enabled", javascriptEnabled: true }, storage: { dbPath: "./DataBase/0", engine: "wiredTiger", journal: { enabled: false }, wiredTiger: { collectionConfig: { blockCompressor: "zlib" }, engineConfig: { cacheSizeGB: 8.0, directoryForIndexes: false, statisticsLogDelaySecs: 0 }, indexConfig: { prefixCompression: true } } }, systemLog: { destination: "file", logAppend: true, path: "./MongoDB/Log/0/0.log", quiet: true, verbosity: 0 } }
+2017-11-08T03:28:44.343+0000 I STORAGE  [initandlisten] 
+2017-11-08T03:28:44.343+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2017-11-08T03:28:44.343+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2017-11-08T03:28:44.343+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=8192M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2017-11-08T03:28:44.370+0000 I CONTROL  [initandlisten] 
+2017-11-08T03:28:44.370+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2017-11-08T03:28:44.370+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2017-11-08T03:28:44.370+0000 I CONTROL  [initandlisten] 
+2017-11-08T03:28:44.370+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2017-11-08T03:28:44.370+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2017-11-08T03:28:44.370+0000 I CONTROL  [initandlisten] 
+2017-11-08T03:28:44.384+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/home/ubuntu/github/httpServer_csj/./DataBase/0/diagnostic.data'
+2017-11-08T03:28:44.385+0000 I NETWORK  [initandlisten] waiting for connections on port 55555
+2017-11-08T03:29:14.081+0000 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2017-11-08T03:29:14.081+0000 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2017-11-08T03:29:14.082+0000 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2017-11-08T03:29:14.083+0000 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2017-11-08T03:29:14.111+0000 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2017-11-08T03:29:14.112+0000 I CONTROL  [signalProcessingThread] now exiting
+2017-11-08T03:29:14.112+0000 I CONTROL  [signalProcessingThread] shutting down with code:0
