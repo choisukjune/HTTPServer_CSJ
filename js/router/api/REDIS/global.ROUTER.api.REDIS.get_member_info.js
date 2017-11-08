@@ -14,7 +14,7 @@ global.ROUTER.api.REDIS.get_member_info = function( req, res ){
 			console.log( _p.sid )
 			console.log( data )
 			//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
-			global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
+			global.api.Response.res_200_ok_String( req, res, data )
 		});
 
 	r.quit()

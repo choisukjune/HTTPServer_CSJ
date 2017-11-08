@@ -155,17 +155,35 @@
 					<div class="menu">
 						<div class="scrolling menu">
 							<div class="header">
-							<i class="User Circle icon"></i>
-							<span id="txt_sid" style="word-break: break-all !important;">---</span>
+								<i class="User Circle icon"></i>
+								<span id="txt_sid" style="word-break: break-all !important;">---</span>
 							</div>
 							<div class="item">
-								<div class="ui red empty circular label" id="member_info"></div>Important
-							</div>
-							<div class="item">
-								<div class="ui blue empty circular label"></div>Announcement
-							</div>
-							<div class="item">
-								<div class="ui black empty circular label"></div>Cannot Fix
+										<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<tbody id="data"></tbody>
+
+		</table>
 							</div>
 						</div>
 					</div>
@@ -206,9 +224,21 @@ document.getElementById('txt_sid').innerHTML = a1;
 
 var url = "/api/get_member_info?sid=" + a1
 window.service.Request.req_GET_data__Callback( url, function( r ){
-//debugger;
+debugger;
 console.log( r )
-document.getElementById('member_info').innerHTML = r;
+var ro = JSON.parse(r);
+var target_dom = document.getElementById('member_info')
+for(var s in ro){
+//	var div = document.createElement("div")
+//	div.setAttribute("class","item")
+//	var div0 = document.createElement("div")
+//	div0.setAttribute("class","ui red empty circular label")
+//	var txt = document.createTextNode( s + " : " + ro[s] );
+//	div.appendChild( div0 )
+//	div.appendChild(txt)
+//	target_dom.appendChild( div );
+	target_dom.insertAdjacentHTML( 'beforeend',s + " : " + ro[ s ] + "<br>" );
+}
 
 })
 
