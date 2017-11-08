@@ -159,7 +159,7 @@
 							<span id="txt_sid" style="word-break: break-all !important;">---</span>
 							</div>
 							<div class="item">
-								<div class="ui red empty circular label"></div>Important
+								<div class="ui red empty circular label" id="member_info"></div>Important
 							</div>
 							<div class="item">
 								<div class="ui blue empty circular label"></div>Announcement
@@ -203,4 +203,13 @@ var a1 = window.service.cookie.getCookie('session');
 
 document.getElementById('txt_email').innerHTML = a0;
 document.getElementById('txt_sid').innerHTML = a1;
+
+var url = "/api/get_member_info?sid=" + a1
+window.service.Request.req_GET_data__Callback( url, function( r ){
+//debugger;
+console.log( r )
+document.getElementById('member_info').innerHTML = r;
+
+})
+
 </script>
