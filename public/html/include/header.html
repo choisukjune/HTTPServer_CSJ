@@ -199,7 +199,7 @@ var a1 = window.service.cookie.getCookie('session');
 
 document.getElementById('txt_email').innerHTML = a0;
 document.getElementById('txt_sid').innerHTML = a1;
-
+//레디스에서 회원정보를 받아온다.;
 var url = "/api/get_member_info?sid=" + a1
 window.service.Request.req_GET_data__Callback( url, function( r ){
 
