@@ -159,31 +159,9 @@
 								<span id="txt_sid" style="word-break: break-all !important;">---</span>
 							</div>
 							<div class="item">
-										<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<tbody id="data"></tbody>
-
-		</table>
+								<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
+									<tbody id="member_info"></tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -227,19 +205,25 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 debugger;
 console.log( r )
 var ro = JSON.parse(r);
-var target_dom = document.getElementById('member_info')
-for(var s in ro){
-//	var div = document.createElement("div")
-//	div.setAttribute("class","item")
-//	var div0 = document.createElement("div")
-//	div0.setAttribute("class","ui red empty circular label")
-//	var txt = document.createTextNode( s + " : " + ro[s] );
-//	div.appendChild( div0 )
-//	div.appendChild(txt)
-//	target_dom.appendChild( div );
-	target_dom.insertAdjacentHTML( 'beforeend',s + " : " + ro[ s ] + "<br>" );
-}
+	var _t0 = document.getElementById('member_info')
+	var tr = document.createElement("tr");
 
+	for(var s in ro ){
+
+		var td0 = document.createElement("td")
+		var td1 = document.createElement("td")
+
+		var text0 = document.createTextNode( s );
+		var text1 = document.createTextNode( ro[ s ] );
+
+		//console.log( text )
+		td0.appendChild( text0 );
+		td1.appendChild( text1 );
+
+		tr.appendChild( td0 )
+		tr.appendChild( td1 )
+	}
+	_t0.append(tr)
 })
 
 </script>
