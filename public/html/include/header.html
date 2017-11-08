@@ -202,14 +202,12 @@ document.getElementById('txt_sid').innerHTML = a1;
 
 var url = "/api/get_member_info?sid=" + a1
 window.service.Request.req_GET_data__Callback( url, function( r ){
-debugger;
-console.log( r )
-var ro = JSON.parse(r);
-	var _t0 = document.getElementById('member_info')
-	var tr = document.createElement("tr");
-
+	debugger;
+	console.log( r )
+	var ro = JSON.parse(r);
+	var _t0 = document.getElementById('member_info');
 	for(var s in ro ){
-
+		var tr = document.createElement("tr");
 		var td0 = document.createElement("td")
 		var td1 = document.createElement("td")
 
@@ -222,8 +220,10 @@ var ro = JSON.parse(r);
 
 		tr.appendChild( td0 )
 		tr.appendChild( td1 )
+
+		_t0.append(tr)
 	}
-	_t0.append(tr)
+
 })
 
 </script>
