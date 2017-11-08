@@ -213,15 +213,26 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 
 		var text0 = document.createTextNode( s );
 		var data = ro[ s ];
-		if( typeof( ro[ s ] ) == "object" ){
+		if( typeof( ro[ s ] ) == "object" )
+		{
 			data = JSON.stringify( ro[ s ], null, 4 );
+			var pre =  document.createElement("pre")
+			var text1 = document.createTextNode( data );
+			//console.log( text )
+			pre.appendChild( text1 );
+
+			td0.appendChild( text0 );
+			td1.appendChild( pre );
 		}
-		var text1 = document.createTextNode( data );
+		else
+		{
+			var text1 = document.createTextNode( data );
+			//console.log( text )
+			td0.appendChild( text0 );
+			td1.appendChild( text1 );
 
-		//console.log( text )
-		td0.appendChild( text0 );
-		td1.appendChild( text1 );
-
+		}
+		
 		tr.appendChild( td0 )
 		tr.appendChild( td1 )
 
