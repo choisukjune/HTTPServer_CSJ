@@ -212,7 +212,11 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 		var td1 = document.createElement("td")
 
 		var text0 = document.createTextNode( s );
-		var text1 = document.createTextNode( ro[ s ] );
+		var data = ro[ s ];
+		if( typeof( ro[ s ] ) == "object" ){
+			data = JSON.stringify( ro[ s ], null, 4 );
+		}
+		var text1 = document.createTextNode( data );
 
 		//console.log( text )
 		td0.appendChild( text0 );
