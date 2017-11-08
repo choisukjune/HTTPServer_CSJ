@@ -202,8 +202,7 @@ document.getElementById('txt_sid').innerHTML = a1;
 
 var url = "/api/get_member_info?sid=" + a1
 window.service.Request.req_GET_data__Callback( url, function( r ){
-	debugger;
-	console.log( r )
+
 	var ro = JSON.parse(r);
 	var _t0 = document.getElementById('member_info');
 	for(var s in ro ){
@@ -232,7 +231,7 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			td1.appendChild( text1 );
 
 		}
-		
+
 		tr.appendChild( td0 )
 		tr.appendChild( td1 )
 

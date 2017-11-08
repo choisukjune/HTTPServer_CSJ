@@ -14,8 +14,7 @@ window.service.EVENT = {};
 //-------------------------;
 
 window.service.EVENT.byID = function( id, event, _cbFunc ) {
-debugger;
     var _el = document.getElementById( id );
-    _el.addEventListener( event, function(){ _cbFunc }) 
+    _el.addEventListener( event, function(){ _cbFunc })
 
 };
