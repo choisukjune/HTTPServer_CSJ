@@ -36,28 +36,33 @@ global.ROUTER.api.Member.sign_up = function( req, res ){
 						, sid : ""
 					}
 					db0.collection("member_basic").insert( data )
+					db0.collection("member_session").find({}).sort({ "_id" : -1}).toArray(function(err, doc ){
 
-					var data_session = {
-						_id : idx
-						, id : _q.email
-						, sid : ""
-					}
+						if( doc.length == 0 )
+						{
+							var idx = 0
+						}
+						else
+						{
+							var idx = doc[ 0 ]._id + 1
+						}
 
-					db0.collection("member_session").insert( data_session )
-					r = 1
+						var data_session = {
+							_id : idx
+							, id : _q.email
+							, sid : ""
+						}
+
+						db0.collection("member_session").insert( data_session );
+						r = 1
 
 						db.close();
-
-				global.api.Response.res_200_ok_String( req, res, r.toString() );
-
-
+						global.api.Response.res_200_ok_String( req, res, r.toString() );
+						
+					})
 				})
-
 			}
-
-
 		//------------------------------;
-
 		});
 	});
 };

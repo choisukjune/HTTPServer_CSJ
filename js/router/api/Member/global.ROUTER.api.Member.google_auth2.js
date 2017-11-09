@@ -36,33 +36,47 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 			}
 			else
 			{
-				db0.collection("member_oauth_google").find({}).sort({ "_id" : -1}).toArray(function(err, doc ){
-					console.log(doc)
-					if( doc.length == 0 ){
+				db0.collection("member_oauth_google").find({}).sort({ "_id" : -1}).toArray(function( err, doc ){
+					//console.log(doc)
+					if( doc.length == 0 )
+					{
 						var idx = 0
-					}else{
+					}
+					else
+					{
 						var idx = doc[ 0 ]._id + 1
 					}
 
 					_po._id = idx;
 					db0.collection("member_oauth_google").insert( _po )
+					db0.collection("member_session").find({}).sort({ "_id" : -1}).toArray(function(err, doc ){
 
-					var data_session = {
-						_id : idx
-						, id : _po.userinfo.emails[0].value
-						, sid : _po.state
-					}
+						if( doc.length == 0 )
+						{
+							var idx = 0
+						}
+						else
+						{
+							var idx = doc[ 0 ]._id + 1
+						}
 
-					db0.collection("member_session").insert( data_session );
+						var data_session = {
+							_id : idx
+							, id : _po.userinfo.emails[0].value
+							, sid : _po.sid
+						}
 
-					var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
-						redis.auth( global.REDIS.CONFIG.pass );
-						redis.set( _po.sid, JSON.stringify( _po ), 'EX', 15*60)
-						redis.quit()
+						db0.collection("member_session").insert( data_session );
 
-					r = 1
-					db.close();
-				global.api.Response.res_200_ok_String( req, res, JSON.stringify( _po ) );
+						var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+							redis.auth( global.REDIS.CONFIG.pass );
+							redis.set( _po.sid, JSON.stringify( _po ), 'EX', 15*60)
+							redis.quit()
+
+						r = 1
+						db.close();
+						global.api.Response.res_200_ok_String( req, res, JSON.stringify( _po ) );
+					})
 				})
 			}
 		//------------------------------;
