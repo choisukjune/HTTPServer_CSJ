@@ -7,34 +7,29 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 
 	var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
 	var _po = JSON.parse( _p.data );
+		_po.sid = global.api.Session.session( _po.userinfo.id );
 
-	//	global.api.DB.query_excute( _q, 'D:/global.ROUTER.api.Member.login.dbjs',function(r){
-	//		//console.log( r )
-	//
-	//		if( r != 0 )
-	//		{
-	//			global.api.Response.res_200_ok_String( req, res, global.api.Session.session( r ) )
-	//		}
-	//
-	//	})
-	//global.api.Response.res_200_ok_String( req, res, JSON.stringify( _q ) );
 	global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 		global.CSJLog.log("Connected correctly to server");
 
 		//------------------------------;
 		var db0 = db.db('member')
 		var r = 0
+
+
+
 		db0.collection("member_oauth_google").find({ "userinfo.emails" : { $elemMatch : { value : _po.userinfo.emails[0].value }}}).limit(1).next(function(err, doc){
+
 			if( doc )
 			{
 				console.log("데이터가 존재함")
 
 				console.log('update 해야함.')
 				db0.collection("member_oauth_google").updateOne({ id :_p.id },{$set: doc});
-				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.state }});
+				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.sid }});
 				var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
 					redis.auth( global.REDIS.CONFIG.pass );
-					redis.set( _po.state, JSON.stringify( doc[ 0 ] ), 'EX', 15*60)
+					redis.set( _po.sid, JSON.stringify( doc[ 0 ] ), 'EX', 15*60)
 					redis.quit()
 
 				global.api.Response.res_200_ok_String( req, res, JSON.stringify( _po ));
@@ -62,7 +57,7 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 
 					var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
 						redis.auth( global.REDIS.CONFIG.pass );
-						redis.set( _po.state, JSON.stringify( _po ), 'EX', 15*60)
+						redis.set( _po.sid, JSON.stringify( _po ), 'EX', 15*60)
 						redis.quit()
 
 					r = 1
