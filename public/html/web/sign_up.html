@@ -20,50 +20,46 @@ text-align : left;
 
 
 <div class="ui middle aligned center aligned grid">
-<div class="column">
-		<!----- contents ----->
+	<div class="twelve wide column pad_t_60 pad_b_60">
+	<!-- contents -->
 
-<div class="ui attached message">
-  <div class="header">
-    Welcome to our site!
-  </div>
-  <p>Fill out the form below to sign-up for a new account</p>
-</div>
-<form class="ui form attached fluid segment">
-  <div class="two fields">
-    <div class="field">
-      <label>First Name</label>
-      <input placeholder="First Name" type="text" id="first_Nm">
-    </div>
-    <div class="field">
-      <label>Last Name</label>
-      <input placeholder="Last Name" type="text" id="last_Nm">
-    </div>
-  </div>
-  <div class="field">
-    <label>Username</label>
-    <input placeholder="Username" type="text" id="email">
-  </div>
-  <div class="field">
-    <label>Password</label>
-    <input type="password" id="pwd">
-  </div>
-  <div class="inline field">
-    <div class="ui checkbox">
-      <input type="checkbox" id="terms">
-      <label for="terms">I agree to the terms and conditions</label>
-    </div>
-  </div>
-  <div class="ui blue submit button" id="login_btn">Submit</div>
-</form>
-<div class="ui bottom attached warning message">
-  <i class="icon help"></i>
-  Already signed up? <a href="./login">Login here</a> instead.
-</div>
-
-		<!----- contents ----->
-</div>
-
+	<div class="ui attached message">
+		<div class="header">Welcome to our site!</div>
+		<p>Fill out the form below to sign-up for a new account</p>
+	</div>
+	<form class="ui form attached fluid segment">
+		<div class="two fields">
+			<div class="field">
+				<label>First Name</label>
+				<input placeholder="First Name" type="text" id="first_Nm">
+			</div>
+			<div class="field">
+				<label>Last Name</label>
+				<input placeholder="Last Name" type="text" id="last_Nm">
+			</div>
+		</div>
+		<div class="field">
+			<label>Username</label>
+			<input placeholder="Username" type="text" id="email">
+		</div>
+		<div class="field">
+			<label>Password</label>
+			<input type="password" id="pwd">
+		</div>
+		<div class="inline field">
+			<div class="ui checkbox">
+				<input type="checkbox" id="terms">
+				<label for="terms">I agree to the terms and conditions</label>
+			</div>
+		</div>
+		<div class="ui blue submit button" id="login_btn">Submit</div>
+	</form>
+	<div class="ui bottom attached warning message">
+		<i class="icon help"></i>
+		Already signed up? <a href="./login">Login here</a> instead.
+		</div>
+	<!-- contents -->
+	</div>
 </div>
 
 <include>_footer_info.html</include>
@@ -100,4 +96,3 @@ console.log( url )
 
 document.getElementById("login_btn").addEventListener('click', function(){ check_login() })
 </script>
-
