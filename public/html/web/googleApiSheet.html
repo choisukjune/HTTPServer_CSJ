@@ -1,0 +1,67 @@
+
+<include>_header_info.html</include>
+<include>navi.html</include>
+<include>header.html</include>
+<div class="ui centered grid">
+	<div class="twelve wide column pad_t_60 pad_b_60">
+	<!----- contents ----->
+
+		<div class="ui positive message">
+		<div class="header">You are eligible for a reward</div>
+				<p>Go to your <b>special offers</b> page to see now.</p>
+		</div>
+
+		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
+			<thead>
+				<tr>
+					<th>no</th>
+					<th>email</th>
+					<th>password</th>
+					<th>first name</th>
+					<th>last name</th>
+					<th>session id</th>
+				</tr>
+			</thead>
+			<tbody id="data"></tbody>
+		</table>
+
+	<!----- contents ----->
+	</div>
+</div>
+
+
+<include>footer.html</include>
+<include>_footer_info.html</include>
+
+<script>
+
+var _t0 = document.getElementById('data')
+
+var url = "https://sheets.googleapis.com/v4/spreadsheets/1U6R08OhBEXFZHfiMNTOU4UQKLf4_sfq1ON9Rr4M_v74/values/" + "시트1?access_token=ya29.GlsFBRNe1X8XgfLe272R_M-cwe0O7e8x4L5p4oo8TMHv_t-loZ8bQlVexdIzKna5ZgpA-ti6HZYOrtCjqx3iQfsluO7DO0CJPjshfsaXDBx29qWk_l82vVpga-5T"
+
+window.service.Request.req_GET_data__Callback(url,function(result){
+
+	var data = JSON.parse( result )
+	console.log( data )
+	// for(var i = 0; i < data.length; ++i){
+	//
+	// 	var tr = document.createElement("tr");
+	//
+	// 	for(var s in data[ i ]){
+	//
+	// 		var td = document.createElement("td")
+	// 		var text = document.createTextNode( data[ i ][ s ] );
+	// 		//console.log( text )
+	// 		td.appendChild(text)
+	// 		tr.appendChild(td)
+	// 	}
+	//
+	// 	_t0.append(tr)
+	//
+	// }
+})
+
+
+
+
+</script>
