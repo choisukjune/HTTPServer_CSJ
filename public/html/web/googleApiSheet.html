@@ -68,10 +68,11 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 					{
 						var text = document.createTextNode( "" );
 					}
+					//console.log( text )
+					td.appendChild(text)
+					tr.appendChild(td)
 				}
-				//console.log( text )
-				td.appendChild(text)
-				tr.appendChild(td)
+
 			}
 
 			_t0.append(tr)
