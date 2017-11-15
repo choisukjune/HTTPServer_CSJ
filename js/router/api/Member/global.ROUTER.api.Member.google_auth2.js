@@ -23,7 +23,7 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 			if( doc )
 			{
 				console.log("데이터가 존재함")
-
+				console.log(doc)
 				console.log('update 해야함.')
 				db0.collection("member_oauth_google").updateOne({ id :_p.id },{$set: doc});
 				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.sid }});
