@@ -33,29 +33,41 @@
 
 var _t0 = document.getElementById('data')
 
-var url = "https://sheets.googleapis.com/v4/spreadsheets/1U6R08OhBEXFZHfiMNTOU4UQKLf4_sfq1ON9Rr4M_v74/values/" + "시트1?access_token=ya29.GlsFBRNe1X8XgfLe272R_M-cwe0O7e8x4L5p4oo8TMHv_t-loZ8bQlVexdIzKna5ZgpA-ti6HZYOrtCjqx3iQfsluO7DO0CJPjshfsaXDBx29qWk_l82vVpga-5T"
 
-window.service.Request.req_GET_data__Callback(url,function(result){
+var a1 = window.service.cookie.getCookie('session');
 
-	var data = JSON.parse( result )
-	console.log( data )
-	for(var i = 0; i < data.values.length; ++i){
+//레디스에서 회원정보를 받아온다.;
+var url = "/api/get_member_info?sid=" + a1
+window.service.Request.req_GET_data__Callback( url, function( r ){
 
-		var tr = document.createElement("tr");
+	var ro = JSON.parse(r);
+	var access_token = ro.access_token;
+	var sheet_name = "시트1";
+	var doc_id = "1U6R08OhBEXFZHfiMNTOU4UQKLf4_sfq1ON9Rr4M_v74"
+	var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
-		var j = 0,jLen = data.values[ i ].length;
-		for(; j < jLen; ++j){
+	window.service.Request.req_GET_data__Callback(url,function(result){
 
-			var td = document.createElement("td")
-			var text = document.createTextNode( data.values[ i ][ j ] );
-			//console.log( text )
-			td.appendChild(text)
-			tr.appendChild(td)
+		var data = JSON.parse( result )
+		console.log( data )
+		for(var i = 0; i < data.values.length; ++i){
+
+			var tr = document.createElement("tr");
+
+			var j = 0,jLen = data.values[ i ].length;
+			for(; j < jLen; ++j){
+
+				var td = document.createElement("td")
+				var text = document.createTextNode( data.values[ i ][ j ] );
+				//console.log( text )
+				td.appendChild(text)
+				tr.appendChild(td)
+			}
+
+			_t0.append(tr)
+
 		}
-
-		_t0.append(tr)
-
-	}
+	})
 })
 
 
