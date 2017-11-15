@@ -55,10 +55,17 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			var tr = document.createElement("tr");
 
 			var j = 0,jLen = data.values[ i ].length;
-			for(; j < jLen; ++j){
+			for(; j < 2; ++j){
 
 				var td = document.createElement("td")
-				var text = document.createTextNode( data.values[ i ][ j ] );
+				if( data.values[ i ][ j ] )
+				{
+					var text = document.createTextNode( data.values[ i ][ j ] );
+				}
+				else
+				{
+					var text = document.createTextNode( "" );	
+				}
 				//console.log( text )
 				td.appendChild(text)
 				tr.appendChild(td)
