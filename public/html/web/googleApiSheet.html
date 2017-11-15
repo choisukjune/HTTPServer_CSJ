@@ -43,22 +43,23 @@ window.service.Request.req_GET_data__Callback(url,function(result){
 
 	var data = JSON.parse( result )
 	console.log( data )
-	// for(var i = 0; i < data.length; ++i){
-	//
-	// 	var tr = document.createElement("tr");
-	//
-	// 	for(var s in data[ i ]){
-	//
-	// 		var td = document.createElement("td")
-	// 		var text = document.createTextNode( data[ i ][ s ] );
-	// 		//console.log( text )
-	// 		td.appendChild(text)
-	// 		tr.appendChild(td)
-	// 	}
-	//
-	// 	_t0.append(tr)
-	//
-	// }
+	for(var i = 0; i < data.values.length; ++i){
+
+		var tr = document.createElement("tr");
+
+		var j = 0,jLen = data.values[ i ].length;
+		for(; j < jLen; ++j){
+
+			var td = document.createElement("td")
+			var text = document.createTextNode( data[ i ][ j ] );
+			//console.log( text )
+			td.appendChild(text)
+			tr.appendChild(td)
+		}
+
+		_t0.append(tr)
+
+	}
 })
 
 
