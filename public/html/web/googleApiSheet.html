@@ -58,13 +58,15 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			for(; j < 2; ++j){
 
 				var td = document.createElement("td")
-				if( data.values[ i ][ j ] )
-				{
-					var text = document.createTextNode( data.values[ i ][ j ] );
-				}
-				else if( data.values[ i ][ 0 ] )
-				{
-					var text = document.createTextNode( "" );
+				if( data.values[ i ].length != 0 )
+					if( data.values[ i ][ j ] )
+					{
+						var text = document.createTextNode( data.values[ i ][ j ] );
+					}
+					else
+					{
+						var text = document.createTextNode( "" );
+					}
 				}
 				//console.log( text )
 				td.appendChild(text)
