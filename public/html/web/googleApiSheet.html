@@ -62,9 +62,9 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 				{
 					var text = document.createTextNode( data.values[ i ][ j ] );
 				}
-				else
+				else if( data.values[ i ][ 0 ] )
 				{
-					var text = document.createTextNode( "" );	
+					var text = document.createTextNode( "" );
 				}
 				//console.log( text )
 				td.appendChild(text)
