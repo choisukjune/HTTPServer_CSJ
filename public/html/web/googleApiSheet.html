@@ -40,69 +40,79 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 	var access_token = ro.access_token;
 	var sheet_name = "Product_master";
 	var doc_id = "1cyVoOmZRxpO5mabixL9z-gKqPwVn2aGsFmCo8S-qq5Y"
-	var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
+	var url = "https://sheets.googleapis.com/v4/spreadsheets/spreadsheetId?includeGridData=false" + "?access_token=" + access_token;
+	//https://sheets.googleapis.com/v4/spreadsheets/spreadsheetId?includeGridData=false
+	window.service.Request.req_GET_data__Callback(url,function(r){
 
-	window.service.Request.req_GET_data__Callback(url,function(result){
+		console.log( r )
+		var ro = JSON.parse(r);
+		var access_token = ro.access_token;
+		var sheet_name = "Product_master";
+		var doc_id = "1cyVoOmZRxpO5mabixL9z-gKqPwVn2aGsFmCo8S-qq5Y"
+		var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
-		var data = JSON.parse( result )
-		console.log( data )
-		for(var i = 0; i < data.values.length; ++i){
+		window.service.Request.req_GET_data__Callback(url,function(result){
 
-			var tr = document.createElement("tr");
+			var data = JSON.parse( result )
+			console.log( data )
+			for(var i = 0; i < data.values.length; ++i){
 
-			var j = 0,jLen = data.values[ 0 ].length;
+				var tr = document.createElement("tr");
 
-			for(; j < jLen; ++j){
-				if( i == 0 ){
-					var th = document.createElement("th")
+				var j = 0,jLen = data.values[ 0 ].length;
 
-					if( data.values[ i ][ j ] )
-					{
-						var text = document.createTextNode( data.values[ i ][ j ] );
-					}
-					else
-					{
-						var text = document.createTextNode( "" );
-					}
-					//console.log( text )
-					th.appendChild(text)
-					tr.appendChild(th)
-					_t1.append(tr)
-				}else{
+				for(; j < jLen; ++j){
+					if( i == 0 ){
+						var th = document.createElement("th")
 
-					var td = document.createElement("td")
-					if( data.values[ i ].length != 0 )
-					{
 						if( data.values[ i ][ j ] )
 						{
-							if( j == 2 )
-							{
-								var text = document.createElement("pre")
-								var example = document.createTextNode( data.values[ i ][ j ] );
-								text.appendChild(example)
-							}
-							else
-							{
-								var text = document.createTextNode( data.values[ i ][ j ] );
-							}
+							var text = document.createTextNode( data.values[ i ][ j ] );
 						}
 						else
 						{
 							var text = document.createTextNode( "" );
 						}
 						//console.log( text )
-						td.appendChild(text)
-						tr.appendChild(td)
+						th.appendChild(text)
+						tr.appendChild(th)
+						_t1.append(tr)
+					}else{
+
+						var td = document.createElement("td")
+						if( data.values[ i ].length != 0 )
+						{
+							if( data.values[ i ][ j ] )
+							{
+								if( j == 2 )
+								{
+									var text = document.createElement("pre")
+									var example = document.createTextNode( data.values[ i ][ j ] );
+									text.appendChild(example)
+								}
+								else
+								{
+									var text = document.createTextNode( data.values[ i ][ j ] );
+								}
+							}
+							else
+							{
+								var text = document.createTextNode( "" );
+							}
+							//console.log( text )
+							td.appendChild(text)
+							tr.appendChild(td)
+						}
+
+						_t0.append(tr)
 					}
 
-					_t0.append(tr)
 				}
 
+
+
 			}
-
-
-
-		}
+		})
 	})
 })
 
