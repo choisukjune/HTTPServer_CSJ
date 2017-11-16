@@ -47,96 +47,99 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 		for(;z<zLen;++z)
 		{
 			zo = ro.sheets[ z ];
-			var sheet_name = zo.properties.title//"Product_master";
+			var sheet_name = zo.properties.titlezo.properties.title//"Product_master";
 			var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
 			var div = document.createElement("div");
 			div.setAttribute("class", "twelve wide column pad_t_60 pad_b_60");
 			div.setAttribute("id", sheet_name)
 			//<div class="twelve wide column pad_t_60 pad_b_60" id="data">
-			var h3 = document.createElement("h3");
-			var title_table = document.createTextNode( sheet_name );
-			h3.append(title_table)
-			div.append(h3)
-			
-			window.service.Request.req_GET_data__Callback(url,function(result){
 
 
-
-
-				var table = document.createElement("table");
-				table.setAttribute("class", "ui compact celled small stackable table");
-				table.setAttribute("style", "border-radius : 0 !important;");
-				var thead = document.createElement("thead");
-				var tbody = document.createElement("tbody");
-
-				var data = JSON.parse( result )
-				console.log( data )
-				for(var i = 0; i < data.values.length; ++i){
-
-					var tr = document.createElement("tr");
-
-					var j = 0,jLen = data.values[ 0 ].length;
-
-					for(; j < jLen; ++j){
-						if( i == 0 ){
-							var th = document.createElement("th")
-
-							if( data.values[ i ][ j ] )
-							{
-								var text = document.createTextNode( data.values[ i ][ j ] );
-							}
-							else
-							{
-								var text = document.createTextNode( "" );
-							}
-							//console.log( text )
-							th.appendChild(text)
-							tr.appendChild(th)
-							thead.append(tr)
-							table.append(thead)
-						}else{
-
-							var td = document.createElement("td")
-							if( data.values[ i ].length != 0 )
-							{
-								if( data.values[ i ][ j ] )
-								{
-									if( j == 2 )
-									{
-										var text = document.createElement("pre")
-										var example = document.createTextNode( data.values[ i ][ j ] );
-										text.appendChild(example)
-									}
-									else
-									{
-										var text = document.createTextNode( data.values[ i ][ j ] );
-									}
-								}
-								else
-								{
-									var text = document.createTextNode( "" );
-								}
-								//console.log( text )
-								td.appendChild(text)
-								tr.appendChild(td)
-							}
-
-							tbody.append(tr)
-							table.append(tbody)
-						}
-
-					}
-					div.append(table)
-				}
-				_t0.append(div);
-
-			})
 		}
 	})
 })
 
+var aaa =function( id ){
 
+	var target_id = document.getElementById( id );
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		var h3 = document.createElement("h3");
+		var title_table = document.createTextNode( zo.properties.title );
+		h3.append(title_table)
+		div.append(h3)
+
+		var table = document.createElement("table");
+		table.setAttribute("class", "ui compact celled small stackable table");
+		table.setAttribute("style", "border-radius : 0 !important;");
+		var thead = document.createElement("thead");
+		var tbody = document.createElement("tbody");
+
+		var data = JSON.parse( result )
+		console.log( data )
+		for(var i = 0; i < data.values.length; ++i){
+
+			var tr = document.createElement("tr");
+
+			var j = 0,jLen = data.values[ 0 ].length;
+
+			for(; j < jLen; ++j){
+				if( i == 0 ){
+					var th = document.createElement("th")
+
+					if( data.values[ i ][ j ] )
+					{
+						var text = document.createTextNode( data.values[ i ][ j ] );
+					}
+					else
+					{
+						var text = document.createTextNode( "" );
+					}
+					//console.log( text )
+					th.appendChild(text)
+					tr.appendChild(th)
+					thead.append(tr)
+					table.append(thead)
+				}else{
+
+					var td = document.createElement("td")
+					if( data.values[ i ].length != 0 )
+					{
+						if( data.values[ i ][ j ] )
+						{
+							if( j == 2 )
+							{
+								var text = document.createElement("pre")
+								var example = document.createTextNode( data.values[ i ][ j ] );
+								text.appendChild(example)
+							}
+							else
+							{
+								var text = document.createTextNode( data.values[ i ][ j ] );
+							}
+						}
+						else
+						{
+							var text = document.createTextNode( "" );
+						}
+						//console.log( text )
+						td.appendChild(text)
+						tr.appendChild(td)
+					}
+
+					tbody.append(tr)
+					table.append(tbody)
+				}
+
+			}
+			div.append(table)
+		}
+		_t0.append(div);
+
+	})
+
+}
 
 
 </script>
