@@ -75,7 +75,16 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 					{
 						if( data.values[ i ][ j ] )
 						{
-							var text = document.createTextNode( data.values[ i ][ j ] );
+							if( j == 2 )
+							{
+								var text = document.createElement("pre")
+								var example = document.createTextNode( data.values[ i ][ j ] );
+								text.appendChild(example)
+							}
+							else
+							{
+								var text = document.createTextNode( data.values[ i ][ j ] );
+							}
 						}
 						else
 						{
