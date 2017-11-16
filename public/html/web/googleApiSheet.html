@@ -54,7 +54,7 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			var j = 0,jLen = data.values[ i ][ 0 ].length;
 
 			for(; j < jLen; ++j){
-				if( j == 0 ){
+				if( i == 0 ){
 					var th = document.createElement("th")
 
 						if( data.values[ i ][ j ] )
