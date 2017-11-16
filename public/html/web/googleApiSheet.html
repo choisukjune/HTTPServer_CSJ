@@ -50,10 +50,12 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			var sheet_name = zo.properties.title//"Product_master";
 			var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
+			var div = document.createElement("div");
+			div.setAttribute("class", "twelve wide column pad_t_60 pad_b_60");
+			div.setAttribute("id", sheet_name)
 			//<div class="twelve wide column pad_t_60 pad_b_60" id="data">
 			window.service.Request.req_GET_data__Callback(url,function(result){
-				var div = document.createElement("div");
-				table.setAttribute("class", "twelve wide column pad_t_60 pad_b_60");
+
 
 				var h3 = document.createElement("h3");
 				var title_table = document.createTextNode( sheet_name );
@@ -122,10 +124,10 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 						}
 
 					}
-					div.append(div)
+					div.append(table)
 				}
+				_t0.append(div);
 
-				_t0.append(div)
 			})
 		}
 	})
