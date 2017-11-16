@@ -46,10 +46,10 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 
 		console.log( r )
 		var ro = JSON.parse(r);
-		var z = 0,zLen = r.sheets.length,zo
+		var z = 0,zLen = ro.sheets.length,zo
 		for(;z<zlen;++z)
 		{
-			zo = r.sheets[ z ];
+			zo = ro.sheets[ z ];
 			var sheet_name = zo.title//"Product_master";
 			var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 			window.service.Request.req_GET_data__Callback(url,function(result){
