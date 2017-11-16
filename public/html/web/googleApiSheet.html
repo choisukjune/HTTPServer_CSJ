@@ -40,7 +40,7 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 	var access_token = ro.access_token;
 	var sheet_name = "Product_master";
 	var doc_id = "1cyVoOmZRxpO5mabixL9z-gKqPwVn2aGsFmCo8S-qq5Y"
-	var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "?includeGridData=false" + "?access_token=" + access_token;
+	var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "?includeGridData=false" + "&access_token=" + access_token;
 	//https://sheets.googleapis.com/v4/spreadsheets/spreadsheetId?includeGridData=false
 	window.service.Request.req_GET_data__Callback(url,function(r){
 
