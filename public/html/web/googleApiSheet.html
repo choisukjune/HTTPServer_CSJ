@@ -2,26 +2,23 @@
 <include>_header_info.html</include>
 <include>navi.html</include>
 <include>header.html</include>
-<div class="ui centered grid">
-	<div class="twelve wide column pad_t_60 pad_b_60" id="data">
+<div class="ui centered grid" id="data">
 	<!----- contents ----->
 
+	<div class="twelve wide column pad_t_60 pad_b_60">
 		<div class="ui positive message">
-		<div class="header">You are eligible for a reward</div>
-				<p>Go to your <b>special offers</b> page to see now.</p>
+			<div class="header">You are eligible for a reward</div>
+			<p>Go to your <b>special offers</b> page to see now.</p>
 		</div>
-
-		<!-- <table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-			<thead id="header"></thead>
-			<tbody id="data"></tbody>
-		</table> -->
+	</div>
 
 	<!----- contents ----->
-	</div>
 </div>
 
 
 <include>footer.html</include>
+<include>footer.html</include>
+
 <include>_footer_info.html</include>
 
 <script>
@@ -53,12 +50,14 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			var sheet_name = zo.properties.title//"Product_master";
 			var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
-			// var h3 = document.createElement("h3");
-			// var title_table = document.createTextNode( sheet_name );
-			// h3.append(title_table)
-			// _t0.append(h3)
-
+			//<div class="twelve wide column pad_t_60 pad_b_60" id="data">
 			window.service.Request.req_GET_data__Callback(url,function(result){
+				var div = document.createElement("div");
+				table.setAttribute("class", "twelve wide column pad_t_60 pad_b_60");
+
+				var h3 = document.createElement("h3");
+				var title_table = document.createTextNode( sheet_name );
+				h3.append(title_table)
 
 				var table = document.createElement("table");
 				table.setAttribute("class", "ui compact celled small stackable table");
@@ -123,9 +122,10 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 						}
 
 					}
+					div.append(div)
 				}
 
-				_t0.append(table)
+				_t0.append(div)
 			})
 		}
 	})
