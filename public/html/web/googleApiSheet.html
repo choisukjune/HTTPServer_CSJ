@@ -46,9 +46,7 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 
 		console.log( r )
 		var ro = JSON.parse(r);
-		var access_token = ro.access_token;
 		var sheet_name = "Product_master";
-		var doc_id = "1cyVoOmZRxpO5mabixL9z-gKqPwVn2aGsFmCo8S-qq5Y"
 		var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
 		window.service.Request.req_GET_data__Callback(url,function(result){
