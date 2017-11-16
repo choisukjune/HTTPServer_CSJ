@@ -51,17 +51,17 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
 			var div = document.createElement("div");
-			div.setAttribute("class", "twelve wide column pad_t_60 pad_b_60");
+			div.setAttribute("class", "twelve wide column pad_t_50 pad_b_50");
 			div.setAttribute("id", sheet_name)
 			//<div class="twelve wide column pad_t_60 pad_b_60" id="data">
 
 			_t0.append(div);
-			aaa( sheet_name, url )
+			data_render( sheet_name, url )
 		}
 	})
 })
 
-var aaa =function( id,url ){
+var data_render = function( id,url ){
 
 	var target_id = document.getElementById( id );
 

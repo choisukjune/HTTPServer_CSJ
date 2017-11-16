@@ -65,6 +65,13 @@
 	padding-top : 100px !important;
 }
 
+.pad_b_50{
+	padding-bottom : 50px !important;
+}
+.pad_t_50{
+	padding-top : 50px !important;
+}
+
 .mrg_l_0{
 	margin-left : 0px !important;
 }
