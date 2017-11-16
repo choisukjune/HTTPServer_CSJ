@@ -67,7 +67,7 @@ var aaa =function( id,url ){
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		var h3 = document.createElement("h3");
-		var title_table = document.createTextNode( zo.properties.title );
+		var title_table = document.createTextNode( id );
 		h3.append(title_table)
 		target_id.append(h3)
 
