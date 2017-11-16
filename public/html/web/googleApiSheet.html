@@ -56,7 +56,7 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			window.service.Request.req_GET_data__Callback(url,function(result){
 
 				var h3 = document.createElement("h3");
-				var title_table = document.createTextNode( sheet_name );
+				var title_table = document.createTextNode( ro.sheets[ z ] );
 				h3.append(title_table)
 				_t0.append(h3)
 
