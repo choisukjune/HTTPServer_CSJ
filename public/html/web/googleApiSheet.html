@@ -12,11 +12,7 @@
 		</div>
 
 		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-			<thead>
-				<tr>
-					<th>key</th>
-					<th>value</th>
-				</tr>
+			<thead id="header">
 			</thead>
 			<tbody id="data"></tbody>
 		</table>
@@ -32,6 +28,7 @@
 <script>
 
 var _t0 = document.getElementById('data')
+var _t1 = document.getElementById('header')
 
 
 var a1 = window.service.cookie.getCookie('session');
@@ -54,28 +51,48 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 
 			var tr = document.createElement("tr");
 
-			var j = 0,jLen = data.values[ i ].length;
-			for(; j < 2; ++j){
+			var j = 0,jLen = data.values[ i ][ 0 ].length;
 
-				var td = document.createElement("td")
-				if( data.values[ i ].length != 0 )
-				{
-					if( data.values[ i ][ j ] )
+			for(; j < jLen; ++j){
+				if( j == 0 ){
+					var th = document.createElement("th")
+
+						if( data.values[ i ][ j ] )
+						{
+							var text = document.createTextNode( data.values[ i ][ j ] );
+						}
+						else
+						{
+							var text = document.createTextNode( "" );
+						}
+						//console.log( text )
+						td.appendChild(text)
+						tr.appendChild(th)
+						_t1.append(tr)
+				}else{
+
+					var td = document.createElement("td")
+					if( data.values[ i ].length != 0 )
 					{
-						var text = document.createTextNode( data.values[ i ][ j ] );
+						if( data.values[ i ][ j ] )
+						{
+							var text = document.createTextNode( data.values[ i ][ j ] );
+						}
+						else
+						{
+							var text = document.createTextNode( "" );
+						}
+						//console.log( text )
+						td.appendChild(text)
+						tr.appendChild(td)
 					}
-					else
-					{
-						var text = document.createTextNode( "" );
-					}
-					//console.log( text )
-					td.appendChild(text)
-					tr.appendChild(td)
+
+					_t0.append(tr)
 				}
 
 			}
 
-			_t0.append(tr)
+
 
 		}
 	})
