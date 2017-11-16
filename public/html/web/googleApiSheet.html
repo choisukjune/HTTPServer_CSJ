@@ -12,8 +12,7 @@
 		</div>
 
 		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-			<thead id="header">
-			</thead>
+			<thead id="header"></thead>
 			<tbody id="data"></tbody>
 		</table>
 
@@ -51,24 +50,24 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 
 			var tr = document.createElement("tr");
 
-			var j = 0,jLen = data.values[ i ][ 0 ].length;
+			var j = 0,jLen = data.values[ 0 ].length;
 
 			for(; j < jLen; ++j){
 				if( i == 0 ){
 					var th = document.createElement("th")
 
-						if( data.values[ i ][ j ] )
-						{
-							var text = document.createTextNode( data.values[ i ][ j ] );
-						}
-						else
-						{
-							var text = document.createTextNode( "" );
-						}
-						//console.log( text )
-						th.appendChild(text)
-						tr.appendChild(th)
-						_t1.append(tr)
+					if( data.values[ i ][ j ] )
+					{
+						var text = document.createTextNode( data.values[ i ][ j ] );
+					}
+					else
+					{
+						var text = document.createTextNode( "" );
+					}
+					//console.log( text )
+					th.appendChild(text)
+					tr.appendChild(th)
+					_t1.append(tr)
 				}else{
 
 					var td = document.createElement("td")
