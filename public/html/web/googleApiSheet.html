@@ -54,13 +54,15 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			div.setAttribute("class", "twelve wide column pad_t_60 pad_b_60");
 			div.setAttribute("id", sheet_name)
 			//<div class="twelve wide column pad_t_60 pad_b_60" id="data">
+			var h3 = document.createElement("h3");
+			var title_table = document.createTextNode( sheet_name );
+			h3.append(title_table)
+			div.append(h3)
+			
 			window.service.Request.req_GET_data__Callback(url,function(result){
 
 
-				var h3 = document.createElement("h3");
-				var title_table = document.createTextNode( sheet_name );
-				h3.append(title_table)
-				div.append(h3)
+
 
 				var table = document.createElement("table");
 				table.setAttribute("class", "ui compact celled small stackable table");
