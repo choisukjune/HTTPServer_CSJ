@@ -25,7 +25,7 @@ global.ROUTER.api.Member.google_auth2 = function( req, res ){
 				console.log("데이터가 존재함")
 				console.log(doc)
 				console.log('update 해야함.')
-				db0.collection("member_oauth_google").updateOne({ id :_p.id },{$set: doc});
+				db0.collection("member_oauth_google").updateOne({ id :_p.id },{$set: _po });
 				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.sid }});
 				var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
 					redis.auth( global.REDIS.CONFIG.pass );
