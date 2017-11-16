@@ -53,12 +53,12 @@ window.service.Request.req_GET_data__Callback( url, function( r ){
 			var sheet_name = zo.properties.title//"Product_master";
 			var url = "https://sheets.googleapis.com/v4/spreadsheets/" + doc_id + "/values/" + sheet_name + "?access_token=" + access_token;
 
-			window.service.Request.req_GET_data__Callback(url,function(result){
+			// var h3 = document.createElement("h3");
+			// var title_table = document.createTextNode( sheet_name );
+			// h3.append(title_table)
+			// _t0.append(h3)
 
-				var h3 = document.createElement("h3");
-				var title_table = document.createTextNode( ro.sheets[ z ].properties.title );
-				h3.append(title_table)
-				_t0.append(h3)
+			window.service.Request.req_GET_data__Callback(url,function(result){
 
 				var table = document.createElement("table");
 				table.setAttribute("class", "ui compact celled small stackable table");
