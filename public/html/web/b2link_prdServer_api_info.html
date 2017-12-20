@@ -1,63 +1,9 @@
 
 <include>_header_info.html</include>
-<div class="ui centered grid">
-	<div class="twelve wide column pad_t_60 pad_b_60">
+<div class="ui centered grid" id="content">
 	<!----- contents ----->
-		<div id="api_type"></div>
-		<div id="api_nm"></div>
-		<div id="api_url"></div>
-		<div id="api_method"></div>
-		<div>Input</div>
 
-		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-			<thead>
-				<tr>
-					<th>name</th>
-					<th>type</th>
-					<th>description</th>
-					<th>exampleValue</th>
-				</tr>
-			</thead>
-			<tbody id="data"></tbody>
-		</table>
-
-		<div>Input</div>
-		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-			<thead>
-				<tr>
-					<th>name</th>
-					<th>type</th>
-					<th>description</th>
-				</tr>
-			</thead>
-			<tbody id="data1"></tbody>
-		</table>
-		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-			<thead>
-				<tr>
-					<th>SampleCode</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>r</td>
-				</tr>
-			</tbody>
-		</table>
-		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
-			<thead>
-				<tr>
-					<th>TestCode</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>r</td>
-				</tr>
-			</tbody>
-		</table>
 	<!----- contents ----->
-	</div>
 </div>
 <script>
 var data = {
@@ -110,77 +56,167 @@ var data = {
     "result" : "{\"r\" : 1,\"m\" : \"Insert - Success\",\"d\" : {\"_id\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"nm\" : \"팬텀네일 10종 세트\"}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,13,18,17,47],\"date_update\" : [],\"date_delete\" : []}}",
     "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"cd$category_reqDoc_type\" : \"I\", \"cd$category_product_collection_info\" : \"CIPI001\", \"cd$target_doc\" : \"\", \"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : { \"register\" : 0, \"requester\" : 0 },\"nm\" : \"팬텀네일 10종 세트\",}}',function( data ){console.log( data );})"
 }
-
-
-var _t0 = document.getElementById('api_type')
-var _t1 = document.getElementById('api_nm')
-var _t2 = document.getElementById('api_url')
-var _t3 = document.getElementById('api_method')
-var _t4 = document.getElementById('data')
-var _t4 = document.getElementById('data1')
-
-_t0.appendChild(document.createTextNode( data.type ))
-_t1.appendChild(document.createTextNode( data.nm ))
-_t2.appendChild(document.createTextNode( data.url ))
-_t3.appendChild(document.createTextNode( data.method ))
-
-var c = 0;
-for(var s in data.input ){
-	var tr = document.createElement("tr");
-	var td0 = document.createElement("td");
-	var td1 = document.createElement("td");
-	var td2 = document.createElement("td");
-	var td3 = document.createElement("td");
-
-	var text0 = document.createTextNode( s )
-	var text1 = document.createTextNode( data.input[ s ].type )
-	var text2 = document.createTextNode( data.input[ s ].description )
-	var text3 = document.createTextNode( "" )
-
-	td0.appendChild(text0);
-	td1.appendChild(text1);
-	td2.appendChild(text2);
-
-	if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
-		var __temp = JSON.stringify( JSON.parse(data.input[ s ].exampleValue), null, 4 )
-		text3 = document.createTextNode( __temp )
-		var pre = document.createElement("pre");
-
-		pre.appendChild( text3 )
-		td3.appendChild(pre);
-	}else{
-		td3.appendChild(text3);
+var content = document.getElementById('content')
+var make_div = function( text, attr ){
+	var div = document.createElement("div");
+	if( attr != null ){
+		div.setAttribute(attr[0], attr[1]);
 	}
-
-	tr.appendChild(td0);
-	tr.appendChild(td1);
-	tr.appendChild(td2);
-	tr.appendChild(td3);
-
-	_t4.appendChild(tr);
-
+	div.appendChild(document.createTextNode( text ))
+	return div
 }
 
-for(var s in data.output ){
-	var tr = document.createElement("tr");
-	var td0 = document.createElement("td");
-	var td1 = document.createElement("td");
-	var td2 = document.createElement("td");
-	var td3 = document.createElement("td");
+content.appendChild( make_div( "asdfasdfasdfasdf", null ))
 
-	var text0 = document.createTextNode( s )
-	var text1 = document.createTextNode( data.output[ s ].type )
-	var text2 = document.createTextNode( data.output[ s ].description )
-
-	td0.appendChild(text0);
-	td1.appendChild(text1);
-	td2.appendChild(text2);
-
-	tr.appendChild(td0);
-	tr.appendChild(td1);
-	tr.appendChild(td2);
-
-	_t5.appendChild(tr);
-}
+// var content = document.getElementById('body')
+//
+// var div_wrap = document.createElement("div");
+// div_wrap.setAttribute("class", "twelve wide column pad_t_60 pad_b_60");
+//
+// var div0 = document.createElement("div");
+// div0.setAttribute("id", "api_type");
+//
+// var div1 = document.createElement("div");
+// div1.setAttribute("id", "api_nm");
+//
+// var div2 = document.createElement("div");
+// div2.setAttribute("id", "api_url");
+//
+// var div3 = document.createElement("div");
+// div3.setAttribute("id", "api_method");
+//
+// var div4 = document.createElement("div");
+// var div5 = document.createElement("div");
+//
+// div0.appendChild(document.createTextNode( data.type ))
+// div1.appendChild(document.createTextNode( data.nm ))
+// div2.appendChild(document.createTextNode( data.url ))
+// div3.appendChild(document.createTextNode( data.method ))
+// div4.appendChild(document.createTextNode( "input" ))
+// div5.appendChild(document.createTextNode( "output" ))
+//
+// var tb0 = document.createElement("table");
+// var tb1 = document.createElement("table");
+// var tb2 = document.createElement("table");
+// var tb3 = document.createElement("table");
+//
+// var thead0 = document.createElement("thead");
+// var thead1 = document.createElement("thead");
+// var thead2 = document.createElement("thead");
+// var thead3 = document.createElement("thead");
+//
+// var tr = document.createElement("tr");
+// var th0 = document.createElement("th");
+// th0.appendChild(document.createTextNode( "name" ))
+//
+// var th1 = document.createElement("th");
+// th1.appendChild(document.createTextNode( "type" ))
+//
+// var th2 = document.createElement("th");
+// th2.appendChild(document.createTextNode( "description" ))
+//
+// var th3 = document.createElement("th");
+// th3.appendChild(document.createTextNode( "exampleValue" ))
+//
+// var c = 0;
+// for(var s in data.input ){
+// 	var tr = document.createElement("tr");
+// 	var td0 = document.createElement("td");
+// 	var td1 = document.createElement("td");
+// 	var td2 = document.createElement("td");
+// 	var td3 = document.createElement("td");
+//
+// 	var text0 = document.createTextNode( s )
+// 	var text1 = document.createTextNode( data.input[ s ].type )
+// 	var text2 = document.createTextNode( data.input[ s ].description )
+// 	var text3 = document.createTextNode( "" )
+//
+// 	td0.appendChild(text1);
+// 	td2.appendChild(text2);
+//
+// 	if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
+// 		var __temp = JSON.stringify( JSON.parse(data.input[ s ].exampleValue), null, 4 )
+// 		text3 = document.createTextNode( __temp )
+// 		var pre = document.createElement("pre");
+//
+// 		pre.appendChild( text3 )
+// 		td3.appendChild(pre);
+// 	}else{
+// 		td3.appendChild(text3);
+// 	}
+//
+// 	tr.appendChild(td0);
+// 	tr.appendChild(td1);
+// 	tr.appendChild(td2);
+// 	tr.appendChild(td3);
+//
+// 	tb0.appendChild(tr);
+// }
+//
+// for(var s in data.output ){
+// 	var tr = document.createElement("tr");
+// 	var td0 = document.createElement("td");
+// 	var td1 = document.createElement("td");
+// 	var td2 = document.createElement("td");
+// 	var td3 = document.createElement("td");
+//
+// 	var text0 = document.createTextNode( s )
+// 	var text1 = document.createTextNode( data.output[ s ].type )
+// 	var text2 = document.createTextNode( data.output[ s ].description )
+//
+// 	td0.appendChild(text0);
+// 	td1.appendChild(text1);
+// 	td2.appendChild(text2);
+//
+// 	tr.appendChild(td0);
+// 	tr.appendChild(td1);
+// 	tr.appendChild(td2);
+//
+// 	_t5.appendChild(tr);
+// }
+// ext0);
+// 	td1.appendChild(text1);
+// 	td2.appendChild(text2);
+//
+// 	if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
+// 		var __temp = JSON.stringify( JSON.parse(data.input[ s ].exampleValue), null, 4 )
+// 		text3 = document.createTextNode( __temp )
+// 		var pre = document.createElement("pre");
+//
+// 		pre.appendChild( text3 )
+// 		td3.appendChild(pre);
+// 	}else{
+// 		td3.appendChild(text3);
+// 	}
+//
+// 	tr.appendChild(td0);
+// 	tr.appendChild(td1);
+// 	tr.appendChild(td2);
+// 	tr.appendChild(td3);
+//
+// 	tb0.appendChild(tr);
+// }
+//
+// for(var s in data.output ){
+// 	var tr = document.createElement("tr");
+// 	var td0 = document.createElement("td");
+// 	var td1 = document.createElement("td");
+// 	var td2 = document.createElement("td");
+// 	var td3 = document.createElement("td");
+//
+// 	var text0 = document.createTextNode( s )
+// 	var text1 = document.createTextNode( data.output[ s ].type )
+// 	var text2 = document.createTextNode( data.output[ s ].description )
+//
+// 	td0.appendChild(text0);
+// 	td1.appendChild(text1);
+// 	td2.appendChild(text2);
+//
+// 	tr.appendChild(td0);
+// 	tr.appendChild(td1);
+// 	tr.appendChild(td2);
+//
+// 	_t5.appendChild(tr);
+// }
 
 </script>
