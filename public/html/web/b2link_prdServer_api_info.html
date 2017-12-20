@@ -30,23 +30,7 @@
 					<th>description</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td>r</td>
-					<td>unit</td>
-					<td>결과코드</td>
-				</tr>
-				<tr>
-					<td>r</td>
-					<td>unit</td>
-					<td>결과코드</td>
-				</tr>
-				<tr>
-					<td>r</td>
-					<td>unit</td>
-					<td>결과코드</td>
-				</tr>
-			</tbody>
+			<tbody id="data1"></tbody>
 		</table>
 		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
 			<thead>
@@ -133,6 +117,7 @@ var _t1 = document.getElementById('api_nm')
 var _t2 = document.getElementById('api_url')
 var _t3 = document.getElementById('api_method')
 var _t4 = document.getElementById('data')
+var _t4 = document.getElementById('data1')
 
 _t0.appendChild(document.createTextNode( data.type ))
 _t1.appendChild(document.createTextNode( data.nm ))
@@ -175,4 +160,27 @@ for(var s in data.input ){
 	_t4.appendChild(tr);
 
 }
+
+for(var s in data.output ){
+	var tr = document.createElement("tr");
+	var td0 = document.createElement("td");
+	var td1 = document.createElement("td");
+	var td2 = document.createElement("td");
+	var td3 = document.createElement("td");
+
+	var text0 = document.createTextNode( s )
+	var text1 = document.createTextNode( data.output[ s ].type )
+	var text2 = document.createTextNode( data.output[ s ].description )
+
+	td0.appendChild(text0);
+	td1.appendChild(text1);
+	td2.appendChild(text2);
+
+	tr.appendChild(td0);
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+
+	_t5.appendChild(tr);
+}
+
 </script>
