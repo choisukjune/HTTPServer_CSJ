@@ -124,10 +124,11 @@ var make_table = function( arr0, obj ){
 	return table;
 }
 
-
+var con0 = make_div( "", ["class","twelve wide column pad_t_50 pad_b_50"] )
+con0.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
+con0.appendChild( make_table( ["name","type","description"], data.output ))
 content.appendChild( make_div( "asdfasdfasdfasdf", null ))
-content.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
-content.appendChild( make_table( ["name","type","description"], data.output ))
+content.appendChild( con0 )
 
 // var content = document.getElementById('body')
 //
