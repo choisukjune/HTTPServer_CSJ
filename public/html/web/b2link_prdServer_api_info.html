@@ -152,15 +152,20 @@ for(var s in data.input ){
 	var text2 = document.createTextNode( data.input[ s ].description )
 	var text3 = document.createTextNode( "" )
 
-	if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
-		var __temp = JSON.stringify( JSON.parse(data.input[ s ].exampleValue), null, 4 )
-		text3 = document.createTextNode( __temp )
-	}
-
 	td0.appendChild(text0);
 	td1.appendChild(text1);
 	td2.appendChild(text2);
-	td3.appendChild(text3);
+
+	if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
+		var __temp = JSON.stringify( JSON.parse(data.input[ s ].exampleValue), null, 4 )
+		text3 = document.createTextNode( __temp )
+		var pre = document.createElement("pre");
+
+		pre.appendChild( text3 )
+		td3.appendChild(pre);
+	}else{
+		td3.appendChild(text3);
+	}
 
 	tr.appendChild(td0);
 	tr.appendChild(td1);
