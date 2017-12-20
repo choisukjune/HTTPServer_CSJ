@@ -80,8 +80,24 @@ var _t0 = document.getElementById('api_type')
 var _t1 = document.getElementById('api_nm')
 var _t2 = document.getElementById('api_url')
 var _t3 = document.getElementById('api_method')
+var _t4 = document.getElementById('data')
 
 _t0.appendChild(document.createTextNode( data.type ))
+_t1.appendChild(document.createTextNode( data.nm ))
+_t2.appendChild(document.createTextNode( data.url ))
+_t3.appendChild(document.createTextNode( data.method ))
 
+var c = 0;
+for(var s in data.input ){
+	var tr = document.createElement("tr");
+	var td = document.createElement("td");
 
+	if( c == 0 ) var text = document.createTextNode( s )
+	else var text = document.createTextNode( data.iput[ s ] )
+
+	td.appendChild(text);
+	tr.appendChild(td);
+	_t4.appendChild(tr);
+
+}
 </script>
