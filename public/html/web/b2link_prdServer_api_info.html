@@ -68,7 +68,8 @@ var make_div = function( text, attr ){
 
 var make_table = function( arr0, obj ){
 	var table = document.createElement("table");
-	div.setAttribute(attr[0], attr[1]);
+	table.setAttribute("class", "ui compact celled small stackable table");
+	table.setAttribute("style", "border-radius : 0 !important;");
 	var thead = document.createElement("thead");
 
 	var tr = document.createElement("tr");
