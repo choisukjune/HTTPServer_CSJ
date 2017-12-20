@@ -68,15 +68,16 @@ var make_div = function( text, attr ){
 
 var make_table = function( arr0, obj ){
 	var table = document.createElement("table");
+	div.setAttribute(attr[0], attr[1]);
 	var thead = document.createElement("thead");
 
-	var th = document.createElement("th");
 	var tr = document.createElement("tr");
-	for(var i = 0;i<arr0.length;++i){
+	for(var i = 0;i < arr0.length;++i){
 		var th = document.createElement("th");
 		th.appendChild(document.createTextNode( arr0[i] ))
+		tr.appendChild( th )
 	}
-
+	tbody.appendChild(tr);
 	var tbody = document.createElement("tbody");
 	for(var s in obj){
 		var tr = document.createElement("tr");
@@ -89,6 +90,11 @@ var make_table = function( arr0, obj ){
 		var text1 = document.createTextNode( obj[ s ].type )
 		var text2 = document.createTextNode( obj[ s ].description )
 		var text3 = document.createTextNode( "" )
+
+		td0.appendChild( text0 )
+		td1.appendChild( text1 )
+		td2.appendChild( text2 )
+		td3.appendChild( text3 )
 
 		if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
 			var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
