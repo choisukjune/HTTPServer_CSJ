@@ -97,12 +97,12 @@ for(var s in data.input ){
 	var td3 = document.createElement("td");
 
 	var text0 = document.createTextNode( s )
-	var text1 = document.createTextNode( data.iput[ s ].tpye )
-	var text2 = document.createTextNode( data.iput[ s ].description )
+	var text1 = document.createTextNode( data.input[ s ].tpye )
+	var text2 = document.createTextNode( data.input[ s ].description )
 	var text3 = document.createTextNode( "" )
 
 	if( data.iput[ s ].hasOwnProperty( "exampleValue" ) ){
-		text3 = document.createTextNode( data.iput[ s ].exampleValue )
+		text3 = document.createTextNode( data.input[ s ].exampleValue )
 	}
 
 	td0.appendChild(text0);
