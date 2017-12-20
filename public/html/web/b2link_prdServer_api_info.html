@@ -124,9 +124,45 @@ var make_table = function( arr0, obj ){
 	return table;
 }
 
+var make_table_String = function( arr0, data ){
+	var table = document.createElement("table");
+	table.setAttribute("class", "ui compact celled small stackable table");
+	table.setAttribute("style", "border-radius : 0 !important;");
+	var thead = document.createElement("thead");
+
+	var tr = document.createElement("tr");
+	for(var i = 0;i < arr0.length;++i){
+		var th = document.createElement("th");
+		th.appendChild(document.createTextNode( arr0[i] ))
+		tr.appendChild( th )
+	}
+	thead.appendChild(tr);
+	var tbody = document.createElement("tbody");
+
+	var tr = document.createElement("tr");
+	var td = document.createElement("td");
+	var __temp = data;
+	if( typeof( data ) == "object"){
+		var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
+	}
+	var text = document.createTextNode( __temp )
+	var pre = document.createElement("pre");
+
+	pre.appendChild( text )
+	td3.appendChild(pre);
+	tr.appendChild(td);
+
+	tbody.appendChild(tr);
+	table.appendChild(thead)
+	table.appendChild(tbody)
+	return table;
+}
+
 var con0 = make_div( "", ["class","twelve wide column pad_t_50 pad_b_50"] )
 con0.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
 con0.appendChild( make_table( ["name","type","description"], data.output ))
+con0.appendChild( make_table_String( ["result"], data.result ))
+con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode ))
 content.appendChild( make_div( "asdfasdfasdfasdf", null ))
 content.appendChild( con0 )
 
