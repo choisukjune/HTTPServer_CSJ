@@ -97,7 +97,7 @@ var make_table = function( arr0, obj ){
 		td2.appendChild( text2 )
 		td3.appendChild( text3 )
 
-		if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
+		if( obj[ s ].hasOwnProperty( "exampleValue" ) ){
 			var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
 			text3 = document.createTextNode( __temp )
 			var pre = document.createElement("pre");
