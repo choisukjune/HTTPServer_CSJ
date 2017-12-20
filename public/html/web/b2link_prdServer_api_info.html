@@ -78,7 +78,7 @@ var make_table = function( arr0, obj ){
 		th.appendChild(document.createTextNode( arr0[i] ))
 		tr.appendChild( th )
 	}
-	tbody.appendChild(tr);
+	thead.appendChild(tr);
 	var tbody = document.createElement("tbody");
 	for(var s in obj){
 		var tr = document.createElement("tr");
