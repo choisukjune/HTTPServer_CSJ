@@ -3,11 +3,11 @@
 <div class="ui centered grid">
 	<div class="twelve wide column pad_t_60 pad_b_60">
 	<!----- contents ----->
-		<div>product<div>
-		<div>상품정보 등록,수정,삭제 요청<div>
-		<div>http://localhost:port/api_product/product_master_req/req?<div>
+		<div id="api_type"><div>
+		<div id="api_nm"><div>
+		<div id="api_url"><div>
+		<div id="api_method"><div>
 		<div>Input<div>
-		<div>123<div>
 
 		<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
 			<thead>
@@ -23,42 +23,65 @@
 	<!----- contents ----->
 	</div>
 </div>
-
 <script>
-window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
-alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
-</script>
-<script>
+var data = {
+    "_id" : 0,
+    "type" : "product",
+    "nm" : "상품정보 등록,수정,삭제 요청",
+    "url" : "http://localhost:port/api_product/product_master_req/req?",
+    "method" : "GET",
+    "input" : {
+        "sid" : {
+            "type" : "String",
+            "description" : "세션ID"
+        },
+        "mid" : {
+            "type" : "String",
+            "description" : "사용자ID"
+        },
+        "d_ex" : {
+            "type" : "String",
+            "description" : "세션만료 TimeStamp"
+        },
+        "SCODE" : {
+            "type" : "String",
+            "description" : "시스템코드"
+        },
+        "nCached" : {
+            "type" : "Number",
+            "description" : "브라우저 캐쉬 방지(신경쓸필요없음)"
+        },
+        "data" : {
+            "type" : "Object",
+            "description" : "등록데이터",
+            "exampleValue" : "{\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI001\",\"cd$target_doc\":\"\",\"data\":{\"_id$brand_basic\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"nm\":\"팬텀네일 10종 세트\"}}"
+        }
+    },
+    "output" : {
+        "r" : {
+            "type" : "unit",
+            "description" : "결과코드"
+        },
+        "m" : {
+            "type" : "String",
+            "description" : "결과메시지"
+        },
+        "d" : {
+            "type" : "Object",
+            "description" : "결과데이터"
+        }
+    },
+    "result" : "{\"r\" : 1,\"m\" : \"Insert - Success\",\"d\" : {\"_id\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"nm\" : \"팬텀네일 10종 세트\"}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,13,18,17,47],\"date_update\" : [],\"date_delete\" : []}}",
+    "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"cd$category_reqDoc_type\" : \"I\", \"cd$category_product_collection_info\" : \"CIPI001\", \"cd$target_doc\" : \"\", \"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : { \"register\" : 0, \"requester\" : 0 },\"nm\" : \"팬텀네일 10종 세트\",}}',function( data ){console.log( data );})"
+}
 
-var _t0 = document.getElementById('data')
 
-var url = "/api/get_list?sid=" + window.service.cookie.getCookie('session')
+var _t0 = document.getElementById('api_type')
+var _t1 = document.getElementById('api_nm')
+var _t2 = document.getElementById('api_url')
+var _t3 = document.getElementById('api_method')
 
-window.service.Request.req_GET_data__Callback(url,function(result){
-	if(result == 0){
-		window.service.session.remove_deleteCookies()
-		location.href = "./login";
-	}
-	var data = JSON.parse( result )
-	for(var i = 0; i < data.length; ++i){
-
-		var tr = document.createElement("tr");
-
-		for(var s in data[ i ]){
-
-			var td = document.createElement("td")
-			var text = document.createTextNode( data[ i ][ s ] );
-			//console.log( text )
-			td.appendChild(text)
-			tr.appendChild(td)
-		}
-
-		_t0.append(tr)
-
-	}
-})
-
-
+_t0.appendChild(document.createTextNode( data.type ))
 
 
 </script>
