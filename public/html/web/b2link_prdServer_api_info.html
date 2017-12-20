@@ -1,6 +1,6 @@
 
 <include>_header_info.html</include>
-<div class="ui centered grid" id="content">
+<div class="ui centered grid" id="m">
 	<!----- contents ----->
 
 	<!----- contents ----->
@@ -56,7 +56,7 @@ var data = {
     "result" : "{\"r\" : 1,\"m\" : \"Insert - Success\",\"d\" : {\"_id\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"nm\" : \"팬텀네일 10종 세트\"}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,13,18,17,47],\"date_update\" : [],\"date_delete\" : []}}",
     "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"cd$category_reqDoc_type\" : \"I\", \"cd$category_product_collection_info\" : \"CIPI001\", \"cd$target_doc\" : \"\", \"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : { \"register\" : 0, \"requester\" : 0 },\"nm\" : \"팬텀네일 10종 세트\",}}',function( data ){console.log( data );})"
 }
-var content = document.getElementById('content')
+var m = document.getElementById('m')
 var make_div = function( text, attr ){
 	var div = document.createElement("div");
 	if( attr != null ){
@@ -78,7 +78,7 @@ var make_table = function( arr0, obj ){
 		th.appendChild(document.createTextNode( arr0[i] ))
 		tr.appendChild( th )
 	}
-	thead.appendChild(tr);
+	thead.appendChild(tr);content
 	var tbody = document.createElement("tbody");
 	for(var s in obj){
 		var tr = document.createElement("tr");
@@ -164,7 +164,7 @@ con0.appendChild( make_table( ["name","type","description"], data.output ))
 con0.appendChild( make_table_String( ["result"], data.result, "object" ))
 con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode, null ))
 //content.appendChild( make_div( "asdfasdfasdfasdf", null ))
-content.appendChild( con0 )
+m.appendChild( con0 )
 
 // var content = document.getElementById('body')
 //
