@@ -100,20 +100,22 @@ var make_table = function( arr0, obj ){
 		tr.appendChild(td1);
 		tr.appendChild(td2);
 
-		if( obj[ s ].hasOwnProperty( "exampleValue" ) ){
-			var td3 = document.createElement("td");
-			var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
-			var text3 = document.createTextNode( __temp )
-			var pre = document.createElement("pre");
+		if( arr0.indexOf( "exampleValue" ) != -1 ){
+			if( obj[ s ].hasOwnProperty( "exampleValue" ) ){
+				var td3 = document.createElement("td");
+				var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
+				var text3 = document.createTextNode( __temp )
+				var pre = document.createElement("pre");
 
-			pre.appendChild( text3 )
-			td3.appendChild(pre);
-			tr.appendChild(td3);
-		}else{
-			var td3 = document.createElement("td");
-			var text3 = document.createTextNode( "" )
-			td3.appendChild(text3);
-			tr.appendChild(td3);
+				pre.appendChild( text3 )
+				td3.appendChild(pre);
+				tr.appendChild(td3);
+			}else{
+				var td3 = document.createElement("td");
+				var text3 = document.createTextNode( "" )
+				td3.appendChild(text3);
+				tr.appendChild(td3);
+			}
 		}
 		tbody.appendChild(tr);
 	}
