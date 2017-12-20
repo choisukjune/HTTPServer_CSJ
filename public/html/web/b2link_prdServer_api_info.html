@@ -66,7 +66,55 @@ var make_div = function( text, attr ){
 	return div
 }
 
+var make_table = function( arr0, obj ){
+	var table = document.createElement("table");
+	var thead = document.createElement("thead");
+
+	var th = document.createElement("th");
+	var tr = document.createElement("tr");
+	for(var i = 0;i<arr0.length;++i){
+		var th = document.createElement("th");
+		th.appendChild(document.createTextNode( arr0[i] ))
+	}
+
+	var tbody = document.createElement("tbody");
+	for(var s in obj){
+		var tr = document.createElement("tr");
+		var td0 = document.createElement("td");
+		var td1 = document.createElement("td");
+		var td2 = document.createElement("td");
+		var td3 = document.createElement("td");
+
+		var text0 = document.createTextNode( s )
+		var text1 = document.createTextNode( obj[ s ].type )
+		var text2 = document.createTextNode( obj[ s ].description )
+		var text3 = document.createTextNode( "" )
+
+		if( data.input[ s ].hasOwnProperty( "exampleValue" ) ){
+			var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
+			text3 = document.createTextNode( __temp )
+			var pre = document.createElement("pre");
+
+			pre.appendChild( text3 )
+			td3.appendChild(pre);
+		}else{
+			td3.appendChild(text3);
+		}
+
+		tr.appendChild(td0);
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
+		tbody.appendChild(tr);
+	}
+	table.appendChild(thead)
+	table.appendChild(tbody)
+	return table;
+}
+
+
 content.appendChild( make_div( "asdfasdfasdfasdf", null ))
+content.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
 
 // var content = document.getElementById('body')
 //
