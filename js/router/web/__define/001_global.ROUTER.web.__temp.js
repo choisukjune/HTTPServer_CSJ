@@ -1,1 +1,1 @@
-global.ROUTER.web.__temp = {};
+global.ROUTER.web.temp = {};
