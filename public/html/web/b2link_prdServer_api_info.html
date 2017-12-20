@@ -143,13 +143,13 @@ var make_table_String = function( arr0, data ){
 	var td = document.createElement("td");
 	var __temp = data;
 	if( typeof( data ) == "object"){
-		var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
+		var __temp = JSON.stringify( JSON.parse( data ), null, 4 )
 	}
 	var text = document.createTextNode( __temp )
 	var pre = document.createElement("pre");
 
 	pre.appendChild( text )
-	td3.appendChild(pre);
+	td.appendChild(pre);
 	tr.appendChild(td);
 
 	tbody.appendChild(tr);
