@@ -1482,6 +1482,12 @@ var data = [
 ]
 var m = document.getElementById('m')
 
+var make_divider = function(){
+	var div = document.createElement("div");
+	div.setAttribute("class", "ui divider");
+	return div
+}
+
 var make_h_tag = function( text, attr ){
 
 	if( attr == null ){
@@ -1622,6 +1628,7 @@ for(var i = 0;i < data.length;++i){
 	con0.appendChild( make_table_Object( ["result"], data[ i ].result ))
 	con0.appendChild( make_h_tag( "Sample Code", 4 ))
 	con0.appendChild( make_table_String( ["sampleCode"], data[ i ].sampleCode ))
+	con0.appendChild( make_divider())
 
 	m.appendChild( con0 )
 
