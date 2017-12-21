@@ -1503,7 +1503,10 @@ var make_h_tag = function( text, tagOption, attr ){
 		var h = document.createElement( "h" + tagOption );
 	}
     if( attr != null ){
-        h.setAttribute(attr[0], attr[1]);
+        var i = 0,iLen = attr.length,io
+        for(;i<iLen;++i){
+            h.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
+        }
     }
 
 	h.appendChild(document.createTextNode( text ))
@@ -1513,7 +1516,10 @@ var make_h_tag = function( text, tagOption, attr ){
 var make_div = function( text, attr ){
 	var div = document.createElement("div");
 	if( attr != null ){
-		div.setAttribute(attr[0], attr[1]);
+        var i = 0,iLen = attr.length,io
+        for(;i<iLen;++i){
+            div.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
+        }
 	}
 	div.appendChild(document.createTextNode( text ))
 	return div
@@ -1628,7 +1634,10 @@ var make_a_tag = function( text, href,attr ){
 	var a = document.createElement("a");
     a.setAttribute("href", href);
 	if( attr != null ){
-		a.setAttribute(attr[0], attr[1]);
+        var i = 0,iLen = attr.length,io
+        for(;i<iLen;++i){
+            a.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
+        }
 	}
 	a.appendChild(document.createTextNode( text ))
 	return a
@@ -1637,7 +1646,10 @@ var make_a_tag = function( text, href,attr ){
 var make_span = function( text, attr ){
 	var span = document.createElement("span");
 	if( attr != null ){
-		span.setAttribute(attr[0], attr[1]);
+        var i = 0,iLen = attr.length,io
+        for(;i<iLen;++i){
+            span.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
+        }
 	}
 	span.appendChild(document.createTextNode( text ))
 	return span
@@ -1646,7 +1658,9 @@ var make_span = function( text, attr ){
 var make_li = function( text, attr ){
 	var li = document.createElement("li");
 	if( attr != null ){
-		li.setAttribute(attr[0], attr[1]);
+        for(;i<iLen;++i){
+            li.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
+        }
 	}
 	li.appendChild(document.createTextNode( text ))
 	return li
@@ -1659,8 +1673,8 @@ for(var i = 0;i < data.length;++i){
     bbb.appendChild( aaa )
     api_navi.appendChild( bbb )
 
-	var con0 = make_div( "", ["class","ten wide column"] )
-	con0.appendChild( make_h_tag( data[ i ].nm, 1,[ "id", data[ i ].nm] ))
+	var con0 = make_div( "", [["class","ten wide column"]] )
+	con0.appendChild( make_h_tag( data[ i ].nm, 1,[["id", data[ i ].nm],["style","padding-top : 40px;"]] ))
 	con0.appendChild( make_h_tag( data[ i ].type, 4, null ))
 	con0.appendChild( make_h_tag( "url : " + data[ i ].url, 3, null ))
 	con0.appendChild( make_h_tag( "method : " + data[ i ].method, 4, null ))
