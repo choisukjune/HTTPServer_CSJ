@@ -16,27 +16,32 @@ var data = {
         {
             "nm" : "sid",
             "type" : "String",
-            "description" : "세션ID"
+            "description" : "세션ID",
+            "exampleValue" : ""
         },
         {
             "nm" : "mid",
             "type" : "String",
-            "description" : "사용자ID"
+            "description" : "사용자ID",
+            "exampleValue" : ""
         },
         {
             "nm" : "d_ex",
             "type" : "String",
-            "description" : "세션만료 TimeStamp"
+            "description" : "세션만료 TimeStamp",
+            "exampleValue" : ""
         },
         {
             "nm" : "SCODE",
             "type" : "String",
-            "description" : "시스템코드"
+            "description" : "시스템코드",
+            "exampleValue" : ""
         },
         {
             "nm" : "nCached",
             "type" : "Number",
-            "description" : "브라우저 캐쉬 방지(신경쓸필요없음)"
+            "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+            "exampleValue" : ""
         },
         {
             "nm" : "data",
@@ -75,7 +80,7 @@ var make_div = function( text, attr ){
 	return div
 }
 
-var make_table = function( arr0, obj ){
+var make_table = function( arr0, arr1 ){
 	var table = document.createElement("table");
 	table.setAttribute("class", "ui compact celled small stackable table");
 	table.setAttribute("style", "border-radius : 0 !important;");
@@ -90,27 +95,28 @@ var make_table = function( arr0, obj ){
 	thead.appendChild(tr);
 
 	var tbody = document.createElement("tbody");
-	for(var i = 0;i < arr0.length;++i){
+	for(var i = 0;i < arr1.length;++i){
 		var tr = document.createElement("tr");
-		var td = document.createElement("td");
+			for( var s in arr1[ j ] ){
 
+				var td = document.createElement("td");
 
-		if( !data.input[ i ] ) var text = document.createTextNode( "" )
-		if( data.input[ i ][ 0 ] == "{" ){
+				if( arr1[ j ][ s ][ 0 ] == "{" ){
 
-			var text = document.createTextNode( JSON.stringify( data.input[ i ], null, 4 ) )
-			var pre = document.createElement("pre");
+					var text = document.createTextNode( JSON.stringify( arr1[ j ][ s ], null, 4 ) )
+					var pre = document.createElement("pre");
 
-			pre.appendChild( text )
-			td3.appendChild(pre);
-			tr.appendChild(td3);
-		}else{
+					pre.appendChild( text )
+					td.appendChild(pre);
+					tr.appendChild(td);
+				}else{
 
-			var text = document.createTextNode( data.input[ i ] )
-			td.appendChild( text )
-			tr.appendChild(td);
+					var text = document.createTextNode( arr1[ j ][ s ] )
+					td.appendChild( text )
+					tr.appendChild(td);
+				}
+
 		}
-
 		tbody.appendChild(tr);
 	}
 	table.appendChild(thead)
