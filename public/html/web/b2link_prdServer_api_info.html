@@ -12,47 +12,56 @@ var data = {
     "nm" : "상품정보 등록,수정,삭제 요청",
     "url" : "http://localhost:port/api_product/product_master_req/req?",
     "method" : "GET",
-    "input" : {
-        "sid" : {
+    "input" : [
+        {
+            "nm" : "sid",
             "type" : "String",
             "description" : "세션ID"
         },
-        "mid" : {
+        {
+            "nm" : "mid",
             "type" : "String",
             "description" : "사용자ID"
         },
-        "d_ex" : {
+        {
+            "nm" : "d_ex",
             "type" : "String",
             "description" : "세션만료 TimeStamp"
         },
-        "SCODE" : {
+        {
+            "nm" : "SCODE",
             "type" : "String",
             "description" : "시스템코드"
         },
-        "nCached" : {
+        {
+            "nm" : "nCached",
             "type" : "Number",
             "description" : "브라우저 캐쉬 방지(신경쓸필요없음)"
         },
-        "data" : {
+        {
+            "nm" : "data",
             "type" : "Object",
             "description" : "등록데이터",
             "exampleValue" : "{\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI001\",\"cd$target_doc\":\"\",\"data\":{\"_id$brand_basic\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"nm\":\"팬텀네일 10종 세트\"}}"
         }
-    },
-    "output" : {
-        "r" : {
+    ],
+    "output" : [
+        {
+            "nm" : "r",
             "type" : "unit",
             "description" : "결과코드"
         },
-        "m" : {
+        {
+            "nm" : "m",
             "type" : "String",
             "description" : "결과메시지"
         },
-        "d" : {
+        {
+            "nm" : "d",
             "type" : "Object",
             "description" : "결과데이터"
         }
-    },
+    ],
     "result" : "{\"r\" : 1,\"m\" : \"Insert - Success\",\"d\" : {\"_id\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"nm\" : \"팬텀네일 10종 세트\"}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,13,18,17,47],\"date_update\" : [],\"date_delete\" : []}}",
     "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"cd$category_reqDoc_type\" : \"I\", \"cd$category_product_collection_info\" : \"CIPI001\", \"cd$target_doc\" : \"\", \"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : { \"register\" : 0, \"requester\" : 0 },\"nm\" : \"팬텀네일 10종 세트\",}}',function( data ){console.log( data );})"
 }
@@ -79,44 +88,29 @@ var make_table = function( arr0, obj ){
 		tr.appendChild( th )
 	}
 	thead.appendChild(tr);
+
 	var tbody = document.createElement("tbody");
-	for(var s in obj){
+	for(var i = 0;i < arr0.length;++i){
 		var tr = document.createElement("tr");
-		var td0 = document.createElement("td");
-		var td1 = document.createElement("td");
-		var td2 = document.createElement("td");
+		var td = document.createElement("td");
 
 
-		var text0 = document.createTextNode( s )
-		var text1 = document.createTextNode( obj[ s ].type )
-		var text2 = document.createTextNode( obj[ s ].description )
+		if( !data.input[ i ] ) var text = document.createTextNode( "" )
+		if( data.input[ i ][ 0 ] == "{" ){
 
+			var text = document.createTextNode( JSON.stringify( data.input[ i ] ), null, 4 ) )
+			var pre = document.createElement("pre");
 
-		td0.appendChild( text0 )
-		td1.appendChild( text1 )
-		td2.appendChild( text2 )
+			pre.appendChild( text )
+			td3.appendChild(pre);
+			tr.appendChild(td3);
+		}else{
 
-		tr.appendChild(td0);
-		tr.appendChild(td1);
-		tr.appendChild(td2);
-
-		if( arr0.indexOf( "exampleValue" ) != -1 ){
-			if( obj[ s ].hasOwnProperty( "exampleValue" ) ){
-				var td3 = document.createElement("td");
-				var __temp = JSON.stringify( JSON.parse(obj[ s ].exampleValue), null, 4 )
-				var text3 = document.createTextNode( __temp )
-				var pre = document.createElement("pre");
-
-				pre.appendChild( text3 )
-				td3.appendChild(pre);
-				tr.appendChild(td3);
-			}else{
-				var td3 = document.createElement("td");
-				var text3 = document.createTextNode( "" )
-				td3.appendChild(text3);
-				tr.appendChild(td3);
-			}
+			var text = document.createTextNode( data.input[ i ] )
+			td.appendChild( text )
+			tr.appendChild(td);
 		}
+
 		tbody.appendChild(tr);
 	}
 	table.appendChild(thead)
@@ -124,7 +118,35 @@ var make_table = function( arr0, obj ){
 	return table;
 }
 
-var make_table_String = function( arr0, data, param ){
+var make_table_String = function( arr0, data ){
+	var table = document.createElement("table");
+	table.setAttribute("class", "ui compact celled small stackable table");
+	table.setAttribute("style", "border-radius : 0 !important;");
+	var thead = document.createElement("thead");
+
+	var tr = document.createElement("tr");
+	for(var i = 0;i < arr0.length;++i){
+		var th = document.createElement("th");
+		th.appendChild(document.createTextNode( arr0[i] ))
+		tr.appendChild( th )
+	}
+	thead.appendChild(tr);
+	var tbody = document.createElement("tbody");
+
+	var tr = document.createElement("tr");
+	var td = document.createElement("td");
+
+	var text = document.createTextNode( data )
+	td.appendChild(text);
+	tr.appendChild(td);
+
+	tbody.appendChild(tr);
+	table.appendChild(thead)
+	table.appendChild(tbody)
+	return table;
+}
+
+var make_table_Object = function( arr0, data ){
 	var table = document.createElement("table");
 	table.setAttribute("class", "ui compact celled small stackable table");
 	table.setAttribute("style", "border-radius : 0 !important;");
@@ -142,20 +164,14 @@ var make_table_String = function( arr0, data, param ){
 	var tr = document.createElement("tr");
 	var td = document.createElement("td");
 	var __temp = data;
-	if( param == "object"){
-		var __temp = JSON.stringify( JSON.parse( data ), null, 4 )
-		var text = document.createTextNode( __temp )
-		var pre = document.createElement("pre");
 
-		pre.appendChild( text )
-		td.appendChild(pre);
-		tr.appendChild(td);
-	}else{
-		var text = document.createTextNode( data )
-		td.appendChild(text);
-		tr.appendChild(td);
-	}
+	var __temp = JSON.stringify( JSON.parse( data ), null, 4 )
+	var text = document.createTextNode( __temp )
+	var pre = document.createElement("pre");
 
+	pre.appendChild( text )
+	td.appendChild(pre);
+	tr.appendChild(td);
 
 	tbody.appendChild(tr);
 	table.appendChild(thead)
@@ -166,8 +182,8 @@ var make_table_String = function( arr0, data, param ){
 var con0 = make_div( "", ["class","twelve wide column pad_t_50 pad_b_50"] )
 con0.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
 con0.appendChild( make_table( ["name","type","description"], data.output ))
-con0.appendChild( make_table_String( ["result"], data.result, "object" ))
-con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode, null ))
+con0.appendChild( make_table_Object( ["result"], data.result ))
+con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode ))
 //content.appendChild( make_div( "asdfasdfasdfasdf", null ))
 m.appendChild( con0 )
 </script>
