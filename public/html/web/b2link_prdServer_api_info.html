@@ -98,7 +98,7 @@ var make_table = function( arr0, obj ){
 		if( !data.input[ i ] ) var text = document.createTextNode( "" )
 		if( data.input[ i ][ 0 ] == "{" ){
 
-			var text = document.createTextNode( JSON.stringify( data.input[ i ] ), null, 4 ) )
+			var text = document.createTextNode( JSON.stringify( data.input[ i ], null, 4 ) )
 			var pre = document.createElement("pre");
 
 			pre.appendChild( text )
