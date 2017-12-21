@@ -151,6 +151,7 @@ var make_table_String = function( arr0, data, param ){
 		td.appendChild(pre);
 		tr.appendChild(td);
 	}else{
+		var text = document.createTextNode( data )
 		td.appendChild(text);
 		tr.appendChild(td);
 	}
