@@ -2,7 +2,7 @@
 <include>_header_info.html</include>
 <div class="ui centered grid" id="m">
 	<!-- contents -->
-    <div class="ui centered grid two">API 목록</div>
+    <div class="two wide column pad_b_50 pad_b_50" id="api_navi"></div>
 	<!-- contents -->
 </div>
 <script>
@@ -1481,6 +1481,7 @@ var data = [
     }
 ]
 var m = document.getElementById('m')
+var api_navi = document.getElementById('api_navi')
 
 var make_divider = function(){
 	var div = document.createElement("div");
@@ -1613,7 +1614,17 @@ var make_table_Object = function( arr0, data ){
 	return table;
 }
 
+var make_span = function( text, attr ){
+	var span = document.createElement("span");
+	if( attr != null ){
+		div.setAttribute(attr[0], attr[1]);
+	}
+	div.appendChild(document.createTextNode( span ))
+	return span
+}
+
 for(var i = 0;i < data.length;++i){
+    api_navi.appendChild( make_span( data[ i ].nm, null ))
 
 	var con0 = make_div( "", ["class","twelve wide column"] )
 	con0.appendChild( make_h_tag( data[ i ].nm, 1 ))
