@@ -1,9 +1,9 @@
 
 <include>_header_info.html</include>
 <div class="ui centered grid" id="m">
-	<!----- contents ----->
+	<!-- contents -->
 
-	<!----- contents ----->
+	<!-- contents -->
 </div>
 <script>
 var data = {
@@ -71,6 +71,18 @@ var data = {
     "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"cd$category_reqDoc_type\" : \"I\", \"cd$category_product_collection_info\" : \"CIPI001\", \"cd$target_doc\" : \"\", \"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : { \"register\" : 0, \"requester\" : 0 },\"nm\" : \"팬텀네일 10종 세트\",}}',function( data ){console.log( data );})"
 }
 var m = document.getElementById('m')
+
+var make_h_tag = function( text, attr ){
+
+	if( attr != null ){
+		var h = document.createElement( "h4");
+	}else{
+		var h = document.createElement( "h" + attr );
+	}
+	h.appendChild(document.createTextNode( text ))
+	return h
+}
+
 var make_div = function( text, attr ){
 	var div = document.createElement("div");
 	if( attr != null ){
@@ -186,9 +198,16 @@ var make_table_Object = function( arr0, data ){
 }
 
 var con0 = make_div( "", ["class","twelve wide column pad_t_50 pad_b_50"] )
+con0.appendChild( make_h_tag( data.nm, 1 ))
+con0.appendChild( make_h_tag( data.nm, 1 ))
+con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode ))
+con0.appendChild( make_h_tag( data.nm, 1 ))
 con0.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
+con0.appendChild( make_h_tag( data.nm, 1 ))
 con0.appendChild( make_table( ["name","type","description"], data.output ))
+con0.appendChild( make_h_tag( data.nm, 1 ))
 con0.appendChild( make_table_Object( ["result"], data.result ))
+con0.appendChild( make_h_tag( data.nm, 1 ))
 con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode ))
 //content.appendChild( make_div( "asdfasdfasdfasdf", null ))
 m.appendChild( con0 )
