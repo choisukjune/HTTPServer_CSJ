@@ -6,70 +6,1480 @@
 	<!-- contents -->
 </div>
 <script>
-var data = {
-    "_id" : 0,
-    "type" : "product",
-    "nm" : "상품정보 등록,수정,삭제 요청",
-    "url" : "http://localhost:port/api_product/product_master_req/req?",
-    "method" : "GET",
-    "input" : [
-        {
-            "nm" : "sid",
-            "type" : "String",
-            "description" : "세션ID",
-            "exampleValue" : ""
-        },
-        {
-            "nm" : "mid",
-            "type" : "String",
-            "description" : "사용자ID",
-            "exampleValue" : ""
-        },
-        {
-            "nm" : "d_ex",
-            "type" : "String",
-            "description" : "세션만료 TimeStamp",
-            "exampleValue" : ""
-        },
-        {
-            "nm" : "SCODE",
-            "type" : "String",
-            "description" : "시스템코드",
-            "exampleValue" : ""
-        },
-        {
-            "nm" : "nCached",
-            "type" : "Number",
-            "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
-            "exampleValue" : ""
-        },
-        {
-            "nm" : "data",
-            "type" : "Object",
-            "description" : "등록데이터",
-            "exampleValue" : "{\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI001\",\"cd$target_doc\":\"\",\"data\":{\"_id$brand_basic\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"nm\":\"팬텀네일 10종 세트\"}}"
-        }
-    ],
-    "output" : [
-        {
-            "nm" : "r",
-            "type" : "unit",
-            "description" : "결과코드"
-        },
-        {
-            "nm" : "m",
-            "type" : "String",
-            "description" : "결과메시지"
-        },
-        {
-            "nm" : "d",
-            "type" : "Object",
-            "description" : "결과데이터"
-        }
-    ],
-    "result" : "{\"r\" : 1,\"m\" : \"Insert - Success\",\"d\" : {\"_id\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"nm\" : \"팬텀네일 10종 세트\"}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,13,18,17,47],\"date_update\" : [],\"date_delete\" : []}}",
-    "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"cd$category_reqDoc_type\" : \"I\", \"cd$category_product_collection_info\" : \"CIPI001\", \"cd$target_doc\" : \"\", \"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : { \"register\" : 0, \"requester\" : 0 },\"nm\" : \"팬텀네일 10종 세트\",}}',function( data ){console.log( data );})"
-}
+var data = [
+    {
+        "_id" : 0,
+        "type" : "product",
+        "nm" : "상품정보 등록,수정,삭제 요청",
+        "url" : "http://localhost:port/api_product/product_master_req/req?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "등록데이터",
+                "exampleValue" : "{\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI001\",\"cd$target_doc\":\"\",\"data\":{\"_id$brand_basic\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"nm\":\"팬텀네일 10종 세트\"}}"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\" : 1,\"m\" : \"Insert - Success\",\"d\" : {\"_id\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"nm\" : \"팬텀네일 10종 세트\"}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,13,18,17,47],\"date_update\" : [],\"date_delete\" : []}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"cd$category_reqDoc_type\" : \"I\", \"cd$category_product_collection_info\" : \"CIPI001\", \"cd$target_doc\" : \"\", \"doc\" : {\"_id$brand_basic\" : 1,\"_ids$member\" : { \"register\" : 0, \"requester\" : 0 },\"nm\" : \"팬텀네일 10종 세트\",}}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 1,
+        "type" : "product",
+        "nm" : "상품정보 등록,수정,삭제 요청 리스트 호출",
+        "url" : "http://localhost:port/api_product/product_master_req/getList?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "검색조건",
+                "exampleValue" : "{\"listCount\":0,\"pageNum\":0,\"_ids$member.requester\":0,\"_ids$member.register\":0,\"SCODE\":\"SYS0100\",\"cd$category_reqDoc_status\":\"RDS001\",\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI001\",\"cd$target_doc\":\"\",\"startDate\":[2017,12,12],\"endDate\":[2017,12,13]}"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 1,\"m\": \"SUCESS\",\"d\": {\"totalCount\": 2,\"pageCount\": 0,\"curPage\": 0,\"list\": [{\"_id\": 0,\"_ids$member\": {\"register\": 0,\"requester\": 0},\"_d\": 1,\"actionObject\": {\"doc\": {\"_id$brand_basic\": 1,\"_ids$member\": {\"register\": 0,\"requester\": 0},\"nm\": \"팬텀네일 10종 세트\"}},\"SCODE\": \"SYS0100\",\"cd$category_reqDoc_status\": \"RDS001\",\"cd$category_reqDoc_type\": \"I\",\"cd$category_product_collection_info\": \"CIPI001\",\"cd$target_doc\": \"\",\"reject_reason\": \"\",\"date_regist\": [2017,12,13,18,32,11],\"date_update\": [],\"date_delete\": []},{\"_id\": 1,\"_ids$member\": {\"register\": 0,\"requester\": 0},\"_d\": 1,\"actionObject\": {\"doc\": {\"_id$brand_basic\": 1,\"_ids$member\": {\"register\": 0,\"requester\": 0},\"nm\": \"팬텀네일 10종 세트\"}},\"SCODE\": \"SYS0100\",\"cd$category_reqDoc_status\": \"RDS001\",\"cd$category_reqDoc_type\": \"I\",\"cd$category_product_collection_info\": \"CIPI001\",\"cd$target_doc\": \"\",\"reject_reason\": \"\",\"date_regist\": [2017,12,13,19,8,35],\"date_update\": [],\"date_delete\": []}]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 2,
+        "type" : "product",
+        "nm" : "상품마스터정보 리스트 호출",
+        "url" : "http://localhost:port/api_product/product_master/getList?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "검색조건",
+                "exampleValue" : "{\"listCount\" : 10,\"pageNum\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member.requester\" : 1,\"_ids$member.register\" : 0,\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1,\"startDate\" : [ 2017,12,12],\"endDate\" : [2017,12,13]}"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 1,\"m\": \"SUCESS\",\"d\": {\"totalCount\": 1,\"pageCount\": 0,\"curPage\": 0,\"list\": [{\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1, \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 3,
+        "type" : "product",
+        "nm" : "상품 부가정보 리스트 호출",
+        "url" : "http://localhost:port/api_product/product_option/getList?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "검색조건",
+                "exampleValue" : "{\"listCount\" : 10,\"pageNum\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member.requester\" : 1,\"_ids$member.register\" : 0,\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1,\"startDate\" : [ 2017,12,12],\"endDate\" : [2017,12,13]}"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 1,\"m\": \"SUCESS\",\"d\": {\"totalCount\": 1,\"pageCount\": 0,\"curPage\": 0,\"list\": [{\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"_ids$member\": {\"register\": 0,\"requester\": 0},\"Bbarcode\": 1,\"Bcompany\": 1,\"Bmanufacturer\": 1,\"bSanitation_permit\": [],\"cd\": \"PM0-POI0\",\"cd$category_product_master_configuration_type\": \"PMCT001\",\"cd$category_product_master_barcode_type\": \"\",\"cd$category_product_master_regist_type\": \"PMRT002\",\"cd$country\": \"KR\",\"cd$product_master\": \"PM0\",\"company_info\": [],\"date_delete\": [],\"date_info_release\": [],\"date_info_regist\": [2017,9,19,0,0,0],\"date_regist\": [2016,11,29,20,26,0],\"date_update\": [],\"description\": \"\",\"gtin\": \"8809492993812\",\"how_to_use\": \"\",\"how_to_keep\": \"\",\"kanclasscode\": \"03200802\",\"product_package_barcode\": [],\"manufacturer_info\": [],\"msds\": \"\",\"nm$brand_basic\": \"위드샨\",\"nm$product_master\": \"팬텀네일 10종 세트\",\"retail_price\": {\"cd$currency\": \"\",\"price\": -1,\"_id$currency\": -1},\"url\": \"\",\"url_file_barcode\": \"\",\"url_file_msds\": \"\",\"url_file_product\": [],\"url_file_sanitation_permit\": [],\"cd$scm\": \"\"}]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"cd$category_product_master_configuration_type\" : \"PMCT001\",\"cd$category_product_master_barcode_type\" : \"\",\"cd$category_product_master_regist_type\" : \"PMRT002\",\"cd$country\" : \"\",\"nm$brand_basic\" : \"위드샨\",\"nm$product_master\" : \"팬텀네일 10종 세트\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 4,
+        "type" : "product",
+        "nm" : "상품 리뉴얼 정보 리스트 호출",
+        "url" : "http://localhost:port/api_product/product_renewal_info/getList?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "검색조건",
+                "exampleValue" : "{\"listCount\" : 10,\"pageNum\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member.requester\" : 1,\"_ids$member.register\" : 0,\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1,\"startDate\" : [ 2017,12,12],\"endDate\" : [2017,12,13]}"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 1,\"m\": \"SUCESS\",\"d\": {\"totalCount\": 1,\"pageCount\": 0,\"curPage\": 0,\"list\": [{\"_id\": 0,\"_d\": 0,\"_id$brand_basic\": 0,\"nm$brand_basic\": \"파파레시피\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd$product_master\": \"PM-000000-000000\",\"nm$product_master\": \"비투링크\",\"cd$category_product_master_renewal_reason_type\": \"CPMRRT001\",\"nm$category_product_master_renewal_reason_type\": \"가격보호\",\"renewal_info\": {\"cd$product_master\": \"PM-000000-000000\",\"gtin\": \"8809465277116\",\"retail_price\": {\"cd$currency\": \"KRW\",\"price\": 7800,\"_id$currency\": 0},\"url_file_product\": [{\"_id\": 0,\"url\": \"BL01ESD01130004005.jpg\"}]},\"date_regist\": [2016,10,27,12,20,30],\"date_update\": [2016,10,27,12,20,30],\"date_delete\": []}]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"_id$brand_basic\" : 0,\"nm$brand_basic\" : \"파파레시피\",\"nm$product_master\" : \"비투링크\",\"cd$category_product_master_renewal_reason_type\" : \"CPMRRT001\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 5,
+        "type" : "product",
+        "nm" : "상품 규격 정보 리스트 호출",
+        "url" : "http://localhost:port/api_product/product_standard_info/getList?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "검색조건",
+                "exampleValue" : "{\"listCount\" : 10,\"pageNum\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member.requester\" : 1,\"_ids$member.register\" : 0,\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1,\"startDate\" : [ 2017,12,12],\"endDate\" : [2017,12,13]}"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 1,\"m\": \"SUCESS\",\"d\": {\"totalCount\": 1,\"pageCount\": 0,\"curPage\": 0,\"list\": [{\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0-PSI0\",\"cd$product_master\": \"PM0\",\"nm$product_master\": \"팬텀네일 10종 세트\",\"cbm\": \"\",\"Unit\": {\"countUOM\": \"\",\"count\": 0,\"inPack\": \"\"},\"height\": {\"countUOM\": \"CM\",\"count\": 1},\"width\": {\"countUOM\": \"CM\",\"count\": 1},\"depth\": {\"countUOM\": \"CM\",\"count\": 1},\"netWeight\": {\"countUOM\": \"G\",\"count\": 1},\"grossWeight\": {\"countUOM\": \"G\",\"count\": 1},\"packing_piece\": \"\",\"packing_unit\": \"\",\"packing_package\": \"\",\"packing_outbox\": \"\",\"product_standard\": \"\",\"date_regist\": [2017,12,12,18,35,0],\"date_update\": [],\"date_delete\": [],\"gtin\": \"8809492993812\"}]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"nm$product_master\" : \"팬텀네일 10종 세트\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 6,
+        "type" : "product",
+        "nm" : "상품정보 전체 호출 - cd",
+        "url" : "http://localhost:port/api_product/product_master/getProductAllInfoByCd?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd",
+                "type" : "String",
+                "description" : "product_master 의 Code",
+                "exampleValue" : "PM0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\" : 0,\"m\" : \"OK\",\"type\" : \"product_master\",\"data\" : {\"message\" : \"Succese\",\"d\" : {\"product_master\" : {\"_id\" : 0,\"_d\" : 1,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"cd\" : \"PM0\",\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1,\"cd$category_product_master_verification_type\" : \"PMVT001\",\"date_regist\" : [2017,12,12,18,30,0],\"date_update\" : [],\"date_delete\" : [],\"verify__1\" : 1,\"gtin\" : \"8809492993812\"},\"produt_option_info\" : {\"_id\" : 0,\"_d\" : 1,\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"Bbarcode\" : 1,\"Bcompany\" : 1,\"Bmanufacturer\" : 1,\"bSanitation_permit\" : [],\"cd\" : \"PM0-POI0\",\"cd$category_product_master_configuration_type\" : \"PMCT001\",\"cd$category_product_master_barcode_type\" : \"\",\"cd$category_product_master_regist_type\" : \"PMRT002\",\"cd$country\" : \"KR\",\"cd$product_master\" : \"PM0\",\"company_info\" : [],\"date_delete\" : [],\"date_info_release\" : [],\"date_info_regist\" : [2017,9,19,0,0,0],\"date_regist\" : [2016,11,29,20,26,0],\"date_update\" : [],\"description\" : \"\",\"gtin\" : \"8809492993812\",\"how_to_use\" : \"\",\"how_to_keep\" : \"\",\"kanclasscode\" : \"03200802\",\"product_package_barcode\" : [],\"manufacturer_info\" : [],\"msds\" : \"\",\"nm$brand_basic\" : \"위드샨\",\"nm$product_master\" : \"팬텀네일 10종 세트\",\"retail_price\" : {\"cd$currency\":\"\",\"price\":-1,\"_id$currency\":-1},\"url\" : \"\",\"url_file_barcode\" : \"\",\"url_file_msds\" : \"\",\"url_file_product\" : [],\"url_file_sanitation_permit\" : [],\"cd$scm\" : \"\"},\"product_renewal_info\" : null,\"product_standard_info\" : {\"_id\" : 0,\"_d\" : 1,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"cd\" : \"PM0-PSI0\",\"cd$product_master\" : \"PM0\",\"nm$product_master\" : \"팬텀네일 10종 세트\",\"cbm\" : \"\",\"Unit\" : {\"countUOM\" : \"\",\"count\" : 0,\"inPack\" : \"\"},\"height\" : {\"countUOM\" : \"CM\",\"count\" : 1},\"width\" : {\"countUOM\" : \"CM\",\"count\" : 1},\"depth\" : {\"countUOM\" : \"CM\",\"count\" : 1},\"netWeight\" : {\"countUOM\" : \"G\",\"count\" : 1},\"grossWeight\" : {\"countUOM\" : \"G\",\"count\" : 1},\"packing_piece\" : \"\",\"packing_unit\" : \"\",\"packing_package\" : \"\",\"packing_outbox\" : \"\",\"product_standard\" : \"\",\"date_regist\" : [2017,12,12,18,35,0],\"date_update\" : [],\"date_delete\" : [],\"gtin\" : \"8809492993812\"}}}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getProductAllInfoByCd?cd=PM0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 7,
+        "type" : "product",
+        "nm" : "상품마스터정보 호출 - cd",
+        "url" : "http://localhost:port/api_product/product_master/getProductMasterInfoByCd?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd",
+                "type" : "String",
+                "description" : "product_master 의 Code",
+                "exampleValue" : "PM0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getProductMasterInfoByCd?cd=PM0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 8,
+        "type" : "product",
+        "nm" : "상품마스터정보 호출 - _id",
+        "url" : "http://localhost:port/api_product/product_master/getProductMasterInfoById?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "_id",
+                "type" : "String",
+                "description" : "product_master 의 _id",
+                "exampleValue" : "0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getProductMasterInfoById?_id=0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 9,
+        "type" : "product",
+        "nm" : "상품 부가정보 호출 - cd",
+        "url" : "http://localhost:port/api_product/product_option_info/getProductOptionInfoByCd?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd",
+                "type" : "String",
+                "description" : "product_option_info 의 Code",
+                "exampleValue" : "PM0-POI0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getProductOptionInfoByCd?cd=PM1-POI1',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 10,
+        "type" : "product",
+        "nm" : "상품 부가정보 호출 - _id",
+        "url" : "http://localhost:port/api_product/product_option_info/getProductOptionInfoById?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "_id",
+                "type" : "String",
+                "description" : "product_option_info 의 _id",
+                "exampleValue" : "0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getProductOptionInfoById?_id=0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 11,
+        "type" : "product",
+        "nm" : "상품 부가정보 호출 - cd$product_master",
+        "url" : "http://localhost:port/api_product/product_option_info/getProductOptionInfoByProductMasterCD?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd$product_master",
+                "type" : "String",
+                "description" : "product_master 의 CD",
+                "exampleValue" : "PM0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getProductOptionInfoByProductMasterCD?cd$product_master=PM0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 12,
+        "type" : "product",
+        "nm" : "상품 규격정보 호출 - cd",
+        "url" : "http://localhost:port/api_product/product_standard_info/getProductOptionInfoByCd?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd",
+                "type" : "String",
+                "description" : "product_standard_info 의 Code",
+                "exampleValue" : ""
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getProductOptionInfoByCd?cd=PM1-POI1',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 13,
+        "type" : "product",
+        "nm" : "상품 규격 정보 호출 - _id",
+        "url" : "http://localhost:port/api_product/product_standard_info/getProductOptionInfoById?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "_id",
+                "type" : "String",
+                "description" : "product_standard_info의 _id",
+                "exampleValue" : "0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getProductOptionInfoById?_id=0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 14,
+        "type" : "product",
+        "nm" : "상품 규격 정보 호출 - cd$product_master",
+        "url" : "http://localhost:port/api_product/product_standard_info/getProductOptionInfoByProductMasterCD?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd$product_master",
+                "type" : "String",
+                "description" : "product_master 의 CD",
+                "exampleValue" : "PM0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getProductOptionInfoByProductMasterCD?cd$product_master=PM0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 15,
+        "type" : "product",
+        "nm" : "상품 리뉴얼 정보 호출 - cd",
+        "url" : "http://localhost:port/api_product/product_renewal_info/getProductOptionInfoByCd?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd",
+                "type" : "String",
+                "description" : "product_renewal_info의 Code",
+                "exampleValue" : "PM0-PSI0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getProductOptionInfoByCd?cd=PM1-POI1',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 16,
+        "type" : "product",
+        "nm" : "상품 리뉴얼 정보 호출 - _id",
+        "url" : "http://localhost:port/api_product/product_renewal_info/getProductOptionInfoById?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "_id",
+                "type" : "String",
+                "description" : "product_standard_info의 _id",
+                "exampleValue" : "0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getProductOptionInfoById?_id=0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 17,
+        "type" : "product",
+        "nm" : "상품 리뉴얼 정보 호출 - cd$product_master",
+        "url" : "http://localhost:port/api_product/product_renewal_info/getProductOptionInfoByProductMasterCD?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "cd$product_master",
+                "type" : "String",
+                "description" : "product_master 의 CD",
+                "exampleValue" : "PM0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"_id\": 0,\"_d\": 1,\"_id$brand_basic\": 1,\"nm$brand_basic\": \"위드샨\",\"_ids$member\": {\"register\": 0,\"requester\": 0},\"cd\": \"PM0\",\"nm\": \"팬텀네일 10종 세트\",\"Bbrand\": 1,\"cd$category_product_master_verification_type\": \"PMVT001\",\"date_regist\": [2017,12,12,18,30,0],\"date_update\": [],\"date_delete\": [],\"verify__1\": 1,\"gtin\": \"8809492993812\"}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getProductOptionInfoByProductMasterCD?cd$product_master=PM0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 18,
+        "type" : "brand",
+        "nm" : "브랜드리스트 호출",
+        "url" : "http://localhost:port/api_product/brand_basic/getList?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "검색조건",
+                "exampleValue" : "{\"listCount\" : 10 , \"pageNum\" : 0 , \"_ids$member.register\" : 0 , \"_ids$member.requester\" : 0 , \"cd$country\" : \"KR\" , \"nm\" : \"아\" , \"startDate\" : [2016,1,1] , \"endDate\" : [2017,12,31] }"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 0,\"m\": \"SUCCESS\",\"d\": {\"totalCount\": 1,\"pageCount\": 0,\"curPage\": 0,\"list\": [{\"_id\": 0,\"_ids$member\": {\"register\": 0,\"requester\": 0},\"_d\": 1,\"description\": \"\",\"description_cn\": \"\",\"description_kr\": \"\",\"description_us\": \"\",\"alias\": \"새디스트\",\"nm\": \"새디스트\",\"nm_cn\": \"赛蒂斯特\",\"nm_kr\": \"새디스트\",\"nm_us\": \"Sadyst\",\"date_regist\": [2017,12,12,18,21,0],\"url\": \"\",\"url_logo\": \"\",\"url_logo_original\": \"\",\"cd$country\": \"\",\"date_update\": [],\"date_delete\": []}]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic/getList?data={\"listCount\" : 10, \"pageNum\" : 0, \"_ids$member.register\" : 0, \"_ids$member.requester\" : 0, \"cd$country\" : \"\", \"nm\" : \"새디스트\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){ console.log( data ); })"
+    },
+    {
+        "_id" : 19,
+        "type" : "brand",
+        "nm" : "브랜드 등록,수정,삭제 요청",
+        "url" : "http://localhost:port/api_product/product_master_req/req?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "등록데이터",
+                "exampleValue" : "{\"cd$category_reqDoc_type\" : \"I\", \"doc\" : { \"_ids$member\" : { \"register\" : -1 , \"requester\" : 0 }, \"description\" : \"\", \"description_cn\" : \"\", \"description_kr\" : \"\", \"description_us\" : \"\", \"alias\" : \"새디스트\", \"nm\" : \"새디스트\", \"nm_cn\" : \"赛蒂斯特\", \"nm_kr\" : \"새디스트\", \"nm_us\" : \"Sadyst\", \"url\" : \"\", \"url_logo\" : \"\", \"url_logo_original\" : \"\", \"cd$country\" : \"\" } }"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\" :0, \"m\" : \"Success\", \"data\" : { \"_id\" : 7, \"_id$brand_basic\" : -1, \"_ids$member\" : { \"register\" : 0, \"modifier\" : -1 }, \"_d\" : 1, \"actionObject\" : { \"doc\" : { \"_id$member_public\" : 0, \"description\" : \"\", \"description_cn\" : \"\", \"description_kr\" : \"\", \"description_us\" : \"\", \"alias\" : \"새디스트\", \"nm\" : \"새디스트\", \"nm_cn\" : \"赛蒂斯特\", \"nm_kr\" : \"새디스트\", \"nm_us\" : \"Sadyst\", \"url\" : \"\", \"url_logo\" : \"\", \"url_logo_original\" : \"\", \"cd$country\" : \"\", \"_id$member_basic\" : 0 } }, \"SCODE\" : \"SYS0100\", \"cd$category_reqDoc_status\" : \"RDS001\", \"cd$category_reqDoc_type\" : \"I\", \"reject_reason\" : \"\", \"date_regist\" : [2017,12,12,13,0,30], \"date_update\" : [], \"date_delete\" : [] } }",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/req?data={\"cd$category_reqDoc_type\" : \"I\",\"doc\" : {\"_ids$member\" : {\"register\" : -1, \"requester\" : 0},\"description\" : \"\",\"description_cn\" : \"\",\"description_kr\" : \"\",\"description_us\" : \"\",\"alias\" : \"새디스트\",\"nm\" : \"새디스트\",\"nm_cn\" : \"赛蒂斯特\",\"nm_kr\" : \"새디스트\",\"nm_us\" : \"Sadyst\",\"url\" : \"\",\"url_logo\" : \"\",\"url_logo_original\" : \"\",\"cd$country\" : \"\"}}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 20,
+        "type" : "brand",
+        "nm" : "브랜드 등록,수정,삭제 요청 리스트 조회",
+        "url" : "http://localhost:port/api_product/product_master_req/getList?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "data",
+                "type" : "Object",
+                "description" : "검색조건",
+                "exampleValue" : "{\"listCount\" : 10 , \"pageNum\" : 0 , \"_ids$member.register\" : 0 , \"cd$category_reqDoc_status\" : \"RDS001\" , \"cd$category_reqDoc_type\" : \"I\" , \"SCODE\" : \"SYS0100\" , \"startDate\" : [2016,1,1] , \"endDate\" : [2017,12,31] }"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\": 1,\"m\": \"SUCCESS\",\"d\": {\"totalCount\": 1,\"pageCount\": 0,\"curPage\": 0,\"list\": [{\"_id\": 0,\"_id$brand_basic\": 0,\"_ids$member\": {\"register\": 0,\"requester\": -1},\"_d\": 1,\"actionObject\": {\"doc\": {\"_ids$member\": {\"register\": 0,\"requester\": -1},\"description\": \"\",\"description_cn\": \"\",\"description_kr\": \"\",\"description_us\": \"\",\"alias\": \"새디스트\",\"nm\": \"새디스트\",\"nm_cn\": \"赛蒂斯特\",\"nm_kr\": \"새디스트\",\"nm_us\": \"Sadyst\",\"url\": \"\",\"url_logo\": \"\",\"url_logo_original\": \"\",\"cd$country\": \"\"}},\"SCODE\": \"SYS0100\",\"cd$category_reqDoc_status\": \"RDS001\",\"cd$category_reqDoc_type\": \"I\",\"reject_reason\": \"\",\"date_regist\": [2017,12,13,18,31,32],\"date_update\": [],\"date_delete\": []}]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/getList?data={\"listCount\" : 10, \"pageNum\" : 0, \"_ids$member.requester\" : 0, \"cd$category_reqDoc_status\" : \"RDS001\", \"cd$category_reqDoc_type\" : \"I\", \"SCODE\" : \"SYS0100\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 21,
+        "type" : "brand",
+        "nm" : "브랜드 요청 정보 호출 - _id",
+        "url" : "http://localhost:port/api_product/product_master_req/getDocByID?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "_id",
+                "type" : "uint",
+                "description" : "해당 문서의 _id value",
+                "exampleValue" : "0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\" : 200,\"m\" : \"SUCCESS\",\"d\" : {\"_id\":3,\"_id$brand_basic\":-1,\"_ids$member\":{\"register\":0,\"modifier\":-1},\"_d\":1,\"actionObject\":{\"doc\":{\"_id$member_public\":0,\"description\":\"\",\"description_cn\":\"\",\"description_kr\":\"\",\"description_us\":\"\",\"alias\":\"새디스트\",\"nm\":\"새디스트\",\"nm_cn\":\"赛蒂斯特\",\"nm_kr\":\"새디스트\",\"nm_us\":\"Sadyst\",\"url\":\"\",\"url_logo\":\"\",\"url_logo_original\":\"\",\"cd$country\":\"\",\"_id$member_basic\":0}},\"SCODE\":\"SYS0100\",\"cd$category_reqDoc_status\":\"RDS001\",\"cd$category_reqDoc_type\":\"I\",\"reject_reason\":\"\",\"date_regist\":[2017,12,12,12,10,39],\"date_update\":[],\"date_delete\":[]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/getDocByID?_id=0',function( data ){console.log( data );})"
+    },
+    {
+        "_id" : 22,
+        "type" : "brand",
+        "nm" : "브랜드 정보 호출 - _id",
+        "url" : "http://localhost:port/api_brand/brand_basic/getDocByID?",
+        "method" : "GET",
+        "input" : [
+            {
+                "nm" : "sid",
+                "type" : "String",
+                "description" : "세션ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "mid",
+                "type" : "String",
+                "description" : "사용자ID",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "d_ex",
+                "type" : "String",
+                "description" : "세션만료 TimeStamp",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "SCODE",
+                "type" : "String",
+                "description" : "시스템코드",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "nCached",
+                "type" : "Number",
+                "description" : "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue" : ""
+            },
+            {
+                "nm" : "_id",
+                "type" : "uint",
+                "description" : "해당 문서의 _id value",
+                "exampleValue" : "0"
+            }
+        ],
+        "output" : [
+            {
+                "nm" : "r",
+                "type" : "unit",
+                "description" : "결과코드"
+            },
+            {
+                "nm" : "m",
+                "type" : "String",
+                "description" : "결과메시지"
+            },
+            {
+                "nm" : "d",
+                "type" : "Object",
+                "description" : "결과데이터"
+            }
+        ],
+        "result" : "{\"r\" : 200,\"m\" : \"SUCCESS\",\"d\" : {\"_id\":3,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"description\":\"\",\"description_cn\":\"\",\"description_kr\":\"\",\"description_us\":\"\",\"alias\":\"퓨어플러스\",\"nm\":\"퓨어플러스\",\"nm_cn\":\"PUREPLUS\",\"nm_kr\":\"퓨어플러스\",\"nm_us\":\"PUREPLUS\",\"date_regist\":[2017,12,12,18,21,0],\"url\":\"\",\"url_logo\":\"\",\"url_logo_original\":\"\",\"cd$country\":\"\",\"date_update\":[],\"date_delete\":[]}}",
+        "sampleCode" : "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/getDocByID?_id=0',function( data ){console.log( data );})"
+    }
+]
 var m = document.getElementById('m')
 
 var make_h_tag = function( text, attr ){
@@ -197,19 +1607,24 @@ var make_table_Object = function( arr0, data ){
 	return table;
 }
 
-var con0 = make_div( "", ["class","twelve wide column pad_t_50 pad_b_50"] )
-con0.appendChild( make_h_tag( data.type, 2 ))
-con0.appendChild( make_h_tag( data.nm, 1 ))
-con0.appendChild( make_h_tag( data.url, 2 ))
-con0.appendChild( make_h_tag( data.mrthod, 2 ))
-con0.appendChild( make_h_tag( "INPUT", 3 ))
-con0.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
-con0.appendChild( make_h_tag( "OUTPUT", 3 ))
-con0.appendChild( make_table( ["name","type","description"], data.output ))
-con0.appendChild( make_h_tag( "Result", 3 ))
-con0.appendChild( make_table_Object( ["result"], data.result ))
-con0.appendChild( make_h_tag( "Sample Code", 3 ))
-con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode ))
-//content.appendChild( make_div( "asdfasdfasdfasdf", null ))
-m.appendChild( con0 )
+for(var i = 0;i < data.length;++i){
+
+	var con0 = make_div( "", ["class","twelve wide column pad_t_50 pad_b_50"] )
+	con0.appendChild( make_h_tag( data[ i ].nm, 1 ))
+	con0.appendChild( make_h_tag( data[ i ].type, 4 ))
+	con0.appendChild( make_h_tag( "url : " + data[ i ].url, 3 ))
+	con0.appendChild( make_h_tag( "method : " + data[ i ].method, 4 ))
+	con0.appendChild( make_h_tag( "INPUT", 4 ))
+	con0.appendChild( make_table( ["name","type","description","exampleValue"], data[ i ].input ))
+	con0.appendChild( make_h_tag( "OUTPUT", 4 ))
+	con0.appendChild( make_table( ["name","type","description"], data[ i ].output ))
+	con0.appendChild( make_h_tag( "Result", 4 ))
+	con0.appendChild( make_table_Object( ["result"], data[ i ].result ))
+	con0.appendChild( make_h_tag( "Sample Code", 4 ))
+	con0.appendChild( make_table_String( ["sampleCode"], data[ i ].sampleCode ))
+
+	m.appendChild( con0 )
+
+}
+
 </script>
