@@ -1503,7 +1503,7 @@ var make_h_tag = function( text, tagOption, attr ){
 		var h = document.createElement( "h" + tagOption );
 	}
     if( attr != null ){
-        div.setAttribute(attr[0], attr[1]);
+        h.setAttribute(attr[0], attr[1]);
     }
 
 	h.appendChild(document.createTextNode( text ))
