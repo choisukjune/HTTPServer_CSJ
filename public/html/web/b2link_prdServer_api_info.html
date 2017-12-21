@@ -1529,16 +1529,17 @@ var make_table = function( arr0, arr1 ){
 	var table = document.createElement("table");
 	table.setAttribute("class", "ui compact celled small stackable table");
 	table.setAttribute("style", "border-radius : 0 !important;");
-	var thead = document.createElement("thead");
-
-	var tr = document.createElement("tr");
-	for(var i = 0;i < arr0.length;++i){
-		var th = document.createElement("th");
-		th.appendChild(document.createTextNode( arr0[i] ))
-		tr.appendChild( th )
-	}
-	thead.appendChild(tr);
-
+    if( arr0 != null ){
+        var thead = document.createElement("thead");
+    	var tr = document.createElement("tr");
+    	for(var i = 0;i < arr0.length;++i){
+    		var th = document.createElement("th");
+    		th.appendChild(document.createTextNode( arr0[i] ))
+    		tr.appendChild( th )
+    	}
+    	thead.appendChild(tr);
+        table.appendChild(thead)
+    }
 	var tbody = document.createElement("tbody");
 	for(var i = 0;i < arr1.length;++i){
 		var tr = document.createElement("tr");
@@ -1564,8 +1565,9 @@ var make_table = function( arr0, arr1 ){
 		}
 		tbody.appendChild(tr);
 	}
-	table.appendChild(thead)
+
 	table.appendChild(tbody)
+
 	return table;
 }
 
@@ -1573,16 +1575,18 @@ var make_table_String = function( arr0, data ){
 	var table = document.createElement("table");
 	table.setAttribute("class", "ui compact celled small stackable table");
 	table.setAttribute("style", "border-radius : 0 !important;");
-	var thead = document.createElement("thead");
-
-	var tr = document.createElement("tr");
-	for(var i = 0;i < arr0.length;++i){
-		var th = document.createElement("th");
-		th.appendChild(document.createTextNode( arr0[i] ))
-		tr.appendChild( th )
-	}
-	thead.appendChild(tr);
-	var tbody = document.createElement("tbody");
+    if( arr0 != null ){
+        var thead = document.createElement("thead");
+    	var tr = document.createElement("tr");
+    	for(var i = 0;i < arr0.length;++i){
+    		var th = document.createElement("th");
+    		th.appendChild(document.createTextNode( arr0[i] ))
+    		tr.appendChild( th )
+    	}
+    	thead.appendChild(tr);
+        table.appendChild(thead)
+    }
+    var tbody = document.createElement("tbody");
 
 	var tr = document.createElement("tr");
 	var td = document.createElement("td");
@@ -1592,7 +1596,6 @@ var make_table_String = function( arr0, data ){
 	tr.appendChild(td);
 
 	tbody.appendChild(tr);
-	table.appendChild(thead)
 	table.appendChild(tbody)
 	return table;
 }
@@ -1601,15 +1604,17 @@ var make_table_Object = function( arr0, data ){
 	var table = document.createElement("table");
 	table.setAttribute("class", "ui compact celled small stackable table");
 	table.setAttribute("style", "border-radius : 0 !important;");
-	var thead = document.createElement("thead");
-
-	var tr = document.createElement("tr");
-	for(var i = 0;i < arr0.length;++i){
-		var th = document.createElement("th");
-		th.appendChild(document.createTextNode( arr0[i] ))
-		tr.appendChild( th )
-	}
-	thead.appendChild(tr);
+    if( arr0 != null ){
+        var thead = document.createElement("thead");
+    	var tr = document.createElement("tr");
+    	for(var i = 0;i < arr0.length;++i){
+    		var th = document.createElement("th");
+    		th.appendChild(document.createTextNode( arr0[i] ))
+    		tr.appendChild( th )
+    	}
+    	thead.appendChild(tr);
+        table.appendChild(thead)
+    }
 	var tbody = document.createElement("tbody");
 
 	var tr = document.createElement("tr");
@@ -1625,7 +1630,6 @@ var make_table_Object = function( arr0, data ){
 	tr.appendChild(td);
 
 	tbody.appendChild(tr);
-	table.appendChild(thead)
 	table.appendChild(tbody)
 	return table;
 }
@@ -1679,13 +1683,13 @@ for(var i = 0;i < data.length;++i){
 	con0.appendChild( make_h_tag( "url : " + data[ i ].url, 3, null ))
 	con0.appendChild( make_h_tag( "method : " + data[ i ].method, 4, null ))
     con0.appendChild( make_h_tag( "Sample Code", 4, null ))
-    con0.appendChild( make_table_String( ["sampleCode"], data[ i ].sampleCode ))
+    con0.appendChild( make_table_String( null, data[ i ].sampleCode ))
 	con0.appendChild( make_h_tag( "INPUT", 4, null ))
 	con0.appendChild( make_table( ["name","type","description","exampleValue"], data[ i ].input ))
 	con0.appendChild( make_h_tag( "OUTPUT", 4, null ))
 	con0.appendChild( make_table( ["name","type","description"], data[ i ].output ))
 	con0.appendChild( make_h_tag( "Result", 4, null ))
-	con0.appendChild( make_table_Object( ["result"], data[ i ].result ))
+	con0.appendChild( make_table_Object( null, data[ i ].result ))
 
 	m.appendChild( con0 )
     m.appendChild( make_divider())
