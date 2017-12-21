@@ -97,13 +97,13 @@ var make_table = function( arr0, arr1 ){
 	var tbody = document.createElement("tbody");
 	for(var i = 0;i < arr1.length;++i){
 		var tr = document.createElement("tr");
-			for( var s in arr1[ j ] ){
+			for( var s in arr1[ i ] ){
 
 				var td = document.createElement("td");
 
-				if( arr1[ j ][ s ][ 0 ] == "{" ){
+				if( arr1[ i ][ s ][ 0 ] == "{" ){
 
-					var text = document.createTextNode( JSON.stringify( arr1[ j ][ s ], null, 4 ) )
+					var text = document.createTextNode( JSON.stringify( arr1[ i ][ s ], null, 4 ) )
 					var pre = document.createElement("pre");
 
 					pre.appendChild( text )
@@ -111,7 +111,7 @@ var make_table = function( arr0, arr1 ){
 					tr.appendChild(td);
 				}else{
 
-					var text = document.createTextNode( arr1[ j ][ s ] )
+					var text = document.createTextNode( arr1[ i ][ s ] )
 					td.appendChild( text )
 					tr.appendChild(td);
 				}
