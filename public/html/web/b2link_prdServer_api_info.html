@@ -4,7 +4,7 @@
 	<!-- contents -->
     <div class="four wide column pad_t_50 pad_b_50">
         <div class="four wide column">
-            <ol class="ui list" id="api_navi"></ol>
+            <ol class="ui list" id="api_navi" style="position : fixed;"></ol>
         </div>
     </div>
     <div class="ten wide column pad_t_50 pad_b_50" id="m">
@@ -1620,6 +1620,16 @@ var make_table_Object = function( arr0, data ){
 	return table;
 }
 
+var make_a_tag = function( text, href,attr ){
+	var a = document.createElement("a");
+    a.setAttribute("href", href);
+	if( attr != null ){
+		a.setAttribute(attr[0], attr[1]);
+	}
+	a.appendChild(document.createTextNode( text ))
+	return a
+}
+
 var make_span = function( text, attr ){
 	var span = document.createElement("span");
 	if( attr != null ){
@@ -1640,7 +1650,10 @@ var make_li = function( text, attr ){
 
     api_navi.appendChild( make_h_tag( "API List", 3 ))
 for(var i = 0;i < data.length;++i){
-    api_navi.appendChild( make_li( data[ i ].nm, null ))
+    var aaa = make_a_tag( data[ i ].nm, "#" + data[ i ].nm, null )
+    var bbb = make_li( data[ i ].nm, null )
+    bbb.appendChild( aaa )
+    api_navi.appendChild( bbb )
 
 	var con0 = make_div( "", ["class","ten wide column"] )
 	con0.appendChild( make_h_tag( data[ i ].nm, 1 ))
