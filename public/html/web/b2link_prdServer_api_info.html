@@ -74,7 +74,7 @@ var m = document.getElementById('m')
 
 var make_h_tag = function( text, attr ){
 
-	if( attr != null ){
+	if( attr == null ){
 		var h = document.createElement( "h4");
 	}else{
 		var h = document.createElement( "h" + attr );
@@ -198,16 +198,17 @@ var make_table_Object = function( arr0, data ){
 }
 
 var con0 = make_div( "", ["class","twelve wide column pad_t_50 pad_b_50"] )
+con0.appendChild( make_h_tag( data.type, 2 ))
 con0.appendChild( make_h_tag( data.nm, 1 ))
-con0.appendChild( make_h_tag( data.nm, 1 ))
-con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode ))
-con0.appendChild( make_h_tag( data.nm, 1 ))
+con0.appendChild( make_h_tag( data.url, 2 ))
+con0.appendChild( make_h_tag( data.mrthod, 2 ))
+con0.appendChild( make_h_tag( "INPUT", 3 ))
 con0.appendChild( make_table( ["name","type","description","exampleValue"], data.input ))
-con0.appendChild( make_h_tag( data.nm, 1 ))
+con0.appendChild( make_h_tag( "OUTPUT", 3 ))
 con0.appendChild( make_table( ["name","type","description"], data.output ))
-con0.appendChild( make_h_tag( data.nm, 1 ))
+con0.appendChild( make_h_tag( "Result", 3 ))
 con0.appendChild( make_table_Object( ["result"], data.result ))
-con0.appendChild( make_h_tag( data.nm, 1 ))
+con0.appendChild( make_h_tag( "Sample Code", 3 ))
 con0.appendChild( make_table_String( ["sampleCode"], data.sampleCode ))
 //content.appendChild( make_div( "asdfasdfasdfasdf", null ))
 m.appendChild( con0 )
