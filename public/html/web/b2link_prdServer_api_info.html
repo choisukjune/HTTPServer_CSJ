@@ -2,7 +2,9 @@
 <include>_header_info.html</include>
 <div class="ui centered grid" id="m">
 	<!-- contents -->
-    <div class="two wide column pad_b_50 pad_b_50" id="api_navi"></div>
+    <div class="two wide column pad_b_50 pad_b_50" id="api_navi">
+        <ol class="ui list" id="api_navi"></ol>
+    </div>
 	<!-- contents -->
 </div>
 <script>
@@ -1623,8 +1625,18 @@ var make_span = function( text, attr ){
 	return span
 }
 
+var make_li = function( text, attr ){
+	var li = document.createElement("li");
+	if( attr != null ){
+		li.setAttribute(attr[0], attr[1]);
+	}
+	li.appendChild(document.createTextNode( text ))
+	return li
+}
+
+    api_navi.appendChild( make_h_tag( "API List", 3 ))
 for(var i = 0;i < data.length;++i){
-    api_navi.appendChild( make_span( data[ i ].nm, null ))
+    api_navi.appendChild( make_li( data[ i ].nm, null ))
 
 	var con0 = make_div( "", ["class","twelve wide column"] )
 	con0.appendChild( make_h_tag( data[ i ].nm, 1 ))
