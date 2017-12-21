@@ -1495,13 +1495,17 @@ var make_divider = function(){
 	return div
 }
 
-var make_h_tag = function( text, attr ){
+var make_h_tag = function( text, tagOption, attr ){
 
-	if( attr == null ){
+	if( tagOption == null ){
 		var h = document.createElement( "h4");
 	}else{
-		var h = document.createElement( "h" + attr );
+		var h = document.createElement( "h" + tagOption );
 	}
+    if( attr != null ){
+        div.setAttribute(attr[0], attr[1]);
+    }
+
 	h.appendChild(document.createTextNode( text ))
 	return h
 }
@@ -1651,22 +1655,22 @@ var make_li = function( text, attr ){
     api_navi.appendChild( make_h_tag( "API List", 3 ))
 for(var i = 0;i < data.length;++i){
     var aaa = make_a_tag( data[ i ].nm, "#" + data[ i ].nm, null )
-    var bbb = make_li( data[ i ].nm, null )
+    var bbb = make_li( "", null )
     bbb.appendChild( aaa )
     api_navi.appendChild( bbb )
 
 	var con0 = make_div( "", ["class","ten wide column"] )
-	con0.appendChild( make_h_tag( data[ i ].nm, 1 ))
-	con0.appendChild( make_h_tag( data[ i ].type, 4 ))
-	con0.appendChild( make_h_tag( "url : " + data[ i ].url, 3 ))
-	con0.appendChild( make_h_tag( "method : " + data[ i ].method, 4 ))
-	con0.appendChild( make_h_tag( "INPUT", 4 ))
+	con0.appendChild( make_h_tag( data[ i ].nm, 1,[ "id", data[ i ].nm] ))
+	con0.appendChild( make_h_tag( data[ i ].type, 4, null ))
+	con0.appendChild( make_h_tag( "url : " + data[ i ].url, 3, null ))
+	con0.appendChild( make_h_tag( "method : " + data[ i ].method, 4, null ))
+	con0.appendChild( make_h_tag( "INPUT", 4, null ))
 	con0.appendChild( make_table( ["name","type","description","exampleValue"], data[ i ].input ))
-	con0.appendChild( make_h_tag( "OUTPUT", 4 ))
+	con0.appendChild( make_h_tag( "OUTPUT", 4, null ))
 	con0.appendChild( make_table( ["name","type","description"], data[ i ].output ))
-	con0.appendChild( make_h_tag( "Result", 4 ))
+	con0.appendChild( make_h_tag( "Result", 4, null ))
 	con0.appendChild( make_table_Object( ["result"], data[ i ].result ))
-	con0.appendChild( make_h_tag( "Sample Code", 4 ))
+	con0.appendChild( make_h_tag( "Sample Code", 4, null ))
 	con0.appendChild( make_table_String( ["sampleCode"], data[ i ].sampleCode ))
 	con0.appendChild( make_divider())
 
