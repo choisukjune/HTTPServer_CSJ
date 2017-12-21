@@ -1617,9 +1617,9 @@ var make_table_Object = function( arr0, data ){
 var make_span = function( text, attr ){
 	var span = document.createElement("span");
 	if( attr != null ){
-		div.setAttribute(attr[0], attr[1]);
+		span.setAttribute(attr[0], attr[1]);
 	}
-	div.appendChild(document.createTextNode( span ))
+	span.appendChild(document.createTextNode( text ))
 	return span
 }
 
