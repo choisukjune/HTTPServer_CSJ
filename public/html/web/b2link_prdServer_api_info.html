@@ -2,7 +2,7 @@
 <include>_header_info.html</include>
 <div class="ui centered grid" id="m">
 	<!-- contents -->
-    <div class="two wide column pad_b_50 pad_b_50" id="api_navi">
+    <div class="four wide column pad_b_50 pad_b_50" id="api_navi">
         <ol class="ui list" id="api_navi"></ol>
     </div>
 	<!-- contents -->
@@ -1638,7 +1638,7 @@ var make_li = function( text, attr ){
 for(var i = 0;i < data.length;++i){
     api_navi.appendChild( make_li( data[ i ].nm, null ))
 
-	var con0 = make_div( "", ["class","twelve wide column"] )
+	var con0 = make_div( "", ["class","ten wide column"] )
 	con0.appendChild( make_h_tag( data[ i ].nm, 1 ))
 	con0.appendChild( make_h_tag( data[ i ].type, 4 ))
 	con0.appendChild( make_h_tag( "url : " + data[ i ].url, 3 ))
