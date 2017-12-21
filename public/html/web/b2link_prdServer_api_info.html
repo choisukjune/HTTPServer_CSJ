@@ -103,7 +103,7 @@ var make_table = function( arr0, arr1 ){
 
 				if( arr1[ i ][ s ][ 0 ] == "{" ){
 					console.log( arr1[ i ][ s ] )
-					var text = document.createTextNode( JSON.stringify( arr1[ i ][ s ], null, 4 ) )
+					var text = document.createTextNode( JSON.stringify( JSON.parse( arr1[ i ][ s ] ), null, 4 ) )
 					var pre = document.createElement("pre");
 
 					pre.appendChild( text )
