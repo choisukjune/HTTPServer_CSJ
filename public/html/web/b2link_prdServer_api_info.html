@@ -1593,7 +1593,7 @@ var make_table_String = function( arr0, data ){
 
 	var text = document.createTextNode( data )
 	var pre = document.createElement("pre");
-
+    pre.setAttribute("style", "white-space: pre-wrap;")
 	pre.appendChild( text )
 	td.appendChild(pre);
 	tr.appendChild(td);
