@@ -1592,7 +1592,10 @@ var make_table_String = function( arr0, data ){
 	var td = document.createElement("td");
 
 	var text = document.createTextNode( data )
-	td.appendChild(text);
+	var pre = document.createElement("pre");
+
+	pre.appendChild( text )
+	td.appendChild(pre);
 	tr.appendChild(td);
 
 	tbody.appendChild(tr);
