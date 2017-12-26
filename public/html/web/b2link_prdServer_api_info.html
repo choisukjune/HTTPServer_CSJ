@@ -1489,213 +1489,29 @@ var data = [
 var m = document.getElementById('m')
 var api_navi = document.getElementById('api_navi')
 
-var make_divider = function(){
-	var div = document.createElement("div");
-	div.setAttribute("class", "ui section divider");
-	return div
-}
-
-var make_h_tag = function( text, tagOption, attr ){
-
-	if( tagOption == null ){
-		var h = document.createElement( "h4");
-	}else{
-		var h = document.createElement( "h" + tagOption );
-	}
-    if( attr != null ){
-        var i = 0,iLen = attr.length,io
-        for(;i<iLen;++i){
-            h.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
-        }
-    }
-
-	h.appendChild(document.createTextNode( text ))
-	return h
-}
-
-var make_div = function( text, attr ){
-	var div = document.createElement("div");
-	if( attr != null ){
-        var i = 0,iLen = attr.length,io
-        for(;i<iLen;++i){
-            div.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
-        }
-	}
-	div.appendChild(document.createTextNode( text ))
-	return div
-}
-
-var make_table = function( arr0, arr1 ){
-	var table = document.createElement("table");
-	table.setAttribute("class", "ui compact celled small stackable table");
-	table.setAttribute("style", "border-radius : 0 !important;");
-    if( arr0 != null ){
-        var thead = document.createElement("thead");
-    	var tr = document.createElement("tr");
-    	for(var i = 0;i < arr0.length;++i){
-    		var th = document.createElement("th");
-    		th.appendChild(document.createTextNode( arr0[i] ))
-    		tr.appendChild( th )
-    	}
-    	thead.appendChild(tr);
-        table.appendChild(thead)
-    }
-	var tbody = document.createElement("tbody");
-	for(var i = 0;i < arr1.length;++i){
-		var tr = document.createElement("tr");
-			for( var s in arr1[ i ] ){
-
-				var td = document.createElement("td");
-
-				if( arr1[ i ][ s ][ 0 ] == "{" ){
-					console.log( arr1[ i ][ s ] )
-					var text = document.createTextNode( JSON.stringify( JSON.parse( arr1[ i ][ s ] ), null, 4 ) )
-					var pre = document.createElement("pre");
-
-					pre.appendChild( text )
-					td.appendChild(pre);
-					tr.appendChild(td);
-				}else{
-
-					var text = document.createTextNode( arr1[ i ][ s ] )
-					td.appendChild( text )
-					tr.appendChild(td);
-				}
-
-		}
-		tbody.appendChild(tr);
-	}
-
-	table.appendChild(tbody)
-
-	return table;
-}
-
-var make_table_String = function( arr0, data ){
-	var table = document.createElement("table");
-	table.setAttribute("class", "ui compact celled small stackable table");
-	table.setAttribute("style", "border-radius : 0 !important;");
-    if( arr0 != null ){
-        var thead = document.createElement("thead");
-    	var tr = document.createElement("tr");
-    	for(var i = 0;i < arr0.length;++i){
-    		var th = document.createElement("th");
-    		th.appendChild(document.createTextNode( arr0[i] ))
-    		tr.appendChild( th )
-    	}
-    	thead.appendChild(tr);
-        table.appendChild(thead)
-    }
-    var tbody = document.createElement("tbody");
-
-	var tr = document.createElement("tr");
-	var td = document.createElement("td");
-
-	var text = document.createTextNode( data )
-	var pre = document.createElement("pre");
-    pre.setAttribute("style", "white-space: pre-wrap;")
-	pre.appendChild( text )
-	td.appendChild(pre);
-	tr.appendChild(td);
-
-	tbody.appendChild(tr);
-	table.appendChild(tbody)
-	return table;
-}
-
-var make_table_Object = function( arr0, data ){
-	var table = document.createElement("table");
-	table.setAttribute("class", "ui compact celled small stackable table");
-	table.setAttribute("style", "border-radius : 0 !important;");
-    if( arr0 != null ){
-        var thead = document.createElement("thead");
-    	var tr = document.createElement("tr");
-    	for(var i = 0;i < arr0.length;++i){
-    		var th = document.createElement("th");
-    		th.appendChild(document.createTextNode( arr0[i] ))
-    		tr.appendChild( th )
-    	}
-    	thead.appendChild(tr);
-        table.appendChild(thead)
-    }
-	var tbody = document.createElement("tbody");
-
-	var tr = document.createElement("tr");
-	var td = document.createElement("td");
-	var __temp = data;
-
-	var __temp = JSON.stringify( JSON.parse( data ), null, 4 )
-	var text = document.createTextNode( __temp )
-	var pre = document.createElement("pre");
-
-	pre.appendChild( text )
-	td.appendChild(pre);
-	tr.appendChild(td);
-
-	tbody.appendChild(tr);
-	table.appendChild(tbody)
-	return table;
-}
-
-var make_a_tag = function( text, href,attr ){
-	var a = document.createElement("a");
-    a.setAttribute("href", href);
-	if( attr != null ){
-        var i = 0,iLen = attr.length,io
-        for(;i<iLen;++i){
-            a.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
-        }
-	}
-	a.appendChild(document.createTextNode( text ))
-	return a
-}
-
-var make_span = function( text, attr ){
-	var span = document.createElement("span");
-	if( attr != null ){
-        var i = 0,iLen = attr.length,io
-        for(;i<iLen;++i){
-            span.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
-        }
-	}
-	span.appendChild(document.createTextNode( text ))
-	return span
-}
-
-var make_li = function( text, attr ){
-	var li = document.createElement("li");
-	if( attr != null ){
-        for(;i<iLen;++i){
-            li.setAttribute( attr[ i ][ 0 ], attr[ i ][ 1 ]);
-        }
-	}
-	li.appendChild(document.createTextNode( text ))
-	return li
-}
-
-    api_navi.appendChild( make_h_tag( "API List", 3 ))
+    api_navi.appendChild( window.service.render.h( "API List", 3 ))
 for(var i = 0;i < data.length;++i){
-    var aaa = make_a_tag( data[ i ].nm, "#" + data[ i ].nm, null )
-    var bbb = make_li( "", null )
+    var aaa = window.service.render.a( data[ i ].nm, "#" + data[ i ].nm, null )
+    var bbb = window.service.render.li( "", null )
     bbb.appendChild( aaa )
     api_navi.appendChild( bbb )
 
-	var con0 = make_div( "", [["class","ten wide column"]] )
-	con0.appendChild( make_h_tag( data[ i ].nm, 1,[["id", data[ i ].nm],["style","padding-top : 40px;"]] ))
-	con0.appendChild( make_h_tag( data[ i ].type, 4, null ))
-	con0.appendChild( make_h_tag( "url : " + data[ i ].url, 3, null ))
-	con0.appendChild( make_h_tag( "method : " + data[ i ].method, 4, null ))
-    con0.appendChild( make_h_tag( "Sample Code", 4, null ))
-    con0.appendChild( make_table_String( null, data[ i ].sampleCode ))
-	con0.appendChild( make_h_tag( "INPUT", 4, null ))
-	con0.appendChild( make_table( ["name","type","description","exampleValue"], data[ i ].input ))
-	con0.appendChild( make_h_tag( "OUTPUT", 4, null ))
-	con0.appendChild( make_table( ["name","type","description"], data[ i ].output ))
-	con0.appendChild( make_h_tag( "Result", 4, null ))
-	con0.appendChild( make_table_Object( null, data[ i ].result ))
+	var con0 = window.service.render.div( "", [["class","ten wide column"]] )
+	con0.appendChild( window.service.render.h( data[ i ].nm, 1,[["id", data[ i ].nm],["style","padding-top : 40px;"]] ))
+	con0.appendChild( window.service.render.h( data[ i ].type, 4, null ))
+	con0.appendChild( window.service.render.h( "url : " + data[ i ].url, 3, null ))
+	con0.appendChild( window.service.render.h( "method : " + data[ i ].method, 4, null ))
+    con0.appendChild( window.service.render.h( "Sample Code", 4, null ))
+    con0.appendChild( window.service.render.table_String( null, data[ i ].sampleCode ))
+	con0.appendChild( window.service.render.h( "INPUT", 4, null ))
+	con0.appendChild( window.service.render.table( ["name","type","description","exampleValue"], data[ i ].input ))
+	con0.appendChild( window.service.render.h( "OUTPUT", 4, null ))
+	con0.appendChild( window.service.render.table( ["name","type","description"], data[ i ].output ))
+	con0.appendChild( window.service.render.h( "Result", 4, null ))
+	con0.appendChild( window.service.render.table_Object( null, data[ i ].result ))
 
 	m.appendChild( con0 )
-    m.appendChild( make_divider())
+    m.appendChild( window.service.render.divider() )
 
 }
 
