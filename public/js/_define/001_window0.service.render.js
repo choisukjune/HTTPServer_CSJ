@@ -47,7 +47,7 @@ window.service.render.h = function( text, tagOption, attr ){
 /**
 *
 */
-window.service.render.make_div = function( text, attr ){
+window.service.render.div = function( text, attr ){
 	var div = document.createElement("div");
 	if( attr != null ){
         var i = 0,iLen = attr.length,io
@@ -62,7 +62,7 @@ window.service.render.make_div = function( text, attr ){
 /**
 *
 */
-window.service.render.make_table = function( arr0, arr1 ){
+window.service.render.table = function( arr0, arr1 ){
 	var table = document.createElement("table");
 	table.setAttribute("class", "ui compact celled small stackable table");
 	table.setAttribute("style", "border-radius : 0 !important;");
