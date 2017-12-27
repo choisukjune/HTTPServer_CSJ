@@ -16,8 +16,8 @@ var data = [
     {
         "_id": 0,
         "type": "product",
-        "nm": "상품정보 등록,수정,삭제 요청",
-        "url": "http://localhost:port/api_product/product_master_req/req?",
+        "nm": "상품정보 등록 요청",
+        "url": "http://localhost:port/api_product/product_master_req/req_insert?",
         "method": "GET",
         "input": [
             {
@@ -54,7 +54,7 @@ var data = [
                 "nm": "data",
                 "type": "Object",
                 "description": "등록데이터",
-                "exampleValue": "{\"_id\" : 0,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc$product_master\" : {},\"doc$product_option_info\" : {},\"doc$product_standard_info\" : {},\"doc$product_renewal_info\" : {}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,12,18,30,0],\"date_update\" : [],\"date_delete\" : []}"
+                "exampleValue": "{\"_id\" : 0,\"_ids$member\" : {\"register\" : -1,\"requester\" : 0},\"_d\" : 1,\"actionObject\" : {\"doc$product_master\" : {},\"doc$product_option_info\" : {},\"doc$product_standard_info\" : {},\"doc$product_renewal_info\" : {}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"reject_reason\" : \"\",\"date_regist\" : [2017,12,12,18,30,0],\"date_update\" : [],\"date_delete\" : []}"
             }
         ],
         "output": [
@@ -75,10 +75,138 @@ var data = [
             }
         ],
         "result": "{\"r\" : 0,\"m\" : \"SUCCESS\",\"d\" : {\"_id\":6,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"actionObject\":{\"doc$product_option_info\":{\"_id\":0,\"_d\":1,\"_id$brand_basic\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"Bbarcode\":1,\"Bcompany\":1,\"Bmanufacturer\":1,\"bSanitation_permit\":[],\"cd\":\"PM0-POI0\",\"cd$category_product_master_configuration_type\":\"PMCT001\",\"cd$category_product_master_barcode_type\":\"\",\"cd$category_product_master_regist_type\":\"PMRT002\",\"cd$country\":\"KR\",\"cd$product_master\":\"PM0\",\"cd$category_product_depth_000\":\"CP000\",\"cd$category_product_depth_001\":\"CP000001\",\"cd$category_product_depth_002\":\"CP000001001\",\"cd$category_product_depth_003\":\"CP000001001004\",\"nm$category_product_depth_000\":\"뷰티\",\"nm$category_product_depth_001\":\"메이크업\",\"nm$category_product_depth_002\":\"아이 메이크업\",\"nm$category_product_depth_003\":\"아이쉐도우\",\"company_info\":[{\"_id$partner_supplier\":3023,\"nm\":\"더헤어스토리\",\"company_registration_number\":\"\",\"gln\":\"8809589110016\"}],\"date_info_release\":[],\"date_info_regist\":[2017,9,19,0,0,0],\"date_regist\":[2017,12,12,12,12,12],\"date_update\":[],\"date_delete\":[],\"description\":\"\",\"gtin\":\"8809492993812\",\"how_to_use\":\"\",\"how_to_keep\":\"\",\"kanclasscode\":\"03200802\",\"product_package_barcode\":[],\"manufacturer_info\":[{\"_id$partner_supplier\":3024,\"nm\":\"메이브라운\",\"company_registration_number\":\"\",\"gln\":\"8809589760013\"}],\"msds\":\"\",\"nm$brand_basic\":\"위드샨\",\"nm$product_master\":\"팬텀네일 10종 세트\",\"retail_price\":{\"cd$currency\":\"\",\"price\":-1,\"_id$currency\":-1},\"url\":\"\",\"url_file_barcode\":\"\",\"url_file_msds\":\"\",\"url_file_product\":[],\"url_file_sanitation_permit\":[],\"cd$scm\":\"\"},\"doc$product_master\":{},\"doc$product_standard_info\":{},\"doc$product_renewal_info\":{}},\"SCODE\":\"SYS0100\",\"cd$category_reqDoc_status\":\"RDS001\",\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI002\",\"reject_reason\":\"\",\"date_regist\":[2017,12,12,12,12,12],\"date_update\":[],\"date_delete\":[]}}",
-        "sampleCode": "-----product_master-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"actionObject\" : {\"doc$product_master\" : 	{\"_id\" : -1,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"cd\" : \"PM0\",\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1,\"date_regist\" : [2017,12,12,12,12,12],\"date_update\" : [],\"date_delete\" : []}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"date_regist\" : [2017,12,12,12,12,12],\"date_update\" : [],\"date_delete\" : []}',function( data ){console.log( data );})\n\n-----product_option_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"actionObject\" : {\"doc$product_option_info\" : 	{\"_id\" : 0,\"_id$brand_basic\" : 1,\"_ids$member\" : {\"register\" : 0,\"requester\" : 0 },\"bSanitation_permit\" : [],\"cd\" : \"PM0-POI0\",\"cd$category_product_master_configuration_type\" : \"PMCT001\",\"cd$category_product_master_barcode_type\" : \"\",\"cd$category_product_master_regist_type\" : \"PMRT002\",\"cd$category_tax_included\" : \"TIC000\",\"cd$country\" : \"KR\",\"cd$product_master\" : \"PM0\",\"cd$category_product_depth_000\": \"CP000\",\"cd$category_product_depth_001\": \"CP000001\",\"cd$category_product_depth_002\": \"CP000001001\",\"cd$category_product_depth_003\": \"CP000001001004\",\"nm$category_product_depth_000\": \"뷰티\",\"nm$category_product_depth_001\": \"메이크업\",\"nm$category_product_depth_002\": \"아이 메이크업\",\"nm$category_product_depth_003\": \"아이쉐도우\",\"company_info\" : [{\"_id$partner_supplier\" : 3023,\"nm\" : \"더헤어스토리\",\"company_registration_number\" : \"\",\"gln\" : \"8809589110016\"}],\"date_info_release\" : [],\"date_info_regist\" : [2017, 9, 19, 0, 0, 0],\"date_regist\" : [2017,12,12,12,12,12],\"date_update\" : [],\"date_delete\" : [],\"description\" : \"\",\"gtin\" : \"8809492993812\",\"how_to_use\" : \"\",\"how_to_keep\" : \"\",\"kanclasscode\" : \"03200802\",\"product_package_barcode\" : [],\"manufacturer_info\" : [{\"_id$partner_supplier\" : 3024,\"nm\" : \"메이브라운\",\"company_registration_number\" : \"\",\"gln\" : \"8809589760013\"}],\"msds\" : \"\",\"nm$brand_basic\" : \"위드샨\",\"nm$product_master\" : \"팬텀네일 10종 세트\",\"retail_price\" : {\"cd$currency\" : \"\",\"price\" : -1,\"_id$currency\" : -1},\"url\" : \"\",\"url_file_barcode\" : \"\",\"url_file_msds\" : \"\",\"url_file_product\" : [],\"url_file_sanitation_permit\" : [],\"cd$scm\" : \"\"}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI002\",\"date_regist\" : [2017,12,12,12,12,12],\"date_update\" : [],\"date_delete\" : []}',function( data ){console.log( data );})\n\n-----product_standard_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"actionObject\" : {\"doc$product_standard_info\" : {\"_id\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"cd\" : \"PM0-PSI0\",\"cd$product_master\" : \"PM0\",\"nm$product_master\" : \"팬텀네일 10종 세트\",\"cbm\" : \"\",\"Unit\" : {\"countUOM\" : \"\",\"count\" : 0.0,\"inPack\" : \"\"},\"height\" : {\"countUOM\" : \"CM\",\"count\" : 1.0},\"width\" : {\"countUOM\" : \"CM\",\"count\" : 1.0},\"depth\" : {\"countUOM\" : \"CM\",\"count\" : 1.0},\"netWeight\" : {\"countUOM\" : \"G\",\"count\" : 1.0},\"grossWeight\" : {\"countUOM\" : \"G\",\"count\" : 1.0},\"capacity\" : {\"countUOM\" : \"\",\"count\" : -1},\"packing_piece\" : \"\",\"packing_unit\" : \"\",\"packing_package\" : \"\",\"packing_outbox\" : \"\",\"product_standard\" : \"\",\"date_regist\" : [ 2017, 12, 6, 19, 7, 0],\"date_update\" : [],\"date_delete\" : [],}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI003\",\"date_regist\" : [2017,12,12,12,12,12],\"date_update\" : [],\"date_delete\" : []}',function( data ){console.log( data );})\n\n-----product_renewal_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req?data={\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"actionObject\" : {\"doc$product_renewal_info\" : {\"_id\" : 0,\"_d\" : 1,\"_id$brand_basic\" : 0,\"nm$brand_basic\" : \"파파레시피\",\"_ids$member\" : {\"register\" : 0,\"requester\" : 0},\"cd\" : \"PM0-PRI0\",\"cd$category_product_master_renewal_reason_type\" : \"CPMRRT001\",\"nm$category_product_master_renewal_reason_type\" : \"가격보호\",\"info_before_renewal\" : {\"cd$product_master\" : \"PM0\",\"gtin\" : \"8809465277116\",\"nm$product_master\" : \"상품명1\",\"retail_price\" : {\"cd$currency\" : \"KRW\",\"price\" : 7800.0,\"_id$currency\" : 0},\"url_file_product\" : [{\"_id\" : 0,\"url\" : \"BL01ESD01130004005.jpg\"}]},\"info_after_renewal_change\" : {\"cd$product_master\" : \"PM0\",\"gtin\" : \"8809465277116\",\"nm$product_master\" : \"상품명1\",\"retail_price\" : {\"cd$currency\" : \"KRW\",\"price\" : 7800.0,\"_id$currency\" : 0},\"url_file_product\" : [{\"_id\" : 0,\"url\" : \"BL01ESD01130004005.jpg\"}]},\"date_regist\" : [2016, 10, 27, 12, 20, 30],\"date_update\" : [],\"date_delete\" : []}},\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI004\",\"date_regist\" : [2017,12,12,12,12,12],\"date_update\" : [],\"date_delete\" : []}',function( data ){console.log( data );})\n\n"
+        "sampleCode": "*-----product_master-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_insert?data={"_ids$member" : {"register" : 0,"requester" : 0},"actionObject" : {"doc$product_master" : {"_id" : -1,"_id$brand_basic" : 1,"nm$brand_basic" : "위드샨","_ids$member" : {"register" : 0,"requester" : 0},"cd" : "PM0","nm" : "팬텀네일 10종 세트","Bbrand" : 1,"date_regist" : [2017,12,12,12,12,12],"date_update" : [],"date_delete" : []}},"SCODE" : "SYS0100","cd$category_reqDoc_type" : "I","cd$category_product_collection_info" : "CIPI001","date_regist" : [2017,12,12,12,12,12],"date_update" : [],"date_delete" : []}',function( data ){console.log( data );})\n\n-----product_option_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_insert?data={"_ids$member" : {"register" : 0,"requester" : 0},"actionObject" : {"doc$product_option_info" : {"_id" : 0,"_id$brand_basic" : 1,"_ids$member" : {"register" : 0,"requester" : 0 },"bSanitation_permit" : [],"cd" : "PM0-POI0","cd$category_product_master_configuration_type" : "PMCT001","cd$category_product_master_barcode_type" : "","cd$category_product_master_regist_type" : "PMRT002","cd$category_tax_included" : "TIC000","cd$country" : "KR","cd$product_master" : "PM0","cd$category_product_depth_000": "CP000","cd$category_product_depth_001": "CP000001","cd$category_product_depth_002": "CP000001001","cd$category_product_depth_003": "CP000001001004","nm$category_product_depth_000": "뷰티","nm$category_product_depth_001": "메이크업","nm$category_product_depth_002": "아이 메이크업","nm$category_product_depth_003": "아이쉐도우","company_info" : [{"_id$partner_supplier" : 3023,"nm" : "더헤어스토리","company_registration_number" : "","gln" : "8809589110016"}],"date_info_release" : [],"date_info_regist" : [2017, 9, 19, 0, 0, 0],"date_regist" : [2017,12,12,12,12,12],"date_update" : [],"date_delete" : [],"description" : "","gtin" : "8809492993812","how_to_use" : "","how_to_keep" : "","kanclasscode" : "03200802","product_package_barcode" : [],"manufacturer_info" : [{"_id$partner_supplier" : 3024,"nm" : "메이브라운","company_registration_number" : "","gln" : "8809589760013"}],"msds" : "","nm$brand_basic" : "위드샨","nm$product_master" : "팬텀네일 10종 세트","retail_price" : {"cd$currency" : "","price" : -1,"_id$currency" : -1},"url" : "","url_file_barcode" : "","url_file_msds" : "","url_file_product" : [],"url_file_sanitation_permit" : [],"cd$scm" : ""}},"SCODE" : "SYS0100","cd$category_reqDoc_type" : "I","cd$category_product_collection_info" : "CIPI002","date_regist" : [2017,12,12,12,12,12],"date_update" : [],"date_delete" : []}',function( data ){console.log( data );})\n\n-----product_standard_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_insert?data={"_ids$member" : {"register" : 0,"requester" : 0},"actionObject" : {"doc$product_standard_info" : {"_id" : 0,"_id$brand_basic" : 1,"nm$brand_basic" : "위드샨","_ids$member" : {"register" : 0,"requester" : 0},"cd" : "PM0-PSI0","cd$product_master" : "PM0","nm$product_master" : "팬텀네일 10종 세트","cbm" : "","Unit" : {"countUOM" : "","count" : 0.0,"inPack" : ""},"height" : {"countUOM" : "CM","count" : 1.0},"width" : {"countUOM" : "CM","count" : 1.0},"depth" : {"countUOM" : "CM","count" : 1.0},"netWeight" : {"countUOM" : "G","count" : 1.0},"grossWeight" : {"countUOM" : "G","count" : 1.0},"capacity" : {"countUOM" : "","count" : -1},"packing_piece" : "","packing_unit" : "","packing_package" : "","packing_outbox" : "","product_standard" : "","date_regist" : [ 2017, 12, 6, 19, 7, 0],"date_update" : [],"date_delete" : [],}},"SCODE" : "SYS0100","cd$category_reqDoc_type" : "I","cd$category_product_collection_info" : "CIPI003","date_regist" : [2017,12,12,12,12,12],"date_update" : [],"date_delete" : []}',function( data ){console.log( data );})\n\n-----product_renewal_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_insert?data={"_ids$member" : {"register" : 0,"requester" : 0},,"actionObject" : {"doc$product_renewal_info" : {"_id" : 0,"_d" : 1,"_id$brand_basic" : 0,"nm$brand_basic" : "파파레시피","_ids$member" : {"register" : 0,"requester" : 0},"cd" : "PM0-PRI0","cd$category_product_master_renewal_reason_type" : "CPMRRT001","nm$category_product_master_renewal_reason_type" : "가격보호","info_before_renewal" : {"cd$product_master" : "PM0","gtin" : "8809465277116","nm$product_master" : "상품명1","retail_price" : {"cd$currency" : "KRW","price" : 7800.0,"_id$currency" : 0},"url_file_product" : [{"_id" : 0,"url" : "BL01ESD01130004005.jpg"}]},"info_after_renewal_change" : {"cd$product_master" : "PM0","gtin" : "8809465277116","nm$product_master" : "상품명1","retail_price" : {"cd$currency" : "KRW","price" : 7800.0,"_id$currency" : 0},"url_file_product" : [{"_id" : 0,"url" : "BL01ESD01130004005.jpg"}]},"date_regist" : [2016, 10, 27, 12, 20, 30],"date_update" : [],"date_delete" : []}},"SCODE" : "SYS0100","cd$category_reqDoc_type" : "I","cd$category_product_collection_info" : "CIPI004","date_regist" : [2017,12,12,12,12,12],"date_update" : [],"date_delete" : []}',function( data ){console.log( data );})\n\n"
     },
-    {
+	{
         "_id": 1,
+        "type": "product",
+        "nm": "상품정보 수정 요청",
+        "url": "http://localhost:port/api_product/product_master_req/req_update?",
+        "method": "GET",
+        "input": [
+            {
+                "nm": "sid",
+                "type": "String",
+                "description": "세션ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "mid",
+                "type": "String",
+                "description": "사용자ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "d_ex",
+                "type": "String",
+                "description": "세션만료 TimeStamp",
+                "exampleValue": ""
+            },
+            {
+                "nm": "SCODE",
+                "type": "String",
+                "description": "시스템코드",
+                "exampleValue": ""
+            },
+            {
+                "nm": "nCached",
+                "type": "Number",
+                "description": "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue": ""
+            },
+            {
+                "nm": "data",
+                "type": "Object",
+                "description": "등록데이터",
+                "exampleValue": "{\"_ids$member\" : {\"register\" : 0,\"requester\" : 0}, \"actionObject\" : { \"doc$product_master\" : 	{ \"cd\" : \"PM0\",\"updateObject\" : {\"nm\" : \"팬텀네일 100종 세트\" } } }, \"cd$category_reqDoc_type\" : \"U\", \"cd$category_product_collection_info\" : \"CIPI001\"}"
+            }
+        ],
+        "output": [
+            {
+                "nm": "r",
+                "type": "unit",
+                "description": "결과코드"
+            },
+            {
+                "nm": "m",
+                "type": "String",
+                "description": "결과메시지"
+            },
+            {
+                "nm": "d",
+                "type": "Object",
+                "description": "결과데이터"
+            }
+        ],
+        "result": "{\"r\" : 0,\"m\" : \"SUCCESS\",\"d\" : {\"_id\":6,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"actionObject\":{\"doc$product_option_info\":{\"_id\":0,\"_d\":1,\"_id$brand_basic\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"Bbarcode\":1,\"Bcompany\":1,\"Bmanufacturer\":1,\"bSanitation_permit\":[],\"cd\":\"PM0-POI0\",\"cd$category_product_master_configuration_type\":\"PMCT001\",\"cd$category_product_master_barcode_type\":\"\",\"cd$category_product_master_regist_type\":\"PMRT002\",\"cd$country\":\"KR\",\"cd$product_master\":\"PM0\",\"cd$category_product_depth_000\":\"CP000\",\"cd$category_product_depth_001\":\"CP000001\",\"cd$category_product_depth_002\":\"CP000001001\",\"cd$category_product_depth_003\":\"CP000001001004\",\"nm$category_product_depth_000\":\"뷰티\",\"nm$category_product_depth_001\":\"메이크업\",\"nm$category_product_depth_002\":\"아이 메이크업\",\"nm$category_product_depth_003\":\"아이쉐도우\",\"company_info\":[{\"_id$partner_supplier\":3023,\"nm\":\"더헤어스토리\",\"company_registration_number\":\"\",\"gln\":\"8809589110016\"}],\"date_info_release\":[],\"date_info_regist\":[2017,9,19,0,0,0],\"date_regist\":[2017,12,12,12,12,12],\"date_update\":[],\"date_delete\":[],\"description\":\"\",\"gtin\":\"8809492993812\",\"how_to_use\":\"\",\"how_to_keep\":\"\",\"kanclasscode\":\"03200802\",\"product_package_barcode\":[],\"manufacturer_info\":[{\"_id$partner_supplier\":3024,\"nm\":\"메이브라운\",\"company_registration_number\":\"\",\"gln\":\"8809589760013\"}],\"msds\":\"\",\"nm$brand_basic\":\"위드샨\",\"nm$product_master\":\"팬텀네일 10종 세트\",\"retail_price\":{\"cd$currency\":\"\",\"price\":-1,\"_id$currency\":-1},\"url\":\"\",\"url_file_barcode\":\"\",\"url_file_msds\":\"\",\"url_file_product\":[],\"url_file_sanitation_permit\":[],\"cd$scm\":\"\"},\"doc$product_master\":{},\"doc$product_standard_info\":{},\"doc$product_renewal_info\":{}},\"SCODE\":\"SYS0100\",\"cd$category_reqDoc_status\":\"RDS001\",\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI002\",\"reject_reason\":\"\",\"date_regist\":[2017,12,12,12,12,12],\"date_update\":[],\"date_delete\":[]}}",
+        "sampleCode": "-----product_master-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_update?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_master" : { "cd" : "PM0","updateObject" : {"nm" : "팬텀네일 100종 세트" } } }, "cd$category_reqDoc_type" : "U", "cd$category_product_collection_info" : "CIPI001"}',function( data ){console.log( data );})\n\n-----product_option_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_update?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_option_info" : 	{ "cd" : "PM0-POI0","updateObject" : {"cd$country" : "팬텀네일 100종 세트" } } }, "cd$category_reqDoc_type" : "U",, "cd$category_product_collection_info" : "CIPI002"}',function( data ){console.log( data );})\n\n-----product_standard_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_update?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_standard_info" : { "cd" : "PM0-PSI0","updateObject" : {"packing_package" : "123" } } }, "cd$category_reqDoc_type" : "U", "cd$category_product_collection_info" : "CIPI003"}',function( data ){console.log( data );})\n\n-----product_renewal_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_update?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_renewal_info" : { "cd" : "PM0-PRI0"	,"updateObject" : {"cd$category_product_master_renewal_reason_type" : "CPMRRT001","nm$category_product_master_renewal_reason_type" : "가격보호" } } }, "cd$category_reqDoc_type" : "U", "cd$category_product_collection_info" : "CIPI004",}',function( data ){console.log( data );})\n\n"
+    },
+	{
+        "_id": 2,
+        "type": "product",
+        "nm": "상품정보 삭제 요청",
+        "url": "http://localhost:port/api_product/product_master_req/req_delete?",
+        "method": "GET",
+        "input": [
+            {
+                "nm": "sid",
+                "type": "String",
+                "description": "세션ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "mid",
+                "type": "String",
+                "description": "사용자ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "d_ex",
+                "type": "String",
+                "description": "세션만료 TimeStamp",
+                "exampleValue": ""
+            },
+            {
+                "nm": "SCODE",
+                "type": "String",
+                "description": "시스템코드",
+                "exampleValue": ""
+            },
+            {
+                "nm": "nCached",
+                "type": "Number",
+                "description": "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue": ""
+            },
+            {
+                "nm": "data",
+                "type": "Object",
+                "description": "등록데이터",
+                "exampleValue": "{\"_ids$member\" : {\"register\" : 0,\"requester\" : 60}, \"actionObject\" : { \"doc$product_master\" : { \"cd\" : \"PM0\" } }, \"cd$category_reqDoc_type\" : \"D\", \"cd$category_product_collection_info\" : \"CIPI001\"}"
+            }
+        ],
+        "output": [
+            {
+                "nm": "r",
+                "type": "unit",
+                "description": "결과코드"
+            },
+            {
+                "nm": "m",
+                "type": "String",
+                "description": "결과메시지"
+            },
+            {
+                "nm": "d",
+                "type": "Object",
+                "description": "결과데이터"
+            }
+        ],
+        "result": "{\"r\" : 0,\"m\" : \"SUCCESS\",\"d\" : {\"_id\":6,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"actionObject\":{\"doc$product_option_info\":{\"_id\":0,\"_d\":1,\"_id$brand_basic\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"Bbarcode\":1,\"Bcompany\":1,\"Bmanufacturer\":1,\"bSanitation_permit\":[],\"cd\":\"PM0-POI0\",\"cd$category_product_master_configuration_type\":\"PMCT001\",\"cd$category_product_master_barcode_type\":\"\",\"cd$category_product_master_regist_type\":\"PMRT002\",\"cd$country\":\"KR\",\"cd$product_master\":\"PM0\",\"cd$category_product_depth_000\":\"CP000\",\"cd$category_product_depth_001\":\"CP000001\",\"cd$category_product_depth_002\":\"CP000001001\",\"cd$category_product_depth_003\":\"CP000001001004\",\"nm$category_product_depth_000\":\"뷰티\",\"nm$category_product_depth_001\":\"메이크업\",\"nm$category_product_depth_002\":\"아이 메이크업\",\"nm$category_product_depth_003\":\"아이쉐도우\",\"company_info\":[{\"_id$partner_supplier\":3023,\"nm\":\"더헤어스토리\",\"company_registration_number\":\"\",\"gln\":\"8809589110016\"}],\"date_info_release\":[],\"date_info_regist\":[2017,9,19,0,0,0],\"date_regist\":[2017,12,12,12,12,12],\"date_update\":[],\"date_delete\":[],\"description\":\"\",\"gtin\":\"8809492993812\",\"how_to_use\":\"\",\"how_to_keep\":\"\",\"kanclasscode\":\"03200802\",\"product_package_barcode\":[],\"manufacturer_info\":[{\"_id$partner_supplier\":3024,\"nm\":\"메이브라운\",\"company_registration_number\":\"\",\"gln\":\"8809589760013\"}],\"msds\":\"\",\"nm$brand_basic\":\"위드샨\",\"nm$product_master\":\"팬텀네일 10종 세트\",\"retail_price\":{\"cd$currency\":\"\",\"price\":-1,\"_id$currency\":-1},\"url\":\"\",\"url_file_barcode\":\"\",\"url_file_msds\":\"\",\"url_file_product\":[],\"url_file_sanitation_permit\":[],\"cd$scm\":\"\"},\"doc$product_master\":{},\"doc$product_standard_info\":{},\"doc$product_renewal_info\":{}},\"SCODE\":\"SYS0100\",\"cd$category_reqDoc_status\":\"RDS001\",\"cd$category_reqDoc_type\":\"I\",\"cd$category_product_collection_info\":\"CIPI002\",\"reject_reason\":\"\",\"date_regist\":[2017,12,12,12,12,12],\"date_update\":[],\"date_delete\":[]}}",
+        "sampleCode": "-----product_master-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_delete?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_master" : 	{ "cd" : "PM0" } }, "cd$category_reqDoc_type" : "D", "cd$category_product_collection_info" : "CIPI001"}',function( data ){console.log( data );})\n\n-----product_option_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_delete?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_option_info" : 	{ "cd" : "PM0-POI0" } }, "cd$category_reqDoc_type" : "D", "cd$category_product_collection_info" : "CIPI002"}',function( data ){console.log( data );})\n\n-----product_standart_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_delete?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_standard_info" : { "cd" : "PM0-PSI0" } }, "cd$category_reqDoc_type" : "D", "cd$category_product_collection_info" : "CIPI003"}',function( data ){console.log( data );})\n\n-----product_renewal_info-----\n\nwindow.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/req_delete?data={"_ids$member" : {"register" : 0,"requester" : 60}, "actionObject" : { "doc$product_renewal_info" : { "cd" : "PM0-PRI0" } }, "cd$category_reqDoc_type" : "D", "cd$category_product_collection_info" : "CIPI004"}',function( data ){console.log( data );})\n\n"
+	},
+    {
+        "_id": 3,
         "type": "product",
         "nm": "상품정보 등록,수정,삭제 요청 리스트 호출",
         "url": "http://localhost:port/api_product/product_master_req/getList?",
@@ -142,7 +270,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master_req/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"SCODE\" : \"SYS0100\",\"cd$category_reqDoc_status\" : \"RDS001\",\"cd$category_reqDoc_type\" : \"I\",\"cd$category_product_collection_info\" : \"CIPI001\",\"cd$target_doc\" : \"\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
     },
     {
-        "_id": 2,
+        "_id": 4,
         "type": "product",
         "nm": "상품마스터정보 리스트 호출",
         "url": "http://localhost:port/api_product/product_master/getList?",
@@ -206,7 +334,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"nm\" : \"팬텀네일 10종 세트\",\"Bbrand\" : 1, \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
     },
     {
-        "_id": 3,
+        "_id": 5,
         "type": "product",
         "nm": "상품 부가정보 리스트 호출",
         "url": "http://localhost:port/api_product/product_option/getList?",
@@ -270,7 +398,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"cd$category_product_master_configuration_type\" : \"PMCT001\",\"cd$category_product_master_barcode_type\" : \"\",\"cd$category_product_master_regist_type\" : \"PMRT002\",\"cd$country\" : \"\",\"nm$brand_basic\" : \"위드샨\",\"nm$product_master\" : \"팬텀네일 10종 세트\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
     },
     {
-        "_id": 4,
+        "_id": 6,
         "type": "product",
         "nm": "상품 리뉴얼 정보 리스트 호출",
         "url": "http://localhost:port/api_product/product_renewal_info/getList?",
@@ -334,7 +462,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"_id$brand_basic\" : 0,\"nm$brand_basic\" : \"파파레시피\",\"nm$product_master\" : \"비투링크\",\"cd$category_product_master_renewal_reason_type\" : \"CPMRRT001\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
     },
     {
-        "_id": 5,
+        "_id": 7,
         "type": "product",
         "nm": "상품 규격 정보 리스트 호출",
         "url": "http://localhost:port/api_product/product_standard_info/getList?",
@@ -398,7 +526,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getList?data={\"listCount\" : 10,\"pageNum\" : 0,\"_ids$member.requester\" : 0,\"_ids$member.register\" : 0,\"_id$brand_basic\" : 1,\"nm$brand_basic\" : \"위드샨\",\"nm$product_master\" : \"팬텀네일 10종 세트\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
     },
     {
-        "_id": 6,
+        "_id": 8,
         "type": "product",
         "nm": "상품정보 전체 호출 - cd",
         "url": "http://localhost:port/api_product/product_master/getProductAllInfoByCd?",
@@ -462,7 +590,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getProductAllInfoByCd?cd=PM0',function( data ){console.log( data );})"
     },
     {
-        "_id": 7,
+        "_id": 9,
         "type": "product",
         "nm": "상품마스터정보 호출 - cd",
         "url": "http://localhost:port/api_product/product_master/getProductMasterInfoByCd?",
@@ -526,7 +654,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getProductMasterInfoByCd?cd=PM0',function( data ){console.log( data );})"
     },
     {
-        "_id": 8,
+        "_id": 10,
         "type": "product",
         "nm": "상품마스터정보 호출 - _id",
         "url": "http://localhost:port/api_product/product_master/getProductMasterInfoById?",
@@ -590,7 +718,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getProductMasterInfoById?_id=0',function( data ){console.log( data );})"
     },
     {
-        "_id": 9,
+        "_id": 11,
         "type": "product",
         "nm": "상품 부가정보 호출 - cd",
         "url": "http://localhost:port/api_product/product_option_info/getProductOptionInfoByCd?",
@@ -654,7 +782,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getProductOptionInfoByCd?cd=PM1-POI1',function( data ){console.log( data );})"
     },
     {
-        "_id": 10,
+        "_id": 12,
         "type": "product",
         "nm": "상품 부가정보 호출 - _id",
         "url": "http://localhost:port/api_product/product_option_info/getProductOptionInfoById?",
@@ -718,7 +846,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getProductOptionInfoById?_id=0',function( data ){console.log( data );})"
     },
     {
-        "_id": 11,
+        "_id": 13,
         "type": "product",
         "nm": "상품 부가정보 호출 - cd$product_master",
         "url": "http://localhost:port/api_product/product_option_info/getProductOptionInfoByProductMasterCD?",
@@ -782,7 +910,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_option_info/getProductOptionInfoByProductMasterCD?cd$product_master=PM0',function( data ){console.log( data );})"
     },
     {
-        "_id": 12,
+        "_id": 14,
         "type": "product",
         "nm": "상품 규격정보 호출 - cd",
         "url": "http://localhost:port/api_product/product_standard_info/getProductOptionInfoByCd?",
@@ -846,7 +974,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getProductOptionInfoByCd?cd=PM1-POI1',function( data ){console.log( data );})"
     },
     {
-        "_id": 13,
+        "_id": 15,
         "type": "product",
         "nm": "상품 규격 정보 호출 - _id",
         "url": "http://localhost:port/api_product/product_standard_info/getProductOptionInfoById?",
@@ -910,7 +1038,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getProductOptionInfoById?_id=0',function( data ){console.log( data );})"
     },
     {
-        "_id": 14,
+        "_id": 16,
         "type": "product",
         "nm": "상품 규격 정보 호출 - cd$product_master",
         "url": "http://localhost:port/api_product/product_standard_info/getProductOptionInfoByProductMasterCD?",
@@ -974,7 +1102,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_standard_info/getProductOptionInfoByProductMasterCD?cd$product_master=PM0',function( data ){console.log( data );})"
     },
     {
-        "_id": 15,
+        "_id": 17,
         "type": "product",
         "nm": "상품 리뉴얼 정보 호출 - cd",
         "url": "http://localhost:port/api_product/product_renewal_info/getProductOptionInfoByCd?",
@@ -1038,7 +1166,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getProductOptionInfoByCd?cd=PM1-POI1',function( data ){console.log( data );})"
     },
     {
-        "_id": 16,
+        "_id": 18,
         "type": "product",
         "nm": "상품 리뉴얼 정보 호출 - _id",
         "url": "http://localhost:port/api_product/product_renewal_info/getProductOptionInfoById?",
@@ -1102,7 +1230,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getProductOptionInfoById?_id=0',function( data ){console.log( data );})"
     },
     {
-        "_id": 17,
+        "_id": 19,
         "type": "product",
         "nm": "상품 리뉴얼 정보 호출 - cd$product_master",
         "url": "http://localhost:port/api_product/product_renewal_info/getProductOptionInfoByProductMasterCD?",
@@ -1166,7 +1294,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_renewal_info/getProductOptionInfoByProductMasterCD?cd$product_master=PM0',function( data ){console.log( data );})"
     },
     {
-        "_id": 18,
+        "_id": 20,
         "type": "brand",
         "nm": "브랜드리스트 호출",
         "url": "http://localhost:port/api_product/brand_basic/getList?",
@@ -1230,7 +1358,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic/getList?data={\"listCount\" : 10, \"pageNum\" : 0, \"_ids$member.register\" : 0, \"_ids$member.requester\" : 0, \"cd$country\" : \"\", \"nm\" : \"새디스트\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){ console.log( data ); })"
     },
     {
-        "_id": 19,
+        "_id": 21,
         "type": "brand",
         "nm": "브랜드 등록,수정,삭제 요청",
         "url": "http://localhost:port/api_product/product_master_req/req?",
@@ -1294,7 +1422,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/req?data={\"cd$category_reqDoc_type\" : \"I\",\"doc\" : {\"_ids$member\" : {\"register\" : -1, \"requester\" : 0},\"description\" : \"\",\"description_cn\" : \"\",\"description_kr\" : \"\",\"description_us\" : \"\",\"alias\" : \"새디스트\",\"nm\" : \"새디스트\",\"nm_cn\" : \"赛蒂斯特\",\"nm_kr\" : \"새디스트\",\"nm_us\" : \"Sadyst\",\"url\" : \"\",\"url_logo\" : \"\",\"url_logo_original\" : \"\",\"cd$country\" : \"\"}}',function( data ){console.log( data );})"
     },
     {
-        "_id": 20,
+        "_id": 22,
         "type": "brand",
         "nm": "브랜드 등록,수정,삭제 요청 리스트 조회",
         "url": "http://localhost:port/api_product/product_master_req/getList?",
@@ -1358,7 +1486,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/getList?data={\"listCount\" : 10, \"pageNum\" : 0, \"_ids$member.requester\" : 0, \"cd$category_reqDoc_status\" : \"RDS001\", \"cd$category_reqDoc_type\" : \"I\", \"SCODE\" : \"SYS0100\", \"startDate\" : [2016,1,1], \"endDate\" : [2017,12,31]}',function( data ){console.log( data );})"
     },
     {
-        "_id": 21,
+        "_id": 23,
         "type": "brand",
         "nm": "브랜드 요청 정보 호출 - _id",
         "url": "http://localhost:port/api_product/product_master_req/getDocByID?",
@@ -1422,7 +1550,7 @@ var data = [
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/getDocByID?_id=0',function( data ){console.log( data );})"
     },
     {
-        "_id": 22,
+        "_id": 24,
         "type": "brand",
         "nm": "브랜드 정보 호출 - _id",
         "url": "http://localhost:port/api_brand/brand_basic/getDocByID?",
