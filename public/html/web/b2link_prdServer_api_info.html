@@ -1676,6 +1676,134 @@ var data = [
         ],
         "result": "{\"r\" : 200,\"m\" : \"SUCCESS\",\"d\" : {\"_id\":3,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"description\":\"\",\"description_cn\":\"\",\"description_kr\":\"\",\"description_us\":\"\",\"alias\":\"퓨어플러스\",\"nm\":\"퓨어플러스\",\"nm_cn\":\"PUREPLUS\",\"nm_kr\":\"퓨어플러스\",\"nm_us\":\"PUREPLUS\",\"date_regist\":[2017,12,12,18,21,0],\"url\":\"\",\"url_logo\":\"\",\"url_logo_original\":\"\",\"cd$country\":\"\",\"date_update\":[],\"date_delete\":[]}}",
         "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic_req/getDocByID?_id=0',function( data ){console.log( data );})"
+    },
+    {
+        "_id": 26,
+        "type": "brand",
+        "nm": "브랜드 정보 호출  - 배열 _id",
+        "url": "http://localhost:port/api_brand/brand_basic/getBrandBasicInfoFromArray_id?",
+        "method": "GET",
+        "input": [
+            {
+                "nm": "sid",
+                "type": "String",
+                "description": "세션ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "mid",
+                "type": "String",
+                "description": "사용자ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "d_ex",
+                "type": "String",
+                "description": "세션만료 TimeStamp",
+                "exampleValue": ""
+            },
+            {
+                "nm": "SCODE",
+                "type": "String",
+                "description": "시스템코드",
+                "exampleValue": ""
+            },
+            {
+                "nm": "nCached",
+                "type": "Number",
+                "description": "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue": ""
+            },
+            {
+                "nm": "_ids",
+                "type": "Array",
+                "description": "조회하고자하는 문서들의 배열 -- _id",
+                "exampleValue": "[0,1,2]"
+            }
+        ],
+        "output": [
+            {
+                "nm": "r",
+                "type": "unit",
+                "description": "결과코드"
+            },
+            {
+                "nm": "m",
+                "type": "String",
+                "description": "결과메시지"
+            },
+            {
+                "nm": "d",
+                "type": "Object",
+                "description": "결과데이터"
+            }
+        ],
+        "result": "{\"1\":{\"_id\":1,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"description\":\"\",\"description_cn\":\"\",\"description_kr\":\"\",\"description_us\":\"\",\"alias\":\"위드샨\",\"nm\":\"위드샨\",\"nm_cn\":\"羽之善\",\"nm_kr\":\"위드샨\",\"nm_us\":\"with shyan\",\"date_regist\":[2017,12,12,18,21,0],\"url\":\"\",\"url_logo\":\"\",\"url_logo_original\":\"\",\"cd$country\":\"\",\"date_update\":[],\"date_delete\":[]},\"2\":{\"_id\":2,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"description\":\"\",\"description_cn\":\"\",\"description_kr\":\"\",\"description_us\":\"\",\"alias\":\"맥퀸\",\"nm\":\"맥퀸뉴욕\",\"nm_cn\":\"MACQUEEN\",\"nm_kr\":\"맥퀸\",\"nm_us\":\"MACQUEEN\",\"date_regist\":[2017,12,12,18,21,0],\"url\":\"www.macqueenmall.co.kr\",\"url_logo\":\"53_맥퀸_logo_thumbnail.jpg\",\"url_logo_original\":\"53_맥퀸_logo.jpg\",\"cd$country\":\"KR\",\"date_update\":[],\"date_delete\":[]},\"3\":{\"_id\":3,\"_ids$member\":{\"register\":0,\"requester\":0},\"_d\":1,\"description\":\"\",\"description_cn\":\"\",\"description_kr\":\"\",\"description_us\":\"\",\"alias\":\"퓨어플러스\",\"nm\":\"퓨어플러스\",\"nm_cn\":\"PUREPLUS\",\"nm_kr\":\"퓨어플러스\",\"nm_us\":\"PUREPLUS\",\"date_regist\":[2017,12,12,18,21,0],\"url\":\"\",\"url_logo\":\"\",\"url_logo_original\":\"\",\"cd$country\":\"\",\"date_update\":[],\"date_delete\":[]}}",
+        "sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_brand/brand_basic/getBrandBasicInfoFromArray_id?_ids=[0,1,2]',function( data ){console.log( data );})"
+    },
+    {
+        "_id": 27,
+        "type": "product",
+        "nm": "싱픔 정보 호출  - 배열 cd",
+        "url": "http://localhost:port/api_product/product_master/getBrandBasicInfoFromArray_id?",
+        "method": "GET",
+        "input": [
+            {
+                "nm": "sid",
+                "type": "String",
+                "description": "세션ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "mid",
+                "type": "String",
+                "description": "사용자ID",
+                "exampleValue": ""
+            },
+            {
+                "nm": "d_ex",
+                "type": "String",
+                "description": "세션만료 TimeStamp",
+                "exampleValue": ""
+            },
+            {
+                "nm": "SCODE",
+                "type": "String",
+                "description": "시스템코드",
+                "exampleValue": ""
+            },
+            {
+                "nm": "nCached",
+                "type": "Number",
+                "description": "브라우저 캐쉬 방지(신경쓸필요없음)",
+                "exampleValue": ""
+            },
+            {
+                "nm": "cds",
+                "type": "Array",
+                "description": "조회하고자하는 문서들의 배열 -- cd",
+                "exampleValue": "[ \"PM1125\",\"PM1124\",\"PM1123\" ]"
+            }
+        ],
+        "output": [
+            {
+                "nm": "r",
+                "type": "unit",
+                "description": "결과코드"
+            },
+            {
+                "nm": "m",
+                "type": "String",
+                "description": "결과메시지"
+            },
+            {
+                "nm": "d",
+                "type": "Object",
+                "description": "결과데이터"
+            }
+        ],
+        "result": "{\"PM1125\":{\"product_master\":{\"_id\":1125,\"_d\":1,\"_id$brand_basic\":19,\"nm$brand_basic\":\"메디힐\",\"_ids$member\":{\"register\":0,\"requester\":0},\"cd\":\"PM1125\",\"nm\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [라이트 감마] 5매입\",\"Bbrand\":1,\"cd$category_product_master_verification_type\":\"PMVT001\",\"date_regist\":[2017,12,12,18,30,0],\"date_update\":[],\"date_delete\":[],\"verify__1\":1,\"gtin\":\"8809470127383\"},\"product_option_info\":{\"_id\":1125,\"_d\":1,\"_id$brand_basic\":19,\"_ids$member\":{\"register\":0,\"requester\":0},\"Bbarcode\":1,\"Bcompany\":1,\"Bmanufacturer\":1,\"bSanitation_permit\":[],\"cd\":\"PM1125-POI1125\",\"cd$category_product_master_configuration_type\":\"PMCT002\",\"cd$category_product_master_barcode_type\":\"\",\"cd$category_product_master_regist_type\":\"PMRT002\",\"cd$country\":\"KR\",\"cd$product_master\":\"PM1125\",\"company_info\":[],\"date_delete\":[],\"date_info_release\":[],\"date_info_regist\":[2017,10,12,0,0,0],\"date_regist\":[2016,11,29,20,26,0],\"date_update\":[],\"description\":\"\",\"gtin\":\"8809470127383\",\"how_to_use\":\"\",\"how_to_keep\":\"\",\"kanclasscode\":\"03209999\",\"product_package_barcode\":[\"8809470125846\"],\"manufacturer_info\":[],\"msds\":\"\",\"nm$brand_basic\":\"메디힐\",\"nm$product_master\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [라이트 감마] 5매입\",\"retail_price\":{\"cd$currency\":\"\",\"price\":-1,\"_id$currency\":-1},\"url\":\"\",\"url_file_barcode\":\"\",\"url_file_msds\":\"\",\"url_file_product\":[],\"url_file_sanitation_permit\":[],\"cd$scm\":\"\"},\"product_renewal_info\":null,\"product_standard_info\":{\"_id\":1125,\"_d\":1,\"_id$brand_basic\":19,\"nm$brand_basic\":\"메디힐\",\"_ids$member\":{\"register\":0,\"requester\":0},\"cd\":\"PM1125-PSI1125\",\"cd$product_master\":\"PM1125\",\"nm$product_master\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [라이트 감마] 5매입\",\"cbm\":\"\",\"Unit\":{\"countUOM\":\"\",\"count\":0,\"inPack\":\"\"},\"height\":{\"countUOM\":\"CM\",\"count\":10},\"width\":{\"countUOM\":\"CM\",\"count\":10},\"depth\":{\"countUOM\":\"CM\",\"count\":10},\"netWeight\":{\"countUOM\":\"G\",\"count\":27},\"grossWeight\":{\"countUOM\":\"G\",\"count\":27},\"capacity\":{\"countUOM\":\"\",\"count\":-1},\"packing_piece\":\"\",\"packing_unit\":\"\",\"packing_package\":\"\",\"packing_outbox\":\"\",\"product_standard\":\"\",\"date_regist\":[2017,12,6,19,7,0],\"date_update\":[],\"date_delete\":[],\"gtin\":\"8809470127383\"}},\"PM1124\":{\"product_master\":{\"_id\":1124,\"_d\":1,\"_id$brand_basic\":19,\"nm$brand_basic\":\"메디힐\",\"_ids$member\":{\"register\":0,\"requester\":0},\"cd\":\"PM1124\",\"nm\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [하이드로 베타] 5매입\",\"Bbrand\":1,\"cd$category_product_master_verification_type\":\"PMVT001\",\"date_regist\":[2017,12,12,18,30,0],\"date_update\":[],\"date_delete\":[],\"verify__1\":1,\"gtin\":\"8809470127376\"},\"product_option_info\":{\"_id\":1124,\"_d\":1,\"_id$brand_basic\":19,\"_ids$member\":{\"register\":0,\"requester\":0},\"Bbarcode\":1,\"Bcompany\":1,\"Bmanufacturer\":1,\"bSanitation_permit\":[],\"cd\":\"PM1124-POI1124\",\"cd$category_product_master_configuration_type\":\"PMCT002\",\"cd$category_product_master_barcode_type\":\"\",\"cd$category_product_master_regist_type\":\"PMRT002\",\"cd$country\":\"KR\",\"cd$product_master\":\"PM1124\",\"company_info\":[],\"date_delete\":[],\"date_info_release\":[],\"date_info_regist\":[2017,10,12,0,0,0],\"date_regist\":[2016,11,29,20,26,0],\"date_update\":[],\"description\":\"\",\"gtin\":\"8809470127376\",\"how_to_use\":\"\",\"how_to_keep\":\"\",\"kanclasscode\":\"03209999\",\"product_package_barcode\":[\"8809470125860\"],\"manufacturer_info\":[],\"msds\":\"\",\"nm$brand_basic\":\"메디힐\",\"nm$product_master\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [하이드로 베타] 5매입\",\"retail_price\":{\"cd$currency\":\"\",\"price\":-1,\"_id$currency\":-1},\"url\":\"\",\"url_file_barcode\":\"\",\"url_file_msds\":\"\",\"url_file_product\":[],\"url_file_sanitation_permit\":[],\"cd$scm\":\"\"},\"product_renewal_info\":null,\"product_standard_info\":{\"_id\":1124,\"_d\":1,\"_id$brand_basic\":19,\"nm$brand_basic\":\"메디힐\",\"_ids$member\":{\"register\":0,\"requester\":0},\"cd\":\"PM1124-PSI1124\",\"cd$product_master\":\"PM1124\",\"nm$product_master\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [하이드로 베타] 5매입\",\"cbm\":\"\",\"Unit\":{\"countUOM\":\"\",\"count\":0,\"inPack\":\"\"},\"height\":{\"countUOM\":\"CM\",\"count\":10},\"width\":{\"countUOM\":\"CM\",\"count\":10},\"depth\":{\"countUOM\":\"CM\",\"count\":10},\"netWeight\":{\"countUOM\":\"G\",\"count\":27},\"grossWeight\":{\"countUOM\":\"G\",\"count\":27},\"capacity\":{\"countUOM\":\"\",\"count\":-1},\"packing_piece\":\"\",\"packing_unit\":\"\",\"packing_package\":\"\",\"packing_outbox\":\"\",\"product_standard\":\"\",\"date_regist\":[2017,12,6,19,7,0],\"date_update\":[],\"date_delete\":[],\"gtin\":\"8809470127376\"}},\"PM1123\":{\"product_master\":{\"_id\":1123,\"_d\":1,\"_id$brand_basic\":19,\"nm$brand_basic\":\"메디힐\",\"_ids$member\":{\"register\":0,\"requester\":0},\"cd\":\"PM1123\",\"nm\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [클리어 알파] 5매입\",\"Bbrand\":1,\"cd$category_product_master_verification_type\":\"PMVT001\",\"date_regist\":[2017,12,12,18,30,0],\"date_update\":[],\"date_delete\":[],\"verify__1\":1,\"gtin\":\"8809470127369\"},\"product_option_info\":{\"_id\":1123,\"_d\":1,\"_id$brand_basic\":19,\"_ids$member\":{\"register\":0,\"requester\":0},\"Bbarcode\":1,\"Bcompany\":1,\"Bmanufacturer\":1,\"bSanitation_permit\":[],\"cd\":\"PM1123-POI1123\",\"cd$category_product_master_configuration_type\":\"PMCT002\",\"cd$category_product_master_barcode_type\":\"\",\"cd$category_product_master_regist_type\":\"PMRT002\",\"cd$country\":\"KR\",\"cd$product_master\":\"PM1123\",\"company_info\":[],\"date_delete\":[],\"date_info_release\":[],\"date_info_regist\":[2017,10,12,0,0,0],\"date_regist\":[2016,11,29,20,26,0],\"date_update\":[],\"description\":\"\",\"gtin\":\"8809470127369\",\"how_to_use\":\"\",\"how_to_keep\":\"\",\"kanclasscode\":\"03209999\",\"product_package_barcode\":[\"8809470125846\"],\"manufacturer_info\":[],\"msds\":\"\",\"nm$brand_basic\":\"메디힐\",\"nm$product_master\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [클리어 알파] 5매입\",\"retail_price\":{\"cd$currency\":\"\",\"price\":-1,\"_id$currency\":-1},\"url\":\"\",\"url_file_barcode\":\"\",\"url_file_msds\":\"\",\"url_file_product\":[],\"url_file_sanitation_permit\":[],\"cd$scm\":\"\"},\"product_renewal_info\":null,\"product_standard_info\":{\"_id\":1123,\"_d\":1,\"_id$brand_basic\":19,\"nm$brand_basic\":\"메디힐\",\"_ids$member\":{\"register\":0,\"requester\":0},\"cd\":\"PM1123-PSI1123\",\"cd$product_master\":\"PM1123\",\"nm$product_master\":\"엘앤피코스메틱(주) 메디힐 캡슐100 바이오 세컨덤 [클리어 알파] 5매입\",\"cbm\":\"\",\"Unit\":{\"countUOM\":\"\",\"count\":0,\"inPack\":\"\"},\"height\":{\"countUOM\":\"CM\",\"count\":10},\"width\":{\"countUOM\":\"CM\",\"count\":10},\"depth\":{\"countUOM\":\"CM\",\"count\":10},\"netWeight\":{\"countUOM\":\"G\",\"count\":27},\"grossWeight\":{\"countUOM\":\"G\",\"count\":27},\"capacity\":{\"countUOM\":\"\",\"count\":-1},\"packing_piece\":\"\",\"packing_unit\":\"\",\"packing_package\":\"\",\"packing_outbox\":\"\",\"product_standard\":\"\",\"date_regist\":[2017,12,6,19,7,0],\"date_update\":[],\"date_delete\":[],\"gtin\":\"8809470127369\"}}}"
+		"sampleCode": "window.b2link_service.common._fn_req('http://localhost:44320/api_product/product_master/getProductAllInfoFromArrayCd?cds=[ \"PM1125\",\"PM1124\",\"PM1123\" ]',function( data ){console.log( data );})"
     }
 ]
 var m = document.getElementById('m')
