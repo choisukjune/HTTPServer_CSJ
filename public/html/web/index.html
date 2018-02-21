@@ -65,14 +65,14 @@ var dimmer_render  = function(){
 	//var _txt0 = document.createTextNode( "LESS BUT BETTER." );
 	var _txt1 = document.createTextNode( "Hello! " + window.service.cookie.getCookie('mid') );
 
-	var body = document.getElementsByTagName("body");
+	var con = document.getElementsByTagName("body");
 
 	h.appendChild( i );
 	div2.appendChild( _txt1 );
 	div1.appendChild( h );
 	div1.appendChild( div2 );
 	div0.appendChild( div1 );
-	body.appendChild( div0 )
+	con.appendChild( div0 )
 	 
 	$('.dimmer').dimmer('show');
 }
