@@ -34,9 +34,8 @@
   <div class="content">
 	<div class="center">
 	  <h2 class="ui inverted icon header" id="msg_m">
-		<i class="laptop icon"></i>
-		Less But Better
-		<div class="sub header" id="msg_s">Dimmer sub-header</div>
+		<i class="asterisk icon"></i>
+		<div class="sub header" id="msg_s"></div>
 	  </h2>
 	</div>
   </div>
@@ -44,8 +43,8 @@
 <script>
 var msg_m = document.getElementById("msg_m");
 var msg_s = document.getElementById("msg_s");
-var _txt0 = document.createTextNode( window.service.cookie.getCookie('mid') );
-var _txt1 = document.createTextNode( window.service.cookie.getCookie('mid') );
+var _txt0 = document.createTextNode( "LESS BUT BETTER." );
+var _txt1 = document.createTextNode( "hello! " + window.service.cookie.getCookie('mid') );
 
 msg_m.appendChild( _txt0 );
 msg_s.appendChild( _txt1 );
