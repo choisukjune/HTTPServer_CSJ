@@ -29,17 +29,7 @@
 </div>
 
 <include>footer.html</include>
-<include>_footer_info.html</include>
-<div class="ui dimmer" style="display: flex !important;">
-  <div class="content">
-	<div class="center">
-		<h2 class="ui inverted icon" id="msg_m">
-			<i class="tree huge icon"></i>
-		</h2>
-		<div class="sub header" id="msg_s"></div>
-	</div>
-  </div>
-</div>
+
 <script>
 
 var dimmer_render  = function(){
@@ -65,15 +55,15 @@ var dimmer_render  = function(){
 	//var _txt0 = document.createTextNode( "LESS BUT BETTER." );
 	var _txt1 = document.createTextNode( "Hello! " + window.service.cookie.getCookie('mid') );
 
-	var con = document.getElementsByTagName("body");
+	var body = document.getElementsByTagName("body")[ 0 ];
 
 	h.appendChild( i );
 	div2.appendChild( _txt1 );
 	div1.appendChild( h );
 	div1.appendChild( div2 );
 	div0.appendChild( div1 );
-	con.appendChild( div0 )
-	 
+	body.appendChild( div0 )
+
 	$('.dimmer').dimmer('show');
 }
 dimmer_render();
