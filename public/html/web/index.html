@@ -41,15 +41,18 @@
   </div>
 </div>
 <script>
-var msg_m = document.getElementById("msg_m");
-var msg_s = document.getElementById("msg_s");
-//var _txt0 = document.createTextNode( "LESS BUT BETTER." );
-var _txt1 = document.createTextNode( "Hello! " + window.service.cookie.getCookie('mid') );
+var dimmer_render  = function(){
+	var msg_m = document.getElementById("msg_m");
+	var msg_s = document.getElementById("msg_s");
+	//var _txt0 = document.createTextNode( "LESS BUT BETTER." );
+	var _txt1 = document.createTextNode( "Hello! " + window.service.cookie.getCookie('mid') );
 
-//msg_m.appendChild( _txt0 );
-msg_s.appendChild( _txt1 );
+	//msg_m.appendChild( _txt0 );
+	msg_s.appendChild( _txt1 );
 
-$('.dimmer').dimmer('show');
+	$('.dimmer').dimmer('show');
+}
+dimmer_render();
 //window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
 //alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
 </script>
