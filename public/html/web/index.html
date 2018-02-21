@@ -24,21 +24,18 @@
 			</thead>
 			<tbody id="data"></tbody>
 		</table>
-		<div class="ui demo page dimmer" style="display: flex !important;">
-	  <div class="content">
-		<div class="center">
-		  <h2 class="ui inverted icon header">
-			<i class="laptop icon"></i>
-			Less But Better
-			<div class="sub header">Dimmer sub-header</div>
-		  </h2>
+		<div class="ui dimmer" style="display: flex !important;">
+		  <div class="content">
+			<div class="center">
+			  <h2 class="ui inverted icon header" id="msg_m">
+				<i class="laptop icon"></i>
+				Less But Better
+				<div class="sub header" id="msg_s">Dimmer sub-header</div>
+			  </h2>
+			</div>
+		  </div>
 		</div>
-	  </div>
-	</div>
-	<h3>Inline</h3>
-	<div class="ui calendar" id="example14">
-	</div>
-	<br/>
+
 	<!----- contents ----->
 	</div>
 </div>
@@ -46,9 +43,14 @@
 <include>footer.html</include>
 <include>_footer_info.html</include>
 <script>
-$('#example14').calendar({
-  inline: true
-});
+var msg_m = document.getElementById("msg_m");
+var msg_s = document.getElementById("msg_s");
+var _txt0 = window.service.cookie.getCookie('mid');
+var _txt1 = window.service.cookie.getCookie('mid');
+
+msg_m.appendChild( _txt0 );
+msg_s.appendChild( text );
+
 $('.dimmer').dimmer('show');
 //window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
 //alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
