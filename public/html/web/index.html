@@ -34,22 +34,46 @@
   <div class="content">
 	<div class="center">
 		<h2 class="ui inverted icon" id="msg_m">
-			<i class="tree big icon"></i>
+			<i class="tree huge icon"></i>
 		</h2>
 		<div class="sub header" id="msg_s"></div>
 	</div>
   </div>
 </div>
 <script>
+
 var dimmer_render  = function(){
-	var msg_m = document.getElementById("msg_m");
-	var msg_s = document.getElementById("msg_s");
+	var div0 = document.createElement("div");
+	div0.setAttribute("class", "ui dimmer");
+	div0.setAttribute("style", "display: flex !important;");
+
+	var div1 = document.createElement("div");
+	div1.setAttribute("class","center")
+
+	var h = document.createElement("h1");
+	h.setAttribute("class", "ui inverted icon");
+	h.setAttribute("id", "msg_m");
+
+	var i = document.createElement("i");
+	i.setAttribute("class", "tree huge icon");
+
+
+	var div2 = document.createElement("div");
+	h.setAttribute("class", "sub header");
+	h.setAttribute("id", "msg_s");
+
 	//var _txt0 = document.createTextNode( "LESS BUT BETTER." );
 	var _txt1 = document.createTextNode( "Hello! " + window.service.cookie.getCookie('mid') );
 
-	//msg_m.appendChild( _txt0 );
-	msg_s.appendChild( _txt1 );
+	var body = document.getElementsByTagName("body");
 
+	h.appendChild( i );
+	div2.appendChild( _txt1 );
+	div1.appendChild( h );
+	div1.appendChild( div2 );
+	div0.appendChild( div1 );
+	body.appendChild( div0 )
+	 
 	$('.dimmer').dimmer('show');
 }
 dimmer_render();
