@@ -45,8 +45,8 @@
 <script>
 var msg_m = document.getElementById("msg_m");
 var msg_s = document.getElementById("msg_s");
-var _txt0 = window.service.cookie.getCookie('mid');
-var _txt1 = window.service.cookie.getCookie('mid');
+var _txt0 = document.createTextNode( window.service.cookie.getCookie('mid') );
+var _txt1 = document.createTextNode( window.service.cookie.getCookie('mid') );
 
 msg_m.appendChild( _txt0 );
 msg_s.appendChild( _txt1 );
