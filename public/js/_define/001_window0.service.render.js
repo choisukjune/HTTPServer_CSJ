@@ -221,3 +221,45 @@ window.service.render.li = function( text, attr ){
 	li.appendChild(document.createTextNode( text ))
 	return li
 };
+
+/**
+*
+*/
+window.service.render.dimmer  = function( txt ){
+	var div0 = document.createElement("div");
+	div0.setAttribute("class", "ui dimmer");
+	div0.setAttribute("style", "display: flex !important;");
+
+	var div1 = document.createElement("div");
+	div1.setAttribute("class","content")
+
+	var div2 = document.createElement("div");
+	div2.setAttribute("class","center")
+
+	var h = document.createElement("h1");
+	h.setAttribute("class", "ui inverted icon");
+	h.setAttribute("id", "msg_m");
+
+	var i = document.createElement("i");
+	i.setAttribute("class", "heart outline big icon");
+
+
+	var div3 = document.createElement("div");
+	div3.setAttribute("class", "sub header");
+	div3.setAttribute("id", "msg_s");
+
+	//var _txt0 = document.createTextNode( "LESS BUT BETTER." );
+	var _txt1 = document.createTextNode( "Hello! " + txt );
+
+	var body = document.getElementsByTagName("body")[ 0 ];
+
+	div3.appendChild( _txt1 );
+	h.appendChild( i );
+	div2.appendChild( h );
+	div2.appendChild( div3 );
+	div1.appendChild( div2 );
+	div0.appendChild( div1 );
+	body.appendChild( div0 )
+
+	return $('.dimmer').dimmer('show');
+}
