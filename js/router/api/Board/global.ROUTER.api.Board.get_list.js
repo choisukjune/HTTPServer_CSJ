@@ -1,4 +1,4 @@
-/global.ROUTER.api.Board.get_list = function( req, res ){
+global.ROUTER.api.Board.get_list = function( req, res ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
