@@ -135,7 +135,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
-			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + "/public/" + req.url );
+			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + "/public/" + req.url.split("?")[0] );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			resource.on('end', function(){
