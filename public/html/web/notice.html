@@ -172,106 +172,50 @@
 							</div>
 							<div class="twelve wide column" style="overflow-y: auto !important;">
 								<div class="ui basic segment">
-									[DOS](start,call) 도스 배치 파일 내에서 다른 배치 프로그램 실행
-
-	댓글
-	11
-
-	dhcho347
-
-	이웃추가
-
-	| 2014. 6. 23. 9:49
-
-	앱으로 보기
-
-	Shell. (call Outer program)
-	도스 명령창에서 다른 프로그램 및 다른 배치 파일을 실행하는 명령어 2개
-
-	ㅁ Shell 명령어
-	 - Call: 순차 실행, 변수 리턴 o
-	 - Start: 동시 실행, 변수 리턴 x
-	                (끝나기도 전에 다음으로 넘어가니 변수 다시 받아올수가 없다.)
-
-	ㅁ 특징
-	 - call 의 경우 현재의 파라미터를 그대로 이용 가능하며, 같은 cmd 창에서 실행됨.
-	  프로그램 및 배치의 종료 여부 확인 후 다음 명령 실행 (순차 실행)
-	 - start 의 경우 새로운 cmd 창에서 실행됨. (독립)
-	  배치의 경우 실행되는 배치로 변수 전달은 가능하나, 역은 불가능
-	  새로운 프로그램의 종료 여부 확인 안함 (동시 실행)
-	  (순차 실행 하고자 하는 경우 옵션에 /wait 추가해야함 ex) start /wait bac.bat )
-
-	ㅁ 예제
-
-	 - 1. 종료 여부 확인
-	  call 로 실행 시키는 경우 실행된 프로그램이 끝나기 기다렸다가 다음으로 넘어감.
-	  Start 로 실행 시키는 경우 종료 여부 무관하게 다음으로 넘어감.
-
-	@echo Start vs Call ex1) 종료 여부 확인
-	call calc
-	call notepad
-	call "C:\Program Files\Internet Explorer\iexplore.exe" http://www.naver.com/
-
-	계산기(calc)를 종료 하기 전에 메모장(notepad)을 실행 하지 않는다.
-	계산기를 종료 하는 순간 메모장이 실행되며, 메모장을 종료 해야 인터넷이 실행됨.
-
-	start calc
-	start notepad
-	call "C:\Program Files\Internet Explorer\iexplore.exe" http://www.naver.com/
-
-	계산기(calc), 메모장(notepad), 인터넷(네이버) 3개가 동시에 실행됨.
-
-
-
-	 - 2. 변수 전달
-	  call 로 부르는 경우 기존 batch 내의 파라미터들 모두 그대로 승계
-	  start로 부르는 경우 파라미터 전달은 가능하지만 돌려 받지 못함.
-
-
-	@echo Start vs Call ex2) 변수 전달
-	1) Main.bat 파일
-	set /p x=1
-	call xplus.bat
-
-	@echo in main %x%
-	@echo return %errorlevel%
-
-	timeout /t 10
-
-	2) xplus.bat 파일
-	set /a x=%x% + 1
-	@echo in xplus %x%
-
-	@rem Set Error (or Return value)
-	exit /b 5
-
-	==> a) call 로 실행하는 경우 결과
-	call xplus.bat
-	in xplus 2
-	in main 2
-	return 5
-
-	==> b) start 로 실행하는 경우 결과
-	start xplus.bat
-	in xplus 2
-	in main 1
-	return 0
-
-	 * xplus.bat 에서 x 변수에 1를 더하도록 했으며, return value로 5를 돌려 주도록 함.
-	 * set 은 파라미터 설정. 연산을 하기 위해서는 /a 옵션 추가
-	 * echo 는 도스 명령창에 결과 표시용.
-	 * @echo 명령창에 표시 안되게
-
-	 * rem 은 주석 달기
-	 * @rem 명령창에 표시 안되게
-
-	 * exit /b 3 return value 설정
-
-	 * timeout /t 10 10초간 기다리기
-	 * pause 다음 키 입력이 들어올때까지 기다리기
-	 * command /k 도스 명령창 닫지 않기
-
-	2014-06-23 09:49 이어쓰기
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
+									<p>asdf</p>
 								</div>
 							</div>
 						</div>
