@@ -124,13 +124,14 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var	tmp = req.url.lastIndexOf(".");
 //	var tmp0 = req.url.split("");
 	var	extension  = req.url.substring((tmp	+ 1));
+	var resource_path_key = req.url.replace('/web',"")
 	if( extension.indexOf("?") != -1 ){
 		extension = extension.split("?")[0];
 	}
-//	var resource_path_key = req.url.replace('/web',"")
-
 	if ( resource_info.indexOf( extension ) !== -1 ) {
-		if( req.url.indexOf( "?" ) == -1){
+
+		//
+		//if( req.url.indexOf( "?" ) == -1){
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
@@ -157,7 +158,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 			resource.pipe(res);
 			return;
-		}
+		//}
 	}
 
 
