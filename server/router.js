@@ -124,7 +124,9 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var	tmp = req.url.lastIndexOf(".");
 //	var tmp0 = req.url.split("");
 	var	extension  = req.url.substring((tmp	+ 1));
-
+	if( extension.indexOf("?") != -1 ){
+		extension = extension.split("?")[0];
+	}
 //	var resource_path_key = req.url.replace('/web',"")
 
 	if ( resource_info.indexOf( extension ) !== -1 ) {
