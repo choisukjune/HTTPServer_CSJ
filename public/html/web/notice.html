@@ -275,7 +275,6 @@
    var view_doc = function(){
 
 	   _el_view_document.setAttribute("style","display : block;")
-	   _el_all_addEvent();
    }
 
    var modify_doc = function(){
@@ -289,7 +288,9 @@
    var add_doc = function(){
 	   view_container_all_el_display_none();
 
-	   if(_el_editor == null){
+	   var chk_editor = document.getElementById( "cke_editor" )
+
+	   if(chk_editor == null){
 		   var textarea = document.createElement("textarea")
 		  debugger;
 		  textarea.setAttribute("class", "ckeditor");
@@ -298,7 +299,7 @@
 		  textarea.setAttribute("id", "editor");
 		  textarea.setAttribute("style", "display : none;");
 		  _el_view_container.appendChild( textarea );
-		  console.log("asdf")
+
 		  CKEDITOR.replace( 'contents',{
 			   customConfig : './config.js',
 			   width: '100%',
@@ -309,7 +310,7 @@
 	   _el_add.removeEventListener( "click", add_doc )
 
    }else{
-	   _el_editor.style.display = "block"
+	   chk_editor.style.display = "block"
    }
 }
 
