@@ -289,7 +289,7 @@
    var add_doc = function(){
 	   view_container_all_el_display_none();
 
-	   var chk_editor = document.getElementById( "cke_editor" )
+	   var chk_editor = document.getElementById( "ck_editor" )
 	   var textarea_editor = document.getElementById( "editor" )
 
 	   if(chk_editor != null){
@@ -324,7 +324,7 @@ _el_all_addEvent();
 
 window.addEventListener('click', function(e){
 
-	if (document.getElementById('cke_editor').contains(e.target)){
+	if (document.getElementById('ck_editor').contains(e.target)){
   	console.log(1)
   } else{
   	view_doc();
