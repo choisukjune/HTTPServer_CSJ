@@ -314,7 +314,7 @@
 		  });
 
 	   _el_add.removeEventListener( "click", add_doc )
-	   chk_editor.addEventListener("focusout",view_doc)
+	   document.getElementById( "cke_editor" ).addEventListener("focusout",view_doc)
 }
 
 _el_all_addEvent();
