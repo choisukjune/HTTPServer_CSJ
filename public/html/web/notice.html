@@ -304,6 +304,9 @@
 		  textarea.setAttribute("name", "contents");
 		  textarea.setAttribute("id", "editor");
 		  textarea.setAttribute("style", "display : none;");
+
+		  textarea.innerHTML = "아된다"
+
 		  _el_view_container.appendChild( textarea );
 
 		  CKEDITOR.replace( 'contents',{
