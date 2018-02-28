@@ -181,7 +181,8 @@
 								 <script type="text/javascript">
 
 								 	var _el_editor = document.getElementById("test");
-									if( _el_editor != null ){
+									var _el_editor_ID = document.getElementById("editor");
+									if( _el_editor_ID == null ){
 										_el_editor.addEventListener("click",function(){
 											// CKEDITOR.replace( 'contents',{
 											// 	 customConfig : './config.js',
