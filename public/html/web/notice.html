@@ -198,70 +198,6 @@
 
 									</div>
 								 <!--textarea rows="10" class="ckeditor" name="contents" id="editor"></textarea-->
-
-								 <script type="text/javascript">
-
-								 	var _el_add = document.getElementById("add");
-									var _el_cancel = document.getElementById("cancel");
-									var _el_editor_ID = document.getElementById("editor");
-									var _el_view_container = document.getElementById("view_container");
-									var _el_view_document = document.getElementById("view_document");
-
-
-									var _el_all_addEvent = function(){
-
-										_el_add.addEventListener("click",add_doc)
-										_el_cancel.addEventListener("click",view_container_removeChild)
-									}
-
-
-									var view_container_removeChild = function(){
-										while ( _el_view_container.hasChildNodes() ){
-											debugger;
-											_el_view_container.removeChild( _el_view_container.firstChild );
-										}
-										//_el_view_container.removeChild();
-										view_doc();
-									}
-
-
-									var view_doc = function(){
-										_el_view_document.setAttribute("style","display : block;")
-									}
-
-									var modify_doc = function(){
-
-									}
-
-									var delete_doc = function(){
-
-									}
-
-									var add_doc = function(){
-										view_container_removeChild()
-										var textarea = document.createElement("textarea")
-										debugger;
-										textarea.setAttribute("class", "ckeditor");
-										textarea.setAttribute("rows", "10");
-										textarea.setAttribute("name", "contents");
-										textarea.setAttribute("id", "editor");
-										textarea.setAttribute("style", "display : none;");
-										_el_view_container.appendChild( textarea );
-										console.log("asdf")
-										CKEDITOR.replace( 'contents',{
-											 customConfig : './config.js',
-											 width: '100%',
-											 height: '100%',
-											 toolbarStartupExpanded : false
-										});
-										_el_add.removeEventListener( "click", add_doc )
-
-									}
-
-									_el_all_addEvent();
-
-								 </script>
-
 								</div>
 							</div>
 						</div>
@@ -306,7 +242,65 @@
 </div> -->
 
 <include>_footer_info.html</include>
+<script type="text/javascript">
 
+   var _el_add = document.getElementById("add");
+   var _el_cancel = document.getElementById("cancel");
+   var _el_editor_ID = document.getElementById("editor");
+   var _el_view_container = document.getElementById("view_container");
+   var _el_view_document = document.getElementById("view_document");
+
+
+   var _el_all_addEvent = function(){
+
+	   _el_add.addEventListener("click",add_doc)
+	   _el_cancel.addEventListener("click",view_container_removeChild)
+   }
+
+
+   var _evt_el_cancel = function(){
+
+	   //_el_view_container.removeChild();
+	   view_doc();
+   }
+
+
+   var view_doc = function(){
+	   _el_view_document.setAttribute("style","display : block;")
+   }
+
+   var modify_doc = function(){
+
+   }
+
+   var delete_doc = function(){
+
+   }
+
+   var add_doc = function(){
+	   view_container_removeChild()
+	   var textarea = document.createElement("textarea")
+	   debugger;
+	   textarea.setAttribute("class", "ckeditor");
+	   textarea.setAttribute("rows", "10");
+	   textarea.setAttribute("name", "contents");
+	   textarea.setAttribute("id", "editor");
+	   textarea.setAttribute("style", "display : none;");
+	   _el_view_container.appendChild( textarea );
+	   console.log("asdf")
+	   CKEDITOR.replace( 'contents',{
+			customConfig : './config.js',
+			width: '100%',
+			height: '100%',
+			toolbarStartupExpanded : false
+	   });
+	   _el_add.removeEventListener( "click", add_doc )
+
+   }
+
+   _el_all_addEvent();
+
+</script>
 <script>
 // window.service.render.dimmer( window.service.cookie.getCookie('mid') );
 // //window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
