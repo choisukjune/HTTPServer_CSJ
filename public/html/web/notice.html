@@ -195,6 +195,11 @@
 										textarea.setAttribute("id", "editor");
 										_el_editor.appendChild( textarea );
 										console.log("asdf")
+										CKEDITOR.replace( 'contents',{
+											 customConfig : './config.js',
+											 width: '100%',
+											 height: 250
+										});
 									})
 								 </script>
 
