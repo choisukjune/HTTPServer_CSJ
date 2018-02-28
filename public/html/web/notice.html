@@ -252,9 +252,7 @@
 
 
    var _el_all_addEvent = function(){
-	   var menu = document.getElementById('menu')
 
-	   _el_view_document.addEventListener('outclick', view_doc)
 	   _el_view_container.addEventListener("click",add_doc)
 	   _el_cancel.addEventListener("click",cancel_doc )
 	   _el_view.addEventListener("click",view_doc )
@@ -320,6 +318,15 @@
 }
 
 _el_all_addEvent();
+
+window.addEventListener('click', function(e){
+
+	if (document.getElementById('_el_view_container').contains(e.target)){
+  	alert("Clicked in _el_view_container");
+  } else{
+  	alert("Clicked outside _el_view_container");
+  }
+})
 
 </script>
 <script>
