@@ -288,10 +288,11 @@
 	   view_container_all_el_display_none();
 
 	   var chk_editor = document.getElementById( "cke_editor" )
+	   var textarea_editor = document.getElementById( "editor" )
 
 	   if(chk_editor != null){
 			   _el_view_container.removeChild( chk_editor );
-			   _el_view_container.removeChild( _el_editor );
+			   _el_view_container.removeChild( textarea_editor );
 	   }
 		   var textarea = document.createElement("textarea")
 		  debugger;
