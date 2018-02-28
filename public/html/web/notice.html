@@ -252,7 +252,9 @@
 
 
    var _el_all_addEvent = function(){
+	   var menu = document.getElementById('menu')
 
+	   _el_view_container.addEventListener('outclick', view_doc)
 	   _el_view_container.addEventListener("click",add_doc)
 	   _el_cancel.addEventListener("click",cancel_doc )
 	   _el_view.addEventListener("click",view_doc )
@@ -314,7 +316,7 @@
 		  });
 
 	   _el_add.removeEventListener( "click", add_doc )
-	   document.getElementById( "cke_editor" ).addEventListener("focusout",view_doc)
+
 }
 
 _el_all_addEvent();
