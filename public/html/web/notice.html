@@ -144,7 +144,14 @@
 					<div id="div-PIMS-HeaderContainer"class="sixteen wide fixed column" style="background-color : #eeeeee;">
 						<div class="ui red horizontal label">Notice!</div>알파 서비스 0.1.0 버전 입니다.추가 요구 사항은 개발팀에 문의 바랍니다.
 					</div>
-					<div class="sixteen wide column" id="div-PIMS-headerContainer" style="width: 100%;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;"><h3 class="div_sub_header sub header">{{menu_name}}</h3></div>
+					<div class="sixteen wide column" id="div-PIMS-headerContainer" style="width: 100%;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;">
+						<h3 class="div_sub_header sub header">{{menu_name}}</h3>
+						<button id="add">등록</button>
+						<button id="modify">수정</button>
+						<button id="delete">삭제</button>
+						<button id="view">보기</button>
+						<button id="cancel">취소</button>
+					</div>
 					<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 808px !important;">
 
 						<div class="ui grid">
@@ -177,11 +184,7 @@
 							<div class="twelve wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 808px !important;">
 								<div class="ui basic segment" id="view_container">
 								 <!--textarea rows="10" class="ckeditor" name="contents" id="editor"></textarea-->
-								 <button id="add">등록</button>
-								 <button id="modify">수정</button>
-								 <button id="delete">삭제</button>
-								 <button id="view">보기</button>
-								 <button id="cancel">취소</button>
+
 								 <script type="text/javascript">
 
 								 	var _el_editor = document.getElementById("add");
