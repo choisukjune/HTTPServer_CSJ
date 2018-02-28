@@ -198,13 +198,13 @@
 											 height: 250,
 											 toolbarStartupExpanded : false
 										});
-
+										_el_editor.removeEventListener("click",function(){console.log("asdf")})
 									}
 
 									if( _el_editor_ID == null ){
 										_el_editor.addEventListener("click",function(){
 												add_editor();
-												_el_editor.removeEventListener("click",function(){console.log("asdf")})
+
 										})
 									}
 								 </script>
