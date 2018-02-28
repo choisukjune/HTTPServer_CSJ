@@ -195,7 +195,7 @@
 
 									var _el_all_addEvent = function(){
 
-										_el_add.addEventListener("click",add)
+										_el_add.addEventListener("click",add_doc)
 										_el_cancel.addEventListener("click",cancel)
 									}
 
@@ -208,19 +208,19 @@
 										_el_all_addEvent();
 									}
 
-									var view = function(){
+
+									var view_doc = function(){
+									}
+
+									var modify_doc = function(){
 
 									}
 
-									var modify = function(){
+									var delete_doc = function(){
 
 									}
 
-									var delete = function(){
-
-									}
-
-									var add = function(){
+									var add_doc = function(){
 										var textarea = document.createElement("textarea")
 										debugger;
 										textarea.setAttribute("class", "ckeditor");
@@ -236,7 +236,7 @@
 											 height: '100%',
 											 toolbarStartupExpanded : false
 										});
-										_el_add.removeEventListener( "click", add )
+										_el_add.removeEventListener( "click", add_doc )
 
 									}
 
