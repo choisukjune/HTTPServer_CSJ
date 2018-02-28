@@ -217,7 +217,7 @@
 
 									var view_container_removeChild = function(){
 										while ( _el_view_container.hasChildNodes() ){
-											_el_view_container.removeChild( _el_view_container.firstChild );
+											_el_view_container.firstChild.setAttribute("style","display : none");
 										}
 										//_el_view_container.removeChild();
 										view_doc();
@@ -225,7 +225,8 @@
 
 
 									var view_doc = function(){
-										_el_view_document.setAttribute("style","display : block;")
+										view_container_removeChild();
+										_el_view_container.appendChild( _el_view_document );
 									}
 
 									var modify_doc = function(){
