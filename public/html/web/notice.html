@@ -289,11 +289,11 @@
    var add_doc = function(){
 	   view_container_all_el_display_none();
 
-	   var chk_editor = document.getElementById( "ck_editor" )
+	   var cke_editor = document.getElementById( "cke_editor" )
 	   var textarea_editor = document.getElementById( "editor" )
 
-	   if(chk_editor != null){
-			   _el_view_container.removeChild( chk_editor );
+	   if(cke_editor != null){
+			   _el_view_container.removeChild( cke_editor );
 			   _el_view_container.removeChild( textarea_editor );
 	   }
 
@@ -327,7 +327,7 @@ window.addEventListener('click', function(e){
 	var a = document.getElementById('view_document').contains(e.target)
 	console.log( a )
 	console.log( e.target)
-	if ( document.getElementById('view_document').contains(e.target)){
+	if ( document.getElementById('cke_editor').contains(e.target)){
   	console.log(1)
   } else{
 	  console.log( 2 )
