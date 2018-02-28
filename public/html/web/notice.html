@@ -196,6 +196,7 @@
 									var _el_all_addEvent = function(){
 
 										_el_add.addEventListener("click",add)
+										_el_cancel.addEventListener("click",cancel)
 									}
 
 
@@ -207,6 +208,17 @@
 										_el_all_addEvent();
 									}
 
+									var view = function(){
+
+									}
+
+									var modify = function(){
+
+									}
+
+									var delete = function(){
+
+									}
 
 									var add = function(){
 										var textarea = document.createElement("textarea")
@@ -224,11 +236,7 @@
 											 height: '100%',
 											 toolbarStartupExpanded : false
 										});
-										_el_add.removeEventListener( "click", this )
-										_el_cancel.addEventListener("click",cancel)
-									}
-
-									if( _el_editor_ID == null ){
+										_el_add.removeEventListener( "click", add )
 
 									}
 
