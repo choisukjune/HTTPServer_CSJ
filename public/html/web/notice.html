@@ -305,7 +305,7 @@
 		  textarea.setAttribute("id", "editor");
 		  textarea.setAttribute("style", "display : none;");
 
-		  textarea.innerHTML = document.getElementById( "view_document" ).innerHTML;
+		  textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
 
 		  _el_view_container.appendChild( textarea );
 
@@ -324,7 +324,7 @@ _el_all_addEvent();
 
 window.addEventListener('click', function(e){
 
-	if (document.getElementById('ck_editor').contains(e.target)){
+	if (document.getElementById('view_container').contains(e.target)){
   	console.log(1)
   } else{
   	view_doc();
