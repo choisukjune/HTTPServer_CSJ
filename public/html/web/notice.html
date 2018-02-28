@@ -208,7 +208,7 @@
 									}
 
 
-									var add_editor = function( cbFunction ){
+									var add_editor = function(){
 										var textarea = document.createElement("textarea")
 										debugger;
 										textarea.setAttribute("class", "ckeditor");
@@ -224,7 +224,8 @@
 											 height: '100%',
 											 toolbarStartupExpanded : false
 										});
-										_el_editor.removeEventListener( "click", add_editor )
+										_el_editor.removeEventListener( "click", this )
+										_el_cancel.addEventListener("click",cancel)
 									}
 
 									if( _el_editor_ID == null ){
