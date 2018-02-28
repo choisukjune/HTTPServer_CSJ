@@ -295,7 +295,6 @@
 	   if(chk_editor != null){
 			   _el_view_container.removeChild( chk_editor );
 			   _el_view_container.removeChild( textarea_editor );
-			   chk_editor.addEventListener("focusout",view_doc)
 	   }
 
 		   var textarea = document.createElement("textarea")
@@ -315,6 +314,7 @@
 		  });
 
 	   _el_add.removeEventListener( "click", add_doc )
+	   chk_editor.addEventListener("focusout",view_doc)
 }
 
 _el_all_addEvent();
