@@ -323,8 +323,10 @@
 _el_all_addEvent();
 
 window.addEventListener('click', function(e){
-
-	if (document.getElementById('view_document').contains(e.target)){
+	var a = document.getElementById('view_document').contains(e.target)
+	console.log( a )
+	console.log( e.target)
+	if ( document.getElementById('view_document').contains(e.target)){
   	console.log(1)
   } else{
   	view_doc();
