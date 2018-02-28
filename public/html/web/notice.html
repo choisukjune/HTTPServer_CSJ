@@ -217,6 +217,7 @@
 
 									var view_container_removeChild = function(){
 										while ( _el_view_container.hasChildNodes() ){
+											debugger;
 											_el_view_container.removeChild( _el_view_container.firstChild );
 										}
 										//_el_view_container.removeChild();
@@ -225,8 +226,7 @@
 
 
 									var view_doc = function(){
-										view_container_removeChild();
-										_el_view_container.appendChild( _el_view_document );
+										_el_view_document.setAttribute("style","display : block;")
 									}
 
 									var modify_doc = function(){
@@ -240,7 +240,7 @@
 									var add_doc = function(){
 										view_container_removeChild()
 										var textarea = document.createElement("textarea")
-
+										debugger;
 										textarea.setAttribute("class", "ckeditor");
 										textarea.setAttribute("rows", "10");
 										textarea.setAttribute("name", "contents");
