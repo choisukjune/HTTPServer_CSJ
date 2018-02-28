@@ -306,6 +306,7 @@
 		  textarea.setAttribute("style", "display : none;");
 
 		  textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
+		  document.getElementById( "view_document" ).
 
 		  _el_view_container.appendChild( textarea );
 
@@ -329,7 +330,8 @@ window.addEventListener('click', function(e){
 	if ( document.getElementById('view_document').contains(e.target)){
   	console.log(1)
   } else{
-  	view_doc();
+	  console.log( 2 )
+	//view_doc();
   }
 })
 
