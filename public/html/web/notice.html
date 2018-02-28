@@ -257,7 +257,6 @@
 	   _el_cancel.addEventListener("click",cancel_doc )
    }
 
-
    var view_container_all_el_display_none = function(){
 	   var i = 0,iLen = _el_view_container.children.length,io;
 	   for(;i<iLen;++i){
@@ -290,7 +289,9 @@
 
 	   var chk_editor = document.getElementById( "cke_editor" )
 
-	   if(chk_editor == null){
+	   if(chk_editor != null){
+			   _el_view_container.removeChild( chk_editor );
+	   }
 		   var textarea = document.createElement("textarea")
 		  debugger;
 		  textarea.setAttribute("class", "ckeditor");
@@ -308,10 +309,6 @@
 		  });
 
 	   _el_add.removeEventListener( "click", add_doc )
-
-   }else{
-	   chk_editor.style.display = "block"
-   }
 }
 
 _el_all_addEvent();
