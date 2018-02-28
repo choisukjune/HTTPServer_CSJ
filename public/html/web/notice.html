@@ -181,11 +181,18 @@
 								 <button id="modify">수정</button>
 								 <button id="delete">삭제</button>
 								 <button id="view">보기</button>
+								 <button id="cancel">취소</button>
 								 <script type="text/javascript">
 
 								 	var _el_editor = document.getElementById("add");
+									var _el_cancel = document.getElementById("cancel");
 									var _el_editor_ID = document.getElementById("editor");
 									var _el_view_container = document.getElementById("view_container");
+									var cancel = function(){
+
+										_el_view_container.removeChild();
+									}
+
 
 									var add_editor = function(){
 										var textarea = document.createElement("textarea")
@@ -209,6 +216,7 @@
 									if( _el_editor_ID == null ){
 										_el_editor.addEventListener( "click", add_editor )
 									}
+									_el_cancel.addEventListener("click",cancel)
 								 </script>
 
 								</div>
