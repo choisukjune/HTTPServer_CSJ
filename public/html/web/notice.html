@@ -189,8 +189,8 @@
 									var _el_editor_ID = document.getElementById("editor");
 									var _el_view_container = document.getElementById("view_container");
 									var cancel = function(){
-
-										_el_view_container.removeChild();
+										while ( _el_view_container.hasChildNodes() ) { _el_view_container.removeChild( _el_view_container.firstChild ); }
+										//_el_view_container.removeChild();
 									}
 
 
