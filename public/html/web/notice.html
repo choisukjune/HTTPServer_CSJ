@@ -330,6 +330,8 @@ window.addEventListener('click', function(e){
 	if ( document.getElementById('cke_editor').contains(e.target)){
   	console.log(1)
   } else{
+	  var editorData = CKEDITOR.instances['editor'].getData();
+	  document.getElementById('view_document').innerHTML = editorData;
 	  console.log( 2 )
 		view_doc();
   }
