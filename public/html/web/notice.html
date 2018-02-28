@@ -252,7 +252,7 @@
 
 
    var _el_all_addEvent = function(){
-	   _el_add.addEventListener("focusout",view_doc)
+
 	   _el_view_container.addEventListener("click",add_doc)
 	   _el_cancel.addEventListener("click",cancel_doc )
 	   _el_view.addEventListener("click",view_doc )
@@ -296,6 +296,7 @@
 			   _el_view_container.removeChild( chk_editor );
 			   _el_view_container.removeChild( textarea_editor );
 	   }
+	   _el_view_container.addEventListener("focusout",view_doc)
 		   var textarea = document.createElement("textarea")
 		  debugger;
 		  textarea.setAttribute("class", "ckeditor");
