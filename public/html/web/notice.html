@@ -246,6 +246,7 @@
 
    var _el_add = document.getElementById("add");
    var _el_cancel = document.getElementById("cancel");
+   var _el_view = document.getElementById("view");
    var _el_view_container = document.getElementById("view_container");
    var _el_view_document = document.getElementById("view_document");
 
@@ -254,7 +255,7 @@
 
 	   _el_add.addEventListener("click",add_doc)
 	   _el_cancel.addEventListener("click",cancel_doc )
-	   _el_view_document.addEventListener("click",view_doc )
+	   _el_view.addEventListener("click",view_doc )
    }
 
    var view_container_all_el_display_none = function(){
