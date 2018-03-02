@@ -239,7 +239,6 @@
 <script type="text/javascript">
 
    var _el_add = document.getElementById("add");
-   var _el_cancel = document.getElementById("cancel");
    var _el_view = document.getElementById("view");
    var _el_view_container = document.getElementById("view_container");
    var _el_view_document = document.getElementById("view_document");
@@ -345,7 +344,7 @@
 			height: '600px',
 			toolbarStartupExpanded : false
 		});
-
+		 document.getElementById("cancel").addEventListener("click", view_doc );
 		_el_add.removeEventListener( "click", add_doc )
 
 	}
