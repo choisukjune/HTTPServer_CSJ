@@ -130,14 +130,57 @@ global.ROUTER.routerControl	= function(req,res)	{
 	if( extension.indexOf("?") != -1 ){
 		extension = extension.split("?")[0];
 	}
-	if ( resource_info.indexOf( extension ) !== -1 ) {
 
+	var resource_dir = global.ROOTPath + "/public/"
+
+	var _tmp0 = req.url.split("/")
+	console.log( _tmp0 )
+
+	var aaa = function(arr, str){
+		var aaa = ""
+		var r_arr = arr.reverse();
+		for(var i = 0;i < arr.length;++i){
+				if( _tmp0[i] != str){
+					return aaa;
+				}else{
+					aaa += "/" + _tmp0[i];
+				}
+		}
+	}
+
+	_tmp0.shift()
+	console.log( _tmp0 )
+	console.log( _tmp0.join("/").split("?")[0] )
+	resource_dir = resource_dir + _tmp0.join("/").split("?")[0]
+// console.log("req.url====>", req.url)
+// 	if( _tmp0.indexOf("css") !== -1) var resource_dir = global.ROOTPath + "/public/css/" + _tmp0[ _tmp0.length - 1].split("?")[0]
+// 	if( _tmp0.indexOf("js") !== -1) var resource_dir = global.ROOTPath + "/public/js/" + _tmp0[ _tmp0.length - 1].split("?")[0]
+// 	if( _tmp0.indexOf("common") !== -1){
+//
+// 		var klkk = aaa( _tmp0, "common" )
+// 		console.log( klkk )
+// 		var resource_dir = global.ROOTPath + "/public/js/common/" + klkk.split("?")[0]
+//
+//
+// 	}
+// 	if( _tmp0.indexOf("libs") !== -1){
+//
+// 		var klkk = aaa( _tmp0, "libs" )
+// 		console.log( klkk )
+// 		var resource_dir = global.ROOTPath + "/public/libs/" + klkk.split("?")[0]
+//
+//
+// 	}
+// 	console.log( resource_dir )
+
+	if ( resource_info.indexOf( extension ) !== -1 ) {
+console.log( resource_dir)
 		//
 		//if( req.url.indexOf( "?" ) == -1){
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
-			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + req.url.split("?")[0] );
+			var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			resource.on('end', function(){
