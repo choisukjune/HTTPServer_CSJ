@@ -173,10 +173,11 @@
 								<div style="position:absolute;right :30px;bottom : 30px;">
 
 									  <button class="ui button" id="add">글쓰기</button>
-									  <button class="ui button" id="add">수정</button>
-									  <button class="ui button" id="add">삭제</button>
-									  <button class="ui button" id="add">취소</button>
-									  <button class="ui button" id="add">목록</button>
+									  <button class="ui button" id="modify">수정</button>
+									  <button class="ui button" id="delete">삭제</button>
+									  <button class="ui button" id="cancel">취소</button>
+									  <button class="ui button" id="list">목록</button>
+									  <button class="ui button" id="write">등록</button>
 
 								</div>
 
@@ -326,9 +327,19 @@ debugger;
 		document.getElementById("add_doc_con").style.display = "block";
 	}
 		document.getElementById("add_cancel").addEventListener("click", function(){
-			CKEDITOR.instances.editor.setData("your text or html code")
-			document.getElementById("add_doc_con").style.display = "none";
-			document.getElementById( "view_document" ).style.display = "block";
+		CKEDITOR.instances.editor.setData("your text or html code")
+
+		document.getElementById("add_doc_con").style.display = "none";
+		document.getElementById( "view_document" ).style.display = "block";
+
+		//----------;
+		document.getElementById("add").style.display = "none";
+		document.getElementById("modify").style.display = "none";
+		document.getElementById("delete").style.display = "none";
+		document.getElementById("cancel").style.display = "block";
+		document.getElementById("list").style.display = "none";
+		document.getElementById("write").style.display = "block";
+		//----------;
 
 		} );
 		//_el_add.removeEventListener( "click", add_doc )
