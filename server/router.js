@@ -79,14 +79,11 @@ global.ROUTER.Initialize_router	= function(	param ){
 			_temp = _temp.pop();
 			if( param == "web" )
 			{
-				routerNm = "/" + _temp;
+				routerNm = "/" + a0[ i ] + "/" + _temp;
 			}
 			else
 			{
-
 				routerNm = "/" + param + "/" + a0[ i ] + "/" + _temp;
-				console.log( routerNm )
-
 			}
 
 			//*/
