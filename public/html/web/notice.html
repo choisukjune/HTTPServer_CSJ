@@ -245,7 +245,7 @@
 
 
    var _el_all_addEvent = function(){
-
+ 				 document.getElementById("cancel").addEventListener("click", view_doc );
 	   _el_add.addEventListener("click",add_doc)
 	   _el_view.addEventListener("click",view_doc )
    }
@@ -343,7 +343,7 @@
 			height: '600px',
 			toolbarStartupExpanded : false
 		});
-		 document.getElementById("cancel").addEventListener("click", view_doc );
+
 		_el_add.removeEventListener( "click", add_doc )
 
 	}
