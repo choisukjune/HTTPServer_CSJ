@@ -135,8 +135,8 @@ console.log( req.url )
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
-			fileNm.shift().shift()
-			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + "/public/" + fileNm.join("/")("?")[0] );
+			fileNm = fileNm.slice(2,fileNm.length)
+			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + "/public/" + fileNm.join("/").split("?")[0] );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			resource.on('end', function(){
