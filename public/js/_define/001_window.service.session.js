@@ -425,11 +425,11 @@ function SHA512(str) {
 
 
 window.service.session.checkSession = function(){
-  if( document.location.pathname == "./login") return;//console.log(location.pathname);
+  if( document.location.pathname == "./Member/login") return;//console.log(location.pathname);
 
 	var session = window.service.cookie.getCookie("session");
 	var sid_type = window.service.cookie.getCookie("sid_type");
-    if (!session) location.href = "./login";
+    if (!session) location.href = "./Member/login";
 //	if (!sid_type) location.href = "./login";
 
 //	var urls = {
@@ -441,7 +441,7 @@ window.service.session.checkSession = function(){
 	window.service.Request.req_GET_data__Callback( url ,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
-			location.href = "./login";
+			location.href = "./Member/login";
 		}
 		//console.log( "window = ",result )
 	})
