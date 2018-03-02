@@ -131,7 +131,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 		extension = extension.split("?")[0];
 	}
 
-	var resource_dir = global.ROOTPath + "/public/"
+	var resource_dir = global.ROOTPath + "/public"
 
 	var _tmp0 = req.url.split("/")
 	console.log( req.pathname )
@@ -140,40 +140,43 @@ global.ROUTER.routerControl	= function(req,res)	{
 		var aaa = ""
 		var chk = 0;
 		for(var i = 0;i < arr.length;++i){
-				if( _tmp0[i] != str){
+				if( arr[i] == str){
 					chk = 1;
 				}
 				if( chk == 1 ){
-					aaa += "/" + arr[ i ];
+					aaa = aaa + "/" + arr[ i ];
 				}
-			return aaa;
+
 		}
+		return aaa;
 	}
 
 
 	console.log("req.url====>", req.url)
-	if( _tmp0.indexOf("css") !== -1){}var resource_dir = global.ROOTPath + "/public/css/" + _tmp0[ _tmp0.length - 1].split("?")[0]
-	if( _tmp0.indexOf("js") !== -1) var resource_dir = global.ROOTPath + "/public/js/" + _tmp0[ _tmp0.length - 1].split("?")[0]
-	if( _tmp0.indexOf("common") !== -1){
+	if( _tmp0.indexOf("css") !== -1){
 
-		var klkk = aaa( _tmp0, "common" )
-		console.log( klkk )
-		var resource_dir = global.ROOTPath + "/public/js/common/" + klkk.split("?")[0]
+		var klkk = aaa( _tmp0, "css" )
+		console.log( "URL-->" + klkk )
 
+		var resource_dir = global.ROOTPath + "/public/" + klkk.split("?")[0]
+	}
+	if( _tmp0.indexOf("js") !== -1){
 
+		var klkk = aaa( _tmp0, "js" )
+		console.log( "URL-->" + klkk )
+
+		var resource_dir = global.ROOTPath + "/public/" + klkk.split("?")[0]
 	}
 	if( _tmp0.indexOf("libs") !== -1){
 
 		var klkk = aaa( _tmp0, "libs" )
-		console.log( klkk )
-		var resource_dir = global.ROOTPath + "/public/libs/" + klkk.split("?")[0]
+		console.log( "URL-->" + klkk )
+		var resource_dir = global.ROOTPath + "/public/" + klkk.split("?")[0]
 
 
 	}
-	console.log( resource_dir )
 
 	if ( resource_info.indexOf( extension ) !== -1 ) {
-console.log( resource_dir)
 		//
 		//if( req.url.indexOf( "?" ) == -1){
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
