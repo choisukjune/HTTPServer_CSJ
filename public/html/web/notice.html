@@ -232,18 +232,6 @@
 											본문내용영역입니다<br>
 											본문내용영역입니다<br>
 											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-
 										</div>
 									</div>
 								</div>
@@ -273,11 +261,11 @@
    var _el_view_document = document.getElementById("view_document");
 
 
-   var _el_all_addEvent = function(){
-
-	   _el_add.addEventListener("click",add_doc)
-	   _el_view.addEventListener("click",view_doc )
-   }
+   // var _el_all_addEvent = function(){
+   //
+   //  _el_add.addEventListener("click",add_doc)
+   //  _el_view.addEventListener("click",view_doc )
+   // }
 
    var view_container_all_el_display_none = function(){
 	   var i = 0,iLen = _el_view_container.children.length,io;
@@ -287,10 +275,10 @@
 	   }
    }
 
-   var cancel_doc = function(){
-	   view_container_all_el_display_none()
-	   view_doc();
-   }
+   // var cancel_doc = function(){
+   //  view_container_all_el_display_none()
+   //  view_doc();
+   // }
 
 
    var view_doc = function(){
@@ -314,7 +302,7 @@
 
 		var cke_editor = document.getElementById( "cke_editor" )
 		var textarea_editor = document.getElementById( "editor" )
-debugger;
+
 		if(cke_editor == null){
 
 
@@ -395,8 +383,8 @@ div1.appendChild( document.getElementById( "cancel" ) );
 
 			//----------;
 			document.getElementById("add").style.display = "block";
-			document.getElementById("modify").style.display = "none";
-			document.getElementById("delete").style.display = "none";
+			document.getElementById("modify").style.display = "block";
+			document.getElementById("delete").style.display = "block";
 			document.getElementById("cancel").style.display = "none";
 			document.getElementById("lists").style.display = "none";
 			document.getElementById("write").style.display = "none";
