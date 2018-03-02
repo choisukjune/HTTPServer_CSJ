@@ -56,7 +56,7 @@ global.SERVER.make_navi_resource = function(){
 				jo.pop()
 				var jo1 = jo[ jo.length - 1 ]
 				var jo2 = jo[ jo.length - 2 ]
-				var ttt = '<a class="item line_height_small" href="' + jo1 + "/" + jo2 +'">' + jo1 + '</a>' + "\n"
+				var ttt = '<a class="item line_height_small" href="' + jo2 + "/" + jo1 +'">' + jo1 + '</a>' + "\n"
 				r += ttt;
 			}
 		}
