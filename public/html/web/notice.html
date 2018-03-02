@@ -280,51 +280,50 @@
    }
 
    var add_doc = function(){
-	   view_container_all_el_display_none();
+		view_container_all_el_display_none();
 
-	   var cke_editor = document.getElementById( "cke_editor" )
-	   var textarea_editor = document.getElementById( "editor" )
+		var cke_editor = document.getElementById( "cke_editor" )
+		var textarea_editor = document.getElementById( "editor" )
 
-	   if(cke_editor != null){
-			   _el_view_container.removeChild( cke_editor );
-			   _el_view_container.removeChild( textarea_editor );
-	   }
+		if(cke_editor != null){
+			_el_view_container.removeChild( cke_editor );
+			_el_view_container.removeChild( textarea_editor );
+		}
 
-	   var div = document.createElement("div")
-	   div.setAttribute("class", "ui fluid icon input");
-	   div.setAttribute("style", "margin-bottom : 14px;");
+		var div = document.createElement("div")
+			div.setAttribute("class", "ui fluid icon input");
+			div.setAttribute("style", "margin-bottom : 14px;");
 
-	   var input = document.createElement("input")
-	   input.setAttribute("type", "text");
-	   input.setAttribute("placeholder", "제목을 입력하세요");
+		var input = document.createElement("input")
+			input.setAttribute("type", "text");
+			input.setAttribute("placeholder", "제목을 입력하세요");
 
-	   div.appendChild( input )
+		div.appendChild( input )
 
 
-		var textarea = document.createElement("textarea")
+		var textarea = document.createElement("textarea"
+			textarea.setAttribute("class", "ckeditor");
+			textarea.setAttribute("rows", "10");
+			textarea.setAttribute("name", "contents");
+			textarea.setAttribute("id", "editor");
+			textarea.setAttribute("style", "display : none;");
 
-		textarea.setAttribute("class", "ckeditor");
-		textarea.setAttribute("rows", "10");
-		textarea.setAttribute("name", "contents");
-		textarea.setAttribute("id", "editor");
-		textarea.setAttribute("style", "display : none;");
+		// textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
+		// document.getElementById( "view_document" ).style.display = "none";
 
-	  	textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
-		document.getElementById( "view_document" ).style.display = "none";
+		_el_view_container.appendChild( div );
+		_el_view_container.appendChild( textarea );
 
-			_el_view_container.appendChild( div );
-		  _el_view_container.appendChild( textarea );
+		CKEDITOR.replace( 'contents',{
+			customConfig : './config.js',
+			width: '100%',
+			height: '600px',
+			toolbarStartupExpanded : false
+		});
 
-		  CKEDITOR.replace( 'contents',{
-			   customConfig : './config.js',
-			   width: '100%',
-			   height: '600px',
-			   toolbarStartupExpanded : false
-		  });
+		_el_add.removeEventListener( "click", add_doc )
 
-	   _el_add.removeEventListener( "click", add_doc )
-
-}
+	}
 
 _el_all_addEvent();
 
