@@ -41,7 +41,7 @@ var url = "/api/Common/get_list?sid=" + window.service.cookie.getCookie('session
 window.service.Request.req_GET_data__Callback(url,function(result){
 	if(result == 0){
 		window.service.session.remove_deleteCookies()
-		location.href = "./login";
+		location.href = "./Member/login";
 	}
 	var data = JSON.parse( result )
 	for(var i = 0; i < data.length; ++i){
