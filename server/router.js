@@ -134,7 +134,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var resource_dir = global.ROOTPath + "/public/"
 
 	var _tmp0 = req.url.split("/")
-	console.log( req.url )
+	console.log( req.pathname )
 
 	var aaa = function(arr, str){
 		var aaa = ""
