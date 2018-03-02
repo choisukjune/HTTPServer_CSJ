@@ -352,7 +352,9 @@ debugger;
 		document.getElementById("add_doc_con").style.display = "block";
 	}
 		document.getElementById("add_cancel").addEventListener("click", function(){
+			CKEDITOR.instances.editeur1.setData("your text or html code")
 			document.getElementById("add_doc_con").style.display = "none";
+
 		} );
 		//_el_add.removeEventListener( "click", add_doc )
 
