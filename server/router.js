@@ -120,7 +120,9 @@ global.ROUTER.routerControl	= function(req,res)	{
 	];
 
 	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
-console.log( req.url )
+
+	console.log( req.url )
+
 	var	tmp = req.url.lastIndexOf(".");
 //	var tmp0 = req.url.split("");
 	var	extension  = req.url.substring((tmp	+ 1));
@@ -135,8 +137,7 @@ console.log( req.url )
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
-			fileNm = fileNm.slice(2,fileNm.length)
-			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + "/public/" + fileNm.join("/").split("?")[0] );
+			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + req.url.split("?")[0] );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			resource.on('end', function(){
