@@ -85,6 +85,7 @@ global.ROUTER.Initialize_router	= function(	param ){
 			{
 
 				routerNm = "/" + param + "/" + a0[ i ] + "/" + _temp;
+				console.log( routerNm )
 
 			}
 
