@@ -22,4 +22,8 @@
  	];
 
  	config.removeButtons = 'Save,NewPage,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,SelectAll,Scayt,About,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,BidiLtr,BidiRtl,Flash,PageBreak,Iframe,Language,Format,Smiley,Replace,Subscript,Anchor';
+
+    config.extraPlugins = 'autogrow';
+config.autoGrow_minHeight = 250;
+config.autoGrow_maxHeight = 600;
  };
