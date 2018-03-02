@@ -245,7 +245,7 @@
 
 
    var _el_all_addEvent = function(){
- 				 document.getElementById("cancel").addEventListener("click", view_doc );
+
 	   _el_add.addEventListener("click",add_doc)
 	   _el_view.addEventListener("click",view_doc )
    }
@@ -279,7 +279,7 @@
    }
 
    var add_doc = function(){
-		view_container_all_el_display_none();
+		//view_container_all_el_display_none();
 
 		var cke_editor = document.getElementById( "cke_editor" )
 		var textarea_editor = document.getElementById( "editor" )
@@ -288,6 +288,9 @@
 			_el_view_container.removeChild( cke_editor );
 			_el_view_container.removeChild( textarea_editor );
 		}
+
+
+		var div_con =  document.createElement("div");
 
 		var div0 = document.createElement("div")
 			div0.setAttribute("class", "ui fluid icon input");
@@ -318,7 +321,7 @@
 		var btn0_nm = document.createTextNode( "등록" );
 
 		var btn1 = document.createElement("button")
-			btn1.setAttribute("id", "cancel");
+			btn1.setAttribute("id", "add_cancel");
 			btn1.setAttribute("style", "margin : 5px;");
 
 		var btn1_nm = document.createTextNode( "취소" );
@@ -333,9 +336,12 @@
 		// textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
 		// document.getElementById( "view_document" ).style.display = "none";
 
-		_el_view_container.appendChild( div0 );
-		_el_view_container.appendChild( textarea );
-		_el_view_container.appendChild( div1 );
+		div_con.appendChild( div0 );
+		div_con.appendChild( textarea );
+		div_con.appendChild( div1 );
+
+		_el_view_container.appendChild( div_con );
+
 
 		CKEDITOR.replace( 'contents',{
 			customConfig : './config.js',
@@ -344,6 +350,9 @@
 			toolbarStartupExpanded : false
 		});
 
+		document.getElementById("add_cancel").addEventListener("click", function(){
+			div_con.style.display = "none";
+		} );
 		_el_add.removeEventListener( "click", add_doc )
 
 	}
