@@ -30,7 +30,7 @@ var _t0 = document.getElementById('data')
 var a1 = window.service.cookie.getCookie('session');
 
 //레디스에서 회원정보를 받아온다.;
-var url = "/api/get_member_info?sid=" + a1
+var url = "/api/Member/get_member_info?sid=" + a1
 window.service.Request.req_GET_data__Callback( url, function( r ){
 
 	var ro = JSON.parse(r);

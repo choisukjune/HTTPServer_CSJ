@@ -56,7 +56,7 @@ var a = function( param ){
 //	var p0 = document.getElementById("id").value;
 //	var p1 = document.getElementById("pwd").value;
 
-	var url = "/api/MongoDB_query_excute?path="
+	var url = "/api/DB/MongoDB_query_excute?path="
 		+ param
 
 	window.service.Request.req_GET_data__Callback( url, function( r ){
@@ -96,7 +96,7 @@ var check_login = function(){
 //	var p2 = document.getElementById("email").value;
 //	var p3 = document.getElementById("pwd").value;
 //debugger;
-	var url = "/api/readdir?"+ "path=dbjs"
+	var url = "/api/File/readdir?"+ "path=dbjs"
 
 	window.service.Request.req_GET_data__Callback( url, function( r ){
 
@@ -139,5 +139,3 @@ var _t0 = document.getElementById('data')
 
 check_login();
 </script>
-
-
