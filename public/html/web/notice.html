@@ -310,15 +310,22 @@
 
 		var div1 = document.createElement("div")
 			div1.setAttribute("class", "ui fluid icon input");
-			div1.setAttribute("style", "margin-bottom : 14px;");
+			div1.setAttribute("style", "margin-bottom : 14px;margin-top : 14px;");
 
 		var btn0 = document.createElement("button")
-			textarea.setAttribute("id", "submit");
+			btn0.setAttribute("id", "submit");
+
+		var btn0_nm = document.createTextNode( "등록" );
 
 		var btn1 = document.createElement("button")
-			textarea.setAttribute("id", "cancel");
+			btn1.setAttribute("id", "cancel");
 
+		var btn1_nm = document.createTextNode( "취소" );
+
+		btn0.appendChild( btn0_nm );
 		div1.appendChild( btn0 );
+
+		btn1.appendChild( btn1_nm );
 		div1.appendChild( btn1 );
 
 
