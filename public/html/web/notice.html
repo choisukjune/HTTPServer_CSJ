@@ -285,9 +285,7 @@
 		var textarea_editor = document.getElementById( "editor" )
 debugger;
 		if(cke_editor != null){
-			_el_view_container.removeChild( cke_editor );
-			_el_view_container.removeChild( textarea_editor );
-		}
+
 
 
 		var div_con =  document.createElement("div");
@@ -349,7 +347,7 @@ debugger;
 			height: '600px',
 			toolbarStartupExpanded : false
 		});
-
+}
 		document.getElementById("add_cancel").addEventListener("click", function(){
 			div_con.style.display = "none";
 		} );
