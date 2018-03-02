@@ -120,7 +120,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 	];
 
 	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
-
+console.log( req.url )
 	var	tmp = req.url.lastIndexOf(".");
 //	var tmp0 = req.url.split("");
 	var	extension  = req.url.substring((tmp	+ 1));
@@ -135,7 +135,8 @@ global.ROUTER.routerControl	= function(req,res)	{
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
-			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + "/public/" + req.url.split("?")[0] );
+			fileNm.shift().shift()
+			var	resource = global.REQUIRES.fs.createReadStream(	global.ROOTPath + "/public/" + fileNm.join("/")("?")[0] );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			resource.on('end', function(){
@@ -169,7 +170,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 			global.CSJLog.timeStamp( "Path / " + pathname);
 			global.CSJLog.timeStamp("IP	/ "	+ req.connection.remoteAddress + " | PORT /	" +	req.connection.remotePort);
 			global.CSJLog.timeStamp("IP	/ "	+ req.connection.localAddress +	" |	PORT / " + req.connection.localPort);
-console.log( pathname )
+
 			global.ROUTER.INFO[	pathname ](	req, res, encodeURIComponent( req.url ) )
 		}
 		else
