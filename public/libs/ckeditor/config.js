@@ -24,6 +24,8 @@
  	config.removeButtons = 'Save,NewPage,Preview,Print,Templates,Cut,Copy,Paste,PasteText,PasteFromWord,SelectAll,Scayt,About,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,BidiLtr,BidiRtl,Flash,PageBreak,Iframe,Language,Format,Smiley,Replace,Subscript,Anchor';
 
     config.extraPlugins = 'autogrow';
+    config.removePlugins = 'elementspath';
+config.resize_enabled = false;
 config.autoGrow_minHeight = 600;
 config.autoGrow_maxHeight = 600;
  };
