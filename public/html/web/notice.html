@@ -184,19 +184,14 @@
 							<div class="twelve wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 808px !important;">
 								<div class="ui basic segment" id="view_container">
 									<div class="ui basic segment" id="view_document">
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
-										test입니다.<br>
+										<h3>제목영역입니다.</h3>
 
 									</div>
+									<div class="ui basic segment" id="view_document">
+										본문내용영역입니다.
+
+									</div>
+
 								 <!--textarea rows="10" class="ckeditor" name="contents" id="editor"></textarea-->
 								</div>
 							</div>
@@ -323,19 +318,19 @@
 
 _el_all_addEvent();
 
-window.addEventListener('click', function(e){
-	var a = document.getElementById('view_document').contains(e.target)
-	console.log( a )
-	console.log( e.target)
-	if ( document.getElementById('cke_editor').contains(e.target)){
-  	console.log(1)
-  } else{
-	  var editorData = CKEDITOR.instances['editor'].getData();
-	  document.getElementById('view_document').innerHTML = editorData;
-	  console.log( 2 )
-		view_doc();
-  }
-})
+// window.addEventListener('click', function(e){
+// 	var a = document.getElementById('view_document').contains(e.target)
+// 	console.log( a )
+// 	console.log( e.target)
+// 	if ( document.getElementById('cke_editor').contains(e.target)){
+//   	console.log(1)
+//   } else{
+// 	  var editorData = CKEDITOR.instances['editor'].getData();
+// 	  document.getElementById('view_document').innerHTML = editorData;
+// 	  console.log( 2 )
+// 		view_doc();
+//   }
+// })
 
 </script>
 <script>
