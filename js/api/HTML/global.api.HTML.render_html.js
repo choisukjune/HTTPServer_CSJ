@@ -22,7 +22,7 @@ global.api.HTML.render_html	= function( req, res, chunks )
 	}
 	else
 	{
-		tpl_nm = "/index";
+		tpl_nm = "/Common/index";
 	}
 
 	var	html = global.REQUIRES.fs.readFileSync(	 global.api.HTML.CONST.CONFIG.template_root	+ tpl_nm +'.html','utf8');
