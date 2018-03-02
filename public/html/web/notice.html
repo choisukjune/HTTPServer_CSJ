@@ -329,12 +329,11 @@ debugger;
 	}else{
 		document.getElementById("add_doc_con").style.display = "block";
 	}
-		document.getElementById("add_cancel").addEventListener("click", function(){
-		CKEDITOR.instances.editor.setData("your text or html code")
+		document.getElementById("cancel").addEventListener("click", function(){
+			CKEDITOR.instances.editor.setData("your text or html code")
 
-		document.getElementById("add_doc_con").style.display = "none";
-		document.getElementById( "view_document" ).style.display = "block";
-
+			document.getElementById("add_doc_con").style.display = "none";
+			document.getElementById( "view_document" ).style.display = "block";
 		} );
 		//_el_add.removeEventListener( "click", add_doc )
 		//----------;
