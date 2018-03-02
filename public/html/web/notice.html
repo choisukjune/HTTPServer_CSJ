@@ -290,8 +290,18 @@
 			   _el_view_container.removeChild( textarea_editor );
 	   }
 
+	   var div = document.createElement("div")
+	   div.setAttribute("class", "ui fluid icon input");
+
+	   var input = document.createElement("input")
+	   input.setAttribute("type", "text");
+	   input.setAttribute("placeholder", "제목을 입력하세요");
+
+	   div.appendChild( input )
+
+
 		var textarea = document.createElement("textarea")
-		debugger;
+
 		textarea.setAttribute("class", "ckeditor");
 		textarea.setAttribute("rows", "10");
 		textarea.setAttribute("name", "contents");
@@ -301,6 +311,7 @@
 	  	textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
 		document.getElementById( "view_document" ).style.display = "none";
 
+			_el_view_container.appendChild( div );
 		  _el_view_container.appendChild( textarea );
 
 		  CKEDITOR.replace( 'contents',{
