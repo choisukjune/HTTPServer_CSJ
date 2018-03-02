@@ -452,12 +452,11 @@ _el_all_addEvent();
 // })
 </script>
 <script>
-window.service.render.dimmer( window.service.cookie.getCookie('mid') );
 //window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
 //alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
 
 var _t0 = document.getElementById('data')
-var url = "/api/get_list?sid=" + window.service.cookie.getCookie('session')
+var url = "/api/member/get_list?sid=" + window.service.cookie.getCookie('session')
 
 window.service.Request.req_GET_data__Callback(url,function(result){
 	if(result == 0){
