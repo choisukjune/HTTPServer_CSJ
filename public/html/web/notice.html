@@ -290,15 +290,15 @@
 			_el_view_container.removeChild( textarea_editor );
 		}
 
-		var div = document.createElement("div")
-			div.setAttribute("class", "ui fluid icon input");
-			div.setAttribute("style", "margin-bottom : 14px;");
+		var div0 = document.createElement("div")
+			div0.setAttribute("class", "ui fluid icon input");
+			div0.setAttribute("style", "margin-bottom : 14px;");
 
 		var input = document.createElement("input")
 			input.setAttribute("type", "text");
 			input.setAttribute("placeholder", "제목을 입력하세요");
 
-		div.appendChild( input )
+		div0.appendChild( input )
 
 
 		var textarea = document.createElement("textarea")
@@ -308,11 +308,26 @@
 			textarea.setAttribute("id", "editor");
 			textarea.setAttribute("style", "display : none;");
 
+		var div1 = document.createElement("div")
+			div1.setAttribute("class", "ui fluid icon input");
+			div1.setAttribute("style", "margin-bottom : 14px;");
+
+		var btn0 = document.createElement("button")
+			textarea.setAttribute("id", "submit");
+
+		var btn1 = document.createElement("button")
+			textarea.setAttribute("id", "cancel");
+
+		div1.appendChild( btn0 );
+		div1.appendChild( btn1 );
+
+
 		// textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
 		// document.getElementById( "view_document" ).style.display = "none";
 
-		_el_view_container.appendChild( div );
+		_el_view_container.appendChild( div0 );
 		_el_view_container.appendChild( textarea );
+		_el_view_container.appendChild( div1 );
 
 		CKEDITOR.replace( 'contents',{
 			customConfig : './config.js',
