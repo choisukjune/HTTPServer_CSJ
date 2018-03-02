@@ -121,7 +121,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
 
-	console.log( req.url )
+	console.log( "sdfsdfsdf-------" + pathname )
 
 	var	tmp = req.url.lastIndexOf(".");
 //	var tmp0 = req.url.split("");
@@ -138,40 +138,39 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 	var aaa = function(arr, str){
 		var aaa = ""
-		var r_arr = arr.reverse();
+		var chk = 0;
 		for(var i = 0;i < arr.length;++i){
 				if( _tmp0[i] != str){
-					return aaa;
-				}else{
-					aaa += "/" + _tmp0[i];
+					chk = 1;
 				}
+				if( chk == 1 ){
+					aaa += "/" + arr[ i ];
+				}
+			return aaa;
 		}
 	}
 
-	_tmp0.shift()
-	console.log( _tmp0 )
-	console.log( _tmp0.join("/").split("?")[0] )
-	resource_dir = resource_dir + _tmp0.join("/").split("?")[0]
-// console.log("req.url====>", req.url)
-// 	if( _tmp0.indexOf("css") !== -1) var resource_dir = global.ROOTPath + "/public/css/" + _tmp0[ _tmp0.length - 1].split("?")[0]
-// 	if( _tmp0.indexOf("js") !== -1) var resource_dir = global.ROOTPath + "/public/js/" + _tmp0[ _tmp0.length - 1].split("?")[0]
-// 	if( _tmp0.indexOf("common") !== -1){
-//
-// 		var klkk = aaa( _tmp0, "common" )
-// 		console.log( klkk )
-// 		var resource_dir = global.ROOTPath + "/public/js/common/" + klkk.split("?")[0]
-//
-//
-// 	}
-// 	if( _tmp0.indexOf("libs") !== -1){
-//
-// 		var klkk = aaa( _tmp0, "libs" )
-// 		console.log( klkk )
-// 		var resource_dir = global.ROOTPath + "/public/libs/" + klkk.split("?")[0]
-//
-//
-// 	}
-// 	console.log( resource_dir )
+
+	console.log("req.url====>", req.url)
+	if( _tmp0.indexOf("css") !== -1){}var resource_dir = global.ROOTPath + "/public/css/" + _tmp0[ _tmp0.length - 1].split("?")[0]
+	if( _tmp0.indexOf("js") !== -1) var resource_dir = global.ROOTPath + "/public/js/" + _tmp0[ _tmp0.length - 1].split("?")[0]
+	if( _tmp0.indexOf("common") !== -1){
+
+		var klkk = aaa( _tmp0, "common" )
+		console.log( klkk )
+		var resource_dir = global.ROOTPath + "/public/js/common/" + klkk.split("?")[0]
+
+
+	}
+	if( _tmp0.indexOf("libs") !== -1){
+
+		var klkk = aaa( _tmp0, "libs" )
+		console.log( klkk )
+		var resource_dir = global.ROOTPath + "/public/libs/" + klkk.split("?")[0]
+
+
+	}
+	console.log( resource_dir )
 
 	if ( resource_info.indexOf( extension ) !== -1 ) {
 console.log( resource_dir)
