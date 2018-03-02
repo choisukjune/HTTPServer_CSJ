@@ -253,7 +253,7 @@
 
    var _el_all_addEvent = function(){
 
-	   _el_view_document.addEventListener("click",add_doc)
+	   _el_add.addEventListener("click",add_doc)
 	   _el_cancel.addEventListener("click",cancel_doc )
 	   _el_view.addEventListener("click",view_doc )
    }
@@ -297,16 +297,16 @@
 			   _el_view_container.removeChild( textarea_editor );
 	   }
 
-		   var textarea = document.createElement("textarea")
-		  debugger;
-		  textarea.setAttribute("class", "ckeditor");
-		  textarea.setAttribute("rows", "10");
-		  textarea.setAttribute("name", "contents");
-		  textarea.setAttribute("id", "editor");
-		  textarea.setAttribute("style", "display : none;");
+		var textarea = document.createElement("textarea")
+		debugger;
+		textarea.setAttribute("class", "ckeditor");
+		textarea.setAttribute("rows", "10");
+		textarea.setAttribute("name", "contents");
+		textarea.setAttribute("id", "editor");
+		textarea.setAttribute("style", "display : none;");
 
-		  textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
-			document.getElementById( "view_document" ).style.display = "none";
+	  	textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
+		document.getElementById( "view_document" ).style.display = "none";
 
 		  _el_view_container.appendChild( textarea );
 
