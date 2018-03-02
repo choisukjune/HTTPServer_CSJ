@@ -289,6 +289,7 @@ debugger;
 
 
 		var div_con =  document.createElement("div");
+			div0.setAttribute("id", "add_doc_con");
 
 		var div0 = document.createElement("div")
 			div0.setAttribute("class", "ui fluid icon input");
@@ -348,10 +349,10 @@ debugger;
 			toolbarStartupExpanded : false
 		});
 	}else{
-		div_con.style.display = "bock";
+		document.getElementById("add_doc_con").style.display = "bock";
 	}
 		document.getElementById("add_cancel").addEventListener("click", function(){
-			div_con.style.display = "none";
+			document.getElementById("add_doc_con").style.display = "none";
 		} );
 		//_el_add.removeEventListener( "click", add_doc )
 
