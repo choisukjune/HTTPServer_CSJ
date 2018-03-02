@@ -90,7 +90,7 @@ global.ROUTER.Initialize_router	= function(	param ){
 			// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
 			t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ],"utf8");
 			//console.log( t )
-			console.log(global.ROUTER.INFO )
+			//console.log(global.ROUTER.INFO )
 			//t = global.REQUIRES.fs.readFileSync(global.ROOTPath + "/js/api/HTML/global.api.HTML.render_html.js","utf8");
 			global.ROUTER.INFO[	routerNm ] = e( t );
 
