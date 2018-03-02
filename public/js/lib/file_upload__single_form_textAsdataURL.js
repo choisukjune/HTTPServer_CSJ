@@ -45,7 +45,7 @@ window.service.file_upload.req_POST_data__Callback = function( url, data, _cbFun
 
 window.service.file_upload.file_upload__single_form_textAsdataURL.uloadFile = function( d, _storage_key ){
 
-    var url = "/api/file_upload__single_textAsdataURL?fileNm="
+    var url = "/api/File/file_upload__single_textAsdataURL?fileNm="
         + fileDataInfo.data.name + "&totalBytes=" + fileDataInfo.data.size + "&_storage_key=" + fileDataInfo._storage_key
         + "&file_id=" + fileDataInfo.id
         console.log( url )

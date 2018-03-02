@@ -25,7 +25,7 @@ window.service.file_upload.readAsArrayBuffer = {};
 
 window.service.file_upload.readAsArrayBuffer.uloadFile = function( data, fileNm, isEnd, fileSize, offset, worker_id ){
 
-    var url = "/api/file_upload_readAsArrayBuffer?fileNm=" + fileNm + "&isEnd=" + isEnd + "&totalBytes=" + fileSize + "&offset=" + offset + "&worker_id=" + worker_id;
+    var url = "/api/File/file_upload_readAsArrayBuffer?fileNm=" + fileNm + "&isEnd=" + isEnd + "&totalBytes=" + fileSize + "&offset=" + offset + "&worker_id=" + worker_id;
 
     var http = new XMLHttpRequest();
     http.open("POST", url, true);
