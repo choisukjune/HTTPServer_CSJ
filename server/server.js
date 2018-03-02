@@ -47,15 +47,16 @@ global.SERVER.make_navi_resource = function(){
 		if( io[ 0 ] != "_" )
 		{
 			var a1 = global.REQUIRES.fs.readdirSync( path + io );
-			console.log( a1 )
+			//console.log( a1 )
 			var j = 0, jLen = a1.length;
 			var jo;
 			for(; j < jLen; ++j )
 			{
 				jo = a1[ j ].split(".")
 				jo.pop()
-				var jo1 = jo.pop();
-				var ttt = '<a class="item line_height_small" href="' + jo1 +'">' + jo1 + '</a>' + "\n"
+				var jo1 = jo[ jo.length - 1 ]
+				var jo2 = jo[ jo.length - 2 ]
+				var ttt = '<a class="item line_height_small" href="' + jo1 + "/" + jo2 +'">' + jo1 + '</a>' + "\n"
 				r += ttt;
 			}
 		}
