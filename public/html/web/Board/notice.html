@@ -36,6 +36,8 @@
 				<a class="item" href="#">notebook5</a>
 
 
+				<!--
+				depth 구조의 메뉴바 구현 example;
 				<div class="item">
 					<div class="header">menu1</div>
 					<div class="div_menu menu">
@@ -45,6 +47,7 @@
 						<div class="item">test1</div>
 					</div>
 				</div>
+				-->
 			</div>
 			<div id="div-PIMS-VerticalContainer" class="ui fluid basic segment" style="min-height: auto !important; max-height: auto !important;overflow-y : hidden !important;">
 
@@ -96,48 +99,6 @@
 											<h2>제목영역입니다.</h2>
 										</div>
 										<div class="ui basic segment" id="view_document_content">
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
-											본문내용영역입니다<br>
 										</div>
 									</div>
 								</div>
@@ -165,7 +126,7 @@
 // 	<h4>제목입니다.</h4>
 // 	<p>본문요약입니다.</p>
 // </div>
-
+var list_data = ""
 var make_sub_list = function(){
 
 	//window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
@@ -192,6 +153,12 @@ var make_sub_list = function(){
 			var h4 = document.createElement("h4")
 			var h4_text = document.createTextNode( io.title );
 
+			var div1 = document.createElement("div")
+				div1.setAttribute("id", "list_id");
+				div1.setAttribute("style", "display : none;");
+
+
+
 			h4.appendChild( h4_text );
 
 			var p = document.createElement("p")
@@ -206,10 +173,12 @@ var make_sub_list = function(){
 
 		}
 
-		console.log( data )
+		list_data = data;
 	})
 
 }
+
+
 
    var _el_add = document.getElementById("add");
    var _el_view = document.getElementById("view");
