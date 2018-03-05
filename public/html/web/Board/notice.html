@@ -211,16 +211,16 @@ var make_sub_list = function(){
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
+			var k = check_dom( e, "list" )
 
-			if( check_dom( e, "list" ) ){
-				for(;i < iLen;++i){
-					io = pe[ i ]
-					if( io == e.target.parentElement ){
-						console.log( i )
-						req_detail_by__id( list_data[ i ]._id )
-					}
+			for(;i < iLen;++i){
+				io = pe[ i ]
+				if( io == k ){
+					console.log( i )
+					req_detail_by__id( list_data[ i ]._id )
 				}
 			}
+
 		})
 		list_data = data;
 	})
