@@ -131,6 +131,29 @@
 // 	<p>본문요약입니다.</p>
 // </div>
 var list_data = ""
+var write_doc = function(){
+
+	var url = "/api/Board/write"
+	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + CKEDITOR.instances.editor.getData();
+
+	window.service.Request.req_POST_data__Callback(url,data,function(){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result )
+
+		console.log( data )
+
+		// //<div class="ui basic segment item" id="view_document_title"></div>
+		// //<div class="ui basic segment" id="view_document_content"></div>
+		//
+		// document.getElementById( "view_document_title" ).innerHTML = data[ 0 ].title
+		// document.getElementById( "view_document_content" ).innerHTML = data[ 0 ].content
+
+	})
+}
+
 var req_detail_by__id = function( _id ){
 	var _t0 = document.getElementById('sub_list')
 	var url = "/api/Board/detail_view_by__id?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
@@ -150,9 +173,11 @@ var req_detail_by__id = function( _id ){
 		document.getElementById( "view_document_title" ).innerHTML = data[ 0 ].title
 		document.getElementById( "view_document_content" ).innerHTML = data[ 0 ].content
 
-})
+	})
 
 }
+
+
 var make_sub_list = function(){
 
 	//window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
@@ -239,6 +264,7 @@ var make_sub_list = function(){
    var _el_all_addEvent = function(){
 
     _el_add.addEventListener("click",add_doc)
+
     // _el_view.addEventListener("click",view_doc )
    }
 
@@ -375,6 +401,9 @@ div1.appendChild( document.getElementById( "cancel" ) );
 		document.getElementById("lists").style.display = "none";
 		document.getElementById("write").style.display = "block";
 		//----------;
+
+		document.getElementById("write").addEventListener("click",write_doc)
+
 
 	}
 

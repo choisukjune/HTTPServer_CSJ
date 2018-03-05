@@ -1,4 +1,4 @@
-global.ROUTER.api.Common.detail_view_by__id = function( req, res ){
+global.ROUTER.api.Board.detail_view_by__id = function( req, res ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 	console.log( _q );
