@@ -1,34 +1,44 @@
 global.ROUTER.api.Board.write = function( req, res ){
 
-	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
+	var	body = '';
+	req.on('data', function	(data) {
+		body +=	data;
+	   // global.CSJLog.timeStamp("Partial body: " + body);
+	})
+	req.on('end', function () {
 
-	global.api.Session.session_check(req, res, _q.sid, function( result ){
+		console.log( body )
+		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	body ).replace(/^.*\?/, '') );
 
-		if( result == 0 )
-		{
-			global.api.Response.res_200_ok_String( req, res, result.toString());
+		console.log( _q )
+		global.api.Session.session_check(req, res, _q.sid, function( result ){
 
-		}
-		else
-		{
-			global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
+			if( result == 0 )
+			{
+				global.api.Response.res_200_ok_String( req, res, result.toString());
 
-				global.CSJLog.log("Connected correctly to server");
+			}
+			else
+			{
+				global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 
-				//------------------------------;
+					global.CSJLog.log("Connected correctly to server");
 
-				var db0 = db.db('board');
+					//------------------------------;
 
-				db0.collection("notice").insert(doc,function(err, doc){
+					var db0 = db.db('board');
 
-					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
-					db.close();
+					db0.collection("notice").insert(doc,function(err, doc){
+
+						global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
+						db.close();
+
+					});
+
+					//------------------------------;
 
 				});
-
-				//------------------------------;
-
-			});
-		}
+			}
+		})
 	})
 };
