@@ -204,8 +204,14 @@ var make_sub_list = function(){
 		}
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
-			var pe = e.currentTarget.parentNode.children
-			var ce = e.currentTarget
+			var pe = e.currentTarget.children
+			var ce = e.target
+			var re = "";
+
+			if( ce.getAttribute("list") != "null"){
+				ce = ce.parentsElement.currentTarget;
+
+			}
 
 			var i = 0,iLen = pe.length, io;
 			for(;i < iLen;++i){
