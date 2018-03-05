@@ -136,44 +136,35 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var _tmp0 = req.url.split("/")
 	console.log( req.pathname )
 
-	var aaa = function(arr, str){
-		var aaa = ""
+	var check_resource_res = function(arr, str){
+		var path = ""
 		var chk = 0;
 		for(var i = 0;i < arr.length;++i){
 				if( arr[i] == str){
 					chk = 1;
 				}
 				if( chk == 1 ){
-					aaa = aaa + "/" + arr[ i ];
+					path = path + "/" + arr[ i ];
 				}
 
 		}
-		return aaa;
+		return path;
 	}
 
 
 	console.log("req.url====>", req.url)
 	if( _tmp0.indexOf("css") !== -1){
-
-		var klkk = aaa( _tmp0, "css" )
-		console.log( "URL-->" + klkk )
-
-		var resource_dir = global.ROOTPath + "/public/" + klkk.split("?")[0]
+		var path = check_resource_res( _tmp0, "css" )
+		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
 	if( _tmp0.indexOf("js") !== -1){
 
-		var klkk = aaa( _tmp0, "js" )
-		console.log( "URL-->" + klkk )
-
-		var resource_dir = global.ROOTPath + "/public/" + klkk.split("?")[0]
+		var klpathk = check_resource_res( _tmp0, "js" )
+		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
 	if( _tmp0.indexOf("libs") !== -1){
-
-		var klkk = aaa( _tmp0, "libs" )
-		console.log( "URL-->" + klkk )
-		var resource_dir = global.ROOTPath + "/public/" + klkk.split("?")[0]
-
-
+		var path = check_resource_res( _tmp0, "libs" )
+		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
 
 	if ( resource_info.indexOf( extension ) !== -1 ) {

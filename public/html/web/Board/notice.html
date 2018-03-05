@@ -151,8 +151,8 @@
 					<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 808px !important;">
 
 						<div class="ui grid">
-							<div class="four wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;">
-								<div id="list" class="ui basic segment item">
+							<div class="four wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;" id="sub_list">
+								<!-- <div id="list" class="ui basic segment item">
 									<h4>제목입니다.</h4>
 									<p>본문요약입니다.</p>
 								</div>
@@ -163,7 +163,7 @@
 								<div id="list" class="ui basic segment item">
 									<h4>제목입니다.</h4>
 									<p>본문요약입니다.</p>
-								</div>
+								</div> -->
 							</div>
 							<script src="libs/ckeditor/ckeditor.js"></script>
 
@@ -253,6 +253,56 @@
 
 <include>_footer_info.html</include>
 <script type="text/javascript">
+
+// <div id="list" class="ui basic segment item">
+// 	<h4>제목입니다.</h4>
+// 	<p>본문요약입니다.</p>
+// </div>
+
+var make_sub_list = function(){
+
+	//window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
+	//alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
+
+	var _t0 = document.getElementById('sub_list')
+	var url = "/api/Board/get_list?sid=" + window.service.cookie.getCookie('session')
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result )
+
+		var i =9,iLen = data.length,io;
+		for(; i<iLen; ++i ){
+
+			io = data[ i ];
+			var div0 = document.createElement("div")
+				div0.setAttribute("id", "list");
+				div0.setAttribute("class", "ui basic segment item");
+
+			var h4 = document.createElement("h4")
+			var h4_text = document.createTextNode( io.title );
+
+			h4.appendChild( h4_text );
+
+			var p = document.createElement("p")
+			var p_text = document.createTextNode( io.content );
+
+			p.appendChild( p_text );
+
+			div0.appendChild( h4 )
+			div0.appendChild( p )
+
+			_t0.appendChild( div0 )
+
+		}
+
+		console.log( data )
+	})
+
+}
 
    var _el_add = document.getElementById("add");
    var _el_view = document.getElementById("view");
@@ -450,20 +500,4 @@ _el_all_addEvent();
 //
 // 	}
 // })
-</script>
-<script>
-//window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
-//alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
-
-var _t0 = document.getElementById('data')
-var url = "/api/Board/get_list?sid=" + window.service.cookie.getCookie('session')
-
-window.service.Request.req_GET_data__Callback(url,function(result){
-	if(result == 0){
-		window.service.session.remove_deleteCookies()
-		location.href = "./login";
-	}
-	var data = JSON.parse( result )
-console.log( data )
-})
 </script>
