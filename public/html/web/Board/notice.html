@@ -66,8 +66,8 @@
 					<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 808px !important;">
 
 						<div class="ui grid">
-							<div class="four wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;">
-								<div id="list" class="ui basic segment item">
+							<div class="four wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;" id="sub_list">
+								<!-- <div id="list" class="ui basic segment item">
 									<h4>제목입니다.</h4>
 									<p>본문요약입니다.</p>
 								</div>
@@ -78,55 +78,7 @@
 								<div id="list" class="ui basic segment item">
 									<h4>제목입니다.</h4>
 									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<h4>제목입니다.</h4>
-									<p>본문요약입니다.</p>
-								</div>
+								</div> -->
 							</div>
 							<script src="libs/ckeditor/ckeditor.js"></script>
 
@@ -248,7 +200,8 @@ var make_sub_list = function(){
 			io = data[ i ];
 			var div0 = document.createElement("div")
 				div0.setAttribute("id", "list");
-				div0.setAttribute("class", "ui basic segment item");
+				div0.setAttribute("class", "ui basic segment item bottom_line");
+				div0.setAttribute("idx", io._id);
 
 			var h4 = document.createElement("h4")
 			var h4_text = document.createTextNode( io.title );
