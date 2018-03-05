@@ -173,7 +173,7 @@ var make_sub_list = function(){
 
 			io = data[ i ];
 			var div0 = document.createElement("div")
-				div0.setAttribute("id", "list__" + io._id );
+				div0.setAttribute("id", "list");
 				div0.setAttribute("class", "ui basic segment item bottom_line");
 				div0.setAttribute("idx", io._id);
 
@@ -202,19 +202,32 @@ var make_sub_list = function(){
 
 
 		}
+
+		var test = function( el, str ){
+			var r;
+			if( el.getAttribute("id") == str ){
+				r = el;
+			}else{
+				test( el.parentNode, str )
+			}
+			return r;
+		}
+
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
-			var ce = e.target
+			var ce = test( e.target )
 
-			var i = 0,iLen = pe.length, io;
-			for(;i < iLen;++i){
-				io = pe[ i ]
-				if( io == ce ){
-					console.log( i )
-					req_detail_by__id( list_data[ i ]._id )
+				var i = 0,iLen = pe.length, io;
+				for(;i < iLen;++i){
+					io = pe[ i ]
+					if( io == ce ){
+						console.log( i )
+						req_detail_by__id( list_data[ i ]._id )
+					}
 				}
-			}
+
+
 		})
 		list_data = data;
 	})
