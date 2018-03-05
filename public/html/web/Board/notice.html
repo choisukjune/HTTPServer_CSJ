@@ -14,6 +14,11 @@
 #list:last-child{
 	margin : 0px !important;border-bottom : 0 !important;
 }
+
+.bottom_line{
+	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+}
+
 </style>
 <!-- <div class="ui centered grid">
 	<div class="twelve wide column pad_t_60 pad_b_60"> -->
@@ -148,7 +153,7 @@ var make_sub_list = function(){
 			io = data[ i ];
 			var div0 = document.createElement("div")
 				div0.setAttribute("id", "list__" + io._id );
-				div0.setAttribute("class", "ui basic segment item");
+				div0.setAttribute("class", "ui basic segment item bottom_line");
 
 			var h4 = document.createElement("h4")
 			var h4_text = document.createTextNode( io.title );
