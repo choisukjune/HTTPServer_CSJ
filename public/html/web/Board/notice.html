@@ -132,6 +132,21 @@
 // 	<p>본문요약입니다.</p>
 // </div>
 var list_data = ""
+var req_detail_by__id = function( _id ){
+	var _t0 = document.getElementById('sub_list')
+	var url = "/api/Board/detail_view?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result )
+
+		console.log( data )
+})
+
+}
 var make_sub_list = function(){
 
 	//window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
@@ -180,7 +195,10 @@ var make_sub_list = function(){
 			_t0.appendChild( div0 )
 
 			document.getElementById("list__" + io._id ).addEventListener("click",function(e){
-				console.log(e.currentTarget.children[0].innerText)
+				//console.log(e.currentTarget.children[0].innerText)
+				var cur_data_idx = e.currentTarget.attributes["idx"].value;
+				req_detail_by__id( cur_data_idx )
+
 			})
 		}
 

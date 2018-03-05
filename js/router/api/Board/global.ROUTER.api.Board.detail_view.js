@@ -1,7 +1,7 @@
 global.ROUTER.api.Common.get_list = function( req, res ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
-
+	console.log( _q );
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 		if( result == 0 )
