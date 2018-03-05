@@ -134,7 +134,8 @@ var list_data = ""
 var write_doc = function(){
 
 	var url = "/api/Board/write"
-	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + CKEDITOR.instances.editor.getData();
+	var title = document.getElementById("title").value
+	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + CKEDITOR.instances.editor.getData() + "&title" + title;
 
 	window.service.Request.req_POST_data__Callback(url,data,function(){
 		if(result == 0){
@@ -318,6 +319,7 @@ var make_sub_list = function(){
 		var input = document.createElement("input")
 			input.setAttribute("type", "text");
 			input.setAttribute("placeholder", "제목을 입력하세요");
+			input.setAttribute("id", "title");
 
 		div0.appendChild( input )
 

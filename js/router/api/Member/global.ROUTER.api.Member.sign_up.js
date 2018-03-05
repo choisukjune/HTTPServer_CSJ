@@ -25,7 +25,6 @@ global.ROUTER.api.Member.sign_up = function( req, res ){
 						var idx = 0
 					}else{
 						var idx = doc[ 0 ]._id + 1
-
 					}
 					var data = {
 						_id : idx
@@ -58,7 +57,7 @@ global.ROUTER.api.Member.sign_up = function( req, res ){
 
 						db.close();
 						global.api.Response.res_200_ok_String( req, res, r.toString() );
-						
+
 					})
 				})
 			}

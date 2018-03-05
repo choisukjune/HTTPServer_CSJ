@@ -24,13 +24,26 @@ global.ROUTER.api.Board.write = function( req, res ){
 
 					global.CSJLog.log("Connected correctly to server");
 
+
 					//------------------------------;
 
 					var db0 = db.db('board');
 
-					db0.collection("notice").insert(doc,function(err, doc){
+					var idx = db0.collection("notice").findOne({}).limit(1).sort({_id : -1}).limit(1)._id;
+					console.log( idx )
 
-						global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
+					var doc = {
+						_id : idx + 1,
+						title : _q.title,
+						content : _q.content,
+						regist_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+						modify_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+						delete_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+					}
+
+					db0.collection("notice").insert(doc,function(d){
+
+						global.api.Response.res_200_ok_String( req, res, JSON.stringify( d ));
 						db.close();
 
 					});
