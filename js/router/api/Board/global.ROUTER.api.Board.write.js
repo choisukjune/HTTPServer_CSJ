@@ -29,25 +29,30 @@ global.ROUTER.api.Board.write = function( req, res ){
 
 					var db0 = db.db('board');
 
-					var idx = db0.collection("notice").find({}).limit(1).sort({_id : -1}).limit(1).toArray()[0];
-					console.log( idx )
+					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
+						console.log(doc)
+						if( doc.length == 0 ){
+							var idx = 0
+						}else{
+							var idx = doc[ 0 ]._id + 1
+						}
 
-					var doc = {
-						_id : idx + 1,
-						title : _q.title,
-						content : _q.content,
-						regist_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-						modify_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-						delete_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-					}
+						var doc = {
+							_id : idx,
+							title : _q.title,
+							content : _q.data,
+							regist_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+							modify_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+							delete_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+						}
 
-					db0.collection("notice").insert(doc,function(d){
+						db0.collection("notice").insert(doc,function(d){
+							console.log( d )
+							global.api.Response.res_200_ok_String( req, res, JSON.stringify( d );
+							db.close();
 
-						global.api.Response.res_200_ok_String( req, res, JSON.stringify( d ));
-						db.close();
-
+						});
 					});
-
 					//------------------------------;
 
 				});
