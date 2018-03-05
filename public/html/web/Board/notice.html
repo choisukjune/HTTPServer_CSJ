@@ -179,7 +179,7 @@ var make_sub_list = function(){
 			_t0.appendChild( div0 )
 
 			document.getElementById("list__" + io._id ).addEventListener("click",function(e){
-				console.log(e.target)
+				console.log(e.currentTarget.children[0].innerText)
 			})
 		}
 
