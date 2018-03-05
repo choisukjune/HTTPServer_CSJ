@@ -204,14 +204,14 @@ var make_sub_list = function(){
 		}
 
 		var check_dom = function( e, str ){
-			if( e.target.getAttribute("id") == str ) return e.target
-			else check_dom( e.target.parentElement, "list" )
+			if( e.getAttribute("id") == str ) return e
+			else check_dom( e.parentElement, "list" )
 		}
 
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
-			var k = check_dom( e, "list" )
+			var k = check_dom( e.target, "list" )
 
 			for(;i < iLen;++i){
 				io = pe[ i ]
