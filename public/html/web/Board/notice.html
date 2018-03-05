@@ -205,14 +205,14 @@ var make_sub_list = function(){
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
-			var ce = ""
+			//var ce = ""
 			var re = "";
 
 			if( e.target.getAttribute("id") != "list"){
-				ce = e.target.parentsElement;
+			var	ce = e.target.parentsElement;
 
 			}else{
-				ce = e.target;
+			var ce = e.target;
 
 			}
 
