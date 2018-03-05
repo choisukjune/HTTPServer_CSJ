@@ -159,7 +159,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 	}
 	if( _tmp0.indexOf("js") !== -1){
 
-		var klpathk = check_resource_res( _tmp0, "js" )
+		var path = check_resource_res( _tmp0, "js" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
 	if( _tmp0.indexOf("libs") !== -1){
