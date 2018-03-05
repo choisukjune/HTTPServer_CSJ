@@ -221,7 +221,7 @@ var aaaa = function(d){
 			if( el1.getAttribute("id") == str ){
 				cbFunction( el1 );
 			}else{
-				tesasdfadsfdasft( el1.parentElement, str )
+				tesasdfadsfdasft( el1.parentElement, str, aaaa() )
 			}
 			//return r;
 		}
@@ -229,7 +229,7 @@ var aaaa = function(d){
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
-			tesasdfadsfdasft(e.target, "list",aaaa( d ))
+			tesasdfadsfdasft(e.target, "list",aaaa())
 		})
 		list_data = data;
 	})
