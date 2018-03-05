@@ -204,7 +204,7 @@ var make_sub_list = function(){
 		}
 		var check_dom = function( e ){
 			var pe = e.currentTarget.children
-			if( e.getAttribute("id") ){
+			if( e.target.getAttribute("id") ){
 
 
 				var ce = check_dom( e.target )
@@ -218,7 +218,7 @@ var make_sub_list = function(){
 						}
 					}
 			}else{
-				check_dom( e.parentElement )
+				check_dom( e.target.parentElement )
 			}
 		}
 		_t0.addEventListener("click",function(e){
