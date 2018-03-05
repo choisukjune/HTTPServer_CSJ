@@ -209,21 +209,25 @@ var make_sub_list = function(){
 			var re = "";
 
 			if( e.target.getAttribute("id") != "list"){
-			var	ce = e.target.parentsElement;
-
+				for(;i < iLen;++i){
+					io = pe[ i ]
+					if( io == e.target.parentElement ){
+						console.log( i )
+						req_detail_by__id( list_data[ i ]._id )
+					}
+				}
 			}else{
-			var ce = e.target;
-
-			}
-
-			var i = 0,iLen = pe.length, io;
-			for(;i < iLen;++i){
-				io = pe[ i ]
-				if( io == ce ){
-					console.log( i )
-					req_detail_by__id( list_data[ i ]._id )
+				for(;i < iLen;++i){
+					io = pe[ i ]
+					if( io == e.target ){
+						console.log( i )
+						req_detail_by__id( list_data[ i ]._id )
+					}
 				}
 			}
+
+
+			var i = 0,iLen = pe.length, io;
 		})
 		list_data = data;
 	})
