@@ -39,7 +39,7 @@ window.service.util.loadScript = function(url, el, callback)
     var script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = url;
-
+    console.log( url )
     script.onreadystatechange = callback;
     script.onload = callback;
 
