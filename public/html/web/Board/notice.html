@@ -147,8 +147,8 @@ var make_sub_list = function(){
 
 			io = data[ i ];
 			var div0 = document.createElement("div")
-				div0.setAttribute("id", "list__" + io._id );
-				div0.setAttribute("class", "ui basic segment item");
+				div0.setAttribute("id", "list" );
+				div0.setAttribute("class", "ui basic segment item list__" + io._id);
 
 			var h4 = document.createElement("h4")
 			var h4_text = document.createTextNode( io.title );
@@ -173,7 +173,7 @@ var make_sub_list = function(){
 
 			_t0.appendChild( div0 )
 
-			document.getElementById("list__" + io._id ).addEventListener("click",function(){
+			document.getElementsByClassName("list__" + io._id ).addEventListener("click",function(){
 				console.log("asdf")
 			})
 		}
