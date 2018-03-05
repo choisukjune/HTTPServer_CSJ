@@ -441,7 +441,7 @@ window.service.session.checkSession = function(){
 	window.service.Request.req_GET_data__Callback( url ,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
-			location.href = "./Member/login";
+			location.href = window.hostname + "/Member/login";
 		}
 		//console.log( "window = ",result )
 	})
