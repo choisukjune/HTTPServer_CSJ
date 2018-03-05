@@ -19,7 +19,7 @@ global.ROUTER.api.Common.get_list = function( req, res ){
 
 				var db0 = db.db('board');
 
-				db0.collection("notice").find().toArray(function(err, doc){
+				db0.collection("notice").find( { _id : _q._id } ).toArray(function(err, doc){
 
 					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 					db.close();
