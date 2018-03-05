@@ -204,13 +204,14 @@ var make_sub_list = function(){
 		}
 
 		var test = function( el, str ){
-			var r;
+			//var r;
+
 			if( el.getAttribute("id") == str ){
-				r = el;
+				return el;
 			}else{
 				test( el.parentNode, str )
 			}
-			return r;
+			//return r;
 		}
 
 		_t0.addEventListener("click",function(e){
