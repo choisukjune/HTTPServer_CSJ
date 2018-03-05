@@ -203,10 +203,10 @@ var make_sub_list = function(){
 
 		}
 		var check_dom = function( e ){
-			if( e.target.getAttribute("id") ){
-				return e.tartget
+			if( e.getAttribute("id") ){
+				return e
 			}else{
-				check_dom( e.target.parentElement )
+				check_dom( e.parentElement )
 			}
 		}
 		_t0.addEventListener("click",function(e){
@@ -215,7 +215,7 @@ var make_sub_list = function(){
 			//var ce = ""
 			var re = "";
 
-			var ce = check_dom( e )
+			var ce = check_dom( e.target )
 
 			var i = 0,iLen = pe.length, io;
 				for(;i < iLen;++i){
