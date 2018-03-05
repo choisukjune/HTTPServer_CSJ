@@ -205,7 +205,7 @@ var make_sub_list = function(){
 
 		var tesasdfadsfdasft = function( el, str ){
 			var r;
-			console.log( el )
+			//console.log( el )
 			if( el.getAttribute("id") == str ){
 				r = el;
 			}else{
@@ -219,14 +219,14 @@ var make_sub_list = function(){
 			var pe = e.currentTarget.children
 			var ce = tesasdfadsfdasft( e.target, "list" )
 console.log( ce )
-				var i = 0,iLen = pe.length, io;
-				for(;i < iLen;++i){
-					io = pe[ i ]
-					if( io == ce ){
-						console.log( i )
-						req_detail_by__id( list_data[ i ]._id )
-					}
-				}
+				// var i = 0,iLen = pe.length, io;
+				// for(;i < iLen;++i){
+				// 	io = pe[ i ]
+				// 	if( io == ce ){
+				// 		console.log( i )
+				// 		req_detail_by__id( list_data[ i ]._id )
+				// 	}
+				// }
 
 
 		})
