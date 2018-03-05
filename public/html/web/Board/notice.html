@@ -207,7 +207,7 @@ var make_sub_list = function(){
 			var pe = e.currentTarget.children
 			//var ce = ""
 			var re = "";
-
+var i = 0,iLen = pe.length, io;
 			if( e.target.getAttribute("id") != "list"){
 				for(;i < iLen;++i){
 					io = pe[ i ]
@@ -227,7 +227,7 @@ var make_sub_list = function(){
 			}
 
 
-			var i = 0,iLen = pe.length, io;
+
 		})
 		list_data = data;
 	})
