@@ -203,22 +203,23 @@ var make_sub_list = function(){
 
 		}
 
-		var tesasdfadsfdasft = function( el, str ){
-			var r;
-			//console.log( el )
-			if( el.getAttribute("id") == str ){
-				r = el;
-			}else{
-				tesasdfadsfdasft( el.parentElement, str )
-			}
-			return r;
+		var asdf = function( el ){
+			return el.getAttribute("id")
+
+		}
+
+		var asdf = function( el ){
+			return el.getAttribute("id")
+
 		}
 
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
-			var ce = e.target
-console.log( ce )
+			var ce = asdf( e.target )
+			if( asdf( ce ) != "list" ){
+debugger;
+			}
 				// var i = 0,iLen = pe.length, io;
 				// for(;i < iLen;++i){
 				// 	io = pe[ i ]
