@@ -203,31 +203,30 @@ var make_sub_list = function(){
 
 		}
 
-		var asdf = function( el ){
-			return el.getAttribute("id")
-
-		}
-
-		var asdf = function( el ){
-			return el.getAttribute("id")
-
+		var tesasdfadsfdasft = function( el, str ){
+			//var r;
+			console.log( el )
+			if( el.getAttribute("id") == str ){
+				return el;
+			}else{
+				tesasdfadsfdasft( el.parentElement, str )
+			}
+			//return r;
 		}
 
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
-			var ce = asdf( e.target )
-			if( asdf( ce ) != "list" ){
-debugger;
-			}
-				// var i = 0,iLen = pe.length, io;
-				// for(;i < iLen;++i){
-				// 	io = pe[ i ]
-				// 	if( io == ce ){
-				// 		console.log( i )
-				// 		req_detail_by__id( list_data[ i ]._id )
-				// 	}
-				// }
+			var ce = tesasdfadsfdasft( e.target, "list" )
+console.log( ce )
+				var i = 0,iLen = pe.length, io;
+				for(;i < iLen;++i){
+					io = pe[ i ]
+					if( io == ce ){
+						console.log( i )
+						req_detail_by__id( list_data[ i ]._id )
+					}
+				}
 
 
 		})
