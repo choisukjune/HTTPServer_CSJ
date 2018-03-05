@@ -429,7 +429,7 @@ window.service.session.checkSession = function(){
 
 	var session = window.service.cookie.getCookie("session");
 	var sid_type = window.service.cookie.getCookie("sid_type");
-    if (!session) location.href = "./Member/login";
+    if (!session) location.href = window.hostname + "/Member/login";
 //	if (!sid_type) location.href = "./login";
 
 //	var urls = {
