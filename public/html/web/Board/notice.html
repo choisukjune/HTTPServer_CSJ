@@ -203,25 +203,29 @@ var make_sub_list = function(){
 
 		}
 
-var aaaa = function(d){
-	var i = 0,iLen = pe.length, io;
-	for(;i < iLen;++i){
-		io = pe[ i ]
-		if( io == d ){
-			console.log( i )
-			req_detail_by__id( list_data[ i ]._id )
+		var aaaa = function ( e ){
+			var pe = e.currentTarget.children;
+			var te = e.target;
+			var i = 0,iLen = pe.length, io;
+			for(;i < iLen;++i){
+				io = pe[ i ]
+				if( io == d ){
+					console.log( i )
+					req_detail_by__id( list_data[ i ]._id )
+				}
+			}
+
 		}
-	}
 
-}
-
-		var tesasdfadsfdasft = function( el1, str, cbFunction ){
+		var tesasdfadsfdasft = function( e, str, cbFunction ){
 			//var r;
-			console.log( el1 )
-			if( el1.getAttribute("id") == str ){
+			var te = e.target;
+
+			console.log( e.target )
+			if( te.getAttribute("id") == str ){
 				cbFunction( el1 );
 			}else{
-				tesasdfadsfdasft( el1.parentElement, str, aaaa() )
+				tesasdfadsfdasft( te.parentElement, str, aaaa( e ) )
 			}
 			//return r;
 		}
@@ -229,7 +233,7 @@ var aaaa = function(d){
 		_t0.addEventListener("click",function(e){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
-			tesasdfadsfdasft(e.target, "list",aaaa())
+			tesasdfadsfdasft(e.target, "list",aaaa( pe ))
 		})
 		list_data = data;
 	})
