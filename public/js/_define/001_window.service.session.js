@@ -429,7 +429,7 @@ window.service.session.checkSession = function(){
 
 	var session = window.service.cookie.getCookie("session");
 	var sid_type = window.service.cookie.getCookie("sid_type");
-    if (!session) location.href = location.hostname + "/Member/login";
+    if (!session) location.href = "/Member/login";
 //	if (!sid_type) location.href = "./login";
 
 //	var urls = {
@@ -441,7 +441,7 @@ window.service.session.checkSession = function(){
 	window.service.Request.req_GET_data__Callback( url ,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
-			location.href = location.hostname + "/Member/login";
+			location.href = "/Member/login";
 		}
 		//console.log( "window = ",result )
 	})
