@@ -153,12 +153,12 @@ var make_sub_list = function(){
 			var h4 = document.createElement("h4")
 			var h4_text = document.createTextNode( io.title );
 
-			var input = document.createElement("input")
-				input.setAttribute("id", "list_id");
-				input.setAttribute("type", "hidden;");
-			var input_text = document.createTextNode( io._id )
+			var div__id = document.createElement("div")
+				div__id.setAttribute("id", "list_id");
+				div__id.setAttribute("style", "display : none;");
+			var div__id_text = document.createTextNode( io._id )
 
-			input.appendChild( input_text );
+			div__id.appendChild( div__id_text );
 
 			h4.appendChild( h4_text );
 
@@ -167,7 +167,7 @@ var make_sub_list = function(){
 
 			p.appendChild( p_text );
 
-			div0.appendChild( input )
+			div0.appendChild( div__id )
 			div0.appendChild( h4 )
 			div0.appendChild( p )
 
