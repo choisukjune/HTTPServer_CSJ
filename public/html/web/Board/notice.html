@@ -101,7 +101,6 @@
 								<div class="ui basic segment" id="view_container">
 									<div class="ui basic segment" id="view_document">
 										<div class="ui basic segment item" id="view_document_title">
-											<h2>제목영역입니다.</h2>
 										</div>
 										<div class="ui basic segment" id="view_document_content">
 										</div>
@@ -144,6 +143,13 @@ var req_detail_by__id = function( _id ){
 		var data = JSON.parse( result )
 
 		console.log( data )
+
+		//<div class="ui basic segment item" id="view_document_title"></div>
+		//<div class="ui basic segment" id="view_document_content"></div>
+
+		document.getElementById( "view_document_title" ).innerHTML = data[ 0 ].title
+		document.getElementById( "view_document_content" ).innerHTML = data[ 0 ].content
+
 })
 
 }
