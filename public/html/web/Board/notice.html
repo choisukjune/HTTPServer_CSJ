@@ -205,7 +205,7 @@ var make_sub_list = function(){
 
 		var check_dom = function( e, str ){
 			if( e.getAttribute("id") == str ) return e
-			else check_dom( e.parentElement, "list" )
+			else return check_dom( e.parentElement, "list" )
 		}
 
 		_t0.addEventListener("click",function(e){
