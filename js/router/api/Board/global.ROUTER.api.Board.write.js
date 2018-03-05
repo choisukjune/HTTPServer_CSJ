@@ -29,7 +29,7 @@ global.ROUTER.api.Board.write = function( req, res ){
 
 					var db0 = db.db('board');
 
-					var idx = db0.collection("notice").findOne({}).limit(1).sort({_id : -1}).limit(1)._id;
+					var idx = db0.collection("notice").find({}).limit(1).sort({_id : -1}).limit(1).toArray()[0]._id;
 					console.log( idx )
 
 					var doc = {
