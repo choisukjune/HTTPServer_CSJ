@@ -137,7 +137,7 @@ var write_doc = function(){
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + CKEDITOR.instances.editor.getData() + "&title=" + title;
 
-	window.service.Request.req_POST_data__Callback(url,data,function(){
+	window.service.Request.req_POST_data__Callback(url,data,function( result ){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
 			location.href = "/Member/login";
