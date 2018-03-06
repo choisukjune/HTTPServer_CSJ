@@ -30,5 +30,5 @@
 
     config.extraPlugins = 'uploadimage';
     config.extraPlugins = 'uploadwidget';
-    config.filebrowserUploadUrl = '/ckeditor/fileUpload.aspx';
+    config.filebrowserUploadUrl = '/File/file_upload__single_form_readAsArrayBuffer';
  };
