@@ -134,10 +134,13 @@
 // </div>
 var list_data = ""
 var write_doc = function(){
+	function htmlEntities(str) {
+	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
 
 	var url = "/api/Board/write"
 	var title = document.getElementById("title").value
-	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + CKEDITOR.instances.editor.getData() + "&title=" + title;
+	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + htmlEntities(CKEDITOR.instances.editor.getData()) + "&title=" + title;
 
 	window.service.Request.req_POST_data__Callback(url,data,function( result){
 		if(result == 0){

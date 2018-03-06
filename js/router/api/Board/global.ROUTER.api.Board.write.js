@@ -65,7 +65,7 @@ global.ROUTER.api.Board.write = function( req, res ){
 							_id : idx
 							, _d : Long( -1 ).toInt()
 							, title : _q.title
-							, content : safe_tags_replace( _q.data )
+							, content : _q.data
 							, regist_date : r
 							, modify_date : null
 							, delete_date : null
