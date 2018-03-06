@@ -139,7 +139,7 @@ var write_doc = function(){
 	}
 
 	function htmlEntities2(str) {
-	    return String(str).replace(/&quot;/g, '"')
+	    return String(str).replace(/&quot;/g, '"').replace(/%/g, '%25')
 	}
 
 	var url = "/api/Board/write"
