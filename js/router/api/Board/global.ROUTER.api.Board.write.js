@@ -33,16 +33,16 @@ global.ROUTER.api.Board.write = function( req, res ){
 						console.log(doc)
 
 
-						var d = new Date();
-						var r = [
-							d.getFullYear().toNumber()
-							, d.getMonth().toNumber() + 1
-							, d.getDate().toNumber()
-							, d.getHours().toNumber()
-							, d.getMinutes().toNumber()
-							, d.getSeconds().toNumber()
-						];
-
+						// var d = new Date();
+						// var r = [
+						// 	d.getFullYear().toNumber()
+						// 	, d.getMonth().toNumber() + 1
+						// 	, d.getDate().toNumber()
+						// 	, d.getHours().toNumber()
+						// 	, d.getMinutes().toNumber()
+						// 	, d.getSeconds().toNumber()
+						// ];
+						console.log( long.toint(1.1) )
 
 						if( doc.length == 0 ){
 							var idx = 0
