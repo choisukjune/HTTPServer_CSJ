@@ -55,8 +55,8 @@ global.ROUTER.api.Board.write = function( req, res ){
 							title : _q.title,
 							content : _q.data,
 							regist_date : r,
-							modify_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-							delete_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+							modify_date : null,
+							delete_date : null
 						}
 
 						db0.collection("notice").insert(doc,function(d){

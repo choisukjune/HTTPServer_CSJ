@@ -215,6 +215,12 @@ var make_sub_list = function(){
 
 			h4.appendChild( h4_text );
 
+			var div1 = document.createElement("div")
+				div1.setAttribute("id", "sub_list_date");
+			var div1_text = document.createTextNode( io.regist_date[ 0 ] + "." + io.regist_date[ 1 ] + "." + io.regist_date[ 2 ] );
+
+			div1.appendChild( div1_text );
+
 			var p = document.createElement("p")
 			var p_text = document.createTextNode( io.content.replace(/(<([^>]+)>)/gi, "") );
 
@@ -222,6 +228,7 @@ var make_sub_list = function(){
 
 			div0.appendChild( div__id )
 			div0.appendChild( h4 )
+			div0.appendChild( div1 )
 			div0.appendChild( p )
 
 			_t0.appendChild( div0 )
