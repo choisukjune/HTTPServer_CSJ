@@ -146,7 +146,8 @@ var write_doc = function(){
 	    return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
 		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
 		.replace(/<span >/g, '')
-		.replace(/<\/span >/g, '')
+		.replace(/<\/span>/g, '')
+		.replace(/<\/td >/g, '')
 	}
 
 
