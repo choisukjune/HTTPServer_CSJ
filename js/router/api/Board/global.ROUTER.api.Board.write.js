@@ -31,18 +31,19 @@ global.ROUTER.api.Board.write = function( req, res ){
 
 					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
 						console.log(doc)
-						var a = new Long();
+						var Long = require('mongodb').Long;
 
-						// var d = new Date();
-						// var r = [
-						// 	d.getFullYear().toNumber()
-						// 	, d.getMonth().toNumber() + 1
-						// 	, d.getDate().toNumber()
-						// 	, d.getHours().toNumber()
-						// 	, d.getMinutes().toNumber()
-						// 	, d.getSeconds().toNumber()
-						// ];
-						console.log( a.toInt(1.1) )
+						var d = new Date();
+						var r = [
+							Long.fromInt( d.getFullYear() )
+							, Long.fromInt( d.getMonth() + 1 )
+							, Long.fromInt( d.getDate() )
+							, Long.fromInt( d.getHours() )
+							, Long.fromInt( d.getMinutes() )
+							, Long.fromInt( d.getSeconds() )
+						];
+
+
 						if( doc.length == 0 ){
 							var idx = 0
 						}else{
