@@ -141,7 +141,7 @@ var write_doc = function(){
 	function htmlEntities2(str) {
 	    return String(str).replace(/&quot;/g, '"')
 		.replace(/%/g, '%25')
-		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		//.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
 		.replace(/&nbsp;/g, '')
 		.replace(/\r/g, '')
 		.replace(/\n/g, '')
@@ -257,15 +257,15 @@ var make_sub_list = function(){
 
 			div1.appendChild( div1_text );
 
-			var p = document.createElement("p")
-			var p_text = document.createTextNode( io.content.replace(/(<([^>]+)>)/gi, "").substr(0,200) );
-
-			p.appendChild( p_text );
+			// var p = document.createElement("p")
+			// var p_text = document.createTextNode( io.content.replace(/(<([^>]+)>)/gi, "").substr(0,200) );
+			//
+			// p.appendChild( p_text );
 
 			div0.appendChild( div__id )
 			div0.appendChild( h4 )
 			div0.appendChild( div1 )
-			div0.appendChild( p )
+			// div0.appendChild( p )
 
 			_t0.appendChild( div0 )
 
