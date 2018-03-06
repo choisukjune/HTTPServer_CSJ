@@ -8,7 +8,7 @@ var _storage = {};
  * @return {[type]}		[description]
  */
 global.ROUTER.api.File.file_upload__single_readAsArrayBuffer = function( req, res, d ){
-
+	console.log( req )
 	var	_q = decodeURIComponent(req.url).split('?')[ 1 ];
 	var	q =	global.REQUIRES.querystring.parse( _q );
 	var	uploadPath =  global.ROOTPath +	"/upload/"
