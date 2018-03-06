@@ -139,7 +139,7 @@ var write_doc = function(){
 	}
 
 	function htmlEntities2(str) {
-	    return String(str).replace(/&quot;/g, '"').replace(/%/g, '%25').replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+	    return String(str).replace(/&quot;/g, '"').replace(/%/g, '%25').replace(/^<table.*[">$]/g, '<table class="ui celled table">').replace(/&nbsp;/g, '')
 	}
 
 	function htmlEntities3(str) {
@@ -155,7 +155,7 @@ var write_doc = function(){
 
 	var url = "/api/Board/write"
 	var title = document.getElementById("title").value
-	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + htmlEntities3(CKEDITOR.instances.editor.getData()) + "&title=" + title;
+	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + htmlEntities2(CKEDITOR.instances.editor.getData()) + "&title=" + title;
 
 	window.service.Request.req_POST_data__Callback(url,data,function( result){
 		if(result == 0){
