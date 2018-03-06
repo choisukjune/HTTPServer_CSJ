@@ -35,12 +35,12 @@ global.ROUTER.api.Board.write = function( req, res ){
 
 						var d = new Date();
 						var r = [
-							NumberInt( d.getFullYear() )
-							, NumberInt( d.getMonth() + 1 )
-							, NumberInt( d.getDate() )
-							, NumberInt( d.getHours() )
-							, NumberInt( d.getMinutes() )
-							, NumberInt( d.getSeconds() )
+							long.toNumber( d.getFullYear() )
+							, long.toNumber( d.getMonth() + 1 )
+							, long.toNumber( d.getDate() )
+							, long.toNumber( d.getHours() )
+							, long.toNumber( d.getMinutes() )
+							, long.toNumber( d.getSeconds() )
 						];
 
 
