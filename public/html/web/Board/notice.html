@@ -139,7 +139,12 @@ var write_doc = function(){
 	}
 
 	function htmlEntities2(str) {
-	    return String(str).replace(/&quot;/g, '"').replace(/%/g, '%25').replace(/^<table.*[">$]/g, '<table class="ui celled table">').replace(/&nbsp;/g, '')
+	    return String(str).replace(/&quot;/g, '"')
+		.replace(/%/g, '%25')
+		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		.replace(/&nbsp;/g, '')
+		.replace(/\r\n/g, '')
+		.replace(/\t/g, '')
 	}
 
 	function htmlEntities3(str) {
