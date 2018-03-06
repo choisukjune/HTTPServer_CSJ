@@ -216,7 +216,7 @@ var make_sub_list = function(){
 			h4.appendChild( h4_text );
 
 			var p = document.createElement("p")
-			var p_text = document.createTextNode( io.content );
+			var p_text = document.createTextNode( io.content.replace(/(<([^>]+)>)/gi, "") );
 
 			p.appendChild( p_text );
 
