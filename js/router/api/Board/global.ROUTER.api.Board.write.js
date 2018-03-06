@@ -31,7 +31,7 @@ global.ROUTER.api.Board.write = function( req, res ){
 
 					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
 						console.log(doc)
-						var a = new Ling();
+						var a = new Long();
 
 						// var d = new Date();
 						// var r = [
@@ -43,7 +43,6 @@ global.ROUTER.api.Board.write = function( req, res ){
 						// 	, d.getSeconds().toNumber()
 						// ];
 						console.log( a.toInt(1.1) )
-
 						if( doc.length == 0 ){
 							var idx = 0
 						}else{
