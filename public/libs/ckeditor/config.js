@@ -30,5 +30,5 @@
 
     config.extraPlugins = 'uploadimage';
     config.extraPlugins = 'uploadwidget';
-    config.filebrowserUploadUrl = '../../api/File/file_upload__single_form_readAsArrayBuffer';
+    config.filebrowserUploadUrl = '../../File/file_upload__single_form_readAsArrayBuffer';
  };
