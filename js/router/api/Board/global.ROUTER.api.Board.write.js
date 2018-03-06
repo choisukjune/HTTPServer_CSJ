@@ -31,6 +31,19 @@ global.ROUTER.api.Board.write = function( req, res ){
 
 					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
 						console.log(doc)
+
+
+						var d = new Date();
+						var r = [
+							NumberInt( d.getFullYear() )
+							, NumberInt( d.getMonth() + 1 )
+							, NumberInt( d.getDate() )
+							, NumberInt( d.getHours() )
+							, NumberInt( d.getMinutes() )
+							, NumberInt( d.getSeconds() )
+						];
+
+
 						if( doc.length == 0 ){
 							var idx = 0
 						}else{
@@ -41,7 +54,7 @@ global.ROUTER.api.Board.write = function( req, res ){
 							_id : idx,
 							title : _q.title,
 							content : _q.data,
-							regist_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+							regist_date : r,
 							modify_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
 							delete_date : [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
 						}
