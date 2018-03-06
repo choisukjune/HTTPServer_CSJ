@@ -138,9 +138,13 @@ var write_doc = function(){
 	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 	}
 
+	function htmlEntities2(str) {
+	    return String(str).replace(/&quot;/g, '"')
+	}
+
 	var url = "/api/Board/write"
 	var title = document.getElementById("title").value
-	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + htmlEntities(CKEDITOR.instances.editor.getData()) + "&title=" + title;
+	var data = "sid=" + window.service.cookie.getCookie('session') + "&data=" + htmlEntities2(CKEDITOR.instances.editor.getData()) + "&title=" + title;
 
 	window.service.Request.req_POST_data__Callback(url,data,function( result){
 		if(result == 0){
