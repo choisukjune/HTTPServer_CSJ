@@ -21,6 +21,24 @@ global.ROUTER.api.Board.write = function( req, res ){
 			{
 				global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 
+					//ToDo function 으로 분리하기;
+					var tagsToReplace = {
+					    '"': '&quot;',
+					    '&': '&amp;',
+					    '<': '&lt;',
+					    '>': '&gt;',
+					    "'": '&#039;'
+					};
+
+					function replaceTag(tag) {
+					    var s = tagsToReplace[tag] || tag;
+					    return s;
+					}
+
+					function safe_tags_replace(str) {
+					    return str.replace(/[&<>\"\'\{\}]/g, replaceTag);
+					}
+
 					global.CSJLog.log("Connected correctly to server");
 
 					var db0 = db.db('board');
@@ -47,7 +65,7 @@ global.ROUTER.api.Board.write = function( req, res ){
 							_id : idx
 							, _d : Long( -1 ).toInt()
 							, title : _q.title
-							, content : _q.data
+							, content : safe_tags_replace( _q.data )
 							, regist_date : r
 							, modify_date : null
 							, delete_date : null
