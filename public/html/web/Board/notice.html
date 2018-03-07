@@ -532,6 +532,8 @@ console.log( e.taget )
 			toolbarStartupExpanded : false
 		});
 	}else{
+		document.getElementById("title").value = "";
+		CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 		document.getElementById("add_doc_con").style.display = "block";
 	}
 
