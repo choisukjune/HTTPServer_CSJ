@@ -176,13 +176,14 @@ var btn_control = function( o ){
 *
 */
 var htmlEntities =  function(str){
-	return String(str).replace(/&quot;/g, '"')
-	.replace(/%/g, '%25')
-	//.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+	return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+	.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+	.replace(/<span >/g, '')
+	.replace(/<\/span>/g, '')
+	.replace(/<td >/g, '<td>')
 	.replace(/&nbsp;/g, '')
-	.replace(/\r/g, '')
-	.replace(/\n/g, '')
-	.replace(/\t/g, '')
+//	.replace(//g, '<td>')
+}
 };
 /**
 *
@@ -200,35 +201,6 @@ var make_Array_dateFormat = function( arr ){
 	 else return check_dom( e.parentElement, "list" )
  }
 //--------------------------------------------------function;
-
-/**
-*문서를 등록한다.
-*/
-var write_doc = function(){
-
-	var url = "/api/Board/write"
-	var title = document.getElementById("title").value
-	var data = "sid=" + window.service.cookie.getCookie('session')
-			+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
-			+ "&title=" + title;
-
-	window.service.Request.req_POST_data__Callback(url,data,function( result ){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "/Member/login";
-		}
-
-		var data = JSON.parse( result );
-		console.log( data );
-		console.log( "--등록완료--" );
-
-		_el_div__view_container.removeChild( document.getElementById('add_doc_con') );
-
-		make_sub_list();//서브리스트 갱신;
-		req_detail_by__id( data._id );//view 데이터 갱신;
-	})
-}
-
 /**
 * 리스트의 문서디테일을 가져와 화면에 그린다.
 */
@@ -375,6 +347,48 @@ var make_sub_list = function(){
 }
 
 /**
+*문서를 등록한다.
+*/
+var write_doc = function(){
+
+	var url = "/api/Board/write"
+	var title = document.getElementById("title").value
+	var data = "sid=" + window.service.cookie.getCookie('session')
+			+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
+			+ "&title=" + title;
+
+	window.service.Request.req_POST_data__Callback(url,data,function( result ){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+
+		var data = JSON.parse( result );
+		console.log( data );
+		console.log( "--등록완료--" );
+
+		_el_div__view_container.removeChild( document.getElementById('add_doc_con') );
+
+		make_sub_list();//서브리스트 갱신;
+		req_detail_by__id( data._id );//view 데이터 갱신;
+	})
+}
+
+/**
+ * [description]
+ * @return {[type]} [description]
+ */
+var write_cancel = function(){
+
+	//Dom 삭제;
+	document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
+
+	if( current_view_doc__id != -1) req_detail_by__id( current_view_doc__id )
+	//----------;
+
+}
+
+/**
  * [description]
  * @param  {[type]} data [description]
  * @return {[type]}      [description]
@@ -403,20 +417,6 @@ var update_doc = function( data ){
 		make_sub_list();
 		req_detail_by__id( data )
 	})
-}
-
-/**
- * [description]
- * @return {[type]} [description]
- */
-var write_cancel = function(){
-
-	//Dom 삭제;
-	document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
-
-	if( current_view_doc__id != -1) req_detail_by__id( current_view_doc__id )
-	//----------;
-
 }
 
 /**
