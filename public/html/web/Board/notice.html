@@ -531,9 +531,10 @@ console.log( e.taget )
 			height: '600px',
 			toolbarStartupExpanded : false
 		});
+		CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 	}else{
-		// document.getElementById("title").value = "";
-		// CKEDITOR.instances.editor.setData("내용을 입력해주세요")
+		document.getElementById("title").value = "";
+		CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 		document.getElementById("add_doc_con").style.display = "block";
 	}
 
