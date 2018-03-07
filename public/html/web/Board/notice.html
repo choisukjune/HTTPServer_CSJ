@@ -82,7 +82,7 @@
 									<p>본문요약입니다.</p>
 								</div> -->
 							</div>
-							<script src="libs/ckeditor/ckeditor.js"></script>
+
 
 							<div class="twelve wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 808px !important;">
 
@@ -121,6 +121,11 @@
 
 <include>_footer_info.html</include>
 <script type="text/javascript">
+var sNew = document.createElement("script");
+sNew.async = true;
+sNew.src = "libs/ckeditor/ckeditor.js";
+var s0 = document.getElementsByTagName('script')[0];
+s0.parentNode.insertBefore(sNew, s0);
 
 // <div id="list" class="ui basic segment item">
 // 	<h4>제목입니다.</h4>
