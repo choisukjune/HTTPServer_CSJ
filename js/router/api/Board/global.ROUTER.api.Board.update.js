@@ -59,6 +59,9 @@ global.ROUTER.api.Board.update = function( req, res ){
 						var _query = { _id : _q.id };
 						var doc = { $set : {title : _q.title, content : _q.data, modify_date : r} };
 
+						console.log( _query )
+						console.log( doc )
+
 						db0.collection("notice").update(_query,doc,function(d){
 							global.api.Response.res_200_ok_String( req, res, JSON.stringify( _q._id ) );
 							db.close();
