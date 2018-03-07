@@ -195,7 +195,7 @@ var htmlEntities =  function(str){
 *
 */
 var make_Array_dateFormat = function( arr ){
-	return arr[ 0 ] + "."+ arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
+	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
 }
 /**
  * [write_doc description]
@@ -351,7 +351,7 @@ var make_sub_list = function(){
 				div1.setAttribute("id", "sub_list_date");
 				div1.setAttribute("class", "pad_b_10");
 
-			var div1_text = document.createTextNode( make_Array_dateFormat( io.regist_date[ 0 ] ) );
+			var div1_text = document.createTextNode( make_Array_dateFormat( io.regist_date ) );
 
 			div__id.appendChild( div__id_text );
 			h4.appendChild( h4_text );
