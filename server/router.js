@@ -131,7 +131,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var resource_dir = global.ROOTPath + "/public"
 
 	var _tmp0 = req.url.split("/")
-	
+
 	var check_resource_res = function(arr, str){
 		var path = ""
 		var chk = 0;
@@ -147,8 +147,6 @@ global.ROUTER.routerControl	= function(req,res)	{
 		return path;
 	}
 
-
-	console.log("req.url====>", req.url)
 	if( _tmp0.indexOf("css") !== -1){
 		var path = check_resource_res( _tmp0, "css" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
