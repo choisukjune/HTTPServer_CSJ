@@ -376,13 +376,71 @@ console.log( e.taget )
    // }
 
 
-   var view_doc = function(){
+	var view_doc = function(){
 	   view_container_all_el_display_none();
 	   _el_view_document.setAttribute("style","display : block;")
 	   _el_all_addEvent();
-   }
+	}
 
-   var modify_doc = function(){
+	var update_doc = function( data ){
+
+		function htmlEntities(str) {
+		    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+		}
+
+		function htmlEntities2(str) {
+		    return String(str).replace(/&quot;/g, '"')
+			.replace(/%/g, '%25')
+			//.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+			.replace(/&nbsp;/g, '')
+			.replace(/\r/g, '')
+			.replace(/\n/g, '')
+			.replace(/\t/g, '')
+		}
+
+		function htmlEntities3(str) {
+		    return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+			.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+			.replace(/<span >/g, '')
+			.replace(/<\/span>/g, '')
+			.replace(/<td >/g, '<td>')
+			.replace(/&nbsp;/g, '')
+		//	.replace(//g, '<td>')
+		}
+
+
+		var url = "/api/Board/update"
+		var title = document.getElementById("title").value
+		var data = "sid=" + window.service.cookie.getCookie('session')
+		+ "&_id=" + current_view_doc__id;
+		+ "&data=" + htmlEntities2(CKEDITOR.instances.editor.getData())
+		+ "&title=" + title;
+
+		window.service.Request.req_POST_data__Callback(url,data,function( result){
+			if(result == 0){
+				window.service.session.remove_deleteCookies()
+				location.href = "/Member/login";
+			}
+			var data = JSON.parse( result )
+
+			console.log( data )
+			console.log( "--등록완료--" )
+
+			// //<div class="ui basic segment item" id="view_document_title"></div>
+			// //<div class="ui basic segment" id="view_document_content"></div>
+			//
+			// document.getElementById( "view_document_title" ).innerHTML = data[ 0 ].title
+			// document.getElementById( "view_document_content" ).innerHTML = data[ 0 ].content
+			debugger;
+			document.getElementById("add_doc_con").style.display = "none";
+
+			make_sub_list();
+			req_detail_by__id( data._id )
+		})
+
+	}
+
+	var modify_doc = function(){
 		//view_container_all_el_display_none();
 		add_doc();
 
@@ -391,16 +449,19 @@ console.log( e.taget )
 		//_el_add.removeEventListener( "click", add_doc )
 		//----------;
 		document.getElementById("add").style.display = "none";
-		document.getElementById("modify").style.display = "none";
+		document.getElementById("modify").style.display = "block";
 		document.getElementById("delete").style.display = "none";
 		document.getElementById("cancel").style.display = "block";
 		document.getElementById("lists").style.display = "none";
-		document.getElementById("write").style.display = "block";
+		document.getElementById("write").style.display = "none";
 		//----------;
+
+		document.getElementById("modify").removeEventListener("click",modify_doc)
+		document.getElementById("modify").addEventListener("click",update_doc)
 
 		//document.getElementById("write").addEventListener("click",write_doc)
 
-   }
+	}
 
    var delete_doc = function(){
 
