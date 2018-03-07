@@ -1,4 +1,4 @@
-global.ROUTER.api.Common.get_list = function( req, res ){
+global.ROUTER.api.Board.delete= function( req, res ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 
@@ -16,14 +16,29 @@ global.ROUTER.api.Common.get_list = function( req, res ){
 				global.CSJLog.log("Connected correctly to server");
 
 				//------------------------------;
+				var db0 = db.db('board');
 
-				var db0 = db.db('member');
+				//ToDo function 으로 분리하기;
+				var Long = require('mongodb').Long;
 
-				db0.collection("member_basic").find().toArray(function(err, doc){
+				var d = new Date();
+				var r = [
+					Long( d.getFullYear() ).toInt()
+					, Long( d.getMonth() + 1 ).toInt()
+					, Long( d.getDate() ).toInt()
+					, Long( d.getHours() ).toInt()
+					, Long( d.getMinutes() ).toInt()
+					, Long( d.getSeconds() ).toInt()
+				];
 
-					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
+				var _query = { _id : Long( _q._id ).toInt() };
+				var doc = { $set : {_d : Long( 1 ).toInt() } };
+
+				db0.collection("notice").update(_query,doc,function(err, result){
+					if (err) throw err;
+					console.log( result );
+					global.api.Response.res_200_ok_String( req, res, "true");
 					db.close();
-
 				});
 
 				//------------------------------;
