@@ -386,7 +386,7 @@ console.log( e.taget )
 		//view_container_all_el_display_none();
 		add_doc();
 
-		document.getElementById("tile").value = document.getElementById("view_document_title").value;
+		document.getElementById("title").value = document.getElementById("view_document_title").innerText;
 		CKEDITOR.instances.editor.setData( document.getElementById("view_document_content").innerHTML );
 		//_el_add.removeEventListener( "click", add_doc )
 		//----------;
