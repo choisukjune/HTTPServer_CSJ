@@ -526,7 +526,8 @@ var make_sub_list = function(){
 	CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
 	var write_cancel = function(){
-		document.getElementById("view_container").removeChild("add_doc_con");
+
+		document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 		//----------;
 		document.getElementById("add").style.display = "block";
 		document.getElementById("modify").style.display = "none";
