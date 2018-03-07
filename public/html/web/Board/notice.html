@@ -130,6 +130,7 @@
 // 	<p>본문요약입니다.</p>
 // </div>
 var list_data = ""
+var current_view_doc__id = -1
 var write_doc = function(){
 	function htmlEntities(str) {
 	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -195,7 +196,7 @@ var req_detail_by__id = function( _id ){
 		var data = JSON.parse( result )
 
 		console.log( data )
-
+		current_view_doc__id = data[ 0 ]._id;
 		// <div class="ui basic segment item">
 		// 	<h2 id="view_document_title"></h2>
 		// 	<p id="view_document_date"></p>
@@ -347,6 +348,7 @@ console.log( e.taget )
 
 
    var _el_add = document.getElementById("add");
+   var _el_modify = document.getElementById("modify");
    var _el_view = document.getElementById("view");
    var _el_view_container = document.getElementById("view_container");
    var _el_view_document = document.getElementById("view_document");
@@ -355,6 +357,7 @@ console.log( e.taget )
    var _el_all_addEvent = function(){
 
     _el_add.addEventListener("click",add_doc)
+	_el_modify.addEventListener("click",modify_doc)
 
     // _el_view.addEventListener("click",view_doc )
    }
@@ -380,6 +383,20 @@ console.log( e.taget )
    }
 
    var modify_doc = function(){
+		//view_container_all_el_display_none();
+		add_doc();
+
+		//_el_add.removeEventListener( "click", add_doc )
+		//----------;
+		document.getElementById("add").style.display = "none";
+		document.getElementById("modify").style.display = "none";
+		document.getElementById("delete").style.display = "none";
+		document.getElementById("cancel").style.display = "block";
+		document.getElementById("lists").style.display = "none";
+		document.getElementById("write").style.display = "block";
+		//----------;
+
+		//document.getElementById("write").addEventListener("click",write_doc)
 
    }
 
