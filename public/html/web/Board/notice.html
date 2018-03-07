@@ -138,7 +138,7 @@ var current_view_doc__id = -1;
 var _el_input__title = document.getElementById("title");
 var _el_div__view_container = document.getElementById("view_container");
 var _el_div__add_doc_con = document.getElementById('add_doc_con');
-var _el_div__view_document =  document.getElementById('view_document');
+
 //------------------------------_el;
 
 //--------------------------------------------------variable;
@@ -234,45 +234,41 @@ var req_detail_by__id = function( _id ){
 		var content = data[ 0 ].content
 
 		if( _el_div__view_document ) _el_div__view_container.removeChild( _el_div__view_document );
-		if( !_el_div__view_document ){
 
-			var div_content = document.createElement("div")
-				div_content.setAttribute("class","ui basic segment item")
-				div_content.setAttribute("id","view_document")
+		var div_content = document.createElement("div")
+			div_content.setAttribute("class","ui basic segment item")
+			div_content.setAttribute("id","view_document")
 
-			var div0 = document.createElement("div")
-				div0.setAttribute("class", "ui basic segment item");
+		var div0 = document.createElement("div")
+			div0.setAttribute("class", "ui basic segment item");
 
-			var h2 = document.createElement("h2")
-				h2.setAttribute("id", "view_document_title");
-			var h2_text = document.createTextNode( title );
+		var h2 = document.createElement("h2")
+			h2.setAttribute("id", "view_document_title");
+		var h2_text = document.createTextNode( title );
 
-			var p = document.createElement("p")
-				p.setAttribute("id", "view_document_date");
-			var p_text = document.createTextNode( regist_date );
+		var p = document.createElement("p")
+			p.setAttribute("id", "view_document_date");
+		var p_text = document.createTextNode( regist_date );
 
-			var div1 = document.createElement("div")
-				div1.setAttribute("class", "ui basic segment");
-				div1.setAttribute("id", "view_document_content");
-				div1.innerHTML = content;
+		var div1 = document.createElement("div")
+			div1.setAttribute("class", "ui basic segment");
+			div1.setAttribute("id", "view_document_content");
+			div1.innerHTML = content;
 
-			h2.appendChild( h2_text );
-			p.appendChild( p_text )
-			div0.appendChild( h2 );
-			div0.appendChild( p );
-			div_content.appendChild( div0 );
-			div_content.appendChild( div1 );
+		h2.appendChild( h2_text );
+		p.appendChild( p_text )
+		div0.appendChild( h2 );
+		div0.appendChild( p );
+		div_content.appendChild( div0 );
+		div_content.appendChild( div1 );
 
-			_el_div__view_container.appendChild( div_content )
+		_el_div__view_container.appendChild( div_content )
 
-		}else{
-			document.getElementById( "view_document_title" ).innerHTML = title
-			document.getElementById( "view_document_date" ).innerHTML = regist_date
-			document.getElementById( "view_document_content" ).innerHTML = content
+		if( document.getElementById('add_doc_con') )
+		{
+			document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 		}
-
-		if( document.getElementById('add_doc_con') ) document.getElementById('add_doc_con').innerHTML = ""
-		document.getElementById('view_document').style.display = "block"
+		
 		//---------- Button;
 		document.getElementById("add").style.display = "block";
 		document.getElementById("modify").style.display = "block";
