@@ -63,6 +63,7 @@ global.ROUTER.api.Board.update = function( req, res ){
 						console.log( doc )
 
 						db0.collection("notice").update(_query,doc,function(d){
+							console.log( d )
 							global.api.Response.res_200_ok_String( req, res, JSON.stringify( _q._id ) );
 							db.close();
 						});
