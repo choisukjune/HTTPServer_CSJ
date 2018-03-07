@@ -179,7 +179,7 @@ var write_doc = function(){
 		// document.getElementById( "view_document_content" ).innerHTML = data[ 0 ].content
 
 		make_sub_list();
-		req_detail_by__id( doc._id )
+		req_detail_by__id( data._id )
 	})
 }
 
@@ -255,7 +255,15 @@ var make_sub_list = function(){
 			var div1 = document.createElement("div")
 				div1.setAttribute("id", "sub_list_date");
 				div1.setAttribute("class", "pad_b_10");
-			var div1_text = document.createTextNode( io.regist_date[ 0 ] + "." + io.regist_date[ 1 ] + "." + io.regist_date[ 2 ] );
+
+			var regist_date = io.regist_date[ 0 ] + "."
+			+ io.regist_date[ 1 ] + "."
+			+ io.regist_date[ 2 ]+ " "
+			+ io.regist_date[ 3 ] + ":"
+			+ io.regist_date[ 4 ]+ ":"
+			+ io.regist_date[ 5 ]
+
+			var div1_text = document.createTextNode( regist_date );
 
 			div1.appendChild( div1_text );
 
