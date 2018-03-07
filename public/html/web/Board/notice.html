@@ -538,14 +538,13 @@ console.log( e.taget )
 
 	document.getElementById("title").value = "";
 	CKEDITOR.instances.editor.setData("내용을 입력해주세요")
+
 	document.getElementById("cancel").addEventListener("click", function(){
-
-
 
 		// document.getElementById("title").value = "";
 		// CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 		//
-		// document.getElementById("add_doc_con").style.display = "none";
+		document.getElementById("add_doc_con").setAttribute("style","display : none;")
 		// document.getElementById( "view_document" ).style.display = "block";
 
 		//----------;
@@ -572,8 +571,15 @@ console.log( e.taget )
 
 	}
 
-_el_all_addEvent();
-make_sub_list();
+var Initialize = function(){
+
+	_el_all_addEvent();
+	make_sub_list();
+
+}
+
+Initialize();
+
 // window.addEventListener('click', function(e){
 // 	var a = document.getElementById('view_document').contains(e.target)
 // 	console.log( a )
