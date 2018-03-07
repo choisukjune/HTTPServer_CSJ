@@ -350,6 +350,16 @@ var make_sub_list = function(){
 */
 var write_doc = function(){
 
+	var htmlEntities =  function(str){
+		return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		.replace(/<span >/g, '')
+		.replace(/<\/span>/g, '')
+		.replace(/<td >/g, '<td>')
+		.replace(/&nbsp;/g, '')
+	//	.replace(//g, '<td>')
+	};
+
 	var url = "/api/Board/write"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
