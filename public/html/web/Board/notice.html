@@ -395,8 +395,6 @@ console.log( e.taget )
 
 		if(cke_editor == null){
 
-
-
 		var div_con =  document.createElement("div");
 			div_con.setAttribute("id", "add_doc_con");
 
@@ -411,41 +409,12 @@ console.log( e.taget )
 
 		div0.appendChild( input )
 
-
 		var textarea = document.createElement("textarea")
 			textarea.setAttribute("class", "ckeditor");
 			textarea.setAttribute("rows", "10");
 			textarea.setAttribute("name", "contents");
 			textarea.setAttribute("id", "editor");
 			textarea.setAttribute("style", "display : none;");
-
-		var div1 = document.createElement("div")
-			div1.setAttribute("class", "ui fluid icon input");
-			div1.setAttribute("style", "margin-bottom : 14px;margin-top : 14px;");
-
-		var btn0 = document.createElement("button")
-			btn0.setAttribute("id", "submit");
-			btn0.setAttribute("style", "margin : 5px;");
-
-		var btn0_nm = document.createTextNode( "등록" );
-
-		var btn1 = document.createElement("button")
-			btn1.setAttribute("id", "add_cancel");
-			btn1.setAttribute("style", "margin : 5px;");
-
-		var btn1_nm = document.createTextNode( "취소" );
-
-		// btn0.appendChild( btn0_nm );
-		// div1.appendChild( btn0 );
-		//
-		// btn1.appendChild( btn1_nm );
-		// div1.appendChild( btn1 );
-document.getElementById( "write" ).style.display = "block";
-document.getElementById( "cancel" ).style.display = "block";
-
-div1.appendChild( document.getElementById( "write" ) );
-div1.appendChild( document.getElementById( "cancel" ) );
-
 
 		// textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
 		// document.getElementById( "view_document" ).style.display = "none";
@@ -466,34 +435,36 @@ div1.appendChild( document.getElementById( "cancel" ) );
 	}else{
 		document.getElementById("add_doc_con").style.display = "block";
 	}
-		document.getElementById("cancel").addEventListener("click", function(){
-			CKEDITOR.instances.editor.setData("your text or html code")
 
-			document.getElementById("add_doc_con").style.display = "none";
-			document.getElementById( "view_document" ).style.display = "block";
+	document.getElementById("cancel").addEventListener("click", function(){
 
-			//----------;
-			document.getElementById("add").style.display = "block";
-			document.getElementById("modify").style.display = "block";
-			document.getElementById("delete").style.display = "block";
-			document.getElementById("cancel").style.display = "none";
-			document.getElementById("lists").style.display = "none";
-			document.getElementById("write").style.display = "none";
-			//----------;
+		document.getElementById("title").value = "";
+		CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
-		} );
-		//_el_add.removeEventListener( "click", add_doc )
+		document.getElementById("add_doc_con").style.display = "none";
+		document.getElementById( "view_document" ).style.display = "block";
+
 		//----------;
-		document.getElementById("add").style.display = "none";
-		document.getElementById("modify").style.display = "none";
-		document.getElementById("delete").style.display = "none";
-		document.getElementById("cancel").style.display = "block";
+		document.getElementById("add").style.display = "block";
+		document.getElementById("modify").style.display = "block";
+		document.getElementById("delete").style.display = "block";
+		document.getElementById("cancel").style.display = "none";
 		document.getElementById("lists").style.display = "none";
-		document.getElementById("write").style.display = "block";
+		document.getElementById("write").style.display = "none";
 		//----------;
 
-		document.getElementById("write").addEventListener("click",write_doc)
+	} );
+	//_el_add.removeEventListener( "click", add_doc )
+	//----------;
+	document.getElementById("add").style.display = "none";
+	document.getElementById("modify").style.display = "none";
+	document.getElementById("delete").style.display = "none";
+	document.getElementById("cancel").style.display = "block";
+	document.getElementById("lists").style.display = "none";
+	document.getElementById("write").style.display = "block";
+	//----------;
 
+	document.getElementById("write").addEventListener("click",write_doc)
 
 	}
 
