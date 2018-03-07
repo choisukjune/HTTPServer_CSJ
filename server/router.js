@@ -120,13 +120,10 @@ global.ROUTER.routerControl	= function(req,res)	{
 	];
 
 	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
-
-	console.log( "sdfsdfsdf-------" + pathname )
-
 	var	tmp = req.url.lastIndexOf(".");
-//	var tmp0 = req.url.split("");
 	var	extension  = req.url.substring((tmp	+ 1));
 	var resource_path_key = req.url.replace('/web',"")
+
 	if( extension.indexOf("?") != -1 ){
 		extension = extension.split("?")[0];
 	}
@@ -134,8 +131,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var resource_dir = global.ROOTPath + "/public"
 
 	var _tmp0 = req.url.split("/")
-	console.log( req.pathname )
-
+	
 	var check_resource_res = function(arr, str){
 		var path = ""
 		var chk = 0;
