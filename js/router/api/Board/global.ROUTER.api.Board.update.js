@@ -56,7 +56,7 @@ global.ROUTER.api.Board.update = function( req, res ){
 							, Long( d.getSeconds() ).toInt()
 						];
 
-						var _query = { _id : _q.id };
+						var _query = { _id : _q._id };
 						var doc = { $set : {title : _q.title, content : _q.data, modify_date : r} };
 
 						console.log( _query )
