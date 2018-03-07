@@ -323,19 +323,11 @@ var make_sub_list = function(){
 
 			div1.appendChild( div1_text );
 
-			// var p = document.createElement("p")
-			// var p_text = document.createTextNode( io.content.replace(/(<([^>]+)>)/gi, "").substr(0,200) );
-			//
-			// p.appendChild( p_text );
-
 			div0.appendChild( div__id )
 			div0.appendChild( h4 )
 			div0.appendChild( div1 )
-			// div0.appendChild( p )
 
 			_t0.appendChild( div0 )
-
-
 		}
 
 		var check_dom = function( e, str ){
@@ -348,7 +340,7 @@ var make_sub_list = function(){
 			//console.log(e.currentTarget.children[0].innerText)
 			var pe = e.currentTarget.children
 			var k = check_dom( e.target, "list" )
-console.log( e.taget )
+
 			var i = 0,iLen = pe.length,io;
 			for(;i < iLen;++i){
 				io = pe[ i ]
@@ -489,13 +481,8 @@ console.log( e.taget )
 
    var add_doc = function(){
 		//view_container_all_el_display_none();
-		if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).style.display = "none";
-
-
-		var cke_editor = document.getElementById( "cke_editor" )
-		var textarea_editor = document.getElementById( "editor" )
-
-		if(cke_editor == null){
+		if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
+		if( document.getElementById("add_doc_con") == null ){
 
 		var div_con =  document.createElement("div");
 			div_con.setAttribute("id", "add_doc_con");
@@ -518,9 +505,6 @@ console.log( e.taget )
 			textarea.setAttribute("id", "editor");
 			textarea.setAttribute("style", "display : none;");
 
-		// textarea.innerHTML = document.getElementById( "view_document" ).innerHTML
-		// document.getElementById( "view_document" ).style.display = "none";
-
 		div_con.appendChild( div0 );
 		div_con.appendChild( textarea );
 
@@ -541,14 +525,8 @@ console.log( e.taget )
 	document.getElementById("title").value = "";
 	CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
-	document.getElementById("cancel").addEventListener("click", function(){
-
-		// document.getElementById("title").value = "";
-		// CKEDITOR.instances.editor.setData("내용을 입력해주세요")
-		//
-		document.getElementById("add_doc_con").setAttribute("style","display : none;")
-		// document.getElementById( "view_document" ).style.display = "block";
-
+	var write_cancel = function(){
+		document.getElementById("add_doc_con") = null
 		//----------;
 		document.getElementById("add").style.display = "block";
 		document.getElementById("modify").style.display = "block";
@@ -558,8 +536,7 @@ console.log( e.taget )
 		document.getElementById("write").style.display = "none";
 		//----------;
 
-	} );
-	//_el_add.removeEventListener( "click", add_doc )
+	}
 	//----------;
 	document.getElementById("add").style.display = "none";
 	document.getElementById("modify").style.display = "none";
@@ -570,6 +547,7 @@ console.log( e.taget )
 	//----------;
 
 	document.getElementById("write").addEventListener("click",write_doc)
+	document.getElementById("cancel").addEventListener("click", write_cancel );
 
 	}
 
