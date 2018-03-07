@@ -178,6 +178,8 @@ var write_doc = function(){
 		// document.getElementById( "view_document_title" ).innerHTML = data[ 0 ].title
 		// document.getElementById( "view_document_content" ).innerHTML = data[ 0 ].content
 
+		document.getElementById("add_doc_con").style.display = "none";
+
 		make_sub_list();
 		req_detail_by__id( data._id )
 	})
