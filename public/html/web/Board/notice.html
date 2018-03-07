@@ -121,6 +121,7 @@
 
 <include>_footer_info.html</include>
 <script type="text/javascript">
+
 var sNew = document.createElement("script");
 sNew.async = true;
 sNew.src = "libs/ckeditor/ckeditor.js";
@@ -449,7 +450,7 @@ var make_sub_list = function(){
 			// document.getElementById( "view_document_title" ).innerHTML = data[ 0 ].title
 			// document.getElementById( "view_document_content" ).innerHTML = data[ 0 ].content
 			debugger;
-			document.getElementById("add_doc_con").style.display = "none";
+			document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
 			make_sub_list();
 			req_detail_by__id( data )
