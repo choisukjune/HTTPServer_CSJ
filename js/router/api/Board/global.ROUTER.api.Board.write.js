@@ -72,7 +72,7 @@ global.ROUTER.api.Board.write = function( req, res ){
 						}
 
 						db0.collection("notice").insert(doc,function(d){
-							global.api.Response.res_200_ok_String( req, res, JSON.stringify( d ) );
+							global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
 							db.close();
 						});
 					});
