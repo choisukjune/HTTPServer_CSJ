@@ -56,7 +56,7 @@ global.ROUTER.api.Board.update = function( req, res ){
 							, Long( d.getSeconds() ).toInt()
 						];
 
-						var _query = { _id : _q._id };
+						var _query = { _id : Long( _q._id ).toInt() };
 						var doc = { $set : {title : _q.title, content : _q.data, modify_date : r} };
 
 						console.log( _query )
@@ -64,7 +64,7 @@ global.ROUTER.api.Board.update = function( req, res ){
 
 						db0.collection("notice").update(_query,doc,function(err, res){
 							if (err) throw err;
-							console.log( res )
+							console.log( res.result )
 							global.api.Response.res_200_ok_String( req, res, JSON.stringify( _q._id ) );
 							db.close();
 						});
