@@ -135,20 +135,11 @@ var list_data = "";
 var current_view_doc__id = -1;
 
 //------------------------------_el;
-var _el_input__title = document.getElementById("title");
 var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
 //------------------------------_el;
 //------------------------------ btn;
-var btn_object = {
-	add : "none"
-	, modify : "none"
-	, delete : "none"
-	, delete : "none"
-	, cancel : "none"
-	, lists : "none"
-	, write : "none"
-}
+var btn_object = {add : "none", modify : "none", delete : "none", delete : "none", cancel : "none", lists : "none", write : "none"}
 
 var btn_control = function( o ){
 	for( var s in btn_object )
@@ -156,6 +147,7 @@ var btn_control = function( o ){
 		if( o[ s ] ) document.getElementById( s ).style.display = o[ s ];
 		else document.getElementById( s ).style.display = btn_object[ s ];
 	}
+	return;
 }
 
 //------------------------------ btn;
@@ -214,7 +206,7 @@ var make_Array_dateFormat = function( arr ){
 var write_doc = function(){
 
 	var url = "/api/Board/write"
-	var title = _el__input_title.value
+	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
 			+ "&title=" + title;
@@ -480,12 +472,11 @@ var modify_doc = function(){
 	CKEDITOR.instances.editor.setData( document.getElementById("view_document_content").innerHTML );
 
 	//----------;
-	document.getElementById("add").style.display = "none";
-	document.getElementById("modify").style.display = "block";
-	document.getElementById("delete").style.display = "none";
-	document.getElementById("cancel").style.display = "block";
-	document.getElementById("lists").style.display = "none";
-	document.getElementById("write").style.display = "none";
+	var btn_control_obj = {
+		modify : "block"
+		, cancel : "block"
+	}
+	btn_control( btn_control_obj );
 	//----------;
 
 	document.getElementById("modify").removeEventListener("click",modify_doc)
@@ -545,7 +536,6 @@ var add_doc = function(){
 	CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
 	//----------;
-
 	var btn_control_obj = {
 		cancel : "block"
 		, write : "block"
