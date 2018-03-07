@@ -445,16 +445,7 @@ var write_cancel = function(){
 	//Dom 삭제;
 	document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
-	//에디터초기화;
-	//CKEDITOR.instances.editor.destroy();
-
-	//----------;
-	document.getElementById("add").style.display = "block";
-	document.getElementById("modify").style.display = "none";
-	document.getElementById("delete").style.display = "none";
-	document.getElementById("cancel").style.display = "none";
-	document.getElementById("lists").style.display = "none";
-	document.getElementById("write").style.display = "none";
+	if( current_view_doc__id != -1) req_detail_by__id( current_view_doc__id )
 	//----------;
 
 }
