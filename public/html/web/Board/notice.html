@@ -190,7 +190,10 @@ var write_doc = function(){
 var req_detail_by__id = function( _id ){
 	var _t0 = document.getElementById('view_container')
 	var url = "/api/Board/detail_view_by__id?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
-	if( document.getElementById('add_doc_con') document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
+	if( document.getElementById('add_doc_con') )
+	{
+		 document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
+	}
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
