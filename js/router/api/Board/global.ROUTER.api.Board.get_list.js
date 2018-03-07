@@ -18,7 +18,7 @@ global.ROUTER.api.Board.get_list = function( req, res ){
 
 				var db0 = db.db('board');
 
-				db0.collection("notice").find({ $ne : {_d : 1}}).sort({ _id : -1 }).toArray(function(err, doc){
+				db0.collection("notice").find({ _d : { $ne : 1}}).sort({ _id : -1 }).toArray(function(err, doc){
 					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 					db.close();
 				});
