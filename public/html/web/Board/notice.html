@@ -372,38 +372,6 @@ var make_sub_list = function(){
 	})
 }
 
-
-
-   var _el_add = document.getElementById("add");
-   var _el_modify = document.getElementById("modify");
-   var _el_view = document.getElementById("view");
-   var _el_view_container = document.getElementById("view_container");
-   var _el_view_document = document.getElementById("view_document");
-
-
-   var _el_all_addEvent = function(){
-
-    _el_add.addEventListener("click",add_doc)
-	_el_modify.addEventListener("click",modify_doc)
-
-    // _el_view.addEventListener("click",view_doc )
-   }
-
-   var view_container_all_el_display_none = function(){
-	   var i = 0,iLen = _el_view_container.children.length,io;
-	   for(;i<iLen;++i){
-		   io = _el_view_container.children[ i ]
-		   io.style.display = "none";
-	   }
-   }
-
-	var view_doc = function(){
-	   view_container_all_el_display_none();
-	   _el_view_document.setAttribute("style","display : block;")
-	   _el_all_addEvent();
-	}
-
-
 /**
  * [description]
  * @param  {[type]} data [description]
@@ -512,7 +480,7 @@ var add_doc = function(){
 	div_con.appendChild( div0 );
 	div_con.appendChild( textarea );
 
-	_el_view_container.appendChild( div_con );
+	_el_div__view_container.appendChild( div_con );
 
 	//에디터 로드;
 	CKEDITOR.replace( 'contents',{
@@ -538,10 +506,17 @@ var add_doc = function(){
 	document.getElementById("cancel").addEventListener("click", write_cancel );
 
 }
-
+/**
+ * [description]
+ * @return {[type]} [description]
+ */
 var Initialize = function(){
-	_el_all_addEvent();
 	make_sub_list();
+	//----------;
+	var btn_control_obj = {add : "block"}
+	btn_control( btn_control_obj );
+	//----------;
+	document.getElementById("add").addEventListener("click", add_doc );
 }
 
 Initialize();
