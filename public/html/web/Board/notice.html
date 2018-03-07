@@ -218,6 +218,7 @@ var req_detail_by__id = function( _id ){
 	{
 		 _el_div__view_container.removeChild( _el_div__add_doc_con );
 	}
+
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
@@ -231,7 +232,7 @@ var req_detail_by__id = function( _id ){
 		var regist_date = make_Array_dateFormat( data[ 0 ].regist_date );
 		var title = data[ 0 ].title
 		var content = data[ 0 ].content
-
+		_el_div__view_container.removeChild( _el_div__view_document );
 		if( !_el_div__view_document ){
 
 			var div_content = document.createElement("div")
