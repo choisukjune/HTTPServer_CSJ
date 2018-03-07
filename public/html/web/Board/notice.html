@@ -487,6 +487,8 @@ console.log( e.taget )
 
    var add_doc = function(){
 		//view_container_all_el_display_none();
+		if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).style.display = "none";
+
 
 		var cke_editor = document.getElementById( "cke_editor" )
 		var textarea_editor = document.getElementById( "editor" )
@@ -530,13 +532,15 @@ console.log( e.taget )
 			toolbarStartupExpanded : false
 		});
 	}else{
-
+		document.getElementById("title").value = "";
+		CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 		document.getElementById("add_doc_con").style.display = "block";
 	}
 
 	document.getElementById("cancel").addEventListener("click", function(){
 
-
+		document.getElementById("title").value = "";
+		CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
 		document.getElementById("add_doc_con").style.display = "none";
 		document.getElementById( "view_document" ).style.display = "block";
@@ -560,9 +564,6 @@ console.log( e.taget )
 	document.getElementById("lists").style.display = "none";
 	document.getElementById("write").style.display = "block";
 	//----------;
-
-	document.getElementById("title").value = "";
-	CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
 	document.getElementById("write").addEventListener("click",write_doc)
 
