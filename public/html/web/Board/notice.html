@@ -478,6 +478,19 @@ var make_sub_list = function(){
    var delete_doc = function(){
 
    }
+   var write_cancel = function(){
+
+	   document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
+	   //----------;
+	   document.getElementById("add").style.display = "block";
+	   document.getElementById("modify").style.display = "none";
+	   document.getElementById("delete").style.display = "none";
+	   document.getElementById("cancel").style.display = "none";
+	   document.getElementById("lists").style.display = "none";
+	   document.getElementById("write").style.display = "none";
+	   //----------;
+
+   }
 
    var add_doc = function(){
 		//view_container_all_el_display_none();
@@ -525,19 +538,6 @@ var make_sub_list = function(){
 	document.getElementById("title").value = "";
 	CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
-	var write_cancel = function(){
-
-		document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
-		//----------;
-		document.getElementById("add").style.display = "block";
-		document.getElementById("modify").style.display = "none";
-		document.getElementById("delete").style.display = "none";
-		document.getElementById("cancel").style.display = "none";
-		document.getElementById("lists").style.display = "none";
-		document.getElementById("write").style.display = "none";
-		//----------;
-
-	}
 	//----------;
 	document.getElementById("add").style.display = "none";
 	document.getElementById("modify").style.display = "none";
