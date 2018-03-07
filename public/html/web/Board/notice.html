@@ -222,6 +222,8 @@ var req_detail_by__id = function( _id ){
 
 		var p_text = document.createTextNode( regist_date );
 
+		h2.appendChild( h2_text );
+		p.appendChild( p_text )
 		div0.appendChild( h2 );
 		div0.appendChild( p );
 
@@ -229,6 +231,8 @@ var req_detail_by__id = function( _id ){
 			div1.setAttribute("class", "ui basic segment");
 			div1.setAttribute("id", "view_document_content");
 		var div1_text = document.createTextNode( data[ 0 ].content );
+
+		div1.appendChild( div1_text );
 
 		_t0.appendChild( div0 )
 		_t0.appendChild( div1 )
