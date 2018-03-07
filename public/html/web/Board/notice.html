@@ -235,13 +235,14 @@ var req_detail_by__id = function( _id ){
 			div0.appendChild( h2 );
 			div0.appendChild( p );
 
-			div_content.appendChild( div0 );
-			div_content.appendChild( div1 );
-
 			var div1 = document.createElement("div")
 				div1.setAttribute("class", "ui basic segment");
 				div1.setAttribute("id", "view_document_content");
 				div1.innerHTML = content;
+
+
+			div_content.appendChild( div0 );
+			div_content.appendChild( div1 );
 
 			_t0.appendChild( div_content )
 
