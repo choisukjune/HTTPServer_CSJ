@@ -224,13 +224,16 @@ var make_project_list = function(){
 
 			_t0.appendChild( option )
 		}
+		documet.getElementById("project_list_select").addEventListener("change",function(e){
+			console.log(e.target)
+		})
 	})
 }
 
 
 
-var make_notebook_list = function(){
-	var url = "/api/Category/notebook/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$project="
+var make_notebook_list = function( cd$project ){
+	var url = "/api/Category/notebook/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$project=" + cd$project;
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
@@ -240,20 +243,12 @@ var make_notebook_list = function(){
 
 		console.log( data );
 
-		// <a class="item" href="#">notebook1</a>
-
-
-		var td = [
-			{_id : 0,nm : "B2B platform"}
-			, {_id : 1,nm : "Onsight"}
-		]
-
 		var _t0 = document.getElementById("div-PIMS-menu-list")
 
-		var i = 0,iLen = td.length,io
+		var i = 0,iLen = data.length,io
 		for(;i<iLen; ++i)
 		{
-			io = td[ i ];
+			io = data[ i ];
 			var a = document.createElement("a")
 				a.setAttribute( "href", "#" )
 				a.setAttribute( "class", "item" )
