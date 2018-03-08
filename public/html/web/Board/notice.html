@@ -283,6 +283,7 @@ var make_notebook_list = function( cd$project ){
 				if( io == te ){
 					console.log( i )
 					current_notebook__data = notebook_list_data[ i ]
+					make_sub_list( current_notebook__data.cd );
 				}
 			}
 		})
@@ -372,9 +373,9 @@ var req_detail_by__id = function( _id ){
  * 서브리스트를 만드는 함수
  * @return {[type]} [description]
  */
-var make_sub_list = function(){
+var make_sub_list = function( cd$notebook ){
 
-	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + current_notebook__data.cd
+	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
@@ -626,7 +627,6 @@ var add_doc = function(){
  * @return {[type]} [description]
  */
 var Initialize = function(){
-	make_sub_list();
 	make_project_list();
 	//----------;
 	var btn_control_obj = {add : "block"}
