@@ -62,57 +62,65 @@ global.ROUTER.Initialize_router	= function(	param ){
 	{
 		t =	global.REQUIRES.fs.readFileSync( global.ROOTPath + "/js/router/web/Common/global.ROUTER.web.Common.index.js","utf8");
 		global.ROUTER.INFO[ "/" ] = e( t );
-	}
 
-	var	i =0,iLen =	a0.length,_temp,routerNm;
-	var a1,a2;
-	for( ; i < iLen; ++i )
-	{
-		a1 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] );
-		var j = 0,jLen = a1.length;
-		for(; j < jLen; ++j )
+		var	i =0,iLen =	a0.length,_temp,routerNm;
+		var a1;
+		for( ; i < iLen; ++i )
 		{
-			console.log( path + '/' + a0[ i ] + "/" + a1[ j ] )
-			a2 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] + "/" + a1[ j ] );
-			var k = 0,kLen = a2.length;
-			for(; k < kLen; ++k)
+			a1 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] );
+			var j = 0,jLen = a1.length;
+			for(; j < jLen; ++j )
 			{
-				if( param == "web" )
+				console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
+
+				_temp =	a1[	j ].split(".")
+				_temp.pop();
+				_temp = _temp.pop();
+
+				routerNm = "/" + a0[ i ] + "/" + _temp;
+				//*/
+				// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
+				t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ],"utf8");
+				//console.log( t )
+				//console.log(global.ROUTER.INFO )
+				//t = global.REQUIRES.fs.readFileSync(global.ROOTPath + "/js/api/HTML/global.api.HTML.render_html.js","utf8");
+				global.ROUTER.INFO[	routerNm ] = e( t );
+
+				/*/
+				//require 방식 변경;
+				//global.ROUTER.INFO[ routerNm ] = require(	path + a0[ i ] );
+				//*/
+				console.log( "-[E]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
+			}
+		}
+	}
+	else
+	{
+		var	i =0,iLen =	a0.length,_temp,routerNm;
+		var a1,a2;
+		for( ; i < iLen; ++i )
+		{
+			a1 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] );
+			var j = 0,jLen = a1.length;
+			for(; j < jLen; ++j )
+			{
+
+				a2 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] + '/' + a1[ j ] );
+				var k = 0,klen = a2.length;
+				for(;k<kLen; ++k)
 				{
-					console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
 
-					_temp =	a1[	j ].split(".")
-					_temp.pop();
-					_temp = _temp.pop();
-					routerNm = "/" + a0[ i ] + "/" + _temp;
-console.log( path + '/' + a0[ i ] + '/' + a1[ j ] )
-					//*/
-					// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
-					t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ],"utf8");
-					//console.log( t )
-					//console.log(global.ROUTER.INFO )
-					//t = global.REQUIRES.fs.readFileSync(global.ROOTPath + "/js/api/HTML/global.api.HTML.render_html.js","utf8");
-					global.ROUTER.INFO[	routerNm ] = e( t );
-
-					/*/
-					//require 방식 변경;
-					//global.ROUTER.INFO[ routerNm ] = require(	path + a0[ i ] );
-					//*/
-
-					console.log( "-[E]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
-				}
-				else
-				{
-					console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] + "/" + a2[ k ] );
+					console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] + '/' + a2[ k ] );
 
 					_temp =	a2[	k ].split(".")
 					_temp.pop();
 					_temp = _temp.pop();
-					routerNm = "/" + param + "/" + a0[ i ] + "/" + a1[ j ] + _temp;
+
+					routerNm = "/" + param + "/" + a0[ i ] + "/" + a1[ j ] + "/" + _temp;
 
 					//*/
 					// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
-					t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ] + "/" + a2[ k ],"utf8");
+					t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ] + '/' + a2[ k ],"utf8");
 					//console.log( t )
 					//console.log(global.ROUTER.INFO )
 					//t = global.REQUIRES.fs.readFileSync(global.ROOTPath + "/js/api/HTML/global.api.HTML.render_html.js","utf8");
@@ -123,7 +131,8 @@ console.log( path + '/' + a0[ i ] + '/' + a1[ j ] )
 					//global.ROUTER.INFO[ routerNm ] = require(	path + a0[ i ] );
 					//*/
 
-					console.log( "-[E]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
+					console.log( "-[E]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] + '/' + a2[ k ] );
+
 				}
 			}
 		}
