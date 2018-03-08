@@ -225,7 +225,18 @@ var make_brcm_1 = function(){
 }
 
 var make_brcm_2 = function(){
-	var _t0 = document.getElementById("brcm")
+	var _t0 = document.getElementById("brscm")
+
+	var a = document.createElement("a")
+		a.setAttribute("class","section");
+		a.setAttribute("id","brscm_1");
+		a.appendChild( document.createTextNode( current_notebook__data.nm ) );
+	var span = document.createElement("span")
+		span.setAttribute("class","divider");
+		span.appendChild( document.createTextNode( "/" ) );
+
+	_t0.appendChild( span )
+	_t0.appendChild( a )
 }
 
 var make_brcm_3 = function(){
@@ -311,6 +322,7 @@ var make_notebook_list = function( cd$project ){
 					console.log( i )
 					current_notebook__data = notebook_list_data[ i ]
 					make_sub_list( current_notebook__data.cd );
+					make_brcm_2();
 				}
 			}
 		})
