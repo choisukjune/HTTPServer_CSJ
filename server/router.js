@@ -99,10 +99,12 @@ global.ROUTER.Initialize_router	= function(	param ){
 	{
 		console.log("--------------------------------------------------------->>>>>>>")
 		var	i =0,iLen =	a0.length,_temp,routerNm;
+		console.log( a0 )
 		var a1,a2,a4;
 		for( ; i < iLen; ++i )
 		{
 			a1 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] );
+			console.log( a1 )
 			var j = 0,jLen = a1.length;
 			for(; j < jLen; ++j )
 			{
