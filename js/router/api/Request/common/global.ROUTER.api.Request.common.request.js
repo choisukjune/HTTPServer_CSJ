@@ -1,4 +1,4 @@
-global.ROUTER.api.Request.Common.request = function( req, res, d, pathname ){
+global.ROUTER.api.Request.common.request = function( req, res, d, pathname ){
 	var decodeURIComponent_Data = decodeURIComponent( req.url ).replace(/^.*\?/, '');
 	var data = global.REQUIRES.querystring.parse( decodeURIComponent_Data )
 
