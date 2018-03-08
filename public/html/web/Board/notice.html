@@ -63,12 +63,12 @@
 						<div class="ui red horizontal label">Notice!</div>알파 서비스 0.1.0 버전 입니다.추가 요구 사항은 개발팀에 문의 바랍니다.
 					</div>
 					<div class="sixteen wide column" id="div-PIMS-headerContainer" style="width: 100%;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;">
-						<div class="ui breadcrumb">
-							<a class="section">Home</a>
+						<div class="ui breadcrumb" id="brscm">
+							<!-- <a class="section" id="brscm_1">Home</a>
 							<span class="divider">/</span>
-							<a class="section">Registration</a>
-							<span class="divider">/</span>
-							<div class="active section">Personal Information</div>
+							<a class="section" id="brscm_2">Registration</a>
+							<span class="divider" id="brscm_3">/</span>
+							<div class="active section">Personal Information</div> -->
 						</div>
 					</div>
 					<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 808px !important;">
@@ -213,6 +213,26 @@ var make_Array_dateFormat = function( arr ){
 	 else return check_dom( e.parentElement, "list" )
  }
 //--------------------------------------------------function;
+var make_brcm_1 = function(){
+	var _t0 = document.getElementById("brcm")
+
+	var a = document.createElement("a")
+		a.setAttribute("class","section");
+		a.setAttribute("id","brscm_1");
+		a.appendChild( current_project__data.nm )
+
+	_t0.appendChild( a )
+}
+
+var make_brcm_2 = function(){
+	var _t0 = document.getElementById("brcm")
+}
+
+var make_brcm_3 = function(){
+	var _t0 = document.getElementById("brcm")
+}
+
+
 var make_project_list = function(){
 	var url = "/api/Category/project/get_list?sid=" + window.service.cookie.getCookie('session');
 	window.service.Request.req_GET_data__Callback(url,function(result){
@@ -241,6 +261,7 @@ var make_project_list = function(){
 			console.log(e.target.selectedOptions[ 0 ].value)
 			var idx = e.target.selectedOptions[ 0 ].value;
 			current_project__data = project_list_data[ idx ];
+			make_brcm_1();
 			make_notebook_list( current_project__data.cd );
 		})
 	})
