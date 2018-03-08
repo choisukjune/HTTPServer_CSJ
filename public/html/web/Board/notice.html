@@ -212,20 +212,15 @@ var make_project_list = function(){
 
 		console.log( data );
 
-		var td = [
-			{_id : 0,nm : "B2B platform"}
-			, {_id : 1,nm : "Onsight"}
-		]
-
 		var _t0 = document.getElementById("project_list_select")
 
-		var i = 0,iLen = td.length,io
+		var i = 0,iLen = data.length,io
 		for(;i<iLen; ++i)
 		{
-			io = td[ i ];
+			io = data[ i ];
 			var option = document.createElement("option")
-				option.setAttribute( "value", io._id )
-				option.appendChild( document.createTextNode( io.nm ) )
+				option.setAttribute( "value", data._id )
+				option.appendChild( document.createTextNode( data.nm ) )
 
 			_t0.appendChild( option )
 		}
