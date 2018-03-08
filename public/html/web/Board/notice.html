@@ -219,8 +219,8 @@ var make_project_list = function(){
 		{
 			io = data[ i ];
 			var option = document.createElement("option")
-				option.setAttribute( "value", data._id )
-				option.appendChild( document.createTextNode( data.nm ) )
+				option.setAttribute( "value", io._id )
+				option.appendChild( document.createTextNode( io.nm ) )
 
 			_t0.appendChild( option )
 		}
