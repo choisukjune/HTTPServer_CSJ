@@ -235,7 +235,7 @@ var make_project_list = function(){
 			console.log(e.target.selectedOptions[ 0 ].value)
 			var idx = e.target.selectedOptions[ 0 ].value;
 			current_project__data = project_list_data[ i ];
-			make_notebook_list( current_project__cd.cd );
+			make_notebook_list( current_project__data.cd );
 		})
 	})
 }
