@@ -139,8 +139,8 @@ var project_list_data = [];
 var notebook_list_data = [];
 
 var current_view_doc__id = -1;
-var current_project__cd = "";
-var current_notebook__cd = "";
+var current_project__data = {};
+var current_notebook__data = {};
 
 //------------------------------_el;
 var _el_div__view_container = document.getElementById("view_container");
@@ -226,22 +226,19 @@ var make_project_list = function(){
 		{
 			io = data[ i ];
 			var option = document.createElement("option")
-				option.setAttribute( "value", io.cd )
+				option.setAttribute( "value", i )
 				option.appendChild( document.createTextNode( io.nm ) )
 
 			_t0.appendChild( option )
 		}
 		document.getElementById("project_list_select").addEventListener("change",function(e){
 			console.log(e.target.selectedOptions[ 0 ].value)
-			make_notebook_list( e.target.selectedOptions[ 0 ].value );
-			current_project__cd = e.target.selectedOptions[ 0 ].value;
+			var idx = e.target.selectedOptions[ 0 ].value;
+			current_project__data = project_list_data[ i ];
+			make_notebook_list( current_project__cd.cd );
 		})
 	})
 }
-
-
-
-
 
 var make_notebook_list = function( cd$project ){
 
@@ -285,6 +282,7 @@ var make_notebook_list = function( cd$project ){
 				io = pe[ i ]
 				if( io == te ){
 					console.log( i )
+					current_notebook__data = notebook_list_data[ i ]
 				}
 			}
 		})
@@ -376,7 +374,7 @@ var req_detail_by__id = function( _id ){
  */
 var make_sub_list = function(){
 
-	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session')
+	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + current_notebook__data.cd
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
