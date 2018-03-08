@@ -233,7 +233,7 @@ var make_project_list = function(){
 			io = td[ i ];
 			var option = document.createElement("option")
 				option.setAttribute( "value", io._id )
-				option_txt =  document.createTextNode( io.nm )
+				option.appendChild( ocument.createTextNode( io.nm ) )
 
 			_t0.appendChild( option )
 		}
