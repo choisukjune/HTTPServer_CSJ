@@ -219,7 +219,7 @@ var make_brcm_1 = function(){
 	var a = document.createElement("a")
 		a.setAttribute("class","section");
 		a.setAttribute("id","brscm_1");
-		a.appendChild( current_project__data.nm )
+		a.appendChild( document.createTextNode( current_project__data.nm ) );
 
 	_t0.appendChild( a )
 }
