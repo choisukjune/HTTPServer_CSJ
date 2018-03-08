@@ -64,16 +64,11 @@
 					</div>
 					<div class="sixteen wide column" id="div-PIMS-headerContainer" style="width: 100%;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;">
 						<div class="ui breadcrumb" id="brscm">
-							<div>
-								<a class="section" id="brscm_1">Home</a>
-							</div>
-							<div>
+							<!-- <a class="section" id="brscm_1">Home</a>
 							<span class="divider">/</span>
 							<a class="section" id="brscm_2">Registration</a>
-</div>
-<div>							<span class="divider" id="brscm_3">/</span>
-							<div class="active section">Personal Information</div>
-</div>
+							<span class="divider" id="brscm_3">/</span>
+							<div class="active section">Personal Information</div> -->
 						</div>
 					</div>
 					<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 808px !important;">
@@ -248,6 +243,7 @@ var make_brcm_2 = function(){
 	{
 		//document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" ) );
 		document.getElementById( "brscm_2" ).innerText = current_notebook__data.nm;
+		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3_divider" ) );
 		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
 	}
 	else
@@ -256,12 +252,12 @@ var make_brcm_2 = function(){
 			a.setAttribute("class","section");
 			a.setAttribute("id","brscm_2");
 			a.appendChild( document.createTextNode( current_notebook__data.nm ) );
-		var span = document.createElement("span")
-			span.setAttribute("class","divider");
-			span.setAttribute("id","brscm_2_divider");
-			span.appendChild( document.createTextNode( "/" ) );
 
-		_t0.appendChild( span )
+		var i = document.createElement("i")
+			i.setAttribute("class","right chevron icon divider");
+			i.setAttribute("id","brscm_2_divider");
+
+		_t0.appendChild( i )
 		_t0.appendChild( a )
 	}
 
@@ -281,12 +277,12 @@ var make_brcm_3 = function(){
 			a.setAttribute("class","section");
 			a.setAttribute("id","brscm_3");
 			a.appendChild( document.createTextNode( current_view_doc__data.title ) );
-		var span = document.createElement("span")
-			span.setAttribute("class","divider");
-			span.setAttribute("id","brscm_3_divider");
-			span.appendChild( document.createTextNode( "/" ) );
 
-		_t0.appendChild( span )
+		var i = document.createElement("i")
+			i.setAttribute("class","right arrow icon divider");
+			i.setAttribute("id","brscm_3_divider")
+
+		_t0.appendChild( i )
 		_t0.appendChild( a )
 	}
 }
