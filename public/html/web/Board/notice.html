@@ -243,7 +243,7 @@ var make_notebook_list = function(){
 * 리스트의 문서디테일을 가져와 화면에 그린다.
 */
 var req_detail_by__id = function( _id ){
-	var url = "/api/Board/detail_view_by__id?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
+	var url = "/api/Board/notice/detail_view_by__id?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
 	if( document.getElementById('add_doc_con') )
 	{
 		 _el_div__view_container.removeChild( document.getElementById('add_doc_con') );
@@ -323,7 +323,7 @@ var req_detail_by__id = function( _id ){
  */
 var make_sub_list = function(){
 
-	var url = "/api/Board/get_list?sid=" + window.service.cookie.getCookie('session')
+	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session')
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
@@ -400,7 +400,7 @@ var write_doc = function(){
 	//	.replace(//g, '<td>')
 	};
 
-	var url = "/api/Board/write"
+	var url = "/api/Board/notice/write"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
@@ -444,7 +444,7 @@ var write_cancel = function(){
  */
 var update_doc = function( data ){
 
-	var url = "/api/Board/update"
+	var url = "/api/Board/notice/update"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + current_view_doc__id
@@ -498,7 +498,7 @@ var modify_doc = function(){
  */
 var delete_doc = function(){
 
-	var url = "/api/Board/delete?sid=" + window.service.cookie.getCookie('session')
+	var url = "/api/Board/notice/delete?sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + current_view_doc__id
 
 	window.service.Request.req_GET_data__Callback(url,function( result ){
