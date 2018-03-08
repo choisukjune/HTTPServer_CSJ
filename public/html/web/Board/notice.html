@@ -144,7 +144,7 @@ var notebook_detail_data = [];
 var project_list_data = [];
 var notebook_list_data = [];
 
-var current_view_doc__id = -1;
+var current_view_doc__data = {};
 var current_project__data = {};
 var current_notebook__data = {};
 
@@ -240,7 +240,18 @@ var make_brcm_2 = function(){
 }
 
 var make_brcm_3 = function(){
-	var _t0 = document.getElementById("brcm")
+	var _t0 = document.getElementById("brscm")
+
+	var a = document.createElement("a")
+		a.setAttribute("class","section");
+		a.setAttribute("id","brscm_1");
+		a.appendChild( document.createTextNode( current_view_doc__data.nm ) );
+	var span = document.createElement("span")
+		span.setAttribute("class","divider");
+		span.appendChild( document.createTextNode( "/" ) );
+
+	_t0.appendChild( span )
+	_t0.appendChild( a )
 }
 
 
@@ -348,7 +359,7 @@ var req_detail_by__id = function( _id ){
 		var data = JSON.parse( result );
 
 		console.log( data );
-		current_view_doc__id = data[ 0 ]._id;
+		current_view_doc__data = data[ 0 ];
 
 		var regist_date = make_Array_dateFormat( data[ 0 ].regist_date );
 		var title = data[ 0 ].title
@@ -523,7 +534,7 @@ var write_cancel = function(){
 	//Dom 삭제;
 	document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
-	if( current_view_doc__id != -1) req_detail_by__id( current_view_doc__id )
+	if( current_view_doc__data._id != -1) req_detail_by__id( current_view_doc__data._id )
 	//----------;
 
 }
@@ -538,7 +549,7 @@ var update_doc = function( data ){
 	var url = "/api/Board/notice/update"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
-	+ "&_id=" + current_view_doc__id
+	+ "&_id=" + current_view_doc__data._id
 	+ "&data=" + htmlEntities(CKEDITOR.instances.editor.getData())
 	+ "&title=" + title;
 
@@ -590,7 +601,7 @@ var modify_doc = function(){
 var delete_doc = function(){
 
 	var url = "/api/Board/notice/delete?sid=" + window.service.cookie.getCookie('session')
-	+ "&_id=" + current_view_doc__id
+	+ "&_id=" + current_view_doc__data._id
 
 	window.service.Request.req_GET_data__Callback(url,function( result ){
 		if(result == 0){
