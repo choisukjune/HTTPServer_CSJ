@@ -219,9 +219,11 @@ var make_brcm_1 = function(){
 	if( document.getElementById( "brscm_1" ) )
 	{
 		//document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_1" ) );
-		document.getElementById( "brscm_1" ).innerText = current_notebook__data.nm;
+		document.getElementById( "brscm_1" ).innerText = current_project__data.nm;
 		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" ) );
 		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
+		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2_divider" ) );
+		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3_divider" ) );
 	}
 	else
 	{
@@ -251,6 +253,7 @@ var make_brcm_2 = function(){
 			a.appendChild( document.createTextNode( current_notebook__data.nm ) );
 		var span = document.createElement("span")
 			span.setAttribute("class","divider");
+			span.setAttribute("id","brscm_2_divider");
 			span.appendChild( document.createTextNode( "/" ) );
 
 		_t0.appendChild( span )
@@ -275,7 +278,7 @@ var make_brcm_3 = function(){
 			a.appendChild( document.createTextNode( current_view_doc__data.title ) );
 		var span = document.createElement("span")
 			span.setAttribute("class","divider");
-			span.setAttribute("id","divider");
+			span.setAttribute("id","brscm_3_divider");
 			span.appendChild( document.createTextNode( "/" ) );
 
 		_t0.appendChild( span )
