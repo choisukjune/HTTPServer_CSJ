@@ -84,6 +84,7 @@ global.ROUTER.Initialize_router	= function(	param ){
 					_temp.pop();
 					_temp = _temp.pop();
 					routerNm = "/" + a0[ i ] + "/" + _temp;
+console.log( path + '/' + a0[ i ] + '/' + a1[ j ] )
 					//*/
 					// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
 					t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ],"utf8");
