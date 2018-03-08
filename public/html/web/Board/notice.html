@@ -216,6 +216,10 @@ var make_Array_dateFormat = function( arr ){
 var make_brcm_1 = function(){
 	var _t0 = document.getElementById("brscm")
 
+	if( document.getElementById( "brscm_1" ) )
+	{
+		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_1" );
+	}
 	var a = document.createElement("a")
 		a.setAttribute("class","section");
 		a.setAttribute("id","brscm_1");
@@ -227,9 +231,13 @@ var make_brcm_1 = function(){
 var make_brcm_2 = function(){
 	var _t0 = document.getElementById("brscm")
 
+	if( document.getElementById( "brscm_2" ) )
+	{
+		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" );
+	}
 	var a = document.createElement("a")
 		a.setAttribute("class","section");
-		a.setAttribute("id","brscm_1");
+		a.setAttribute("id","brscm_2");
 		a.appendChild( document.createTextNode( current_notebook__data.nm ) );
 	var span = document.createElement("span")
 		span.setAttribute("class","divider");
@@ -242,9 +250,14 @@ var make_brcm_2 = function(){
 var make_brcm_3 = function(){
 	var _t0 = document.getElementById("brscm")
 
+	if( document.getElementById( "brscm_3" ) )
+	{
+		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" );
+	}
+
 	var a = document.createElement("a")
 		a.setAttribute("class","section");
-		a.setAttribute("id","brscm_1");
+		a.setAttribute("id","brscm_3");
 		a.appendChild( document.createTextNode( current_view_doc__data.title ) );
 	var span = document.createElement("span")
 		span.setAttribute("class","divider");
