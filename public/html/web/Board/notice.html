@@ -37,10 +37,8 @@
 
 				<div class="item" href="#"><h4>TESTServer</h4></div>
 				<div class="item" id="project_list">
-					<select class="ui fluid dropdown">
+					<select class="ui fluid dropdown" id="project_list_select">
 					  <option value="">프로젝트를 선택하세요</option>
-					  <option value="1">B2B platform</option>
-					  <option value="0">onsight</option>
 					</select>
 				</div>
 				<div class="item" id="note_list">
@@ -227,7 +225,7 @@ var make_project_list = function(){
 			, {_id : 1,nm : "Onsight"}
 		]
 
-		var _t0 = document.getElementById("project_list")
+		var _t0 = document.getElementById("project_list_select")
 
 		var i = 0,iLen = td.length,io
 		for(;i<iLen; ++i)
