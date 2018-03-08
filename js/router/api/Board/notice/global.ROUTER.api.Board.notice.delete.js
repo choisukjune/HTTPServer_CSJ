@@ -1,4 +1,4 @@
-global.ROUTER.api.Board.notice.delete_doc = function( req, res ){
+global.ROUTER.api.Board.notice.delete = function( req, res ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 
