@@ -19,7 +19,7 @@ window.service.Request.req_GET_data__Callback( url0, function( r ){
 params.userinfo = JSON.parse( r );
 console.log( params.uerinfo )
 
-var url = "/api/Member/google_auth2?data=" + encodeURIComponent( JSON.stringify( params ) );
+var url = "/api/Member/member_oauth_google/google_auth2?data=" + encodeURIComponent( JSON.stringify( params ) );
 
 console.log( url )
 debugger;
