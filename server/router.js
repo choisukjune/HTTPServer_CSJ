@@ -108,8 +108,9 @@ global.ROUTER.Initialize_router	= function(	param ){
 			var j = 0,jLen = a1.length;
 			for(; j < jLen; ++j )
 			{
-
+console.log("--------------------------------------------------------------")
 				a4 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] + '/' + a1[ j ] );
+console.log( a4 )
 				var z = 0,zlen = a4.length;
 				for(;k<kLen; ++k)
 				{
