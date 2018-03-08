@@ -219,6 +219,7 @@ var make_brcm_1 = function(){
 	if( document.getElementById( "brscm_1" ) )
 	{
 		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_1" ) );
+		document.getElementById( "brscm_1" ).innerText = current_notebook__data.nm;
 	}
 	var a = document.createElement("a")
 		a.setAttribute("class","section");
@@ -234,17 +235,22 @@ var make_brcm_2 = function(){
 	if( document.getElementById( "brscm_2" ) )
 	{
 		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" ) );
+		document.getElementById( "brscm_2" ).innerText = current_notebook__data.nm;
 	}
-	var a = document.createElement("a")
-		a.setAttribute("class","section");
-		a.setAttribute("id","brscm_2");
-		a.appendChild( document.createTextNode( current_notebook__data.nm ) );
-	var span = document.createElement("span")
-		span.setAttribute("class","divider");
-		span.appendChild( document.createTextNode( "/" ) );
+	else
+	{
+		var a = document.createElement("a")
+			a.setAttribute("class","section");
+			a.setAttribute("id","brscm_2");
+			a.appendChild( document.createTextNode( current_notebook__data.nm ) );
+		var span = document.createElement("span")
+			span.setAttribute("class","divider");
+			span.appendChild( document.createTextNode( "/" ) );
 
-	_t0.appendChild( span )
-	_t0.appendChild( a )
+		_t0.appendChild( span )
+		_t0.appendChild( a )
+	}
+
 }
 
 var make_brcm_3 = function(){
@@ -253,6 +259,7 @@ var make_brcm_3 = function(){
 	if( document.getElementById( "brscm_3" ) )
 	{
 		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
+		document.getElementById( "brscm_3" ).innerText = current_notebook__data.nm;
 	}
 
 	var a = document.createElement("a")
