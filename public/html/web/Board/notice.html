@@ -220,10 +220,10 @@ var make_brcm_1 = function(){
 	{
 		//document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_1" ) );
 		document.getElementById( "brscm_1" ).innerText = current_project__data.nm;
-		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" ) );
-		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
-		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2_divider" ) );
-		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3_divider" ) );
+		if( document.getElementById( "brscm_2" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" ) );
+		if( document.getElementById( "brscm_3" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
+		if( document.getElementById( "brscm_2_divider" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2_divider" ) );
+		if( document.getElementById( "brscm_3_divider" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3_divider" ) );
 	}
 	else
 	{
@@ -243,8 +243,8 @@ var make_brcm_2 = function(){
 	{
 		//document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" ) );
 		document.getElementById( "brscm_2" ).innerText = current_notebook__data.nm;
-		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3_divider" ) );
-		document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
+		if( document.getElementById( "brscm_3_divider" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3_divider" ) );
+		if( document.getElementById( "brscm_3" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
 	}
 	else
 	{
@@ -338,6 +338,9 @@ var make_notebook_list = function( cd$project ){
 
 		console.log( data );
 		notebook_list_data = data;
+
+		var _t0 = document.getElementById( "sub_list" )
+		if( _t0 ) if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
 
 		var i = 0,iLen = data.length,io
@@ -470,6 +473,7 @@ var make_sub_list = function( cd$notebook ){
 		var data = JSON.parse( result )
 
 		_el_div__sub_list.innerHTML = "";//dom 초기화;
+
 		var _t0 = document.getElementById( "view_document" )
 		if( _t0 ) if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
