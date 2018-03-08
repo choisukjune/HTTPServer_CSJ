@@ -17,8 +17,8 @@ global.ROUTER.api.Category.notebook.get_list = function( req, res ){
 				//------------------------------;
 
 				var db0 = db.db('category');
-
-				db0.collection("notebook").find({ _d : { $ne : 1}}).sort({ _id : -1 }).toArray(function(err, doc){
+				var _query = { _d : { $ne : 1},cd$project : _q.cd$project }
+				db0.collection("notebook").find(_query).sort({ _id : -1 }).toArray(function(err, doc){
 					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 					db.close();
 				});
