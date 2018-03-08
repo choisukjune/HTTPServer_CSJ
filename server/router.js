@@ -112,7 +112,7 @@ console.log("--------------------------------------------------------------")
 				a4 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] + '/' + a1[ j ] );
 console.log( a4 )
 				var z = 0,zlen = a4.length;
-				for(;k<kLen; ++k)
+				for(;z<zLen; ++z)
 				{
 
 					console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] + '/' + a4[ z ] );
