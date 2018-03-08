@@ -48,7 +48,7 @@ global.ROUTER.Initialize_router	= function(	param ){
     }
 
     var k = 0,kLen = a3.length;
-    var ko;
+    var ko,_temp;
     for( ; k < kLen; ++k )
     {
         ko = a3[ k ]
@@ -68,7 +68,7 @@ global.ROUTER.Initialize_router	= function(	param ){
 		for( ; i < iLen; ++i )
 		{
 			a1 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] );
-			var j = 0,jLen = a1.length;
+			var j = 0,jLen = a1.length,_define_api;
 			for(; j < jLen; ++j )
 			{
 				console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
@@ -78,6 +78,9 @@ global.ROUTER.Initialize_router	= function(	param ){
 				_temp = _temp.pop();
 
 				routerNm = "/" + a0[ i ] + "/" + _temp;
+
+				_define_api = "global.ROUTER.api." + a0[ i ] + "." + _temp + "= {};"
+				e( _define_api )
 				//*/
 				// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
 				t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ],"utf8");
