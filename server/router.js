@@ -94,7 +94,8 @@ global.ROUTER.Initialize_router	= function(	param ){
 			}
 		}
 	}
-	else
+
+	if( "api" == param )
 	{
 		var	i =0,iLen =	a0.length,_temp,routerNm;
 		var a1,a2;
