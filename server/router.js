@@ -57,7 +57,7 @@ global.ROUTER.Initialize_router	= function(	param ){
         e( t );
         console.log( "-[E]- Initialize_api__define -- " + path___define_api + ko );
     }
-
+	console.log( param )
 	if(	"web" == param )
 	{
 		t =	global.REQUIRES.fs.readFileSync( global.ROOTPath + "/js/router/web/Common/global.ROUTER.web.Common.index.js","utf8");
