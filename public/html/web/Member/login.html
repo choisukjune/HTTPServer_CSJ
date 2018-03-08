@@ -177,7 +177,7 @@ location.href=url;
 			<i class="google icon "></i>Google Login</div>
 		</p>
 		<div class="ui message">
-			New to us? <a href="./Member/sign_up">Sign Up</a>
+			New to us? <a href="./Member/member_basic/sign_up">Sign Up</a>
 		</div>
 	</div>
 </div>
@@ -193,7 +193,7 @@ var check_login = function(){
 	var p0 = document.getElementById("id").value;
 	var p1 = document.getElementById("pwd").value;
 
-	var url = "/api/Member/login_check?"
+	var url = "/api/Member/member_basic/login_check?"
 		+ "id=" + p0
 		+ "&pwd=" + p1;
 
