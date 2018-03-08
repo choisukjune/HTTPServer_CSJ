@@ -41,14 +41,6 @@
 					  <option value="">프로젝트를 선택하세요</option>
 					</select>
 				</div>
-				<div class="item" id="note_list">
-					<a class="item" href="#">notebook1</a>
-					<a class="item" href="#">notebook2</a>
-					<a class="item" href="#">notebook3</a>
-					<a class="item" href="#">notebook4</a>
-					<a class="item" href="#">notebook5</a>
-				</div>
-
 
 				<!--
 				depth 구조의 메뉴바 구현 example;
@@ -252,6 +244,29 @@ var make_notebook_list = function(){
 		var data = JSON.parse( result );
 
 		console.log( data );
+
+		// <a class="item" href="#">notebook1</a>
+
+
+		var td = [
+			{_id : 0,nm : "B2B platform"}
+			, {_id : 1,nm : "Onsight"}
+		]
+
+		var _t0 = document.getElementById("div-PIMS-menu-list")
+
+		var i = 0,iLen = td.length,io
+		for(;i<iLen; ++i)
+		{
+			io = td[ i ];
+			var a = document.createElement("a")
+				a.setAttribute( "href", "#" )
+				a.setAttribute( "class", "item" )
+
+				a.appendChild( document.createTextNode( io.nm ) )
+
+			_t0.appendChild( a )
+		}
 	})
 }
 
