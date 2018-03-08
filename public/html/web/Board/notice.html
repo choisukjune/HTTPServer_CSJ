@@ -427,6 +427,8 @@ var req_detail_by__id = function( _id ){
 
 		_el_div__view_container.appendChild( div_content )
 
+		make_brcm_3();
+
 		if( document.getElementById('add_doc_con') )
 		{
 			document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
@@ -507,7 +509,6 @@ var make_sub_list = function( cd$notebook ){
 				if( io == te ){
 					console.log( i )
 					req_detail_by__id( notebook_detail_data[ i ]._id )
-					make_brcm_3();
 				}
 			}
 		})
