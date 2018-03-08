@@ -221,6 +221,24 @@ var make_project_list = function(){
 		var data = JSON.parse( result );
 
 		console.log( data );
+
+		var td = [
+			{_id : 0,nm : "B2B platform"}
+			, {_id : 1,nm : "Onsight"}
+		]
+
+		var _t0 = document.getElementById("project_list")
+
+		var i = 0,iLen = td.length,io
+		for(;i<iLen; ++i)
+		{
+			io = td[ i ];
+			var option = document.createElement("option")
+				option.setAttribute( "value", io._id )
+				option_txt =  document.createTextNode( io.nm )
+
+			_t0.appendChild( option )
+		}
 	})
 }
 
