@@ -437,7 +437,7 @@ window.service.session.checkSession = function(){
 //		, google_oauth : "/api/google_oauth_session_check?sid=" + session
 //	}
 
-	var url = "/api/Member/session_check?sid=" + session;
+	var url = "/api/Member/member_session/session_check?sid=" + session;
 	window.service.Request.req_GET_data__Callback( url ,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
