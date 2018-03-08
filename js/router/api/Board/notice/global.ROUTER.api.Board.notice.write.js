@@ -63,7 +63,7 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 
 						var doc = {
 							_id : idx
-							, _d : Long( 0 ).toInt()
+							, _d : Long( 1 ).toInt()
 							, title : _q.title
 							, content : _q.data
 							, regist_date : r

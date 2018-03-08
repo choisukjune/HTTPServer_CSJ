@@ -32,7 +32,7 @@ global.ROUTER.api.Board.notice.delete = function( req, res ){
 				];
 
 				var _query = { _id : Long( _q._id ).toInt() };
-				var doc = { $set : { _d : Long( 1 ).toInt(),delete_date : r }};
+				var doc = { $set : { _d : Long( 0 ).toInt(),delete_date : r }};
 
 				db0.collection("notice").update(_query,doc,function(err, result){
 					if (err) throw err;
