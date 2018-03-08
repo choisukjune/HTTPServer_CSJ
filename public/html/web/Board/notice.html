@@ -134,8 +134,13 @@ s0.parentNode.insertBefore(sNew, s0);
 //editor 라이브러리 로드;
 
 //--------------------------------------------------variable;
-var list_data = "";
+var notebook_detail_data = [];
+var project_list_data = [];
+var notebook_list_data = [];
+
 var current_view_doc__id = -1;
+var current_project__cd = "";
+var current_notebook__cd = "";
 
 //------------------------------_el;
 var _el_div__view_container = document.getElementById("view_container");
@@ -212,6 +217,7 @@ var make_project_list = function(){
 		var data = JSON.parse( result );
 
 		console.log( data );
+		project_list_data = data;
 
 		var _t0 = document.getElementById("project_list_select")
 
@@ -228,6 +234,7 @@ var make_project_list = function(){
 		document.getElementById("project_list_select").addEventListener("change",function(e){
 			console.log(e.target.selectedOptions[ 0 ].value)
 			make_notebook_list( e.target.selectedOptions[ 0 ].value );
+			current_project__cd = e.target.selectedOptions[ 0 ].value;
 		})
 	})
 }
@@ -249,7 +256,7 @@ var make_notebook_list = function( cd$project ){
 		var data = JSON.parse( result );
 
 		console.log( data );
-
+		notebook_list_data = data;
 
 
 		var i = 0,iLen = data.length,io
@@ -404,11 +411,11 @@ var make_sub_list = function(){
 				io = pe[ i ]
 				if( io == te ){
 					console.log( i )
-					req_detail_by__id( list_data[ i ]._id )
+					req_detail_by__id( notebook_detail_data[ i ]._id )
 				}
 			}
 		})
-		list_data = data;
+		notebook_detail_data = data;
 	})
 }
 
