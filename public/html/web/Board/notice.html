@@ -470,6 +470,8 @@ var make_sub_list = function( cd$notebook ){
 		var data = JSON.parse( result )
 
 		_el_div__sub_list.innerHTML = "";//dom 초기화;
+		var _t0 = document.getElementById( "view_document" )
+		if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
 		var i = 0,iLen = data.length,io;
 		for(; i<iLen; ++i ){
