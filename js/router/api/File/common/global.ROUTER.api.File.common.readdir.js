@@ -5,7 +5,7 @@
  * @param  {[type]} d   [description]
  * @return {[type]}     [description]
  */
-global.ROUTER.api.File.readdir = function( req, res, d ){
+global.ROUTER.api.File.common.readdir = function( req, res, d ){
 
 	var _q = decodeURIComponent(req.url).split('?')[ 1 ];
 	var q = global.REQUIRES.querystring.parse( _q );

@@ -1,4 +1,4 @@
-global.ROUTER.api.Category.delete= function( req, res ){
+global.ROUTER.api.Category.project.delete= function( req, res ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 

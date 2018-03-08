@@ -43,7 +43,7 @@
 					  <option value="0">onsight</option>
 					</select>
 				</div>
-				<div class="item">
+				<div class="item" id="note_list">
 					<a class="item" href="#">notebook1</a>
 					<a class="item" href="#">notebook2</a>
 					<a class="item" href="#">notebook3</a>
@@ -211,6 +211,34 @@ var make_Array_dateFormat = function( arr ){
 	 else return check_dom( e.parentElement, "list" )
  }
 //--------------------------------------------------function;
+var make_project_list = functoin(){
+	var url = "/api/Category/get_list?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result );
+
+		console.log( data );
+	})
+}
+
+
+
+var make_notebook_list = functoin(){
+	var url = "/api/Category/get_list?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result );
+
+		console.log( data );
+	})
+}
+
 /**
 * 리스트의 문서디테일을 가져와 화면에 그린다.
 */

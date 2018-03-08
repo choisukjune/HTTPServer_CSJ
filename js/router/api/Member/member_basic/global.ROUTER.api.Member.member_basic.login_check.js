@@ -1,4 +1,4 @@
-global.ROUTER.api.Member.login_check = function( req, res ){
+global.ROUTER.api.Member.member_basic.login_check = function( req, res ){
 
 	var	_d = decodeURIComponent( req.url );
 	var	_q = _d.split("?")

@@ -1,4 +1,4 @@
-global.ROUTER.api.Member.google_auth2 = function( req, res ){
+global.ROUTER.api.Member.member_oauth_google.google_auth2 = function( req, res ){
 
 	var	_d = decodeURIComponent( req.url );
 	var	_q = _d.split("?")

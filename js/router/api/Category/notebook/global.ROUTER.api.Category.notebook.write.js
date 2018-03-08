@@ -1,4 +1,4 @@
-global.ROUTER.api.Category.write = function( req, res ){
+global.ROUTER.api.Category.notebook.write = function( req, res ){
 
 	var	body = '';
 	req.on('data', function	(data) {

@@ -7,7 +7,7 @@ var _storage = {};
  * @param  {[type]}	d	[description]
  * @return {[type]}		[description]
  */
-global.ROUTER.api.File.file_upload__single_readAsArrayBuffer = function( req, res, d ){
+global.ROUTER.api.File.common.file_upload__single_readAsArrayBuffer = function( req, res, d ){
 	console.log( req )
 	var	_q = decodeURIComponent(req.url).split('?')[ 1 ];
 	var	q =	global.REQUIRES.querystring.parse( _q );

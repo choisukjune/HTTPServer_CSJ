@@ -1,4 +1,4 @@
-global.ROUTER.api.Board.update = function( req, res ){
+global.ROUTER.api.Category.project.update = function( req, res ){
 
 		var	body = '';
 		req.on('data', function	(data) {

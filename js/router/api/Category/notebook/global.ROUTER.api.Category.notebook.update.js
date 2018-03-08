@@ -1,4 +1,4 @@
-global.ROUTER.api.Category.update = function( req, res ){
+global.ROUTER.api.Category.notebook.update = function( req, res ){
 
 		var	body = '';
 		req.on('data', function	(data) {

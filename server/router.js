@@ -65,41 +65,65 @@ global.ROUTER.Initialize_router	= function(	param ){
 	}
 
 	var	i =0,iLen =	a0.length,_temp,routerNm;
-	var a1;
+	var a1,a2;
 	for( ; i < iLen; ++i )
 	{
 		a1 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] );
 		var j = 0,jLen = a1.length;
 		for(; j < jLen; ++j )
 		{
-			console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
-
-			_temp =	a1[	j ].split(".")
-			_temp.pop();
-			_temp = _temp.pop();
-			if( param == "web" )
+			a2 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] + "/" + a1[ j ] );
+			var k = 0,kLen = a2.length;
+			for(; k < kLen; ++k)
 			{
-				routerNm = "/" + a0[ i ] + "/" + _temp;
+				if( param == "web" )
+				{
+					console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
+
+					_temp =	a1[	j ].split(".")
+					_temp.pop();
+					_temp = _temp.pop();
+					routerNm = "/" + a0[ i ] + "/" + _temp;
+					//*/
+					// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
+					t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ],"utf8");
+					//console.log( t )
+					//console.log(global.ROUTER.INFO )
+					//t = global.REQUIRES.fs.readFileSync(global.ROOTPath + "/js/api/HTML/global.api.HTML.render_html.js","utf8");
+					global.ROUTER.INFO[	routerNm ] = e( t );
+
+					/*/
+					//require 방식 변경;
+					//global.ROUTER.INFO[ routerNm ] = require(	path + a0[ i ] );
+					//*/
+
+					console.log( "-[E]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
+				}
+				else
+				{
+					console.log( "-[S]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] + "/" + a2[ k ] );
+
+					_temp =	a2[	k ].split(".")
+					_temp.pop();
+					_temp = _temp.pop();
+					routerNm = "/" + param + "/" + a0[ i ] + "/" + a1[ j ] + _temp;
+
+					//*/
+					// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
+					t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ] + "/" + a2[ k ],"utf8");
+					//console.log( t )
+					//console.log(global.ROUTER.INFO )
+					//t = global.REQUIRES.fs.readFileSync(global.ROOTPath + "/js/api/HTML/global.api.HTML.render_html.js","utf8");
+					global.ROUTER.INFO[	routerNm ] = e( t );
+
+					/*/
+					//require 방식 변경;
+					//global.ROUTER.INFO[ routerNm ] = require(	path + a0[ i ] );
+					//*/
+
+					console.log( "-[E]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
+				}
 			}
-			else
-			{
-				routerNm = "/" + param + "/" + a0[ i ] + "/" + _temp;
-			}
-
-			//*/
-			// 화면을 그리는 용도로만 사용되므로 라우터가따로 존재할 필요없음;
-			t =	global.REQUIRES.fs.readFileSync(path + '/' + a0[ i ] + '/' + a1[ j ],"utf8");
-			//console.log( t )
-			//console.log(global.ROUTER.INFO )
-			//t = global.REQUIRES.fs.readFileSync(global.ROOTPath + "/js/api/HTML/global.api.HTML.render_html.js","utf8");
-			global.ROUTER.INFO[	routerNm ] = e( t );
-
-			/*/
-			//require 방식 변경;
-			//global.ROUTER.INFO[ routerNm ] = require(	path + a0[ i ] );
-			//*/
-
-			console.log( "-[E]- Initialize_router_" + param + "-- " + path + '/' + a0[ i ] + '/' + a1[ j ] );
 		}
 	}
 }

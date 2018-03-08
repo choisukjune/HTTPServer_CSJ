@@ -1,7 +1,6 @@
-global.ROUTER.api.Common.get_list = function( req, res ){
+global.ROUTER.api.Category.project.get_list = function( req, res ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
-
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 		if( result == 0 )
@@ -17,13 +16,11 @@ global.ROUTER.api.Common.get_list = function( req, res ){
 
 				//------------------------------;
 
-				var db0 = db.db('member');
+				var db0 = db.db('board');
 
-				db0.collection("member_basic").find().toArray(function(err, doc){
-
+				db0.collection("notice").find({ _d : { $ne : 1}}).sort({ _id : -1 }).toArray(function(err, doc){
 					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 					db.close();
-
 				});
 
 				//------------------------------;

@@ -1,4 +1,4 @@
-global.ROUTER.api.DB.MongoDB_query_excute = function(req, res ){
+global.ROUTER.api.DB.dbjs.common.MongoDB_query_excute = function(req, res ){
 
 	var	q = decodeURIComponent(req.url).split('?')[ 1 ];
 	var	_q =	global.REQUIRES.querystring.parse( q );

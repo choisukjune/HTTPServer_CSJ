@@ -1,4 +1,4 @@
-global.ROUTER.api.Board.write = function( req, res ){
+global.ROUTER.api.Category.project.write = function( req, res ){
 
 	var	body = '';
 	req.on('data', function	(data) {

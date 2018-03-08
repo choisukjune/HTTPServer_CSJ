@@ -1,4 +1,4 @@
-global.ROUTER.api.Member.sign_up = function( req, res ){
+global.ROUTER.api.Member.member_basic.sign_up = function( req, res ){
 
 	var	_d = decodeURIComponent( req.url );
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') )
