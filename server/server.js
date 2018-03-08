@@ -167,5 +167,4 @@ if (req.method == 'OPTIONS') {
 		};
 	global.REQUIRES.http.createServer( onRequest ).listen(8888);
     global.CSJLog.timeStamp('server has started.');
-	console.log( global.ROUTER.INFO )
 };

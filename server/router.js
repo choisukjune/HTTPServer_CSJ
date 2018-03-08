@@ -97,24 +97,18 @@ global.ROUTER.Initialize_router	= function(	param ){
 
 	if( "api" == param )
 	{
-		console.log("--------------------------------------------------------->>>>>>>")
 		var	i =0,iLen =	a0.length,_temp,routerNm;
-		console.log( a0 )
 		var a1,a2,a4;
 		for( ; i < iLen; ++i )
 		{
 			a1 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] );
-			console.log( a1 )
 			var j = 0,jLen = a1.length,_define_api;
 			for(; j < jLen; ++j )
 			{
-console.log("--------------------------------------------------------------")
 				a4 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] + '/' + a1[ j ] );
-console.log( a4 )
+				_define_api = "global.ROUTER.api." + a0[ i ] + "." + a1[ j ] + "= {};"
+				e( _define_api )
 
-_define_api = "global.ROUTER.api." + a0[ i ] + "." + a1[ j ] + "= {};"
-console.log( _define_api)
-e( _define_api )
 				var z = 0,zLen = a4.length;
 				for(;z<zLen; ++z)
 				{
