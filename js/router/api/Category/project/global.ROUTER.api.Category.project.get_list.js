@@ -16,9 +16,9 @@ global.ROUTER.api.Category.project.get_list = function( req, res ){
 
 				//------------------------------;
 
-				var db0 = db.db('board');
+				var db0 = db.db('category');
 
-				db0.collection("notice").find({ _d : { $ne : 1}}).sort({ _id : -1 }).toArray(function(err, doc){
+				db0.collection("project").find({ _d : { $ne : 1}}).sort({ _id : -1 }).toArray(function(err, doc){
 					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 					db.close();
 				});
