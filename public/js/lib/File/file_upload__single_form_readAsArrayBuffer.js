@@ -34,7 +34,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer.uloadFile = fun
         return;
     }
 
-    var url = "/api/File/file_upload__single_readAsArrayBuffer?fileNm=" + _store[ key ].file.name
+    var url = "/api/File/common/file_upload__single_readAsArrayBuffer?fileNm=" + _store[ key ].file.name
         + "&totalBytes=" + _store[ key ].file.size
         + "&offset=" + _store[ key ].offset_count
         + "&total_offset=" + _store[ key ].total_offset
