@@ -679,6 +679,10 @@ var write_project = function(){
 		}
 		var data = JSON.parse( result );
 
+		document.getElementById( "project_nm" ).value = "";
+		document.getElementById( "project_desc" ).value = "";
+		$('#project_add_modal').modal('hide');
+		
 		make_project_list();
 	})
 }
