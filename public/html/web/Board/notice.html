@@ -524,11 +524,12 @@ var make_sub_list = function( cd$notebook ){
 				if( io == te ){
 					console.log( i )
 					req_detail_by__id( notebook_detail_data[ i ]._id )
+					_el_div__sub_list.removeEventListener("click",_el_div__sub_list_click)
 				}
 			}
 		}
 
-		_el_div__sub_list.removeEventListener("click",_el_div__sub_list_click)
+
 		_el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
 
 		//----------;
