@@ -67,14 +67,14 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 						else var idx = doc[ 0 ]._id + 1
 
 						doc._id = idx;
-
+console.log( idx )
 						db0.collection("notice").count({ cd$notebook : _q.cd$notebook },function(err,count){
 
 							console.log( count )
 							var doc_idx = count + 1;
 
 							doc.cd = _q.cd$notebook + "-DOC" + doc_idx;
-
+							console.log( doc )
 							db0.collection("notice").insert(doc,function(d){
 								global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
 								db.close();
