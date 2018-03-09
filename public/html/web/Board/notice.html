@@ -38,7 +38,7 @@
 				<div class="item" href="#">
 					<h4>NOTE</h4>
 				</div>
-				<div class="item" href="#">
+				<div class="item">
 					<button class="fluid ui button" id="project_add">
 						Project Add
 					</button>
@@ -47,6 +47,11 @@
 					<select class="ui fluid dropdown" id="project_list_select">
 					  <option value="">프로젝트를 선택하세요</option>
 					</select>
+				</div>
+				<div class="item" id="notebook_add_container">
+					<button class="fluid ui button" id="notebook_add" style="display : none;">
+						Notebook Add
+					</button>
 				</div>
 				<div class="ui fitted divider"></div>
 				<div id="notebook_list">
@@ -360,6 +365,7 @@ var make_project_list = function(){
 
 		var _t0 = document.getElementById("project_list_select")
 
+		document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : none;" )
 		var i = 0,iLen = data.length,io
 		for(;i<iLen; ++i)
 		{
@@ -402,16 +408,7 @@ var make_notebook_list = function( cd$project ){
 		var _el_div__view_container = document.getElementById( "view_document" )
 		if( _el_div__view_container ) if( _el_div__view_container.firstChild ) while( _el_div__view_container.firstChild ) _el_div__view_container.removeChild( _el_div__view_container.firstChild );
 
-		var div0 = document.createElement("div");
-			div0.setAttribute("class","item")
-
-		var button = document.createElement( "button" );
-			button.setAttribute("class","fluid ui button")
-			button.setAttribute("id","notebook_add")
-			button.appendChild( document.createTextNode( "Notebook Add" ) )
-
-		div0.appendChild( button );
-		_t0.parentElement.appendChild( div0 );
+		document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : block;" )
 
 		var i = 0,iLen = data.length,io
 		for(;i<iLen; ++i)
