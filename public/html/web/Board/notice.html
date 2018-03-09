@@ -481,6 +481,8 @@ var make_project_list = function(){
 			if( idx == "" )
 			{
 				_el_removeChild( document.getElementById( "notebook_list" ));
+				_el_removeChild( document.getElementById( "sub_list" ));
+				_el_removeChild( document.getElementById( "view_container" ));
 				_el_removeChild( document.getElementById( "brscm" ));
 
 				document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
