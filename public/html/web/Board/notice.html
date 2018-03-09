@@ -414,7 +414,9 @@ var make_project_list = function(){
 			var idx = e.target.selectedOptions[ 0 ].value;
 			if( idx == "" )
 			{
-				_el_removeChild( document.getElementById( "notebook_list" ))
+				_el_removeChild( document.getElementById( "notebook_list" ));
+				_el_removeChild( document.getElementById( "brscm" ));
+
 				document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
 				return;
 			}
