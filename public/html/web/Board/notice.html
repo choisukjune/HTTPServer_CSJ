@@ -311,7 +311,7 @@ var make_brcm_1 = function(){
 	if( document.getElementById( "brscm_1" ) )
 	{
 		//document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_1" ) );
-		document.getElementById( "brscm_1" ).innerText = current_project__data.nm || "";
+		if( current_project__data.nm ) document.getElementById( "brscm_1" ).innerText = current_project__data.nm;
 		if( document.getElementById( "brscm_2" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2" ) );
 		if( document.getElementById( "brscm_3" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_3" ) );
 		if( document.getElementById( "brscm_2_divider" ) ) document.getElementById( "brscm" ).removeChild( document.getElementById( "brscm_2_divider" ) );
