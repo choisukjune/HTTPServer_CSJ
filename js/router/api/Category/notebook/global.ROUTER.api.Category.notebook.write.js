@@ -32,10 +32,10 @@ global.ROUTER.api.Category.notebook.write = function( req, res ){
 						_id : -1
 						, _d : Long( 1 ).toInt()
 						, cd : ""
-						, nm : _q.project_nm
+						, nm : _q.notebook_nm
 						, cd$project : _q.cd$project
 						, nm$project : _q.nm$project
-						, description : _q.project_desc
+						, description : _q.notebook_desc
 						, regist_date : r
 						, modify_date : null
 						, delete_date : null
