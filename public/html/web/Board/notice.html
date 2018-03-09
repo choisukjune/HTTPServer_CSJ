@@ -138,7 +138,7 @@
 	<!-- </div>
 </div> -->
 
-<div class="ui mini modal transition">
+<div class="ui mini modal transition" id="project_add_modal">
     <div class="header">
       Project Add.
     </div>
@@ -162,6 +162,29 @@
     </div>
   </div>
 
+  <div class="ui mini modal transition" id="notebook_add_modal">
+      <div class="header">
+        Project Add.
+      </div>
+      <div class="content">
+  		<form class="ui form">
+  		  <div class="field">
+  		    <label>Project Name</label>
+  		    <input type="text" name="projec-name" placeholder="Project Name">
+  		  </div>
+  		  <div class="field">
+  		    <label>Description</label>
+  		    <textarea></textarea>
+  		  </div>
+  		  <div class="field">
+  			  <button class="positive fluid ui button">Add</button>
+  		  </div>
+  		  <div class="field">
+  			  <button class="fluid ui button">Cancel</button>
+  		  </div>
+  		</form>
+      </div>
+    </div>
 
 <include>_footer_info.html</include>
 <script></script>
@@ -190,10 +213,16 @@ var current_notebook__data = {};
 var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
 var _el_btn__project_add = document.getElementById( "project_add" );
+var _el_btn__notebook_add = document.getElementById( "notebook_add" );
 //------------------------------_el;
 //------------------------------ event;
 _el_btn__project_add.addEventListener("click",function(){
-	$('.mini.modal').modal('show');
+	$('project_add_modal').modal('show');
+	console.log("_el_btn__project_add")
+})
+
+_el_btn__notebook_add.addEventListener("click",function(){
+	$('notebook_add_modal').modal('show');
 	console.log("_el_btn__project_add")
 })
 
