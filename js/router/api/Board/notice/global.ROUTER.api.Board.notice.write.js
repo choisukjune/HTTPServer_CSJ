@@ -65,16 +65,13 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 
 						if( result.length == 0 ) var idx = 0
 						else var idx = result[ 0 ]._id + 1
-
 						doc._id = idx;
-console.log( idx )
+
 						db0.collection("notice").count({ cd$notebook : _q.cd$notebook },function(err,result){
 
-							console.log( result )
-							var doc_idx = result + 1;
-
+							var doc_idx = result;
 							doc.cd = _q.cd$notebook + "-DOC" + doc_idx;
-							console.log( doc )
+
 							db0.collection("notice").insert(doc,function(d){
 								global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
 								db.close();
