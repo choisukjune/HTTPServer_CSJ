@@ -44,6 +44,8 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 					var db0 = db.db('board');
 					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
 
+						var a = db0.collection("notice").count({ cd$notebook : _q.cd$notebook })
+						console.log( a )
 						//ToDo function 으로 분리하기;
 						var Long = require('mongodb').Long;
 
@@ -64,12 +66,17 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 						var doc = {
 							_id : idx
 							, _d : Long( 1 ).toInt()
+							, cd : ""
+							, cd$project : _q.cd$project
+							, cd$notebook : _q.cd$notebook
 							, title : _q.title
 							, content : _q.data
 							, regist_date : r
 							, modify_date : null
 							, delete_date : null
 						}
+
+
 
 						db0.collection("notice").insert(doc,function(d){
 							global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
