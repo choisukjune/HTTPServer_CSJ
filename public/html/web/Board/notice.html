@@ -73,9 +73,12 @@
 
 				<div id="div-PIMS-GridContainer" class="ui grid" style="height : auto !important;">
 					<div id="div-PIMS-HeaderContainer"class="sixteen wide fixed column" style="background-color : #eeeeee;">
-						<div class="ui red horizontal label">Notice!</div>    <a class="avatar">
-     <img class="ui avatar Mini image" src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
-    </a>
+						<div class="ui red horizontal label">Notice!</div>
+						<a class="avatar">
+							<img class="ui avatar Mini image" src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
+						</a>
+						<button class="ui button" id="test_sidebar" style="display : block;">aaaaa</button>
+
 					</div>
 					<div class="sixteen wide column" id="div-PIMS-headerContainer" style="width: 100%;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;min-height : 42px !important;">
 						<div class="ui breadcrumb" id="brscm">
@@ -109,15 +112,14 @@
 
 								<div style="position:fixed;right :30px;bottom : 60px; z-index : 102;">
 
-										<div class="ui buttons">
-											<button class="ui button" id="add" style="display : block;">글쓰기</button>
-	  									  <button class="ui button" id="modify" style="display : none;">수정</button>
-	  									  <button class="ui button" id="delete" style="display : none;">삭제</button>
-	  									  <button class="ui button" id="cancel" style="display : none;">취소</button>
-	  									  <button class="ui button" id="lists" style="display : none;">목록</button>
-	  									  <button class="ui button" id="write" style="display : none;">등록</button>
-
-										</div>
+									<div class="ui buttons">
+										<button class="ui button" id="add" style="display : block;">글쓰기</button>
+										<button class="ui button" id="modify" style="display : none;">수정</button>
+										<button class="ui button" id="delete" style="display : none;">삭제</button>
+										<button class="ui button" id="cancel" style="display : none;">취소</button>
+										<button class="ui button" id="lists" style="display : none;">목록</button>
+										<button class="ui button" id="write" style="display : none;">등록</button>
+									</div>
 
 								</div>
 
@@ -139,6 +141,21 @@
 
 	<!-- </div>
 </div> -->
+<div class="ui left demo vertical inverted sidebar labeled icon menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="block layout icon"></i>
+    Topics
+  </a>
+  <a class="item">
+    <i class="smile icon"></i>
+    Friends
+  </a>
+</div>
+
 
 <div class="ui mini modal transition" id="project_add_modal">
     <div class="header">
@@ -224,10 +241,14 @@ _el_btn__project_add.addEventListener("click",function(){
 })
 
 _el_btn__notebook_add.addEventListener("click",function(){
-	$('#notebook_add_modal').modal('show');
+	$('#notebook_add_modal').sidebar('toggle');
 	console.log("_el_btn__project_add")
 })
 
+document.getElementById("test_sidebar").addEventListener(("click",function(){
+	$('.ui.labeled.icon.sidebar').modal('show');
+	console.log("sdf")
+})
 var _el_div__sub_list_click = function(e){
 
 	var pe = e.currentTarget.children
