@@ -225,7 +225,7 @@ var _el_btn__project_add_cancel = document.getElementById( "project_add_cancel" 
 //------------------------------_el;
 //------------------------------ event;
 
-_el_btn__project_add_write.addEventListener("click", write_project );
+
 _el_btn__project_add_cancel.addEventListener("click",function(){
 	document.getElementById( "project_nm" ).value = "";
 	document.getElementById( "project_desc" ).value = "";
@@ -235,6 +235,7 @@ _el_btn__project_add_cancel.addEventListener("click",function(){
 _el_btn__project_add.addEventListener("click",function(){
 	$('#project_add_modal').modal('show');
 	console.log("_el_btn__project_add")
+	_el_btn__project_add_write.addEventListener("click", write_project );
 })
 
 _el_btn__notebook_add.addEventListener("click",function(){
