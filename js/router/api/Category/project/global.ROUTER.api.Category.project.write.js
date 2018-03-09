@@ -38,9 +38,9 @@ global.ROUTER.api.Category.project.write = function( req, res ){
 						var doc = {
 							_id : idx
 							, _d : Long( 0 ).toInt()
-							, cd : "PRJ" + idx,
-						    , nm : _q.project_nm,
-						    , description : _q.project_desc,
+							, cd : "PRJ" + idx
+						    , nm : _q.project_nm
+						    , description : _q.project_desc
 							, regist_date : r
 							, modify_date : null
 							, delete_date : null
