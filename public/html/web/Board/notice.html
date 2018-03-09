@@ -133,30 +133,23 @@
 	<!-- </div>
 </div> -->
 
-<div class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    프로젝트 생성
+<div class="ui mini test modal transition visible active" style="display: block !important;">
+    <div class="header">
+      Delete Your Account
+    </div>
+    <div class="content">
+      <p>Are you sure you want to delete your account</p>
+    </div>
+    <div class="actions">
+      <div class="ui negative button">
+        No
+      </div>
+      <div class="ui positive right labeled icon button">
+        Yes
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
   </div>
-  <form class="ui large form">
-	  <!-- 		<div class="ui segment"> -->
-	  <div class="field">
-		  <div class="ui left icon input">
-			  <i class="user icon"></i>
-			  <input type="text" name="email" placeholder="E-mail address" id="id" value="csj6311@naver.com">
-		  </div>
-	  </div>
-	  <div class="field">
-		  <div class="ui left icon input">
-			  <i class="lock icon"></i>
-			  <input type="password" name="password" placeholder="Password"id="pwd" value="a">
-		  </div>
-	  </div>
-	  <!-- 		</div> -->
-	  <div class="ui error message"></div>
-  </form>
-</div>
-
 
 
 <include>_footer_info.html</include>
@@ -189,7 +182,7 @@ var _el_btn__project_add = document.getElementById( "project_add" );
 //------------------------------_el;
 //------------------------------ event;
 _el_btn__project_add.addEventListener("click",function(){
-	$('.ui.modal').modal('show');
+	$('.mini.modal').modal('show');
 	console.log("_el_btn__project_add")
 })
 
