@@ -150,21 +150,24 @@
 		<form class="ui form">
 		  <div class="field">
 		    <label>Project Name</label>
-		    <input type="text" name="projec-name" placeholder="Project Name">
+		    <input type="text" name="projec-name" placeholder="Project Name" id="project_nm">
 		  </div>
 		  <div class="field">
 		    <label>Description</label>
-		    <textarea></textarea>
+		    <textarea id="project_desc"></textarea>
 		  </div>
 		  <div class="field">
-			  <button class="positive fluid ui button">Add</button>
+			  <button class="positive fluid ui button" id="project_add">Add</button>
 		  </div>
 		  <div class="field">
-			  <button class="fluid ui button">Cancel</button>
+			  <button class="fluid ui button"  id="project_add_cancel">Cancel</button>
 		  </div>
 		</form>
     </div>
   </div>
+
+
+
 
   <div class="ui mini modal transition" id="notebook_add_modal">
       <div class="header">
@@ -217,8 +220,18 @@ var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
 var _el_btn__project_add = document.getElementById( "project_add" );
 var _el_btn__notebook_add = document.getElementById( "notebook_add" );
+var _el_btn__project_add = document.getElementById( "project_add" )
+var _el_btn__project_add_cancel = document.getElementById( "project_add_cancel" )
 //------------------------------_el;
 //------------------------------ event;
+
+_el_btn__project_add.addEventListener("click", write_project );
+_el_btn__project_add_cancel.addEventListener("click",function(){
+	document.getElementById( "project_nm" ).value = "";
+	document.getElementById( "project_desc" ).value = "";
+	$('#project_add_modal').modal('hide');
+})
+
 _el_btn__project_add.addEventListener("click",function(){
 	$('#project_add_modal').modal('show');
 	console.log("_el_btn__project_add")
@@ -647,6 +660,24 @@ var make_sub_list = function( cd$notebook ){
 	})
 }
 
+var write_project = function(){
+
+	var title =  document.getElementById("project_nm").value;
+	var description = document.getElementById("project_desc").value;
+
+	var url = "/api/Category/notebook/write?sid=" + window.service.cookie.getCookie('session')
+			+ "&title=" + title
+			+ "&description=" + description
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result );
+
+	})
+}
 /**
 *문서를 등록한다.
 */
