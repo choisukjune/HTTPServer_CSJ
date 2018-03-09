@@ -512,7 +512,8 @@ var make_sub_list = function( cd$notebook ){
 			_el_div__sub_list.appendChild( div0 )
 		}
 
-		_el_div__sub_list.addEventListener("click",function(e){
+
+		var _el_div__sub_list_click = function(e){
 
 			var pe = e.currentTarget.children
 			var te = check_dom( e.target, "list" )
@@ -525,7 +526,10 @@ var make_sub_list = function( cd$notebook ){
 					req_detail_by__id( notebook_detail_data[ i ]._id )
 				}
 			}
-		})
+		}
+
+		_el_div__sub_list.removeEventListener("click",_el_div__sub_list_click)
+		_el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
 
 		//----------;
 		var btn_control_obj = {
