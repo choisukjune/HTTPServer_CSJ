@@ -483,7 +483,10 @@ var make_sub_list = function( cd$notebook ){
 		}
 	}
 	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
-						_el_div__sub_list.removeEventListener("click",_el_div__sub_list_click)
+
+	_el_div__sub_list.removeEventListener("click",_el_div__sub_list_click)
+	_el_div__sub_list.dispatchEvent("click",_el_div__sub_list_click)
+
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
