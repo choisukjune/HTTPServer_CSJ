@@ -386,6 +386,14 @@ var make_notebook_list = function( cd$project ){
 			_t0.appendChild( a )
 		}
 
+		//----------;
+		var btn_control_obj = {
+			add : "block"
+		}
+		btn_control( btn_control_obj );
+		//----------;
+
+
 		document.getElementById("notebook_list").addEventListener("click",function(e){
 
 			var pe = e.currentTarget.children
@@ -403,12 +411,7 @@ var make_notebook_list = function( cd$project ){
 					if( _t0 ) if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
 					make_brcm_2();
-					//----------;
-					var btn_control_obj = {
-						add : "block"
-					}
-					btn_control( btn_control_obj );
-					//----------;
+
 				}
 			}
 		})
