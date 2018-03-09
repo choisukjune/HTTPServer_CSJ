@@ -665,7 +665,7 @@ var write_project = function(){
 	var title =  document.getElementById("project_nm").value;
 	var description = document.getElementById("project_desc").value;
 
-	var url = "/api/Category/notebook/write?sid=" + window.service.cookie.getCookie('session')
+	var url = "/api/Category/project/write?sid=" + window.service.cookie.getCookie('session')
 			+ "&title=" + title
 			+ "&description=" + description
 
