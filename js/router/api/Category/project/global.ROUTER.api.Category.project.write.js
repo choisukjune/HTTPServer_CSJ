@@ -37,7 +37,7 @@ console.log( _q );
 
 						var doc = {
 							_id : idx
-							, _d : Long( 0 ).toInt()
+							, _d : Long( 1 ).toInt()
 							, cd : "PRJ" + idx
 						    , nm : _q.project_nm
 						    , description : _q.project_desc
