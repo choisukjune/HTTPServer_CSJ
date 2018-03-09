@@ -54,7 +54,7 @@ global.ROUTER.api.Category.notebook.write = function( req, res ){
 
 							doc.cd = _q.cd$project + "-NOTE" + count;
 
-							db0.collection("project").insert(doc,function(err, result){
+							db0.collection("notebook").insert(doc,function(err, result){
 								console.log( result )
 								global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 								db.close();
