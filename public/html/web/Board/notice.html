@@ -468,23 +468,8 @@ var req_detail_by__id = function( _id ){
  * @return {[type]} [description]
  */
 var make_sub_list = function( cd$notebook ){
-	var _el_div__sub_list_click = function(e){
 
-		var pe = e.currentTarget.children
-		var te = check_dom( e.target, "list" )
-
-		var i = 0,iLen = pe.length,io;
-		for(;i < iLen;++i){
-			io = pe[ i ]
-			if( io == te ){
-				console.log( i )
-				req_detail_by__id( notebook_detail_data[ i ]._id )
-			}
-		}
-	}
 	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
-
-	_el_div__sub_list.removeEventListener("click",_el_div__sub_list_click)
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
@@ -527,6 +512,7 @@ var make_sub_list = function( cd$notebook ){
 			_el_div__sub_list.appendChild( div0 )
 		}
 
+		
 		_el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
 
 		//----------;
