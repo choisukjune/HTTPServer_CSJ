@@ -45,6 +45,9 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
 
 						db0.collection("notice").count({ cd$notebook : _q.cd$notebook },function(err,count){
+
+							console.log( count )
+
 							//ToDo function 으로 분리하기;
 							var Long = require('mongodb').Long;
 
