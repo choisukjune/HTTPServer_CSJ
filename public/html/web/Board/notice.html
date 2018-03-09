@@ -157,7 +157,7 @@
 		    <textarea id="project_desc"></textarea>
 		  </div>
 		  <div class="field">
-			  <button class="positive fluid ui button" id="project_add">Add</button>
+			  <button class="positive fluid ui button" id="project_add_write">Add</button>
 		  </div>
 		  <div class="field">
 			  <button class="fluid ui button"  id="project_add_cancel">Cancel</button>
@@ -220,12 +220,12 @@ var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
 var _el_btn__project_add = document.getElementById( "project_add" );
 var _el_btn__notebook_add = document.getElementById( "notebook_add" );
-var _el_btn__project_add = document.getElementById( "project_add" )
+var _el_btn__project_add_write = document.getElementById( "project_add_write" )
 var _el_btn__project_add_cancel = document.getElementById( "project_add_cancel" )
 //------------------------------_el;
 //------------------------------ event;
 
-_el_btn__project_add.addEventListener("click", write_project );
+_el_btn__project_add_write.addEventListener("click", write_project );
 _el_btn__project_add_cancel.addEventListener("click",function(){
 	document.getElementById( "project_nm" ).value = "";
 	document.getElementById( "project_desc" ).value = "";
