@@ -1,15 +1,6 @@
 global.ROUTER.api.Category.project.write = function( req, res ){
 
-	var	body = '';
-	req.on('data', function	(data) {
-		body +=	data;
-	   // global.CSJLog.timeStamp("Partial body: " + body);
-	})
-
-	req.on('end', function () {
-
-		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	body ).replace(/^.*\?/, '') );
-
+		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 			if( result == 0 )
@@ -21,28 +12,11 @@ global.ROUTER.api.Category.project.write = function( req, res ){
 			{
 				global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 
-					//ToDo function 으로 분리하기;
-					var tagsToReplace = {
-					    '"': '&quot;',
-					    '&': '&amp;',
-					    '<': '&lt;',
-					    '>': '&gt;',
-					    "'": '&#039;'
-					};
-
-					function replaceTag(tag) {
-					    var s = tagsToReplace[tag] || tag;
-					    return s;
-					}
-
-					function safe_tags_replace(str) {
-					    return str.replace(/[&<>\"\'\{\}]/g, replaceTag);
-					}
-
 					global.CSJLog.log("Connected correctly to server");
 
-					var db0 = db.db('board');
-					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
+					//------------------------------;
+					var db0 = db.db('category');
+					db0.collection("project").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
 
 						//ToDo function 으로 분리하기;
 						var Long = require('mongodb').Long;
@@ -64,20 +38,22 @@ global.ROUTER.api.Category.project.write = function( req, res ){
 						var doc = {
 							_id : idx
 							, _d : Long( 0 ).toInt()
-							, title : _q.title
-							, content : _q.data
+							, cd : "PRJ" + idx,
+						    , nm : _q.project_nm,
+						    , description : _q.project_desc,
 							, regist_date : r
 							, modify_date : null
 							, delete_date : null
 						}
 
-						db0.collection("notice").insert(doc,function(d){
-							global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
+						db0.collection("project").insert(doc,(function(err, doc){
+							global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 							db.close();
 						});
 					});
+					//------------------------------;
+
 				});
 			}
 		})
-	})
-};
+	};
