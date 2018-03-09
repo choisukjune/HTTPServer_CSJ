@@ -174,22 +174,22 @@
         Project Add.
       </div>
       <div class="content">
-  		<form class="ui form">
+  		<div class="ui form">
   		  <div class="field">
   		    <label>Project Name</label>
-  		    <input type="text" name="projec-name" placeholder="Project Name">
+  		    <input type="text" name="notebook-name" placeholder="Notebook Name" id="notebook_nm">
   		  </div>
   		  <div class="field">
   		    <label>Description</label>
-  		    <textarea></textarea>
+  		    <textarea id="notebook_desc"></textarea>
   		  </div>
   		  <div class="field">
-  			  <button class="green fluid ui button">Add</button>
+  			  <button class="green fluid ui button" id="notebook_add_write">Add</button>
   		  </div>
   		  <div class="field">
-  			  <button class="fluid ui button">Cancel</button>
+  			  <button class="fluid ui button" id="notebook_add_cancel">Cancel</button>
   		  </div>
-  		</form>
+	  </div>
       </div>
     </div>
 <include>_footer_info.html</include>
@@ -222,9 +222,16 @@ var _el_btn__project_add = document.getElementById( "project_add" );
 var _el_btn__notebook_add = document.getElementById( "notebook_add" );
 var _el_btn__project_add_write = document.getElementById( "project_add_write" )
 var _el_btn__project_add_cancel = document.getElementById( "project_add_cancel" )
+var _el_btn__notebook_add_write = document.getElementById( "notebook_add_write" )
+var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel" )
 //------------------------------_el;
 //------------------------------ event;
 
+_el_btn__notebook_add_cancel.addEventListener("click",function(){
+	document.getElementById( "notebook_nm" ).value = "";
+	document.getElementById( "notebook_desc" ).value = "";
+	$('#notebook_add_modal').modal('hide');
+})
 
 _el_btn__project_add_cancel.addEventListener("click",function(){
 	document.getElementById( "project_nm" ).value = "";
@@ -694,6 +701,31 @@ var write_project = function(){
 		make_project_list();
 	})
 }
+
+var write_notebook = function(){
+
+	var notebook_nm =  document.getElementById("notebook_nm").value;
+	var notebook_desc = document.getElementById("notebook_desc").value;
+
+	var url = "/api/Category/notebook/write?sid=" + window.service.cookie.getCookie('session')
+			+ "&notebook_nm=" + notebook_nm
+			+ "&notebook_desc=" + notebook_desc
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result );
+
+		document.getElementById( "notebook_nm" ).value = "";
+		document.getElementById( "notebook_desc" ).value = "";
+		$('#notebook_add_modal').modal('hide');
+
+		make_notebook_list( current_notebook__data.cd );
+	})
+}
+
 /**
 *문서를 등록한다.
 */
