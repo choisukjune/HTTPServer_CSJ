@@ -573,7 +573,7 @@ var write_doc = function(){
 
 		_el_div__view_container.removeChild( document.getElementById('add_doc_con') );
 
-		make_sub_list( current_notebook__data );//서브리스트 갱신;
+		make_sub_list( current_notebook__data.cd );//서브리스트 갱신;
 		req_detail_by__id( data._id );//view 데이터 갱신;
 	})
 }
