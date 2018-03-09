@@ -40,7 +40,7 @@
 				</div>
 				<div class="item" href="#">
 					<button class="fluid ui button" id="project_add">
-						등록
+						Project Add
 					</button>
 				</div>
 				<div class="item" id="project_list">
@@ -401,6 +401,20 @@ var make_notebook_list = function( cd$project ){
 		if( _el_div__sub_list ) if( _el_div__sub_list.firstChild ) while( _el_div__sub_list.firstChild ) _el_div__sub_list.removeChild( _el_div__sub_list.firstChild );
 		var _el_div__view_container = document.getElementById( "view_document" )
 		if( _el_div__view_container ) if( _el_div__view_container.firstChild ) while( _el_div__view_container.firstChild ) _el_div__view_container.removeChild( _el_div__view_container.firstChild );
+
+		<div class="item">
+			<button class="fluid ui button" id="project_add">
+				Project Add
+			</button>
+		</div>
+
+		var div0 = document.createElement("div");
+			div0.setAttribute("class","item")
+
+		var button = document.createElement( "button" );
+			button.setAttribute("class","fluid ui button")
+			button.setAttribute("id","notebook_add")
+			button.appendChild( document.createTextNode( "Notebook Add" ) )
 
 
 		var i = 0,iLen = data.length,io
