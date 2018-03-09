@@ -39,7 +39,7 @@
 					<h4>NOTE</h4>
 				</div>
 				<div class="item" href="#">
-					<button class="fluid ui button">
+					<button class="fluid ui button" id="prject_add">
 						등록
 					</button>
 				</div>
@@ -180,6 +180,7 @@ var current_notebook__data = {};
 //------------------------------_el;
 var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
+var _el_btn__prject_add = document.getElementById( "project_add" );
 //------------------------------_el;
 //------------------------------ event;
 var _el_div__sub_list_click = function(e){
@@ -783,4 +784,8 @@ var Initialize = function(){
 }
 
 Initialize();
+_el_btn__prject_add.addEventListener("click",function(){
+	$('.ui.modal')
+  .modal();
+})
 </script>
