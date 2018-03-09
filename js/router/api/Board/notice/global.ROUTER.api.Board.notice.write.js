@@ -41,46 +41,39 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 
 					global.CSJLog.log("Connected correctly to server");
 
+					//ToDo function 으로 분리하기;
+					var Long = require('mongodb').Long;
+
+					var d = new Date();
+					var r = [ Long( d.getFullYear() ).toInt(), Long( d.getMonth() + 1 ).toInt(), Long( d.getDate() ).toInt(), Long( d.getHours() ).toInt(), Long( d.getMinutes() ).toInt(), Long( d.getSeconds() ).toInt() ];
+
+					var doc = {
+						_id : -1
+						, _d : Long( 1 ).toInt()
+						, cd : ""
+						, cd$project : _q.cd$project
+						, cd$notebook : _q.cd$notebook
+						, title : _q.title
+						, content : _q.data
+						, regist_date : r
+						, modify_date : null
+						, delete_date : null
+					}
+
 					var db0 = db.db('board');
 					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
+
+						if( doc.length == 0 ) var idx = 0
+						else var idx = doc[ 0 ]._id + 1
+
+						doc._id = idx;
 
 						db0.collection("notice").count({ cd$notebook : _q.cd$notebook },function(err,count){
 
 							console.log( count )
-
-							//ToDo function 으로 분리하기;
-							var Long = require('mongodb').Long;
-
-							var d = new Date();
-							var r = [
-								Long( d.getFullYear() ).toInt()
-								, Long( d.getMonth() + 1 ).toInt()
-								, Long( d.getDate() ).toInt()
-								, Long( d.getHours() ).toInt()
-								, Long( d.getMinutes() ).toInt()
-								, Long( d.getSeconds() ).toInt()
-							];
-
-
-							if( doc.length == 0 ) var idx = 0
-							else var idx = doc[ 0 ]._id + 1
-
 							var doc_idx = count + 1;
 
-							var doc = {
-								_id : idx
-								, _d : Long( 1 ).toInt()
-								, cd : _q.cd$notebook + "doc" + doc_idx
-								, cd$project : _q.cd$project
-								, cd$notebook : _q.cd$notebook
-								, title : _q.title
-								, content : _q.data
-								, regist_date : r
-								, modify_date : null
-								, delete_date : null
-							}
-
-
+							doc.cd = _q.cd$notebook + "-DOC" + doc_idx;
 
 							db0.collection("notice").insert(doc,function(d){
 								global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
