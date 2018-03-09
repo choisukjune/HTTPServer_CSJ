@@ -729,7 +729,7 @@ var update_doc = function( data ){
 
 		document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
-		make_sub_list();
+		make_sub_list( current_notebook__data.cd );
 		req_detail_by__id( data )
 	})
 }
@@ -775,7 +775,7 @@ var delete_doc = function(){
 		console.log( result );
 		console.log( "--삭제완료--" )
 
-		make_sub_list();
+		make_sub_list( current_notebook__data.cd );
 		document.getElementById("view_container").removeChild(document.getElementById("view_document"));
 	})
 }
