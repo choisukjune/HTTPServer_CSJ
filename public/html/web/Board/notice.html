@@ -141,7 +141,7 @@
 
 	<!-- </div>
 </div> -->
-<div class="ui right sidebar vertical inverted menu" style="">
+<div class="ui left sidebar vertical inverted menu" style="">
   <a class="header item">File Permissions</a>
   <a class="item">Share on Social</a>
   <a class="item">Share by E-mail</a>
@@ -151,6 +151,7 @@
 <div class="pusher">
   Your site's actual content
 </div>
+
 <div class="ui mini modal transition" id="project_add_modal">
     <div class="header">
       Project Add.
@@ -239,7 +240,7 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
-	$('.ui.right.sidebar')
+	$('.ui.sidebar')
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('show');
 	console.log("sdf")
