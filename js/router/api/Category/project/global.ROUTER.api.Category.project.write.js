@@ -31,7 +31,6 @@ global.ROUTER.api.Category.project.write = function( req, res ){
 							, Long( d.getSeconds() ).toInt()
 						];
 
-console.log( _q );
 						if( doc.length == 0 ) var idx = 0
 						else var idx = doc[ 0 ]._id + 1
 

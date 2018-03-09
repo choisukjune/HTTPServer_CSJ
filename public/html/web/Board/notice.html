@@ -423,6 +423,14 @@ var make_project_list = function(){
 		var _t0 = document.getElementById("project_list_select")
 
 		document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : none;" )
+		_el_removeChild( _t0 );
+
+		var option = document.createElement("option")
+			option.setAttribute( "value", "" )
+			option.appendChild( document.createTextNode( "프로젝트를 선택하세요" ) )
+
+		_t0.appendChild( option )
+
 		var i = 0,iLen = data.length,io
 		for(;i<iLen; ++i)
 		{
@@ -682,7 +690,7 @@ var write_project = function(){
 		document.getElementById( "project_nm" ).value = "";
 		document.getElementById( "project_desc" ).value = "";
 		$('#project_add_modal').modal('hide');
-		
+
 		make_project_list();
 	})
 }
