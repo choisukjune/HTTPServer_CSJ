@@ -710,6 +710,8 @@ var write_notebook = function(){
 	var url = "/api/Category/notebook/write?sid=" + window.service.cookie.getCookie('session')
 			+ "&notebook_nm=" + notebook_nm
 			+ "&notebook_desc=" + notebook_desc
+			+ "&cd$project=" + current_project__data.cd
+			+ "&nm$project=" + current_project__data.nm
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){

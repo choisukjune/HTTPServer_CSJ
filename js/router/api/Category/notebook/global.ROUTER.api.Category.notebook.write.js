@@ -1,15 +1,6 @@
-global.ROUTER.api.Category.notebook.write = function( req, res ){
+global.ROUTER.api.Category.project.write = function( req, res ){
 
-	var	body = '';
-	req.on('data', function	(data) {
-		body +=	data;
-	   // global.CSJLog.timeStamp("Partial body: " + body);
-	})
-
-	req.on('end', function () {
-
-		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	body ).replace(/^.*\?/, '') );
-
+		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 			if( result == 0 )
@@ -21,63 +12,58 @@ global.ROUTER.api.Category.notebook.write = function( req, res ){
 			{
 				global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 
-					//ToDo function 으로 분리하기;
-					var tagsToReplace = {
-					    '"': '&quot;',
-					    '&': '&amp;',
-					    '<': '&lt;',
-					    '>': '&gt;',
-					    "'": '&#039;'
-					};
-
-					function replaceTag(tag) {
-					    var s = tagsToReplace[tag] || tag;
-					    return s;
-					}
-
-					function safe_tags_replace(str) {
-					    return str.replace(/[&<>\"\'\{\}]/g, replaceTag);
-					}
-
 					global.CSJLog.log("Connected correctly to server");
 
-					var db0 = db.db('board');
-					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
+					//ToDo function 으로 분리하기;
+					var Long = require('mongodb').Long;
 
-						//ToDo function 으로 분리하기;
-						var Long = require('mongodb').Long;
+					var d = new Date();
+					var r = [
+						Long( d.getFullYear() ).toInt()
+						, Long( d.getMonth() + 1 ).toInt()
+						, Long( d.getDate() ).toInt()
+						, Long( d.getHours() ).toInt()
+						, Long( d.getMinutes() ).toInt()
+						, Long( d.getSeconds() ).toInt()
+					];
 
-						var d = new Date();
-						var r = [
-							Long( d.getFullYear() ).toInt()
-							, Long( d.getMonth() + 1 ).toInt()
-							, Long( d.getDate() ).toInt()
-							, Long( d.getHours() ).toInt()
-							, Long( d.getMinutes() ).toInt()
-							, Long( d.getSeconds() ).toInt()
-						];
+					var doc = {
+						_id : -1
+						, _d : Long( 1 ).toInt()
+						, cd : ""
+						, nm : _q.project_nm
+						, cd$project : _q.cd$project
+						, nm$project : _q.nm$project
+						, description : _q.project_desc
+						, regist_date : r
+						, modify_date : null
+						, delete_date : null
+					}
+
+					//------------------------------;
+					var db0 = db.db('category');
+					db0.collection("notebook").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
 
 
 						if( doc.length == 0 ) var idx = 0
 						else var idx = doc[ 0 ]._id + 1
 
-						var doc = {
-							_id : idx
-							, _d : Long( 0 ).toInt()
-							, title : _q.title
-							, content : _q.data
-							, regist_date : r
-							, modify_date : null
-							, delete_date : null
-						}
+						doc._id = Long( idx ).toInt()
 
-						db0.collection("notice").insert(doc,function(d){
-							global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
-							db.close();
+						db0.collection("notebook").count({ cd$project : _q.cd$project },function(err,count){
+
+							doc.cd = _q.cd$project + "-NOTE" + count;
+
+							db0.collection("project").insert(doc,function(err, result){
+								console.log( result )
+								global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
+								db.close();
+							});
 						});
 					});
+					//------------------------------;
+
 				});
 			}
 		})
-	})
-};
+	};
