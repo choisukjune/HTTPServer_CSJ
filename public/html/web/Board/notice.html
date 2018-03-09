@@ -408,6 +408,8 @@ var make_brcm_3 = function(){
 var make_project_list = function(){
 	var url = "/api/Category/project/get_list?sid=" + window.service.cookie.getCookie('session');
 
+	_el_btn__project_add_write.removeEventListener("click",write_project);
+
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
@@ -663,12 +665,12 @@ var make_sub_list = function( cd$notebook ){
 
 var write_project = function(){
 
-	var title =  document.getElementById("project_nm").value;
-	var description = document.getElementById("project_desc").value;
+	var project_nm =  document.getElementById("project_nm").value;
+	var project_desc = document.getElementById("project_desc").value;
 
 	var url = "/api/Category/project/write?sid=" + window.service.cookie.getCookie('session')
-			+ "&title=" + title
-			+ "&description=" + description
+			+ "&project_nm=" + project_nm
+			+ "&project_desc=" + project_desc
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
@@ -677,6 +679,7 @@ var write_project = function(){
 		}
 		var data = JSON.parse( result );
 
+		make_project_list();
 	})
 }
 /**
