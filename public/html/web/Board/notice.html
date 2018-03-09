@@ -371,6 +371,10 @@ var make_notebook_list = function( cd$project ){
 					console.log( i )
 					current_notebook__data = notebook_list_data[ i ]
 					make_sub_list( current_notebook__data.cd );
+
+					var _t0 = document.getElementById( "view_document" )
+					if( _t0 ) if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
+
 					make_brcm_2();
 				}
 			}
@@ -476,9 +480,6 @@ var make_sub_list = function( cd$notebook ){
 
 		_el_div__sub_list.innerHTML = "";//dom 초기화;
 
-		var _t0 = document.getElementById( "view_document" )
-		if( _t0 ) if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
-
 		var i = 0,iLen = data.length,io;
 		for(; i<iLen; ++i ){
 
@@ -574,6 +575,7 @@ var write_doc = function(){
 		_el_div__view_container.removeChild( document.getElementById('add_doc_con') );
 
 		make_sub_list( current_notebook__data.cd );//서브리스트 갱신;
+
 		req_detail_by__id( data._id );//view 데이터 갱신;
 	})
 }
