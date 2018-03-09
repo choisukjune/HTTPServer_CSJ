@@ -147,20 +147,22 @@
       Project Add.
     </div>
     <div class="content">
-		<!-- <form class="ui form"> -->
-		<div class="ui fluid input" style="margin-bottom : 14px;">
-			<input type="text" placeholder="프로젝트명" id="project_nm">
-		</div>
-		<div class="ui fluid input" style="margin-bottom : 14px;">
-			<textarea id="project_desc" placeholder="프로젝트설명"></textarea>
-		</div>
-		<div class="ui fluid input" style="margin-bottom : 14px;">
-			<button class="green fluid ui button" id="project_add_write">Add</button>
-		</div>
-		<div class="ui fluid input" style="margin-bottom : 14px;">
-			<button class="fluid ui button"  id="project_add_cancel">Cancel</button>
-		</div>
-		<!-- </form> -->
+		<div class="ui form">
+		  <div class="field">
+		    <label>Project Name</label>
+		    <input type="text" name="projec-name" placeholder="Project Name" id="project_nm">
+		  </div>
+		  <div class="field">
+		    <label>Description</label>
+		    <textarea id="project_desc"></textarea>
+		  </div>
+		  <div class="field">
+			  <button class="green fluid ui button" id="project_add_write">Add</button>
+		  </div>
+		  <div class="field">
+			  <button class="fluid ui button"  id="project_add_cancel">Cancel</button>
+		  </div>
+	  </div>
     </div>
   </div>
 
@@ -789,7 +791,7 @@ var modify_doc = function(){
 
 /**
  * [description]
- * @return {[type]} [descripti<div class="ui fluid icon input" style="margin-bottom : 14px;"><input type="text" placeholder="제목을 입력하세요" id="title"></div>on]
+ * @return {[type]} [description]
  */
 var delete_doc = function(){
 
