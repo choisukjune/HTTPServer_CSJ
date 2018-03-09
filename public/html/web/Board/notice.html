@@ -197,7 +197,7 @@
   		</form>
       </div>
     </div>
-
+<div class="pusher"></div>
 <include>_footer_info.html</include>
 <script></script>
 <script type="text/javascript">
@@ -239,7 +239,9 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
-	$('.ui.right.sidebar').sidebar('show');
+	$('.ui.right.sidebar')
+	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('show');
 	console.log("sdf")
 })
 var _el_div__sub_list_click = function(e){
