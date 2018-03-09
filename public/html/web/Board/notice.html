@@ -382,6 +382,7 @@ var make_brcm_3 = function(){
 
 var make_project_list = function(){
 	var url = "/api/Category/project/get_list?sid=" + window.service.cookie.getCookie('session');
+
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
@@ -408,6 +409,7 @@ var make_project_list = function(){
 		document.getElementById("project_list_select").addEventListener("change",function(e){
 			console.log(e.target.selectedOptions[ 0 ].value)
 			var idx = e.target.selectedOptions[ 0 ].value;
+			if( !project_list_data[ idx ] ) return;
 			current_project__data = project_list_data[ idx ];
 			make_brcm_1();
 			make_notebook_list( current_project__data.cd );
