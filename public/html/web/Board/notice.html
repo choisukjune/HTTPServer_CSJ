@@ -152,6 +152,25 @@ var current_notebook__data = {};
 var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
 //------------------------------_el;
+//------------------------------_
+var _el_div__sub_list_click = function(e){
+
+	var pe = e.currentTarget.children
+	var te = check_dom( e.target, "list" )
+
+	var i = 0,iLen = pe.length,io;
+	for(;i < iLen;++i){
+		io = pe[ i ]
+		if( io == te ){
+			console.log( i )
+			req_detail_by__id( notebook_detail_data[ i ]._id )
+		}
+	}
+}
+
+_el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
+
+//------------------------------_
 //------------------------------ btn;
 var btn_object = {add : "none", modify : "none", delete : "none", delete : "none", cancel : "none", lists : "none", write : "none"}
 
@@ -468,20 +487,7 @@ var req_detail_by__id = function( _id ){
  * @return {[type]} [description]
  */
 var make_sub_list = function( cd$notebook ){
-	var _el_div__sub_list_click = function(e){
 
-		var pe = e.currentTarget.children
-		var te = check_dom( e.target, "list" )
-
-		var i = 0,iLen = pe.length,io;
-		for(;i < iLen;++i){
-			io = pe[ i ]
-			if( io == te ){
-				console.log( i )
-				req_detail_by__id( notebook_detail_data[ i ]._id )
-			}
-		}
-	}
 	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
 
 
@@ -525,9 +531,6 @@ var make_sub_list = function( cd$notebook ){
 			div0.appendChild( div1 )
 			_el_div__sub_list.appendChild( div0 )
 		}
-
-		_el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
-
 		//----------;
 		var btn_control_obj = {
 			add : "block"
