@@ -61,17 +61,17 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 					}
 
 					var db0 = db.db('board');
-					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,doc){
+					db0.collection("notice").find({}).sort({_id : -1}).limit(1).toArray(function(err,result){
 
-						if( doc.length == 0 ) var idx = 0
-						else var idx = doc[ 0 ]._id + 1
+						if( result.length == 0 ) var idx = 0
+						else var idx = result[ 0 ]._id + 1
 
 						doc._id = idx;
 console.log( idx )
-						db0.collection("notice").count({ cd$notebook : _q.cd$notebook },function(err,count){
+						db0.collection("notice").count({ cd$notebook : _q.cd$notebook },function(err,result){
 
-							console.log( count )
-							var doc_idx = count + 1;
+							console.log( result )
+							var doc_idx = result + 1;
 
 							doc.cd = _q.cd$notebook + "-DOC" + doc_idx;
 							console.log( doc )
