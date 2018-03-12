@@ -44,21 +44,11 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical inverted menu" style="">
-<h3 class="ui header">Contact Us</h3>
-  <div class="ui form">
-    <div class="field">
-      <label>Name</label>
-      <div class="ui icon input">
-        <i class="user icon"></i>
-        <input type="text" data-placeholder="Name">
-      </div>
-    </div>
-    <div class="field">
-      <label>Message</label>
-      <textarea></textarea>
-    </div>
-    <div class="ui black fluid button">Submit</div>
-  </div>
+  <a class="header item">File Permissions</a>
+  <a class="item">Share on Social</a>
+  <a class="item">Share by E-mail</a>
+  <a class="item">Edit Permissions</a>
+  <a class="item">Delete Permanently</a>
 </div>
 
 <div class="pusher">
