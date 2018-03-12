@@ -43,7 +43,11 @@
 						Project Add
 					</button>
 				</div>
-
+				<div class="item">
+					<button class="fluid ui button" id="project_add_modal_btn">
+						Project Add
+					</button>
+				</div>
 				<div class="item" id="notebook_add_container" style="display : none;">
 					<button class="fluid ui button" id="notebook_add">
 						Notebook Add
@@ -270,6 +274,10 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 	document.getElementById( "notebook_nm" ).value = "";
 	document.getElementById( "notebook_desc" ).value = "";
 	$('#notebook_add_modal').modal('hide');
+})
+
+document.getElementById( "project_add_modal_btn" ).addEventListener("click",function(){
+	$('#project_add_modal').modal('show');
 })
 
 _el_btn__project_add_cancel.addEventListener("click",function(){
