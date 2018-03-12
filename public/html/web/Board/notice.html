@@ -56,9 +56,38 @@
 				</div> -->
 
 			</div>
-			<!-- <div id="div-PIMS-menu-list" class="ui vertical menu segment" style="padding : 0px; min-width: 270px !important; max-width: 270px !important; overflow-y: auto !important;">
+			<div id="div-PIMS-menu-list" class="ui vertical menu segment" style="padding : 0px; min-width: 270px !important; max-width: 270px !important; overflow-y: auto !important;">
+				<div id="notebook_add_container" class="item" href="#">
+					<i class="plus icon right floated" id="notebook_add"></i>
+					<i class="minus icon right floated" id="notebook_add"></i>
+					<b id="project_title"></b>
+				</div>
+				<!-- <div class="item">
+					<button class="fluid ui button" id="project_add">
+						Project Add
+					</button>
+				</div>
+				<div class="item">
+					<button class="fluid ui button" id="project_add_modal_btn">
+						Project Add
+					</button>
+				</div> -->
+				<!-- <div class="ui fitted divider"></div> -->
+				<div id="notebook_list">
+				</div>
 
-			</div> -->
+				<!-- depth 구조의 메뉴바 구현 example; -->
+				<!-- <div class="item">
+					<div class="header">menu1</div>
+					<div class="div_menu menu">
+						<div class="item">test1</div>
+					</div>
+					<div class="div_menu menu">
+						<div class="item">test1</div>
+					</div>
+				</div> -->
+
+			</div>
 			<div id="div-PIMS-VerticalContainer" class="ui fluid basic segment" style="min-height: auto !important; max-height: auto !important;overflow-y : hidden !important;">
 
 				<div id="div-PIMS-GridContainer" class="ui grid" style="height : auto !important;">
@@ -83,36 +112,18 @@
 
 						<div class="ui grid">
 							<div class="three wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;" id="sub_list">
-								<div id="notebook_add_container" class="item" href="#">
-									<i class="plus icon right floated" id="notebook_add"></i>
-									<i class="minus icon right floated" id="notebook_add"></i>
-									<b id="project_title"></b>
+								<div id="list" class="ui basic segment item">
+									<h4>제목입니다.</h4>
+									<p>본문요약입니다.</p>
 								</div>
-								<!-- <div class="item">
-									<button class="fluid ui button" id="project_add">
-										Project Add
-									</button>
+								<div id="list" class="ui basic segment item">
+									<h4>제목입니다.</h4>
+									<p>본문요약입니다.</p>
 								</div>
-								<div class="item">
-									<button class="fluid ui button" id="project_add_modal_btn">
-										Project Add
-									</button>
-								</div> -->
-								<!-- <div class="ui fitted divider"></div> -->
-								<div id="notebook_list">
+								<div id="list" class="ui basic segment item">
+									<h4>제목입니다.</h4>
+									<p>본문요약입니다.</p>
 								</div>
-
-								<!-- depth 구조의 메뉴바 구현 example; -->
-								<!-- <div class="item">
-									<div class="header">menu1</div>
-									<div class="div_menu menu">
-										<div class="item">test1</div>
-									</div>
-									<div class="div_menu menu">
-										<div class="item">test1</div>
-									</div>
-								</div> -->
-
 							</div>
 							<div class="three wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;" id="sub_list">
 								<!-- <div id="list" class="ui basic segment item">
@@ -130,7 +141,7 @@
 							</div>
 
 
-							<div class="ten wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 808px !important;">
+							<div class="twelve wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 808px !important;">
 
 								<div style="position:fixed;right :30px;bottom : 60px; z-index : 102;">
 
@@ -570,7 +581,7 @@ var make_notebook_list = function( cd$project ){
 		var _el_div__view_container = document.getElementById( "view_document" )
 		if( _el_div__view_container ) if( _el_div__view_container.firstChild ) while( _el_div__view_container.firstChild ) _el_div__view_container.removeChild( _el_div__view_container.firstChild );
 
-		// document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : block;" )
+		document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : block;" )
 
 		_el_removeChild( _t0 );
 
