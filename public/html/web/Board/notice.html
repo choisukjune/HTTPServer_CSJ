@@ -59,7 +59,7 @@
 			<div id="div-PIMS-menu-list" class="ui vertical menu segment" style="padding : 0px; min-width: 270px !important; max-width: 270px !important; overflow-y: auto !important;">
 
 				<div class="item" href="#">
-					<h4 id="project_nm"></h4>
+					<h4 id="project_title"></h4>
 				</div>
 				<div class="item">
 					<button class="fluid ui button" id="project_add">
@@ -300,7 +300,7 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 
 document.getElementById( "project_add_modal_btn" ).addEventListener("click",function(){
 	$('#project_select_modal').modal('show');
-	document.getElementById( "project_nm" ).appendChild( document.createTextNode( current_project__data.nm ))
+	document.getElementById( "project_title" ).appendChild( document.createTextNode( current_project__data.nm ))
 })
 
 _el_btn__project_add_cancel.addEventListener("click",function(){
