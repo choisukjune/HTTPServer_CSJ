@@ -77,7 +77,7 @@
 						<a class="avatar">
 							<img class="ui avatar Mini image" src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
 						</a>
-						<button class="ui button float right" id="test_sidebar">aaaaa</button>
+						<button class="ui button" id="test_sidebar">aaaaa</button>
 
 					</div>
 					<div class="sixteen wide column" id="div-PIMS-headerContainer" style="width: 100%;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;min-height : 42px !important;">
@@ -276,6 +276,9 @@ _el_btn__notebook_add.addEventListener("click",function(){
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar')
+	.sidebar({
+  overlay: true
+})
 	.sidebar("show" )
 	console.log("sdf")
 })
