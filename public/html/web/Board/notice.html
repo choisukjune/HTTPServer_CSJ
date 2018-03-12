@@ -22,10 +22,15 @@
 #notebook_list_item:last-child{
 	margin : 0px !important;border-bottom : 0 !important;
 }
+#notebook_add_container{
+	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+}
+#notebook_add_container:last-child{
+	margin : 0px !important;border-bottom : 0 !important;
+}
 .bottom_line{
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 }
-
 </style>
 <!-- <div class="ui centered grid">
 	<div class="twelve wide column pad_t_60 pad_b_60"> -->
@@ -96,9 +101,11 @@
 							<div class="two wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
 								<div id="notebook_add_container" class="ui basic segment item">
 									<div class="ui grid">
-									  <div class="eight wide column"><b id="project_title"></b></div>
-									  <div class="right floated right aligned eight wide column">									<i class="plus icon right floated" id="notebook_add"></i>
-									  									<i class="minus icon right floated" id="notebook_add"></i></div>
+										<div class="eight wide column"><b id="project_title"></b></div>
+										<div class="right floated right aligned eight wide column">
+											<i class="plus icon right floated" id="notebook_add"></i>
+											<i class="minus icon right floated" id="notebook_add"></i>
+										</div>
 									</div>
 								</div>
 								<div id="notebook_list"></div>
