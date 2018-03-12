@@ -300,7 +300,6 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 
 document.getElementById( "project_add_modal_btn" ).addEventListener("click",function(){
 	$('#project_select_modal').modal('show');
-	document.getElementById( "project_title" ).appendChild( document.createTextNode( current_project__data.nm ))
 })
 
 _el_btn__project_add_cancel.addEventListener("click",function(){
@@ -541,6 +540,7 @@ var make_project_list = function(){
 
 			current_project__data = project_list_data[ idx ];
 			make_brcm_1();
+				document.getElementById( "project_title" ).appendChild( document.createTextNode( current_project__data.nm ))
 			make_notebook_list( current_project__data.cd );
 		})
 	})
