@@ -300,7 +300,7 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 
 document.getElementById( "project_add_modal_btn" ).addEventListener("click",function(){
 	$('#project_select_modal').modal('show');
-	document.appendChild( document.createElement( current_project__data.nm ))
+	document.getElementById( "project_nm" ).appendChild( document.createElement( current_project__data.nm ))
 })
 
 _el_btn__project_add_cancel.addEventListener("click",function(){
