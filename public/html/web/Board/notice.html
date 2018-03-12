@@ -94,9 +94,8 @@
 									<i class="minus icon right floated" id="notebook_add"></i>
 									<b id="project_title"></b>
 								</div>
-								<div id="notebook_list" class="item">
-								</div>
-								<div id="list" class="ui basic segment item">
+								<div id="notebook_list"></div>
+								<!-- <div id="list" class="ui basic segment item">
 									<b>본문요약입니다.</b>
 								</div>
 								<div id="list" class="ui basic segment item">
@@ -104,7 +103,7 @@
 								</div>
 								<div id="list" class="ui basic segment item">
 									<b>본문요약입니다.</b>
-								</div>
+								</div> -->
 							</div>
 
 							<div class="four wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;" id="sub_list">
@@ -570,14 +569,13 @@ var make_notebook_list = function( cd$project ){
 		for(;i<iLen; ++i)
 		{
 			io = data[ i ];
-			var a = document.createElement("a")
-				a.setAttribute( "href", "#" )
-				a.setAttribute( "id", "notebook_list_item" )
-				a.setAttribute( "class", "item" )
+			var div = document.createElement("div")
+				div.setAttribute( "id", "list" )
+				div.setAttribute( "class", "ui basic segment item" )
 
-				a.appendChild( document.createTextNode( io.nm ) )
+				div.appendChild( document.createTextNode( io.nm ) )
 
-			_t0.appendChild( a )
+			_t0.appendChild( div )
 		}
 
 		//----------;
