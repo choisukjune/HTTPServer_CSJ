@@ -43,7 +43,7 @@ line-height: 1.5em !important;
 
 </div>
 
-<div class="ui right sidebar vertical inverted menu" style="">
+<div class="ui very wide right sidebar vertical inverted menu" style="">
   <a class="header item">File Permissions</a>
   <a class="item">Share on Social</a>
   <a class="item">Share by E-mail</a>
