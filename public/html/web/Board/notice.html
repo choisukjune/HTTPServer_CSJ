@@ -701,8 +701,8 @@ var make_sub_list = function( cd$notebook ){
 				div0.setAttribute("class", "ui basic segment item bottom_line");
 				div0.setAttribute("idx", io._id);
 
-			var h4 = document.createElement("h4")
-			var h4_text = document.createTextNode( io.title );
+			var b = document.createElement("b")
+			var b_text = document.createTextNode( io.title );
 
 			var div__id = document.createElement("div")
 				div__id.setAttribute("id", "list_id");
@@ -716,10 +716,10 @@ var make_sub_list = function( cd$notebook ){
 			var div1_text = document.createTextNode( make_Array_dateFormat( io.regist_date ) );
 
 			div__id.appendChild( div__id_text );
-			h4.appendChild( h4_text );
+			b.appendChild( b_text );
 			div1.appendChild( div1_text );
 			div0.appendChild( div__id )
-			div0.appendChild( h4 )
+			div0.appendChild( b )
 			div0.appendChild( div1 )
 			_el_div__sub_list.appendChild( div0 )
 		}
