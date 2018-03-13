@@ -147,7 +147,7 @@ line-height: 1.5em !important;
 		</div>
 	</div>
 
-	<div class="item" style="height : 5%">
+	<div class="item" style="">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">
 				<div class="ui fluid input ">
@@ -294,7 +294,7 @@ line-height: 1.5em !important;
 			</div>
 		</div>
 	</div>
-		<div class="item" style="position: relative; bottom :0px;height : 20%">
+		<div class="item" style="position: relative; bottom :0px;">
 			<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">
 			<div class="ui form">
