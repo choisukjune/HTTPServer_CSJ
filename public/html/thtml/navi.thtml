@@ -3,7 +3,7 @@ $(document).ready(function () {
 //btn클릭 이벤트 처리
 $('#side_open').click(function () {
 	//alert(‘버튼이 클릭되었습니다.’);
-	$('.ui.sidebar')
+	$('.ui.left.sidebar')
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('toggle');
 });
@@ -34,7 +34,7 @@ line-height: 1.5em !important;
 </style>
 
 
-<div class="ui sidebar inverted vertical menu word-break">
+<div class="ui left sidebar inverted vertical menu word-break">
 
 	<a class="item" href="./">ProjectName</a>
 

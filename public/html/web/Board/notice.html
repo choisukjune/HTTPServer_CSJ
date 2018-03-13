@@ -57,6 +57,9 @@
 
 			<!-- 3 -->
 			<div id="div-PIMS-menu-list" class="ui vertical icon menu segment" style="padding : 0px; min-width: 40px !important; max-width: 40px !important; overflow-y: auto !important;">
+				<a class="item" style="padding : 13px !important;" id="global_sidebar">
+					<i class="Alarm Outline fitted icon"  style="margin : 0px !important;"></i>
+				</a>
 				<a class="item" style="padding : 13px !important;" id="project_add">
 					<i class="plus circle fitted icon"  style="margin : 0px !important;"></i>
 				</a>
@@ -276,7 +279,11 @@ var _el_btn__notebook_add_write = document.getElementById( "notebook_add_write" 
 var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel" )
 //------------------------------_el;
 //------------------------------ event;
-
+document.getElementById("global_sidebar").addEventListener("click",function(){
+	$('.ui.left.sidebar')
+	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('toggle');
+})
 
 document.getElementById("notebook_list").addEventListener("click",function(e){
 
