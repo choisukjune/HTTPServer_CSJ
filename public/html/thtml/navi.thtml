@@ -60,7 +60,7 @@ line-height: 1.5em !important;
 			<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">TextArea</div>
 			<div class="sixteen wide column" id="project_title_div">
-				<button class="ui button "></button>
+				<button class="ui button fluid">send</button>
 			</div>
 		</div>
 	</div>
