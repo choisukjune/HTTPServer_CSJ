@@ -46,8 +46,8 @@ line-height: 1.5em !important;
 <div class="ui very wide right sidebar vertical menu todo_sidebar" style="overflow-y : hidden !importan;">
 	<div class="item">
 		<div class="ui grid">
-			<div class="sixteen wide column" id="project_title_div">ToDo</div>
-			<div class="sixteen wide column" id="project_title_div" style="background-color : #00ffff;;min-height : 850px;max-height : 850px;overflow-y : auto;"">
+			<div class="sixteen wide column" id="">ToDo</div>
+			<div class="sixteen wide column" id="" style="background-color : #00ffff;;min-height : 850px;max-height : 850px;overflow-y : auto;"">
 				<div class="ui form">
 					<div class="grouped fields">
 						<div class="field">
@@ -125,7 +125,7 @@ line-height: 1.5em !important;
 					</div>
 				</div>
 			</div>
-			<div class="sixteen wide column fixed bottom" id="project_title_div">
+			<div class="sixteen wide column fixed bottom" id="">
 				<div class="ui fluid input ">
 					<input type="text" placeholder="Search...">
 					<button class="ui button">Search</button>
@@ -138,8 +138,8 @@ line-height: 1.5em !important;
 <div class="ui very wide right sidebar vertical menu comment_sidebar" style="overflow-y : hidden !importan;">
 	<div class="item" style="">
 		<div class="ui grid">
-			<div class="sixteen wide column" id="project_title_div">Comment</div>
-			<div class="sixteen wide column" id="project_title_div" style="background-color : #00ffff;;min-height : 750px;max-height : 750px;overflow-y : auto;"">
+			<div class="sixteen wide column" id="">Comment</div>
+			<div class="sixteen wide column" id="" style="background-color : #00ffff;;min-height : 750px;max-height : 750px;overflow-y : auto;"">
 			<p>1</P>
 			<p>1</P>
 			<p>1</P>
@@ -184,7 +184,7 @@ line-height: 1.5em !important;
 			<p>1</P>
 			<p>1</P>
 			</div>
-			<div class="sixteen wide column" id="project_title_div">
+			<div class="sixteen wide column" id="">
 				<div class="ui form">
 				  <div class="field">
 					<label>Short Text</label>
