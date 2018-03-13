@@ -184,6 +184,7 @@ if (req.method == 'OPTIONS') {
 		connection.on('message', function(message) {
 			if (message.type === 'utf8') {
 		// process WebSocket message
+		 connection.sendUTF( JSON.stringify( message ) )
 			console.log( message );
 			}
 		});
