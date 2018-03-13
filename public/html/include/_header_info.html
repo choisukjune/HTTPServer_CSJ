@@ -25,8 +25,12 @@
 <Script>
 window.WebSocket = window.WebSocket || window.MozWebSocket;
  var connection = new WebSocket('ws://13.125.22.207:8888');
- connection.onopen = function () {
-   connection.send( "kkkkkkk" )
-
- };
+ // connection.onopen = function () {
+ //   connection.send( "kkkkkkk" )
+ // };
+ connection.on('open',function(){ debugger; })
+ connection.on('close',function(){ debugger; })
+ connection.on('connect',function(){ debugger; })
+ connection.on('error',function(){ debugger; })
+ connection.on('message',function(){ debugger; })
 </script>
