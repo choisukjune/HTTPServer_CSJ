@@ -44,24 +44,26 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu" style="">
-  <div class="item">
-  <div class="ui grid">
-    <div class="sixteen wide column" id="project_title_div">1</div>
-    <div class="sixteen wide column" id="project_title_div">2</div>
-  </div>
-  </div>
-  <div class="item">
-
-  <div class="ui grid">
-  	<div class="eight wide column" id="project_title_div">1</div>
-  	<div class="eight wide column" id="project_title_div">2</div>
-  	<div class="eight wide column" id="project_title_div">3</div>
-  	<div class="eight wide column" id="project_title_div">4</div>
-  </div>
-
-  </div>
-  <div class="item">Edit Permissions</div>
-  <div class="item"><button class="ui button "></button></div>
+	<div class="item">
+		<div class="ui grid">
+			<div class="sixteen wide column" id="project_title_div">ToDo</div>
+			<div class="sixteen wide column" id="project_title_div">text</div>
+		</div>
+	</div>
+	<div class="item">
+		<div class="ui grid">
+			<div class="sixteen wide column" id="project_title_div">Comment</div>
+			<div class="sixteen wide column" id="project_title_div">text</div>
+		</div>
+	</div>
+		<div class="item">
+			<div class="ui grid">
+			<div class="sixteen wide column" id="project_title_div">TextArea</div>
+			<div class="sixteen wide column" id="project_title_div">
+				<button class="ui button "></button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="pusher">
