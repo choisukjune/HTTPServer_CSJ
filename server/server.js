@@ -16,6 +16,7 @@ global.REQUIRES.iconv = require('iconv-lite')
 global.REQUIRES.child_process = require('child_process');
 global.REQUIRES.uglify = require("uglify-js");
 global.REQUIRES.redis = require("redis");
+global.REQUIRES.websocket = require("websocket").server;
 
 //------------------------------;
 
@@ -165,6 +166,29 @@ if (req.method == 'OPTIONS') {
 //    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		routerControl( req, res );
 		};
-	global.REQUIRES.http.createServer( onRequest ).listen(8888);
+	global.server = global.REQUIRES.http.createServer( onRequest ).listen(8888);
     global.CSJLog.timeStamp('server has started.');
+
+
+	global.ws = new websocket({
+		httpServer : global.server
+	})
+
+	// WebSocket server
+	global.ws.on('request', function(request) {
+		console.log((new Date()) + ' Connection from origin ' + request.origin + '.');
+		var connection = request.accept(null, request.origin);
+
+		// This is the most important callback for us, we'll handle
+		// all messages from users here.
+		connection.on('message', function(message) {
+			if (message.type === 'utf8') {
+		// process WebSocket message
+			}
+		});
+
+		connection.on('close', function(connection) {
+		// close user connection
+		});
+	});
 };
