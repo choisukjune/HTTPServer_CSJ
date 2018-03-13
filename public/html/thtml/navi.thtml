@@ -43,7 +43,7 @@ line-height: 1.5em !important;
 
 </div>
 
-<div class="ui very wide right sidebar vertical menu" style="">
+<div class="ui very wide right sidebar" style="">
 <div class="ui grid">
 	<div class="eight wide column" id="project_title_div">1</div>
 	<div class="eight wide column" id="project_title_div">2</div>
