@@ -170,7 +170,7 @@ if (req.method == 'OPTIONS') {
     global.CSJLog.timeStamp('server has started.');
 
 
-	global.ws = new websocket({
+	global.ws = new global.REQUIRES.websocket({
 		httpServer : global.server
 	})
 
