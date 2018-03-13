@@ -174,18 +174,29 @@ if (req.method == 'OPTIONS') {
 		httpServer : global.server
 	})
 
+
+	global.ws.clients = [];
+
 	// WebSocket server
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
-
+		global.ws.clients.push( connection );
 		// This is the most important callback for us, we'll handle
 		// all messages from users here.
 		connection.on('message', function(message) {
 			if (message.type === 'utf8') {
-		// process WebSocket message
-		 connection.sendUTF( JSON.stringify( message ) )
-			console.log( message );
+			// process WebSocket message
+			 	//connection.sendUTF( JSON.stringify( message ) )
+				console.log( message );
+
+				var i = 0,iLen = clients.length,io
+				for(;i<iLen; ++i)
+				{
+					io = clients[ i ];
+					io.sendUTF( JSON.stringify( message ) )
+				}
+
 			}
 		});
 
