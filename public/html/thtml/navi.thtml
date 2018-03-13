@@ -44,7 +44,7 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu" style="">
-	<div class="item">
+	<div class="item" style="height : 40%">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
 			<div class="sixteen wide column" id="project_title_div">
@@ -61,7 +61,7 @@ line-height: 1.5em !important;
 			</div>
 		</div>
 	</div>
-	<div class="item">
+	<div class="item" style="height : 40%">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">Comment</div>
 			<div class="sixteen wide column" id="project_title_div">
@@ -74,10 +74,6 @@ line-height: 1.5em !important;
 			      <a class="author">Stevie Feliciano</a>
 			      <div class="metadata">
 			        <div class="date">2 days ago</div>
-			        <div class="rating">
-			          <i class="star icon"></i>
-			          5 Faves
-			        </div>
 			      </div>
 			      <div class="text">
 			        Hey guys, I hope this example comment is helping you read this documentation.
@@ -89,7 +85,7 @@ line-height: 1.5em !important;
 			</div>
 		</div>
 	</div>
-		<div class="item">
+		<div class="item" style="position: relative; bottom :0px;height : 20%">
 			<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">
 			<div class="ui form">
