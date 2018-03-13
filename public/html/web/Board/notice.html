@@ -148,7 +148,6 @@
 								<div style="position:fixed;right :30px;bottom : 60px; z-index : 102;">
 
 									<div class="ui buttons">
-										<button class="ui button" id="add" style="display : block;">글쓰기</button>
 										<button class="ui button" id="modify" style="display : none;">수정</button>
 										<button class="ui button" id="delete" style="display : none;">삭제</button>
 										<button class="ui button" id="cancel" style="display : none;">취소</button>
@@ -364,7 +363,7 @@ var _el_div__sub_list_click = function(e){
 _el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
 //------------------------------ addEventListener;
 //------------------------------ btn;
-var btn_object = {add : "none", modify : "none", delete : "none", delete : "none", cancel : "none", lists : "none", write : "none"}
+var btn_object = { modify : "none", delete : "none", delete : "none", cancel : "none", lists : "none", write : "none"}
 
 var btn_control = function( o ){
 	for( var s in btn_object )
@@ -620,12 +619,6 @@ var make_notebook_list = function( cd$project ){
 			_t0.appendChild( div )
 		}
 
-		//----------;
-		var btn_control_obj = {
-			add : "block"
-		}
-		btn_control( btn_control_obj );
-		//----------;
 	})
 }
 
@@ -695,12 +688,11 @@ var req_detail_by__id = function( _id ){
 		}
 
 		//---------- Button;
-		document.getElementById("add").style.display = "block";
 		document.getElementById("modify").style.display = "block";
 		document.getElementById("delete").style.display = "block";
-		document.getElementById("cancel").style.display = "none";
-		document.getElementById("lists").style.display = "none";
-		document.getElementById("write").style.display = "none";
+
+		var btn_control_obj = {modify : "block", delete : "block"}
+		btn_control( btn_control_obj );
 		//---------- Button;
 
 		document.getElementById("modify").removeEventListener( "click",update_doc )
@@ -758,12 +750,6 @@ var make_sub_list = function( cd$notebook ){
 			div0.appendChild( div1 )
 			_el_div__sub_list.appendChild( div0 )
 		}
-		//----------;
-		var btn_control_obj = {
-			add : "block"
-		}
-		btn_control( btn_control_obj );
-		//----------;
 
 		notebook_detail_data = data;
 	})
