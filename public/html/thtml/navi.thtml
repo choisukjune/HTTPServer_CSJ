@@ -50,79 +50,97 @@ line-height: 1.5em !important;
 			<div class="sixteen wide column" id="project_title_div">
 			<div class="ui form">
 			  <div class="grouped fields">
-			    <label>How often do you use checkboxes?</label>
 			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="example2" checked="checked">
+			      <div class="ui checkbox">
+			        <input type="checkbox" name="example2" checked="checked">
 			        <label>Once a week</label>
 			      </div>
 			    </div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
 				<div class="field">
-				  <div class="ui radio checkbox">
-					<input type="radio" name="example2" checked="checked">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
 					<label>Once a week</label>
 				  </div>
 				</div>
-			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="example2">
-			        <label>2-3 times a week</label>
-			      </div>
-			    </div>
-			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="example2">
-			        <label>Once a day</label>
-			      </div>
-			    </div>
-			    <div class="field">
-			      <div class="ui radio checkbox">
-			        <input type="radio" name="example2">
-			        <label>Twice a day</label>
-			      </div>
-			    </div>
+				<div class="field">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui checkbox">
+					<input type="checkbox" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				
 			  </div>
 			</div>
 			</div>
