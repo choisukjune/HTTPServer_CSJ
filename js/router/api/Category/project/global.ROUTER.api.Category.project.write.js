@@ -45,7 +45,7 @@ global.ROUTER.api.Category.project.write = function( req, res ){
 							, delete_date : null
 						}
 
-						db0.collection("project").insert(doc,function(err, doc){
+						db0.collection("project").insert(doc,function( err, result ){
 							global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 							db.close();
 						});
