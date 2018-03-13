@@ -318,7 +318,7 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 })
 
 document.getElementById( "project_title_div" ).addEventListener("click",function(){
-	$('#project_select_modal').modal('show');
+	$('#project_select_modal').modal('setting', 'closable', false).modal('show');
 })
 
 _el_btn__project_add_cancel.addEventListener("click",function(){
@@ -340,12 +340,7 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
-	$('.ui.right.sidebar')
-	.sidebar({
-  overlay: true
-})
-	.sidebar("show" )
-	console.log("sdf")
+	$('.ui.right.sidebar').sidebar({ overlay: true }).sidebar("show" )
 })
 var _el_div__sub_list_click = function(e){
 
