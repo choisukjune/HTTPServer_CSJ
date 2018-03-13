@@ -52,8 +52,8 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu todo_sidebar" style="overflow-y : hidden !importan;">
-	<div class="item">
-		<div class="ui grid" style="margin : 0px !important;padding : 0px !important">
+	<div class="item" style="padding : 0px !important">
+		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="todo_sidebar_header">ToDo</div>
 			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 850px;max-height : 850px;overflow-y : auto;"">
 				<div class="ui form">
@@ -144,8 +144,8 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu comment_sidebar" style="overflow-y : hidden !importan;">
-	<div class="item" style="">
-				<div class="ui grid" style="margin : 0px !important;padding : 0px !important">
+	<div class="item" style="padding : 0px !important">
+		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="comment_sidebar_header">Comment</div>
 			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 750px;max-height : 750px;overflow-y : auto;"">
 			<p>1</P>
