@@ -47,18 +47,54 @@ line-height: 1.5em !important;
 	<div class="item">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
-			<div class="sixteen wide column" id="project_title_div">text</div>
+			<div class="sixteen wide column" id="project_title_div">
+				<div class="ui left floated compact segment">
+					<div class="ui fitted checkbox">
+						<input type="checkbox">
+						<label></label>
+					</div>
+				</div>
+				<b>Task#1<b>
+			</div>
+			<div class="sixteen wide column" id="project_title_div">
+				<div class="ui action input fluid">
+					<input type="text" placeholder="Search...">
+					<button class="ui button">Search</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="item">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">Comment</div>
-			<div class="sixteen wide column" id="project_title_div">text</div>
+			<div class="sixteen wide column" id="project_title_div">
+			<div class="ui comments">
+			  <div class="comment">
+			    <a class="avatar">
+			      <img src="/images/avatar/small/stevie.jpg">
+			    </a>
+			    <div class="content">
+			      <a class="author">Stevie Feliciano</a>
+			      <div class="metadata">
+			        <div class="date">2 days ago</div>
+			        <div class="rating">
+			          <i class="star icon"></i>
+			          5 Faves
+			        </div>
+			      </div>
+			      <div class="text">
+			        Hey guys, I hope this example comment is helping you read this documentation.
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			</div>
 		</div>
 	</div>
 		<div class="item">
 			<div class="ui grid">
-			<div class="sixteen wide column" id="project_title_div">TextArea</div>
+			<div class="sixteen wide column" id="project_title_div"><textarea row="2"></textarea></div>
 			<div class="sixteen wide column" id="project_title_div">
 				<button class="ui button fluid">send</button>
 			</div>
