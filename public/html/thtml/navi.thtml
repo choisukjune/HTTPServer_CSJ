@@ -44,11 +44,9 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu" style="">
-  <a class="header item">File Permissions</a>
-  <a class="item">Share on Social</a>
-  <a class="item">Share by E-mail</a>
-  <a class="item">Edit Permissions</a>
-  <a class="item">Delete Permanently</a>
+<div id="div-PIMS-menu-list" class="ui vertical icon menu segment" style="padding : 0px; min-width: 40px !important; max-width: 40px !important; overflow-y: auto !important;">
+asdfasdfasdfasdfasdfasd
+</div>
 </div>
 
 <div class="pusher">
