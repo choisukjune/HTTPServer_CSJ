@@ -125,7 +125,7 @@ line-height: 1.5em !important;
 					</div>
 				</div>
 			</div>
-			<div class="sixteen wide column" id="project_title_div">
+			<div class="sixteen wide column fixed bottom" id="project_title_div">
 				<div class="ui fluid input ">
 					<input type="text" placeholder="Search...">
 					<button class="ui button">Search</button>
