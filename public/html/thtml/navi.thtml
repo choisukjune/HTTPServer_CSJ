@@ -143,6 +143,146 @@ line-height: 1.5em !important;
 			<div class="sixteen wide column" id="project_title_div">Comment</div>
 			<div class="sixteen wide column" id="project_title_div">
 			<div class="ui comments">
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
+			<div class="comment">
+			  <a class="avatar">
+				<img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
+			  </a>
+			  <div class="content">
+				<a class="author">Stevie Feliciano</a>
+				<div class="metadata">
+				  <div class="date">2 days ago</div>
+				</div>
+				<div class="text">
+				  Hey guys, I hope this example comment is helping you read this documentation.
+				</div>
+			  </div>
+			</div>
 			  <div class="comment">
 			    <a class="avatar">
 			      <img src="https://semantic-ui.com/images/avatar/small/stevie.jpg" style="width : 100%; height : auto;">
