@@ -46,8 +46,7 @@ line-height: 1.5em !important;
 <div class="ui very wide right sidebar vertical menu" style="">
   <div class="item">
   <div class="ui grid">
-    <div class="eight wide column" id="project_title_div">1</div>
-    <div class="eight wide column" id="project_title_div">2</div>
+    <div class="sixteen wide column" id="project_title_div">ToDo</div>
     <div class="eight wide column" id="project_title_div">3</div>
     <div class="eight wide column" id="project_title_div">4</div>
   </div>
@@ -55,8 +54,7 @@ line-height: 1.5em !important;
   <div class="item">
 
   <div class="ui grid">
-  	<div class="eight wide column" id="project_title_div">1</div>
-  	<div class="eight wide column" id="project_title_div">2</div>
+    <div class="sixteen wide column" id="project_title_div">Comment</div>
   	<div class="eight wide column" id="project_title_div">3</div>
   	<div class="eight wide column" id="project_title_div">4</div>
   </div>
