@@ -44,10 +44,10 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu todo_sidebar" style="overflow-y : hidden !importan;">
-	<div class="item" style="height : 35%;max-height : 35%;overflow-y : auto;">
+	<div class="item">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
-			<div class="sixteen wide column" id="project_title_div">
+			<div class="sixteen wide column" id="project_title_div" style="height : 100%;max-height : 100%;overflow-y : auto;">
 			<div class="ui form">
 			  <div class="grouped fields">
 			    <div class="field">
@@ -145,15 +145,10 @@ line-height: 1.5em !important;
 			</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="item fixed bottom" style="">
-		<div class="ui grid">
-			<div class="sixteen wide column" id="project_title_div">
-				<div class="ui fluid input ">
-					<input type="text" placeholder="Search...">
-					<button class="ui button">Search</button>
-				</div>
+		<div class="sixteen wide column" id="project_title_div">
+			<div class="ui fluid input ">
+				<input type="text" placeholder="Search...">
+				<button class="ui button">Search</button>
 			</div>
 		</div>
 	</div>
