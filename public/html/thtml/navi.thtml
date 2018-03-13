@@ -47,7 +47,7 @@ line-height: 1.5em !important;
 	<div class="item">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
-			<div class="sixteen wide column" id="project_title_div" style="height : 100%;max-height : 80%;overflow-y : auto;">
+			<div class="sixteen wide column" id="project_title_div" style="height : 100%;max-height : 30%;overflow-y : auto;">
 				<div class="ui form">
 					<div class="grouped fields">
 						<div class="field">
