@@ -134,7 +134,7 @@ line-height: 1.5em !important;
 			</div>
 		</div>
 	</div>
-	<div class="item" style="height : 45%;min-height : 45%;max-height : 45%;overflow-y : auto;">
+	<div class="item" style="height : 40%;min-height : 40%;max-height : 40%;overflow-y : auto;">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">Comment</div>
 			<div class="sixteen wide column" id="project_title_div">
