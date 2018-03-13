@@ -344,11 +344,11 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
-	$('.ui.right.sidebar.comment_sidebar').sidebar({ animation: "overlay" }).sidebar("show" )
+	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
 })
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
-	$('.ui.right.sidebar.todo_sidebar').sidebar({ overlay: true }).sidebar("show" )
+	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
 })
 var _el_div__sub_list_click = function(e){
 
