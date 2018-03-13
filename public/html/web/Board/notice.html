@@ -11,6 +11,7 @@
 	left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
 }
 #list{
+	cursor: pointer;
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 }
 #list:last-child{
@@ -24,6 +25,7 @@
 	margin : 0px !important;border-bottom : 0 !important;
 }
 #notebook_add_container{
+	cursor: pointer;
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 	background-color: #eee;
 }
@@ -486,7 +488,8 @@ var make_project_list = function(){
 	var url = "/api/Category/project/get_list?sid=" + window.service.cookie.getCookie('session');
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
-
+	document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
+	
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
