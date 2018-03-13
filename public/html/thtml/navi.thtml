@@ -44,10 +44,38 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu" style="">
-	<div class="item" style="height : 40%">
+	<div class="item" style="height : 40%;max-height : 40%;overflow-y : auto;">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
 			<div class="sixteen wide column" id="project_title_div">
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
+				</div>
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
+				</div>
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
+				</div>
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
+				</div>
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
+				</div>
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
+				</div>
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
+				</div>
 				<div class="ui checkbox">
 				  <input type="checkbox" name="example">
 				  <label>Make my profile visible</label>
