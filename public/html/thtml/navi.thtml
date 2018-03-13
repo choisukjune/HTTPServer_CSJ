@@ -147,7 +147,7 @@ line-height: 1.5em !important;
 		</div>
 	</div>
 
-	<div class="item" style="">
+	<div class="item fixed bottom" style="">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">
 				<div class="ui fluid input ">
