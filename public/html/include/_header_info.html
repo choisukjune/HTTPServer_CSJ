@@ -34,7 +34,9 @@ window.WebSocket = window.WebSocket || window.MozWebSocket;
  })
  connection.addEventListener('close',function(){ debugger; })
  connection.addEventListener('error',function(){ debugger; })
- connection.addEventListener('message',function(){ debugger; })
+ connection.addEventListener('message',function( message ){
+	 console.log( message )
+ })
 
 
 </script>
