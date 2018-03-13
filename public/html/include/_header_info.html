@@ -28,8 +28,13 @@ window.WebSocket = window.WebSocket || window.MozWebSocket;
  // connection.onopen = function () {
  //   connection.send( "kkkkkkk" )
  // };
- connection.addEventListener('open',function(){ debugger; })
+ connection.addEventListener('open',function(){
+	 //debugger;
+	connection.send("정말되나요?")
+ })
  connection.addEventListener('close',function(){ debugger; })
  connection.addEventListener('error',function(){ debugger; })
  connection.addEventListener('message',function(){ debugger; })
+
+
 </script>
