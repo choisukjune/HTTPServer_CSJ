@@ -489,7 +489,7 @@ var make_project_list = function(){
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 	document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
-	
+
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
@@ -548,9 +548,12 @@ var make_project_list = function(){
 		_el_removeChild( document.getElementById( "view_container" ));
 		_el_removeChild( document.getElementById( "brscm" ));
 
-		make_brcm_1();
-		document.getElementById( "project_title" ).innerText = current_project__data.nm
-		make_notebook_list( current_project__data.cd );
+		if( current_project__data )
+		{
+			make_brcm_1();
+			document.getElementById( "project_title" ).innerText = current_project__data.nm
+			make_notebook_list( current_project__data.cd );
+		}
 	})
 }
 
