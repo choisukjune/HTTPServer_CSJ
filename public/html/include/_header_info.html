@@ -22,3 +22,7 @@
 <body>
 <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
 <script src="/libs/alertify/dist/js/alertify.js"></script>
+<Script>
+window.WebSocket = window.WebSocket || window.MozWebSocket;
+ var connection = new WebSocket('ws://localhost:8888');
+</script>
