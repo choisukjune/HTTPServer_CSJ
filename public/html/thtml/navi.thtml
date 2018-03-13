@@ -272,17 +272,13 @@ line-height: 1.5em !important;
 			</div>
 
 			</div>
-		</div>
-	</div>
-		<div class="item" style="position: relative; bottom :0px;">
-			<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">
-			<div class="ui form">
-			  <div class="field">
-			    <label>Short Text</label>
-			    <textarea rows="2"></textarea>
-			  </div>
-			</div>
+				<div class="ui form">
+				  <div class="field">
+					<label>Short Text</label>
+					<textarea rows="2"></textarea>
+				  </div>
+				</div>
 			</div>
 			<div class="sixteen wide column" id="project_title_div">
 				<button class="ui button fluid">send</button>
