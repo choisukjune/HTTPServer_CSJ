@@ -48,7 +48,7 @@
 				<a class="item" style="padding : 13px !important;" id="project_add">
 					<i class="bookmark outline fitted icon"  style="margin : 0px !important;"></i>
 				</a>
-				<a class="item" style="padding : 13px !important;" id="project_select_modal">
+				<a class="item" style="padding : 13px !important;" id="project_select_modal_btn">
 					<i class="bookmark outline fitted icon"  style="margin : 0px !important;"></i>
 				</a>
 				<a class="item" style="padding : 13px !important;">
@@ -292,7 +292,7 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 	$('#notebook_add_modal').modal('hide');
 })
 
-document.getElementById( "project_select_modal" ).addEventListener("click",function(){
+document.getElementById( "project_select_modal_btn" ).addEventListener("click",function(){
 	$('#project_select_modal').modal('show');
 })
 
@@ -977,7 +977,6 @@ var add_doc = function(){
 var Initialize = function(){
 
 	make_project_list();
-	$('#project_select_modal').modal('show');
 	//----------;
 	var btn_control_obj = {add : "block"}
 	btn_control( btn_control_obj );
