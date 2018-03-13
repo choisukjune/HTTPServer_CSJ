@@ -538,6 +538,8 @@ var make_project_list = function(){
 			$('#project_select_modal').modal('hide')
 			make_notebook_list( current_project__data.cd );
 		})
+
+		document.getElementById( "project_title" ).innerText = current_project__data.nm
 	})
 }
 
