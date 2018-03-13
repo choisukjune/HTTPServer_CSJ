@@ -284,7 +284,7 @@ var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel
 //------------------------------ event;
 document.getElementById("global_sidebar").addEventListener("click",function(){
 	$('.ui.left.sidebar')
-	.sidebar('setting', 'transition', 'overlay')
+	.sidebar({ overlay: true })
 	.sidebar('toggle');
 })
 
