@@ -554,6 +554,10 @@ var make_project_list = function(){
 				return;
 			}
 
+			document.getElementById("note_add_container").setAttribute("style","display : none;")
+			document.getElementById("notebook_title").innerText = "";
+
+
 			current_project__data = project_list_data[ idx ];
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
