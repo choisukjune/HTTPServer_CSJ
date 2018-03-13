@@ -190,10 +190,10 @@ if (req.method == 'OPTIONS') {
 			 	//connection.sendUTF( JSON.stringify( message ) )
 				console.log( message );
 
-				var i = 0,iLen = clients.length,io
+				var i = 0,iLen = global.ws.clients.length,io
 				for(;i<iLen; ++i)
 				{
-					io = clients[ i ];
+					io = global.ws.clients[ i ];
 					io.sendUTF( JSON.stringify( message ) )
 				}
 
