@@ -48,7 +48,7 @@
 				<a class="item" style="padding : 13px !important;" id="project_add">
 					<i class="bookmark outline fitted icon"  style="margin : 0px !important;"></i>
 				</a>
-				<a class="item" style="padding : 13px !important;" id="project_add_modal_btn">
+				<a class="item" style="padding : 13px !important;" id="project_select_modal">
 					<i class="bookmark outline fitted icon"  style="margin : 0px !important;"></i>
 				</a>
 				<a class="item" style="padding : 13px !important;">
@@ -211,24 +211,23 @@
       </div>
     </div>
 
+	<!-- 프로젝트선택모달 -->
+
 	<div class="ui basic modal transition" id="project_select_modal">
-
-		    <div class="ui icon header">
-		      <i class="bookmark outline icon"></i>
-		      프로젝트를 선택하세요.
-		    </div>
-		    <div class="content">
-				<div id="project_list">
-
-								<select class="ui dropdown fluid" id="project_list_select">
-								  <option value="">프로젝트를 선택하세요</option>
-								</select>
-
-
-				</div>
-		    </div>
+		<div class="ui icon header">
+			<i class="bookmark outline icon"></i>
+			프로젝트를 선택하세요.
+		</div>
+		<div class="content">
+			<div id="project_list">
+				<select class="ui dropdown fluid" id="project_list_select">
+					<option value="">프로젝트를 선택하세요</option>
+				</select>
+			</div>
+		</div>
 	</div>
 
+	<!-- 프로젝트선택모달 -->
 <include>_footer_info.html</include>
 <script></script>
 <script type="text/javascript">
@@ -293,7 +292,7 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 	$('#notebook_add_modal').modal('hide');
 })
 
-document.getElementById( "project_add_modal_btn" ).addEventListener("click",function(){
+document.getElementById( "project_select_modal" ).addEventListener("click",function(){
 	$('#project_select_modal').modal('show');
 })
 
@@ -976,7 +975,9 @@ var add_doc = function(){
  * @return {[type]} [description]
  */
 var Initialize = function(){
+
 	make_project_list();
+	$('#project_select_modal').modal('show');
 	//----------;
 	var btn_control_obj = {add : "block"}
 	btn_control( btn_control_obj );
