@@ -81,6 +81,30 @@ line-height: 1.5em !important;
 					<label>Once a week</label>
 				  </div>
 				</div>
+				<div class="field">
+				  <div class="ui radio checkbox">
+					<input type="radio" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui radio checkbox">
+					<input type="radio" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui radio checkbox">
+					<input type="radio" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
+				<div class="field">
+				  <div class="ui radio checkbox">
+					<input type="radio" name="example2" checked="checked">
+					<label>Once a week</label>
+				  </div>
+				</div>
 			    <div class="field">
 			      <div class="ui radio checkbox">
 			        <input type="radio" name="example2">
