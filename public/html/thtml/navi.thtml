@@ -44,17 +44,11 @@ line-height: 1.5em !important;
 </div>
 
 <div class="ui very wide right sidebar vertical menu" style="">
-<div id="div-PIMS-menu-list" class="ui vertical icon menu segment" style="padding : 0px; min-width: 40px !important; max-width: 40px !important; overflow-y: auto !important;">
-	<a class="item" style="padding : 13px !important;" id="global_sidebar">
-		<i class="bars fitted icon"  style="margin : 0px !important;"></i>
-	</a>
-	<a class="item" style="padding : 13px !important;" id="project_add">
-		<i class="plus circle fitted icon"  style="margin : 0px !important;"></i>
-	</a>
-	<a class="item" style="padding : 13px !important;" id="test_sidebar">
-		<i class="comment fitted icon"  style="margin : 0px !important;"></i>
-	</a>
-</div>
+  <a class="header item">File Permissions</a>
+  <a class="item">Share on Social</a>
+  <a class="item">Share by E-mail</a>
+  <a class="item">Edit Permissions</a>
+  <a class="item">Delete Permanently</a>
 </div>
 
 <div class="pusher">
