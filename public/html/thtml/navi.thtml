@@ -48,16 +48,13 @@ line-height: 1.5em !important;
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
 			<div class="sixteen wide column" id="project_title_div">
-				<div class="ui left floated compact segment">
-					<div class="ui checkbox">
-						<input type="checkbox">
-						<label></label>
-					</div>
+				<div class="ui checkbox">
+				  <input type="checkbox" name="example">
+				  <label>Make my profile visible</label>
 				</div>
-				<b>Task#1<b>
 			</div>
 			<div class="sixteen wide column" id="project_title_div">
-				<div class="ui action input fluid">
+				<div class="ui fluid input ">
 					<input type="text" placeholder="Search...">
 					<button class="ui button">Search</button>
 				</div>
