@@ -43,8 +43,8 @@ line-height: 1.5em !important;
 
 </div>
 
-<div class="ui very wide right sidebar vertical menu" style="">
-	<div class="item" style="height : 30%;max-height : 30%;overflow-y : auto;">
+<div class="ui very wide right sidebar vertical menu" style="overflow-y : none;">
+	<div class="item" style="height : 35%;max-height : 35%;overflow-y : auto;">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
 			<div class="sixteen wide column" id="project_title_div">
