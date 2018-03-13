@@ -176,7 +176,7 @@ if (req.method == 'OPTIONS') {
 
 	// WebSocket server
 	global.ws.on('request', function(request) {
-		console.log((new Date()) + ' Connection from origin ' + request.origin + '.');
+		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
 
 		// This is the most important callback for us, we'll handle
