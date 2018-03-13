@@ -49,7 +49,7 @@ line-height: 1.5em !important;
 			<div class="sixteen wide column" id="project_title_div">ToDo</div>
 			<div class="sixteen wide column" id="project_title_div">
 				<div class="ui left floated compact segment">
-					<div class="ui fitted checkbox">
+					<div class="ui checkbox">
 						<input type="checkbox">
 						<label></label>
 					</div>
@@ -71,7 +71,7 @@ line-height: 1.5em !important;
 			<div class="ui comments">
 			  <div class="comment">
 			    <a class="avatar">
-			      <!img src="https://semantic-ui.com/images/avatar/small/stevie.jpg">
+			      <img src="https://semantic-ui.com/images/avatar/small/stevie.jpg">
 			    </a>
 			    <div class="content">
 			      <a class="author">Stevie Feliciano</a>
@@ -94,7 +94,14 @@ line-height: 1.5em !important;
 	</div>
 		<div class="item">
 			<div class="ui grid">
-			<div class="sixteen wide column" id="project_title_div"><textarea row="2"></textarea></div>
+			<div class="sixteen wide column" id="project_title_div">
+			<div class="ui form">
+			  <div class="field">
+			    <label>Short Text</label>
+			    <textarea rows="2"></textarea>
+			  </div>
+			</div>
+			</div>
 			<div class="sixteen wide column" id="project_title_div">
 				<button class="ui button fluid">send</button>
 			</div>
