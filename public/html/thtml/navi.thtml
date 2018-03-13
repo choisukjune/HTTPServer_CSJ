@@ -147,7 +147,7 @@ line-height: 1.5em !important;
 		</div>
 	</div>
 
-	<div class="item" style="height : 5%;min-height : 40%;max-height : 5%;">
+	<div class="item" style="height : 5%;min-height : 5%;max-height : 5%;">
 		<div class="ui grid">
 			<div class="sixteen wide column" id="project_title_div">
 				<div class="ui fluid input ">
