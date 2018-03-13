@@ -294,8 +294,8 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 			current_notebook__data = notebook_list_data[ i ]
 
 			document.getElementById("note_add_container").setAttribute("style","display : block;")
-			document.getElementById("note_title").innerText = current_notebook__data.nm
-			
+			document.getElementById("notebook_title").innerText = current_notebook__data.nm
+
 			make_sub_list( current_notebook__data.cd );
 
 			var _t0 = document.getElementById( "view_document" )
