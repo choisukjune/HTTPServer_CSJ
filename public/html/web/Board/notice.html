@@ -548,7 +548,7 @@ var make_project_list = function(){
 		_el_removeChild( document.getElementById( "view_container" ));
 		_el_removeChild( document.getElementById( "brscm" ));
 
-		if( current_project__data )
+		if( current_project__data.cd )
 		{
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
