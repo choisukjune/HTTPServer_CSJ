@@ -197,7 +197,7 @@ if (req.method == 'OPTIONS') {
 		connection.on("open",function(){
 				console.log("connection -- open --")
 		})
-		connection.on("connection",function(ws, req){
+		connection.on("connect",function(ws, req){
 				console.log("connection -- connect --")
 				// global.ws.clients[] connection );
 				console.log( req )
