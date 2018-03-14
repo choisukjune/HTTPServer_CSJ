@@ -171,14 +171,14 @@ if (req.method == 'OPTIONS') {
 
 
 	//----------------------------------------WebSocket;
-	global.ws.clients = [];
+
 
 	global.ws = new global.REQUIRES.websocket({
 		httpServer : global.server
 	})
 
 
-
+global.ws.clients = {};
 
 	var getUniqueID = function () {
 	    function s4() {
