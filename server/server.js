@@ -235,6 +235,7 @@ global.ws.clients = {};
 				for(var s in global.ws.clients)
 				{
 					io = global.ws.clients[ s ];
+					console.log( s )
 					io.sendUTF( JSON.stringify( message ) )
 				}
 			}
