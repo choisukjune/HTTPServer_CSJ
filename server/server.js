@@ -188,7 +188,7 @@ if (req.method == 'OPTIONS') {
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
-
+		console.log( connection )
 		var _con = {
 			port : global.REDIS.CONFIG.port
 			, host : global.REDIS.CONFIG.connect_url
