@@ -188,8 +188,18 @@ global.ws.clients = {};
 	};
 
 
-	global.ws.on('connect', function(connection){ global.CSJLog.timeStamp("---------- WebSocket connect ----------")});
-	global.ws.on('close', function(webSocketConnection, closeReason, description){ global.CSJLog.timeStamp(closeReason)});
+	global.ws.on('connect', function(connection){
+		global.CSJLog.timeStamp("---------- WebSocket connect ----------")
+		global.CSJLog.timeStamp(connection)
+		global.CSJLog.timeStamp("---------- WebSocket connect ----------")
+	});
+	global.ws.on('close', function(webSocketConnection, closeReason, description){
+		global.CSJLog.timeStamp("---------- WebSocket close ----------")
+		global.CSJLog.timeStamp(webSocketConnection)
+		global.CSJLog.timeStamp(closeReason)
+		global.CSJLog.timeStamp(description)
+		global.CSJLog.timeStamp("---------- WebSocket close ----------")
+	});
 	// WebSocket server
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
@@ -212,7 +222,9 @@ global.ws.clients = {};
 		global.ws.clients[ getUniqueID ] = connection;
 
 		connection.on('message', function(message) {
-			global.CSJLog.timeStamp("---------- WebSocket message ----------" + message )
+			global.CSJLog.timeStamp("---------- WebSocket message ----------" )
+			global.CSJLog.timeStamp( message )
+			global.CSJLog.timeStamp("---------- WebSocket message ----------" )
 			if (message.type === 'utf8') {
 				var i = 0,iLen = global.ws.clients.length,io
 				for(;i<iLen; ++i)
@@ -224,11 +236,15 @@ global.ws.clients = {};
 		});
 
 		connection.on('close', function(reasonCode, description) {
-			global.CSJLog.timeStamp("---------- WebSocket close ----------" + reasonCode)
-			global.CSJLog.timeStamp("---------- WebSocket close ----------" + description)
+			global.CSJLog.timeStamp("---------- WebSocket close ----------")
+			global.CSJLog.timeStamp( reasonCode )
+			global.CSJLog.timeStamp( description )
+			global.CSJLog.timeStamp("---------- WebSocket close ----------")
 		});
 		connection.on('error', function(error) {
-			global.CSJLog.timeStamp("---------- WebSocket error ----------" + error)
+			global.CSJLog.timeStamp("---------- WebSocket error ----------" )
+			global.CSJLog.timeStamp(error)
+			global.CSJLog.timeStamp("---------- WebSocket error ----------" )
 		});
 	});
 	//----------------------------------------WebSocket;
