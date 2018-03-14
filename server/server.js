@@ -226,10 +226,15 @@ global.ws.clients = {};
 			global.CSJLog.timeStamp( message )
 			global.CSJLog.timeStamp("---------- WebSocket message ----------" )
 			if (message.type === 'utf8') {
-				var i = 0,iLen = global.ws.clients.length,io
-				for(;i<iLen; ++i)
+				// var i = 0,iLen = global.ws.clients.length,io
+				// for(;i<iLen; ++i)
+				// {
+				// 	io = global.ws.clients[ i ];
+				// 	io.sendUTF( JSON.stringify( message ) )
+				// }
+				for(var s in global.ws.clients)
 				{
-					io = global.ws.clients[ i ];
+					io = global.ws.clients[ s ];
 					io.sendUTF( JSON.stringify( message ) )
 				}
 			}
