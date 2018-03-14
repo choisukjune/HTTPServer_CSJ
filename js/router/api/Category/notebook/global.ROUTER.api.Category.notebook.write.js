@@ -48,13 +48,13 @@ global.ROUTER.api.Category.notebook.write = function( req, res ){
 
 						if( result.length == 0 ) var idx = 0
 						else var idx = result[ 0 ]._id + 1
-console.log( idx )
+
 						doc._id = Long( idx ).toInt()
 
 						db0.collection("notebook").count({ cd$project : _q.cd$project },function(err,count){
 
 							doc.cd = _q.cd$project + "-NOTE" + count;
-console.log( doc.cd )
+
 							db0.collection("notebook").insert(doc,function(err, result){
 								console.log( result )
 								global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));

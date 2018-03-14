@@ -53,7 +53,7 @@ global.ROUTER.api.Member.member_basic.login_check = function( req, res ){
 				//   r.set(i, "test" + i, 'EX', 60*60);
 				//   // var todayEnd = new Date().setHours(0, 0, 30, 999);
 				// }
-
+				r.set( "1111", JSON.stringify( "22222" ), 'EX', 15*60)
 				r.set( _p.sid, JSON.stringify( doc ), 'EX', 15*60)
 				// r.keys('*', function(err, keys){
 				//   if(err) return console.log(err);
