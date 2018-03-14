@@ -188,7 +188,8 @@ global.ws.clients = {};
 	};
 
 
-
+	global.ws.on('connect', function(connection){ console.log("1")});
+	global.ws.on('close', function(webSocketConnection, closeReason, description){ console.log(closeReason)});
 	// WebSocket server
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
@@ -223,8 +224,8 @@ global.ws.clients = {};
 		connection.on('close', function(connection) {
 			console.log("---------- WebSocket Close ----------")
 		});
-		connection.on('open', function(connection) {
-			console.log("---------- WebSocket Open ----------")
+		connection.on('err', function() {
+			console.log("---------- WebSocket Error ----------")
 		});
 	});
 	//----------------------------------------WebSocket;
