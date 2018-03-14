@@ -221,11 +221,11 @@ global.ws.clients = {};
 			}
 		});
 
-		connection.on('close', function(connection) {
-			console.log("---------- WebSocket Close ----------")
+		connection.on('close', function(reasonCode, description) {
+			console.log("---------- WebSocket Close ----------" + description)
 		});
-		connection.on('err', function() {
-			console.log("---------- WebSocket Error ----------")
+		connection.on('error', function(error) {
+			console.log("---------- WebSocket Error ----------" + error)
 		});
 	});
 	//----------------------------------------WebSocket;
