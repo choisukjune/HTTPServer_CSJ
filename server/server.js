@@ -202,7 +202,7 @@ global.ws.clients = {};
 	});
 	// WebSocket server
 	global.ws.on('request', function(request) {
-		console.log( request )
+		//console.log( request )
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
 		var clientID = getUniqueID();
