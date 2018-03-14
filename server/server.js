@@ -207,7 +207,7 @@ global.ws.clients = {};
 		var connection = request.accept(null, request.origin);
 		var clientID = getUniqueID();
 		global.ws.clients[ clientID + "_" + request.resourceURL.query.mid ] = connection;
-
+		console.log( request.resourceURL.query.mid )
 		//---------- Redis;
 		var _con = {
 			port : global.REDIS.CONFIG.port
@@ -217,7 +217,7 @@ global.ws.clients = {};
 
 		var r = global.REQUIRES.redis.createClient( _con );
 			r.auth( global.REDIS.CONFIG.pass );
-			r.set( 1, "연결됨", 'EX', 15*60)
+			r.set( request.resourceURL.query.mid, "{data : ''}", 'EX', 15*60)
 			r.quit()
 		//---------- Redis;
 
