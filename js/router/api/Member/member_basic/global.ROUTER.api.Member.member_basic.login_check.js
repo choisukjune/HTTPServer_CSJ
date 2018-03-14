@@ -45,17 +45,20 @@ global.ROUTER.api.Member.member_basic.login_check = function( req, res ){
 
 				db0.collection("member_session").updateOne({ id :_p.id }, {$set:{ sid : _p.sid }});
 
-				var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
-				var r__1 = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+				var _con = {
+					port : global.REDIS.CONFIG.port
+					, host : global.REDIS.CONFIG.connect_url
+					,db : 2
+				}
+				var r = global.REQUIRES.redis.createClient( _con );
 					r.auth( global.REDIS.CONFIG.pass );
-					r__1.auth( global.REDIS.CONFIG.pass );
 				// for(var i = 0;i < 100000; ++i)
 				// {
 				//   //r.set(i, "test" + i, 'EX', 10);
 				//   r.set(i, "test" + i, 'EX', 60*60);
 				//   // var todayEnd = new Date().setHours(0, 0, 30, 999);
 				// }
-				r__1.set( "1111", JSON.stringify( "22222" ), 'EX', 15*60)
+				r.set( "1111", JSON.stringify( "22222" ), 'EX', 15*60)
 				r.set( _p.sid, JSON.stringify( doc ), 'EX', 15*60)
 				// r.keys('*', function(err, keys){
 				//   if(err) return console.log(err);
