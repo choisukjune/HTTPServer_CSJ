@@ -170,12 +170,15 @@ if (req.method == 'OPTIONS') {
     global.CSJLog.timeStamp('server has started.');
 
 
+	//----------------------------------------WebSocket;
+	global.ws.clients = [];
+
 	global.ws = new global.REQUIRES.websocket({
 		httpServer : global.server
 	})
 
 
-	global.ws.clients = [];
+
 
 	var getUniqueID = function () {
 	    function s4() {
@@ -184,42 +187,45 @@ if (req.method == 'OPTIONS') {
 	    return s4() + s4() + '-' + s4();
 	};
 
+
+
 	// WebSocket server
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
+
+
+		//---------- Redis;
 		var _con = {
 			port : global.REDIS.CONFIG.port
 			, host : global.REDIS.CONFIG.connect_url
 			,db : 1
 		}
 
-		global.ws.clients[ getUniqueID ] = connection;
-
-		//console.log( request )
 		var r = global.REQUIRES.redis.createClient( _con );
 			r.auth( global.REDIS.CONFIG.pass );
 			r.set( 1, "연결됨", 'EX', 15*60)
 			r.quit()
+		//---------- Redis;
 
+		global.ws.clients[ getUniqueID ] = connection;
 		connection.on('message', function(message) {
 			if (message.type === 'utf8') {
-			// process WebSocket message
-			 	//connection.sendUTF( JSON.stringify( message ) )
-				console.log( message );
-
 				var i = 0,iLen = global.ws.clients.length,io
 				for(;i<iLen; ++i)
 				{
 					io = global.ws.clients[ i ];
 					io.sendUTF( JSON.stringify( message ) )
 				}
-
 			}
 		});
 
 		connection.on('close', function(connection) {
-		// close user connection
+			console.log("---------- WebSocket Close ----------")
+		});
+		connection.on('open', function(connection) {
+			console.log("---------- WebSocket Open ----------")
 		});
 	});
+	//----------------------------------------WebSocket;
 };
