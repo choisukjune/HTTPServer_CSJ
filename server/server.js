@@ -212,7 +212,7 @@ global.ws.clients = {};
 		global.ws.clients[ getUniqueID ] = connection;
 
 		connection.on('message', function(message) {
-			global.CSJLog.timeStamp("---------- WebSocket message ----------" + description)
+			global.CSJLog.timeStamp("---------- WebSocket message ----------" + message )
 			if (message.type === 'utf8') {
 				var i = 0,iLen = global.ws.clients.length,io
 				for(;i<iLen; ++i)
@@ -224,6 +224,7 @@ global.ws.clients = {};
 		});
 
 		connection.on('close', function(reasonCode, description) {
+			global.CSJLog.timeStamp("---------- WebSocket close ----------" + reasonCode)
 			global.CSJLog.timeStamp("---------- WebSocket close ----------" + description)
 		});
 		connection.on('error', function(error) {
