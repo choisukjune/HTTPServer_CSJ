@@ -95,8 +95,27 @@ connection.addEventListener('message',function( message ){
 	var div4 = document.createElement("div")
 		div4.setAttribute("class","text")
 
-	var p = document.createElement( "p" )
-		p.appendChild( document.createTextNode( recieve_message.utf8Data ) )
+	// var p = document.createElement( "p" )
+
+		var broadcast_msg = "";
+		var msg = recieve_message.utf8Data;
+		if( msg.indexOf("\n") != -1)
+		{
+			var _ta = msg.split("\n")
+			var i = 0,iLen = _ta.length,io;
+			for(;i<iLen;++i)
+			{
+				io = _ta[ i ];
+				broadcast_msg += "<p>" + io + "</p>\n"
+			}
+
+		}
+		else
+		{
+			broadcast_msg = "<p>" + msg + "</p>"
+		}
+		// p.appendChild( document.createTextNode( recieve_message.utf8Data ) )
+		div4.innerHTML = broadcast_msg
 
 		div4.appendChild( p )
 		div1.appendChild( div4 )
