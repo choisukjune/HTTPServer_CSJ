@@ -167,12 +167,12 @@ line-height: 1.5em !important;
 	</div>
 </div>
 <script>
-var _t0 = document.getElementById( "comment_textarea" ).value;
+
 var _t1 = document.getElementById( "comment_send_btn" );
 
 _t1.addEventListener("click",function(){
-connection.send( _t0 );
-_t0 = "";
+connection.send( document.getElementById( "comment_textarea" ).value );
+document.getElementById( "comment_textarea" ).value = "";
 })
 
 </script>
