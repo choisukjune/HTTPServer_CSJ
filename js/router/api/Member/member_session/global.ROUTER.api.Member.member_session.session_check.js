@@ -4,7 +4,6 @@ global.ROUTER.api.Member.member_session.session_check = function( req, res ){
 	var	_q = _d.split("?")
 		_q.shift();
 
-	var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
 	var _con = {
 		port : global.REDIS.CONFIG.port
 		, host : global.REDIS.CONFIG.connect_url

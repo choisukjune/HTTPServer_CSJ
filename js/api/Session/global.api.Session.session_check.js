@@ -2,8 +2,14 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 
 	var r = 0;
 
+	var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
+	var _con = {
+		port : global.REDIS.CONFIG.port
+		, host : global.REDIS.CONFIG.connect_url
+		,db : 2
+	}
 	//*/
-	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+	var r = global.REQUIRES.redis.createClient( _con );
 		r.auth( global.REDIS.CONFIG.pass );
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get( sid, function(err, data){

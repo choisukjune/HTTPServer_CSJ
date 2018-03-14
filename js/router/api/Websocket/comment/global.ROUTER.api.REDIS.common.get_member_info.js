@@ -4,10 +4,14 @@ global.ROUTER.api.Websocket.comment.connection_add = function( req, res ){
 	var	_q = _d.split("?")
 		_q.shift();
 
-	var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
-
-	//*/
-	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+		var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
+		var _con = {
+			port : global.REDIS.CONFIG.port
+			, host : global.REDIS.CONFIG.connect_url
+			,db : 2
+		}
+		//*/
+		var r = global.REQUIRES.redis.createClient( _con );
 		r.auth( global.REDIS.CONFIG.pass );
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get(_p.sid, function(err, data){

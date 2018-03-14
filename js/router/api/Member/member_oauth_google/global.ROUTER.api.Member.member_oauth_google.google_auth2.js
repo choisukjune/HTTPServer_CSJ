@@ -27,7 +27,14 @@ global.ROUTER.api.Member.member_oauth_google.google_auth2 = function( req, res )
 				console.log('update 해야함.')
 				db0.collection("member_oauth_google").updateOne({ id :_p.id },{$set: _po });
 				db0.collection("member_session").updateOne({ id :_po.userinfo.emails[0].value },{$set: { sid : _po.sid }});
-				var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+
+				var _con = {
+					port : global.REDIS.CONFIG.port
+					, host : global.REDIS.CONFIG.connect_url
+					,db : 2
+				}
+				//*/
+				var redis = global.REQUIRES.redis.createClient( _con );
 					redis.auth( global.REDIS.CONFIG.pass );
 					redis.set( _po.sid, JSON.stringify( _po ), 'EX', 15*60)
 					redis.quit()
@@ -68,7 +75,13 @@ global.ROUTER.api.Member.member_oauth_google.google_auth2 = function( req, res )
 
 						db0.collection("member_session").insert( data_session );
 
-						var redis = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+						var _con = {
+							port : global.REDIS.CONFIG.port
+							, host : global.REDIS.CONFIG.connect_url
+							,db : 2
+						}
+						//*/
+						var redis = global.REQUIRES.redis.createClient( _con );
 							redis.auth( global.REDIS.CONFIG.pass );
 							redis.set( _po.sid, JSON.stringify( _po ), 'EX', 15*60)
 							redis.quit()
