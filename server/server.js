@@ -188,8 +188,8 @@ global.ws.clients = {};
 	};
 
 
-	global.ws.on('connect', function(connection){ console.log("---------- WebSocket connect ----------")});
-	global.ws.on('close', function(webSocketConnection, closeReason, description){ console.log(closeReason)});
+	global.ws.on('connect', function(connection){ global.CSJLog.timeStamp("---------- WebSocket connect ----------")});
+	global.ws.on('close', function(webSocketConnection, closeReason, description){ global.CSJLog.timeStamp(closeReason)});
 	// WebSocket server
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
@@ -210,7 +210,9 @@ global.ws.clients = {};
 		//---------- Redis;
 
 		global.ws.clients[ getUniqueID ] = connection;
+
 		connection.on('message', function(message) {
+			global.CSJLog.timeStamp("---------- WebSocket message ----------" + description)
 			if (message.type === 'utf8') {
 				var i = 0,iLen = global.ws.clients.length,io
 				for(;i<iLen; ++i)
@@ -222,10 +224,10 @@ global.ws.clients = {};
 		});
 
 		connection.on('close', function(reasonCode, description) {
-			console.log("---------- WebSocket Close ----------" + description)
+			global.CSJLog.timeStamp("---------- WebSocket close ----------" + description)
 		});
 		connection.on('error', function(error) {
-			console.log("---------- WebSocket Error ----------" + error)
+			global.CSJLog.timeStamp("---------- WebSocket error ----------" + error)
 		});
 	});
 	//----------------------------------------WebSocket;
