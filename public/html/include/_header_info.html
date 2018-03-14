@@ -40,8 +40,81 @@ connection.addEventListener('message',function( message ){
  console.log( message )
  var recieve_message = JSON.parse( message.data )
  //window.service.message.toaster( recieve_message.utf8Data )
-	var msg = document.createTextNode( recieve_message.utf8Data )
-	document.getElementById("comment_container").appendChild( msg )
+ //
+ //
+ //
+// <div class="comment">
+	// <a class="avatar">
+	// 	<img src="https://semantic-ui.com/images/avatar/small/joe.jpg">
+	// </a>
+	// <div class="content">
+		// 	<a class="author">Joe Henderson</a>
+		// 	<div class="metadata">
+		// 		<div class="date">1 day ago</div>
+		// 	</div>
+		// 	<div class="text">
+		// 		<p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. </p>
+		// 		<p>Preserve until your next run, when the watch lets you see how Impermanent your efforts are.</p>
+		// 	</div>
+		// 	<div class="actions">
+		// 		<a class="reply">Reply</a>
+		// 	</div>
+	// </div>
+// </div>
+	var div0 = document.createElement("div");
+		div0.setAttribute("class","comment");
+
+	var a = document.createElement("a");
+		a.setAttribute("avatar","avatar")
+
+	var img = document.getElementById("img");
+		img.setAttribute("src","https://semantic-ui.com/images/avatar/small/joe.jpg");
+		img.setAttribute("style","height : 35px !important;")
+
+		a.appendChild( img )
+
+	var div1 = document.createElement("div")
+		div1.setAttribute("class","content")
+
+	var a0 = document.createElement("a")
+		a0.setAttribute("class","author")
+		a0.appendChild( document.createTextNode("Joe Henderson") )
+
+		div1.appendChild( a0 )
+
+	var div2 = document.createElement("div")
+		div2.setAttribute("class","metadata")
+
+	var div3 = document.createElement("div")
+		div3.setAttribute("class","date")
+		div3.appendChild( document.createTextNode("1 day ago"))
+
+		div2.appendChild( div3 )
+		div1.appendChild( div2 )
+
+	var div4 = document.createElement("div")
+		div4.setAttribute("class","text")
+
+	var p = document.createElement( "p" )
+		p.appendChild( document.createTextNode( recieve_message.utf8Data ) )
+
+		div4.appendChild( p )
+		div1.appendChild( div4 )
+
+	var div5 = document.createElement("div")
+		div5.setAttribute("class","actions")
+
+	var a1 = document.createElement("a")
+		a1.setAttribute("class","reply")
+		a1.appendChild( document.createTextNode("Reply") );
+
+		div5.appendChild( a1 )
+		div1.appendChild( div5 )
+
+	div0.appendChild( a )
+	div0.appendChild( div1 )
+
+	document.getElementById("comment_container").appendChild( div0 )
 
 })
 }
