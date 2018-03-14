@@ -39,7 +39,10 @@ connection.addEventListener('error',function(){ debugger; })
 connection.addEventListener('message',function( message ){
  console.log( message )
  var recieve_message = JSON.parse( message.data )
- window.service.message.toaster( recieve_message.utf8Data )
+ //window.service.message.toaster( recieve_message.utf8Data )
+	var msg = document.createElement( recieve_message.utf8Data )
+	document.getElementById("comment_container").appendChild( msg )
+
 })
 }
 
