@@ -29,16 +29,11 @@
 </div>
 <include>footer.html</include>
 <include>_footer_info.html</include>
-<div class="ui inline cookie nag">
-  <span class="title">
-    We use cookies to ensure you get the best experience on our website
-  </span>
-  <i class="close icon"></i>
-</div>
+
 <script>
 window.service.render.dimmer( window.service.cookie.getCookie('mid') );
 //window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
-//alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
+alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
 
 var _t0 = document.getElementById('data')
 var url = "/api/Common/common/get_list?sid=" + window.service.cookie.getCookie('session')
