@@ -48,6 +48,7 @@ global.ROUTER.api.Member.member_basic.login_check = function( req, res ){
 				var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
 				var r__1 = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
 					r.auth( global.REDIS.CONFIG.pass );
+					r__1.auth( global.REDIS.CONFIG.pass );
 				// for(var i = 0;i < 100000; ++i)
 				// {
 				//   //r.set(i, "test" + i, 'EX', 10);
