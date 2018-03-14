@@ -26,7 +26,7 @@
 window.WebSocket = window.WebSocket || window.MozWebSocket;
 if( window.service.cookie.getCookie('mid') ){
 	var connection = new WebSocket('ws://13.125.22.207:8888?mid=' + window.service.cookie.getCookie('mid'));
-}
+
 // connection.onopen = function () {
 //   connection.send( "kkkkkkk" )
 // };
@@ -41,6 +41,6 @@ connection.addEventListener('message',function( message ){
  var recieve_message = JSON.parse( message.data )
  window.service.message.toaster( recieve_message.utf8Data )
 })
-
+}
 
 </script>
