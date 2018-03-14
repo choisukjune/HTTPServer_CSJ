@@ -190,7 +190,7 @@ global.ws.clients = {};
 
 	global.ws.on('connect', function(connection){
 		global.CSJLog.timeStamp("---------- WebSocket connect ----------")
-		global.CSJLog.timeStamp(connection)
+		global.CSJLog.timeStamp( connection.remoteAddresses )
 		global.CSJLog.timeStamp("---------- WebSocket connect ----------")
 	});
 	global.ws.on('close', function(webSocketConnection, closeReason, description){
@@ -202,6 +202,7 @@ global.ws.clients = {};
 	});
 	// WebSocket server
 	global.ws.on('request', function(request) {
+		console.log( request )
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
 
