@@ -24,21 +24,23 @@
 <script src="/libs/alertify/dist/js/alertify.js"></script>
 <Script>
 window.WebSocket = window.WebSocket || window.MozWebSocket;
- var connection = new WebSocket('ws://13.125.22.207:8888?mid=' + window.service.cookie.getCookie('mid'));
- // connection.onopen = function () {
- //   connection.send( "kkkkkkk" )
- // };
- connection.addEventListener('open',function(){
-	 //debugger;
-	connection.send("정말되나요?")
- })
- connection.addEventListener('close',function(){ debugger; })
- connection.addEventListener('error',function(){ debugger; })
- connection.addEventListener('message',function( message ){
-	 console.log( message )
-	 var recieve_message = JSON.parse( message.data )
-	 window.service.message.toaster( recieve_message.utf8Data )
- })
+if( window.service.cookie.getCookie('mid') ){
+	var connection = new WebSocket('ws://13.125.22.207:8888?mid=' + window.service.cookie.getCookie('mid'));
+}
+// connection.onopen = function () {
+//   connection.send( "kkkkkkk" )
+// };
+connection.addEventListener('open',function(){
+ //debugger;
+connection.send("정말되나요?")
+})
+connection.addEventListener('close',function(){ debugger; })
+connection.addEventListener('error',function(){ debugger; })
+connection.addEventListener('message',function( message ){
+ console.log( message )
+ var recieve_message = JSON.parse( message.data )
+ window.service.message.toaster( recieve_message.utf8Data )
+})
 
 
 </script>
