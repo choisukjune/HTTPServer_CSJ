@@ -238,7 +238,7 @@ global.ws.clients = {};
 					io = global.ws.clients[ s ];
 					// console.log( s +" || "+ "aaa")
 					// console.log( global.ws.clients[ s ] )
-					io.sendUTF( JSON.stringify( message ) )
+					if(io !== connection )io.sendUTF( JSON.stringify( message ) )
 				}
 			}
 		});
