@@ -26391,7 +26391,7 @@ a.ui.card:hover,
   display: block;
   margin: 0em auto;
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
   border-radius: 0.25rem;
 }
 
