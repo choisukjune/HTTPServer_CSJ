@@ -1,8 +1,7 @@
 global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 
 	var r = 0;
-
-	var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
+	
 	var _con = {
 		port : global.REDIS.CONFIG.port
 		, host : global.REDIS.CONFIG.connect_url
