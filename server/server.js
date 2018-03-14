@@ -188,7 +188,7 @@ global.ws.clients = {};
 	};
 
 
-	global.ws.on('connect', function(connection){ console.log("1")});
+	global.ws.on('connect', function(connection){ console.log("---------- WebSocket connect ----------")});
 	global.ws.on('close', function(webSocketConnection, closeReason, description){ console.log(closeReason)});
 	// WebSocket server
 	global.ws.on('request', function(request) {
