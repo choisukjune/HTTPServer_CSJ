@@ -5,9 +5,13 @@ global.ROUTER.api.Member.member_session.session_check = function( req, res ){
 		_q.shift();
 
 	var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
-
+	var _con = {
+		port : global.REDIS.CONFIG.port
+		, host : global.REDIS.CONFIG.connect_url
+		,db : 2
+	}
 	//*/
-	var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+	var r = global.REQUIRES.redis.createClient( _con );
 		r.auth( global.REDIS.CONFIG.pass );
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get(_p.sid, function(err, data){
