@@ -45,7 +45,7 @@ global.ROUTER.api.Member.member_basic.login_check = function( req, res ){
 
 				db0.collection("member_session").updateOne({ id :_p.id }, {$set:{ sid : _p.sid }});
 
-				var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url);
+				var r = global.REQUIRES.redis.createClient(global.REDIS.CONFIG.port, global.REDIS.CONFIG.connect_url,"db2");
 					r.auth( global.REDIS.CONFIG.pass );
 				// for(var i = 0;i < 100000; ++i)
 				// {
