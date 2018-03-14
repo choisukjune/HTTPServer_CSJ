@@ -236,8 +236,8 @@ global.ws.clients = {};
 				for(var s in global.ws.clients)
 				{
 					io = global.ws.clients[ s ];
-					console.log( s +" || "+ "aaa")
-					console.log( global.ws.clients[ s ] )
+					// console.log( s +" || "+ "aaa")
+					// console.log( global.ws.clients[ s ] )
 					io.sendUTF( JSON.stringify( message ) )
 				}
 			}
