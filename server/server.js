@@ -188,21 +188,14 @@ if (req.method == 'OPTIONS') {
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
-		console.log( connection )
 		var _con = {
 			port : global.REDIS.CONFIG.port
 			, host : global.REDIS.CONFIG.connect_url
 			,db : 1
 		}
-		connection.on("open",function(){
-				console.log("connection -- open --")
-		})
-		connection.on("connect",function(ws, req){
-				console.log("connection -- connect --")
-				// global.ws.clients[] connection );
-				console.log( req )
 
-		})
+		global.ws.clients[ getUniqueID ] = connection;
+
 		//console.log( request )
 		var r = global.REQUIRES.redis.createClient( _con );
 			r.auth( global.REDIS.CONFIG.pass );
