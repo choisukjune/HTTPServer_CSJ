@@ -196,7 +196,7 @@ if (req.method == 'OPTIONS') {
 		})
 		var r = global.REQUIRES.redis.createClient( _con );
 			r.auth( global.REDIS.CONFIG.pass );
-			r.set( 1, JSON.stringify( connection ), 'EX', 15*60)
+			r.set( 1, connection.toString(), 'EX', 15*60)
 			r.quit()
 
 		connection.on('message', function(message) {
