@@ -218,8 +218,8 @@ global.ws.clients = {};
 			r.set( 1, "연결됨", 'EX', 15*60)
 			r.quit()
 		//---------- Redis;
-
-		global.ws.clients[ getUniqueID ] = connection;
+		var clientID = getUniqueID();
+		global.ws.clients[ clientID ] = connection;
 
 		connection.on('message', function(message) {
 			global.CSJLog.timeStamp("---------- WebSocket message ----------" )
