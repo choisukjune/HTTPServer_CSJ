@@ -21,7 +21,7 @@ global.ROUTER.api.Member.member_session.session_check = function( req, res ){
 			global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
 		});
 
-	r.quit()
+		r.quit()
 
 	/*/
 	_p.sid = global.api.Session.session( _q.id );

@@ -182,8 +182,23 @@ if (req.method == 'OPTIONS') {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
 		global.ws.clients.push( connection );
-		// This is the most important callback for us, we'll handle
-		// all messages from users here.
+
+		var _con = {
+			port : global.REDIS.CONFIG.port
+			, host : global.REDIS.CONFIG.connect_url
+			,db : 1
+		}
+		connection.addEventListener("open",function(){
+				console.log("connection -- open --")
+		})
+		connection.addEventListener("connect",function(){
+				console.log("connection -- connect --")
+		})
+		var r = global.REQUIRES.redis.createClient( _con );
+			r.auth( global.REDIS.CONFIG.pass );
+			r.set( 1, JSON.stringify( doc ), 'EX', 15*60)
+			r.quit()
+
 		connection.on('message', function(message) {
 			if (message.type === 'utf8') {
 			// process WebSocket message

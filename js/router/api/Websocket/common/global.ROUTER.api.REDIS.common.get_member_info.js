@@ -21,7 +21,7 @@ global.ROUTER.api.REDIS.common.get_member_info = function( req, res ){
 			global.api.Response.res_200_ok_String( req, res, data )
 		});
 
-	r.quit()
+		r.quit()
 
 	/*/
 	_p.sid = global.api.Session.session( _q.id );
