@@ -36,7 +36,7 @@ window.WebSocket = window.WebSocket || window.MozWebSocket;
  connection.addEventListener('error',function(){ debugger; })
  connection.addEventListener('message',function( message ){
 	 console.log( message )
-	 window.service.message.toaster( message )
+	 window.service.message.toaster( message.data.utf8Data )
  })
 
 
