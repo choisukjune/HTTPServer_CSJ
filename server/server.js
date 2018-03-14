@@ -203,7 +203,7 @@ if (req.method == 'OPTIONS') {
 				console.log( req )
 
 		})
-		console.log( request )
+		//console.log( request )
 		var r = global.REQUIRES.redis.createClient( _con );
 			r.auth( global.REDIS.CONFIG.pass );
 			r.set( 1, "연결됨", 'EX', 15*60)
