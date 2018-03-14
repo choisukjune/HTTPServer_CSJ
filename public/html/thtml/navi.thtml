@@ -155,7 +155,7 @@ line-height: 1.5em !important;
 			<div class="sixteen wide column" id="">
 				<div class="ui form">
 				  <div class="field">
-					<label>Short Text</label>
+					<!--label>Short Text</label-->
 					<textarea rows="2" id="comment_textarea"></textarea>
 				  </div>
 				  <div class="field">
