@@ -188,10 +188,10 @@ if (req.method == 'OPTIONS') {
 			, host : global.REDIS.CONFIG.connect_url
 			,db : 1
 		}
-		connection.addEventListener("open",function(){
+		connection.on("open",function(){
 				console.log("connection -- open --")
 		})
-		connection.addEventListener("connect",function(){
+		connection.on("connect",function(){
 				console.log("connection -- connect --")
 		})
 		var r = global.REQUIRES.redis.createClient( _con );
