@@ -177,11 +177,17 @@ if (req.method == 'OPTIONS') {
 
 	global.ws.clients = [];
 
+	var getUniqueID = function () {
+	    function s4() {
+	        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+	    }
+	    return s4() + s4() + '-' + s4();
+	};
+
 	// WebSocket server
 	global.ws.on('request', function(request) {
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
-		global.ws.clients.push( connection );
 
 		var _con = {
 			port : global.REDIS.CONFIG.port
@@ -191,10 +197,13 @@ if (req.method == 'OPTIONS') {
 		connection.on("open",function(){
 				console.log("connection -- open --")
 		})
-		connection.on("connect",function(){
+		connection.on("connection",function(ws, req){
 				console.log("connection -- connect --")
+				// global.ws.clients[] connection );
+				console.log( req )
+
 		})
-		console.log( request.headers['sec-websocket-key'] )
+		console.log( request )
 		var r = global.REQUIRES.redis.createClient( _con );
 			r.auth( global.REDIS.CONFIG.pass );
 			r.set( 1, "연결됨", 'EX', 15*60)
