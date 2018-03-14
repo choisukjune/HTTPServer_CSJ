@@ -205,7 +205,8 @@ global.ws.clients = {};
 		console.log( request )
 		global.CSJLog.timeStamp('WebSocket Connection from origin ' + request.origin );
 		var connection = request.accept(null, request.origin);
-
+		var clientID = getUniqueID();
+		global.ws.clients[ clientID + "_" + request.resourceURL.query.mid ] = connection;
 
 		//---------- Redis;
 		var _con = {
@@ -219,8 +220,7 @@ global.ws.clients = {};
 			r.set( 1, "연결됨", 'EX', 15*60)
 			r.quit()
 		//---------- Redis;
-		var clientID = getUniqueID();
-		global.ws.clients[ clientID ] = connection;
+
 
 		connection.on('message', function(message) {
 			global.CSJLog.timeStamp("---------- WebSocket message ----------" )
