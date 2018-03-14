@@ -156,10 +156,10 @@ line-height: 1.5em !important;
 				<div class="ui form">
 				  <div class="field">
 					<label>Short Text</label>
-					<textarea rows="2"></textarea>
+					<textarea rows="2" id="comment_textarea"></textarea>
 				  </div>
 				  <div class="field">
-				  		<button class="ui button fluid">send</button>
+				  		<button class="ui button fluid" id="comment_send_btn">send</button>
 				  </div>
 				</div>
 			</div>
