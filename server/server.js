@@ -194,7 +194,7 @@ if (req.method == 'OPTIONS') {
 		connection.on("connect",function(){
 				console.log("connection -- connect --")
 		})
-		console.log( connection.server )
+		console.log( connection )
 		var r = global.REQUIRES.redis.createClient( _con );
 			r.auth( global.REDIS.CONFIG.pass );
 			r.set( 1, "연결됨", 'EX', 15*60)
