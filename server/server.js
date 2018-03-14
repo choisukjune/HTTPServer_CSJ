@@ -224,7 +224,7 @@ global.ws.clients = {};
 
 		connection.on('message', function(message) {
 			global.CSJLog.timeStamp("---------- WebSocket message ----------" )
-			global.CSJLog.timeStamp( message )
+			global.CSJLog.timeStamp( JSON.stringify( message.data ) )
 			global.CSJLog.timeStamp("---------- WebSocket message ----------" )
 			if (message.type === 'utf8') {
 				// var i = 0,iLen = global.ws.clients.length,io
