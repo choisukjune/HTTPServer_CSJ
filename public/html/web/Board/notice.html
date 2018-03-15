@@ -350,7 +350,7 @@ _el_btn__notebook_add.addEventListener("click",function(){
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
-	chat_board_get_list();
+	if( !document.getElementById("comment_container").childNodes[ 0 ] ) chat_board_get_list();
 })
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
@@ -362,7 +362,6 @@ document.getElementById("comment_wrap").addEventListener("scroll",function(){
 	if( comment_wrap.scrollTop == 0 )
 	{
 		chat_board_get_list()
-		
 	}
 })
 var _el_div__sub_list_click = function(e){
