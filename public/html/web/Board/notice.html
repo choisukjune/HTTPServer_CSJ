@@ -367,6 +367,7 @@ document.getElementById("comment_wrap").addEventListener("scroll",function(){
 	var comment_wrap = document.getElementById("comment_wrap");
 	if( comment_wrap.scrollTop == 0 )
 	{
+		pre_objDiv_scrollHeight = objDiv.scrollHeight
 		chat_board_get_list()
 		
 	}
@@ -544,8 +545,8 @@ var render_chat_data = function( arr ){
 			document.getElementById("comment_container").appendChild( div0 )
 		}
 	}
-	objDiv.scrollTop = objDiv.scrollHeight / 2;
-	pre_objDiv_scrollHeight = objDiv.scrollHeight
+	objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+
 }
 
 
