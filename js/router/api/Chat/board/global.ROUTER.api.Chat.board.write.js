@@ -90,7 +90,7 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 									"sid" : "655d451b83494e91b269506c87087bb5f1e4c7f0cc206fb114dcc63f8371fd4d"
 								}
 								*/
-
+console.log( result )
 								var member_info = result[ 0 ];
 								doc.member._id = Long( member_info._id ).toInt();
 								doc.member._nm = member_info.first_Nm + " " + member_info.last_Nm;
