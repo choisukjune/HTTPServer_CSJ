@@ -18,7 +18,6 @@ global.ROUTER.api.Chat.board.get_list = function( req, res ){
 
 				var db0 = db.db('chat');
 				var _query = { _d : { $ne : 0},cd$doc : _q.cd$doc }
-				console.log( _q.cd$notebook )
 				db0.collection("board").find(_query).sort({ _id : -1 }).toArray(function(err, doc){
 					global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 					db.close();
