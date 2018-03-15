@@ -352,6 +352,14 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
 })
+
+document.getElementById("comment_wrap").addEventListener("scroll",function(){
+	var comment_wrap = document.getElementById("comment_wrap");
+	if( comment_wrap.scrollTop == 0 )
+	{
+		document.getElementById("comment_container").insertBefore( document.createTextNode("성공!!!!!!!"), document.getElementById("comment_container").childNodes[ 0 ] )
+	}
+})
 var _el_div__sub_list_click = function(e){
 
 	var pe = e.currentTarget.children
