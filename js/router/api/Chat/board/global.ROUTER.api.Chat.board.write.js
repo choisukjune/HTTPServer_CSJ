@@ -78,7 +78,7 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 
 							var doc_idx = result;
 							doc.cd = _q.cd$doc + "-CHAT" + doc_idx;
-							db1.collection("member_basic").find({mid : _q.mid}).toArray(function(result){
+							db1.collection("member_basic").find({id : _q.mid}).toArray(function(result){
 								
 								/*
 								{
