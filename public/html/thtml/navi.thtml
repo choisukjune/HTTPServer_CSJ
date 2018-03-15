@@ -170,7 +170,6 @@ line-height: 1.5em !important;
 
 var _t1 = document.getElementById( "comment_send_btn" );
 
-_t1.addEventListener("click",write_chat);
 /**
  * 
 */
@@ -209,5 +208,6 @@ var write_chat = function(){
 	})
 }
 
+_t1.addEventListener("click",write_chat);
 </script>
 <div class="pusher">
