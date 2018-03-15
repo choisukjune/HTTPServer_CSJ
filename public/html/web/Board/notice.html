@@ -511,13 +511,13 @@ var render_chat_data = function( arr ){
 				for(;j<jLen;++j)
 				{
 					jo = _ta[ j ];
-					broadcast_msg += "<p>" + jo + "</p>\n"
+					broadcast_msg += jo + "\n"
 				}
 
 			}
 			else
 			{
-				broadcast_msg = "<p>" + msg + "</p>"
+				broadcast_msg =  msg
 			}
 			// p.appendChild( document.createTextNode( recieve_message.utf8Data ) )
 			div4.innerHTML = broadcast_msg
