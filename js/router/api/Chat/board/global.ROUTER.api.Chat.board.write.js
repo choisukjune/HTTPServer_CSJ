@@ -67,8 +67,9 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 
 					var db0 = db.db('chat');
 					var db1 = db.db('member');
-
-					db1.collection("member_basic").find({id : _q.mid}).toArray(function(result){
+console.log(_q)
+					db1.collection("member_basic").find({id : _q.mid}).toArray(function(err,result){
+						if( err ) console.log( err )
 								console.log("db1")
 						/*
 						{
