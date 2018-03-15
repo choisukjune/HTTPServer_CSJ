@@ -356,7 +356,6 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	if( !document.getElementById("comment") )
 	{
 		chat_board_get_list();
-		
 	}
 })
 
@@ -545,7 +544,7 @@ var render_chat_data = function( arr ){
 			document.getElementById("comment_container").appendChild( div0 )
 		}
 	}
-	objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+	objDiv.scrollTop = objDiv.scrollHeight / 2;
 	pre_objDiv_scrollHeight = objDiv.scrollHeight
 }
 
