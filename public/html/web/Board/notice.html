@@ -358,9 +358,6 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 		chat_board_get_list();
 		
 	}
-	objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
-	pre_objDiv_scrollHeight = objDiv.scrollHeight
-
 })
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
@@ -372,7 +369,7 @@ document.getElementById("comment_wrap").addEventListener("scroll",function(){
 	if( comment_wrap.scrollTop == 0 )
 	{
 		chat_board_get_list()
-		objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+		
 	}
 })
 var _el_div__sub_list_click = function(e){
@@ -542,10 +539,18 @@ var render_chat_data = function( arr ){
 		if( document.getElementById("comment_container").childNodes[ 0 ] )
 		{
 			document.getElementById("comment_container").insertBefore( div0, document.getElementById("comment_container").childNodes[ 0 ] )
+			objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+			console.log(pre_objDiv_scrollHeight)
+			pre_objDiv_scrollHeight = objDiv.scrollHeight
+			console.log(pre_objDiv_scrollHeight)
 		}
 		else
 		{
 			document.getElementById("comment_container").appendChild( div0 )
+			objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+			console.log(pre_objDiv_scrollHeight)
+			pre_objDiv_scrollHeight = objDiv.scrollHeight
+			console.log(pre_objDiv_scrollHeight)
 		}
 	}
 }
