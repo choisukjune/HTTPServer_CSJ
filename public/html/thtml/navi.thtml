@@ -210,6 +210,22 @@ var write_chat = function(){
 	})
 }
 
+
+var chat_board_get_list = function(){
+
+var url = "/api/Caht/board/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$doc=" + current_view_doc__data.cd;
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result )
+		notebook_detail_data = data;
+	})
+}
+
 _t1.addEventListener("click",write_chat);
+
 </script>
 <div class="pusher">

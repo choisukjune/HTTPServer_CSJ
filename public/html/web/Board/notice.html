@@ -345,6 +345,7 @@ _el_btn__notebook_add.addEventListener("click",function(){
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
+	chat_board_get_list();
 })
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
@@ -434,6 +435,24 @@ var make_Array_dateFormat = function( arr ){
 	 else return check_dom( e.parentElement, "list" )
  }
 //--------------------------------------------------function;
+/**
+ * 
+*/
+var chat_board_get_list = function(){
+
+var url = "/api/Caht/board/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$doc=" + current_view_doc__data.cd;
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var data = JSON.parse( result )
+		notebook_detail_data = data;
+	})
+}
+
+
 var make_brcm_1 = function(){
 	var _t0 = document.getElementById("brscm")
 
