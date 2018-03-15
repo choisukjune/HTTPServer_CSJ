@@ -187,9 +187,10 @@ var write_chat = function(){
 	};
 
 	var url = "/api/Chat/board/write"
-	var title = document.getElementById("title").value
+
 	var data = "sid=" + window.service.cookie.getCookie('session')
-			+ "&content=" + htmlEntities( CKEDITOR.instances.editor.getData() )
+			+ "&mid=" + window.service.cookie.getCookie('mid')
+			+ "&content=" + document.getElementById( "comment_textarea" ).value 
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd;
 

@@ -50,6 +50,12 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 					var doc = {
 						_id : -1
 						, _d : Long( 1 ).toInt()
+						, member : {
+							_id : -1
+							, mid : _q.mid
+							, nm : ""
+							, image : ""
+						}
 						, cd : ""
 						, cd$project : _q.cd$project
 						, cd$notebook : _q.cd$notebook
