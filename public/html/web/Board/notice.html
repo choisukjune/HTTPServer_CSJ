@@ -270,6 +270,7 @@ var notebook_list_data = [];
 var current_view_doc__data = {};
 var current_project__data = {};
 var current_notebook__data = {};
+var current_note_chat__data = [];
 
 //------------------------------_el;
 var _el_div__view_container = document.getElementById("view_container");
@@ -435,6 +436,90 @@ var make_Array_dateFormat = function( arr ){
 	 else return check_dom( e.parentElement, "list" )
  }
 //--------------------------------------------------function;
+var render_chat_data = function( arr ){
+	var i = 0,iLen = arr.length,io;
+	for(;i<iLen;++i)
+	{
+
+		io = arr[ i ]
+
+		var div0 = document.createElement("div");
+		div0.setAttribute("class","comment");
+
+		var a = document.createElement("a");
+			a.setAttribute("class","avatar")
+
+		var img = document.createElement("img");
+			img.src = io.member.image;
+			img.setAttribute("style","height : 35px !important;")
+
+			a.appendChild( img )
+
+		var div1 = document.createElement("div")
+			div1.setAttribute("class","content")
+
+		var a0 = document.createElement("a")
+			a0.setAttribute("class","author")
+			a0.appendChild( document.createTextNode( io.member.nm ) )
+
+			div1.appendChild( a0 )
+
+		var div2 = document.createElement("div")
+			div2.setAttribute("class","metadata")
+
+		var div3 = document.createElement("div")
+			div3.setAttribute("class","date")
+			div3.appendChild( document.createTextNode( make_Array_dateFormat( io.regist_date ) ))
+
+			div2.appendChild( div3 )
+			div1.appendChild( div2 )
+
+		var div4 = document.createElement("div")
+			div4.setAttribute("class","text")
+
+		// var p = document.createElement( "p" )
+
+			var broadcast_msg = "";
+			var msg = io.content;
+			if( msg.indexOf("\n") != -1)
+			{
+				var _ta = msg.split("\n")
+				var j = 0,jLen = _ta.length,jo;
+				for(;j<jLen;++j)
+				{
+					jo = _ta[ j ];
+					broadcast_msg += "<p>" + jo + "</p>\n"
+				}
+
+			}
+			else
+			{
+				broadcast_msg = "<p>" + msg + "</p>"
+			}
+			// p.appendChild( document.createTextNode( recieve_message.utf8Data ) )
+			div4.innerHTML = broadcast_msg
+
+			// div4.appendChild( p )
+			div1.appendChild( div4 )
+
+		var div5 = document.createElement("div")
+			div5.setAttribute("class","actions")
+
+		var a1 = document.createElement("a")
+			a1.setAttribute("class","reply")
+			a1.appendChild( document.createTextNode("Reply") );
+
+			div5.appendChild( a1 )
+			div1.appendChild( div5 )
+
+		div0.appendChild( a )
+		div0.appendChild( div1 )
+
+		document.getElementById("comment_container").appendChild( div0 )
+	}
+}
+
+
 /**
  * 
 */
@@ -448,7 +533,8 @@ var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('ses
 			location.href = "/Member/login";
 		}
 		var data = JSON.parse( result )
-		notebook_detail_data = data;
+		render_chat_data( data )
+		current_note_chat__data = data;
 	})
 }
 
