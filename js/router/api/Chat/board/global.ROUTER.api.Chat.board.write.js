@@ -69,7 +69,7 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 					var db1 = db.db('member');
 
 					db1.collection("member_basic").find({id : _q.mid}).toArray(function(result){
-								
+								console.log("db1")
 						/*
 						{
 							"_id" : 0,
@@ -85,11 +85,11 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 						doc.member._id = Long( member_info._id ).toInt();
 						doc.member._nm = member_info.first_Nm + " " + member_info.last_Nm;
 						doc.member.image = "https://semantic-ui.com/images/avatar/small/joe.jpg"
-
+						console.log("db1")
 					});
 
 					db0.collection("board").find({}).sort({_id : -1}).limit(1).toArray(function(err,result){
-
+						console.log("db0")
 						if( result.length == 0 ) var idx = 0
 						else var idx = result[ 0 ]._id + 1
 						doc._id = idx;
