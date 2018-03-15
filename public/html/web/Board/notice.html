@@ -355,6 +355,8 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
+	var objDiv = document.getElementById("comment_wrap")
+		objDiv.scrollTop = objDiv.scrollHeight;
 })
 
 document.getElementById("comment_wrap").addEventListener("scroll",function(){
@@ -560,8 +562,6 @@ var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('ses
 		render_chat_data( data )
 		current_note_chat__data.data.push( data );
 		current_note_chat__data.skip += 10
-		var objDiv = document.getElementById("comment_wrap")
-		objDiv.scrollTop = objDiv.scrollHeight;
 	})
 }
 
