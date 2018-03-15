@@ -270,7 +270,11 @@ var notebook_list_data = [];
 var current_view_doc__data = {};
 var current_project__data = {};
 var current_notebook__data = {};
-var current_note_chat__data = [];
+var current_note_chat__data = {
+	data : []
+	, limit : 10
+	, skip : 0
+};
 
 //------------------------------_el;
 var _el_div__view_container = document.getElementById("view_container");
@@ -357,7 +361,8 @@ document.getElementById("comment_wrap").addEventListener("scroll",function(){
 	var comment_wrap = document.getElementById("comment_wrap");
 	if( comment_wrap.scrollTop == 0 )
 	{
-		document.getElementById("comment_container").insertBefore( document.createTextNode("성공!!!!!!!"), document.getElementById("comment_container").childNodes[ 0 ] )
+		chat_board_get_list()
+		
 	}
 })
 var _el_div__sub_list_click = function(e){
@@ -523,7 +528,13 @@ var render_chat_data = function( arr ){
 		div0.appendChild( a )
 		div0.appendChild( div1 )
 
-		document.getElementById("comment_container").appendChild( div0 )
+		if( document.getElementById("comment_container").childNodes[ 0 ] )
+		{
+			document.getElementById("comment_container").insertBefore( div0, document.getElementById("comment_container").childNodes[ 0 ] )
+		}else
+		{
+			document.getElementById("comment_container").appendChild( div0 )
+		}
 	}
 }
 
@@ -533,7 +544,10 @@ var render_chat_data = function( arr ){
 */
 var chat_board_get_list = function(){
 
-var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$doc=" + current_view_doc__data.cd;
+var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session') 
+		+ "&cd$doc=" + current_view_doc__data.cd
+		+ "&limit=" + current_note_chat__data.limit
+		+ "&skip=" + current_note_chat__data.skip;
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0){
@@ -543,8 +557,8 @@ var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('ses
 		var data = JSON.parse( result )
 		_el_removeChild( document.getElementById("comment_container") );
 		render_chat_data( data )
-		current_note_chat__data = data;
-
+		current_note_chat__data.data.push( data );
+		current_note_chat__data.skip += 10
 		var objDiv = document.getElementById("comment_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 	})
