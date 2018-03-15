@@ -170,10 +170,44 @@ line-height: 1.5em !important;
 
 var _t1 = document.getElementById( "comment_send_btn" );
 
-_t1.addEventListener("click",function(){
-connection.send( document.getElementById( "comment_textarea" ).value );
-document.getElementById( "comment_textarea" ).value = "";
-})
+_t1.addEventListener("click",write_chat);
+/**
+ * 
+*/
+var write_chat = function(){
+
+	var htmlEntities =  function(str){
+		return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		.replace(/<span >/g, '')
+		.replace(/<\/span>/g, '')
+		.replace(/<td >/g, '<td>')
+		.replace(/&nbsp;/g, '')
+		.toString("utf8")
+	//	.replace(//g, '<td>')
+	};
+
+	var url = "/api/Chat/board/write"
+	var title = document.getElementById("title").value
+	var data = "sid=" + window.service.cookie.getCookie('session')
+			+ "&content=" + htmlEntities( CKEDITOR.instances.editor.getData() )
+			+ "&cd$project=" + current_project__data.cd
+			+ "&cd$notebook=" + current_notebook__data.cd;
+
+	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+
+		var data = JSON.parse( result );
+		console.log( data );
+		console.log( "--등록완료--" );
+
+		connection.send( document.getElementById( "comment_textarea" ).value );
+		document.getElementById( "comment_textarea" ).value = "";
+	})
+}
 
 </script>
 <div class="pusher">

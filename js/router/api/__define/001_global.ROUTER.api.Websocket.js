@@ -1,1 +1,0 @@
-global.ROUTER.api.Websocket = {};
