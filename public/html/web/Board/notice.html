@@ -349,7 +349,6 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 var pre_objDiv_scrollHeight = 0;
-var objDiv = document.getElementById("comment_wrap")
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
@@ -357,7 +356,9 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	{
 		chat_board_get_list();
 	}
+	var objDiv = document.getElementById("comment_wrap")
 	objDiv.scrollTop = objDiv.scrollHeight;
+	pre_objDiv_scrollHeight = objDiv.scrollHeight
 })
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
