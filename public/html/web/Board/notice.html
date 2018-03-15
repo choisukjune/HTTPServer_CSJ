@@ -350,7 +350,7 @@ _el_btn__notebook_add.addEventListener("click",function(){
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
-	if( !document.getElementById("comment_container").childNodes[ 0 ] ) chat_board_get_list();
+	if( !document.getElementById("comment") ) chat_board_get_list();
 })
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
@@ -456,7 +456,8 @@ var render_chat_data = function( arr ){
 		io = arr[ i ]
 
 		var div0 = document.createElement("div");
-		div0.setAttribute("class","comment");
+			div0.setAttribute("class","comment");
+			div0.setAttribute("id","comment")
 
 		var a = document.createElement("a");
 			a.setAttribute("class","avatar")
@@ -530,7 +531,8 @@ var render_chat_data = function( arr ){
 		if( document.getElementById("comment_container").childNodes[ 0 ] )
 		{
 			document.getElementById("comment_container").insertBefore( div0, document.getElementById("comment_container").childNodes[ 0 ] )
-		}else
+		}
+		else
 		{
 			document.getElementById("comment_container").appendChild( div0 )
 		}
