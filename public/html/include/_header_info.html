@@ -38,7 +38,8 @@ connection.addEventListener('close',function(){ debugger; })
 connection.addEventListener('error',function(){ debugger; })
 connection.addEventListener('message',function( message ){
  console.log( message )
- var recieve_message = JSON.parse( message.data )
+ var _tmp0 = JSON.parse( message.data )
+ var recieve_message = JSON.parse( _tmp0.utf8Data )
  //window.service.message.toaster( recieve_message.utf8Data )
  //
  //
