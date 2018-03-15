@@ -350,7 +350,10 @@ _el_btn__notebook_add.addEventListener("click",function(){
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
-	if( !document.getElementById("comment") ) chat_board_get_list();
+	if( !document.getElementById("comment") )
+	{
+		chat_board_get_list();
+	}
 	var objDiv = document.getElementById("comment_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 })
