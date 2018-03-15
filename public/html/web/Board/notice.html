@@ -556,7 +556,7 @@ var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('ses
 			location.href = "/Member/login";
 		}
 		var data = JSON.parse( result )
-		_el_removeChild( document.getElementById("comment_container") );
+		//_el_removeChild( document.getElementById("comment_container") );
 		render_chat_data( data )
 		current_note_chat__data.data.push( data );
 		current_note_chat__data.skip += 10
