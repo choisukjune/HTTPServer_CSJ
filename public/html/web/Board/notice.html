@@ -572,6 +572,7 @@ var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('ses
 		var objDiv = document.getElementById("comment_wrap")
 		var eee = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 		console.log( eee )
+		objDiv.scrollTop =  eee;
 		pre_objDiv_scrollHeight = objDiv.scrollHeight
 
 		objDiv.scrollTop = eee;
