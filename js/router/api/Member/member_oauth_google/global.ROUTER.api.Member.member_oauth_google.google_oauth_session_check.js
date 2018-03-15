@@ -23,7 +23,7 @@ global.ROUTER.api.Member.member_oauth_google.google_oauth_session_check = functi
 		var db0 = db.db('member')
 
 		db0.collection("member_oauth_google").find({ session_state : _p.sid }).limit(1).next(function(err, doc){
-var r = 0;
+			var r = 0;
 			if( doc )
 			{
 				//db0.collection("member_oauth_google").updateOne({ id :_p.id }, {$set:{ sid : _p.sid }});
