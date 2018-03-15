@@ -95,7 +95,7 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 								var member_info = result[ 0 ];
 								console.log( member_info )
 								doc.member._id = Long( member_info._id ).toInt();
-								doc.member._nm = member_info.first_Nm + " " + member_info.last_Nm;
+								doc.member.nm = member_info.first_Nm + " " + member_info.last_Nm;
 								doc.member.image = "https://semantic-ui.com/images/avatar/small/joe.jpg"
 
 								db0.collection("board").insert(doc,function(d){
