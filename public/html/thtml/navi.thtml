@@ -205,7 +205,7 @@ var write_chat = function(){
 		console.log( data );
 		console.log( "--등록완료--" );
 
-		connection.send( document.getElementById( "comment_textarea" ).value );
+		connection.send( data );
 		document.getElementById( "comment_textarea" ).value = "";
 	})
 }

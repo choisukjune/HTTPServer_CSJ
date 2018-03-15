@@ -61,14 +61,21 @@ connection.addEventListener('message',function( message ){
 		// 	</div>
 	// </div>
 // </div>
-	var div0 = document.createElement("div");
+/**
+*
+*/
+var make_Array_dateFormat = function( arr ){
+	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
+}
+
+var div0 = document.createElement("div");
 		div0.setAttribute("class","comment");
 
 	var a = document.createElement("a");
 		a.setAttribute("class","avatar")
 
 	var img = document.createElement("img");
-		img.src = "https://semantic-ui.com/images/avatar/small/joe.jpg";
+		img.src = recieve_message.member.image;
 		img.setAttribute("style","height : 35px !important;")
 
 		a.appendChild( img )
@@ -78,7 +85,7 @@ connection.addEventListener('message',function( message ){
 
 	var a0 = document.createElement("a")
 		a0.setAttribute("class","author")
-		a0.appendChild( document.createTextNode("Joe Henderson") )
+		a0.appendChild( document.createTextNode( recieve_message.member.nm ) )
 
 		div1.appendChild( a0 )
 
@@ -87,7 +94,7 @@ connection.addEventListener('message',function( message ){
 
 	var div3 = document.createElement("div")
 		div3.setAttribute("class","date")
-		div3.appendChild( document.createTextNode("1 day ago"))
+		div3.appendChild( document.createTextNode( make_Array_dateFormat( recieve_message.regist_date ) ))
 
 		div2.appendChild( div3 )
 		div1.appendChild( div2 )
@@ -98,7 +105,7 @@ connection.addEventListener('message',function( message ){
 	// var p = document.createElement( "p" )
 
 		var broadcast_msg = "";
-		var msg = recieve_message.utf8Data;
+		var msg = recieve_message.content;
 		if( msg.indexOf("\n") != -1)
 		{
 			var _ta = msg.split("\n")
