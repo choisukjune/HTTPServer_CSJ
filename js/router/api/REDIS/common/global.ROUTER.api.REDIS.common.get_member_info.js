@@ -1,27 +1,27 @@
 global.ROUTER.api.REDIS.common.get_member_info = function( req, res ){
 
 	var	_d = decodeURIComponent( req.url );
-	var	_q = _d.split("?")
+	var	_q = _d.split("?");
 		_q.shift();
 
-		var	_p = global.REQUIRES.querystring.parse(	_q.join("") )
+		var	_p = global.REQUIRES.querystring.parse(	_q.join("") );
 		var _con = {
 			port : global.REDIS.CONFIG.port
 			, host : global.REDIS.CONFIG.connect_url
 			,db : 2
-		}
+		};
 		//*/
 		var r = global.REQUIRES.redis.createClient( _con );
 		r.auth( global.REDIS.CONFIG.pass );
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get(_p.sid, function(err, data){
-			console.log( _p.sid )
-			console.log( data )
+			// console.log( _p.sid );
+			// console.log( data );
 			//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
-			global.api.Response.res_200_ok_String( req, res, data )
+			global.api.Response.res_200_ok_String( req, res, data );
 		});
 
-	r.quit()
+	r.quit();
 
 	/*/
 	_p.sid = global.api.Session.session( _q.id );
