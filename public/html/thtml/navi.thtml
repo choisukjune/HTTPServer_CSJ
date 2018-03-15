@@ -213,4 +213,4 @@ var write_chat = function(){
 _t1.addEventListener("click",write_chat);
 
 </script>
-<div class="pusher">
+<div class="pusher" style="overflow-y : hidden;">
