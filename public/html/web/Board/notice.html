@@ -348,14 +348,18 @@ _el_btn__notebook_add.addEventListener("click",function(){
 	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
 })
 
+var pre_objDiv_scrollHeight = 0;
+var objDiv = document.getElementById("comment_wrap")
+
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
 	if( !document.getElementById("comment") )
 	{
 		chat_board_get_list();
-		var objDiv = document.getElementById("comment_wrap")
-		objDiv.scrollTop = objDiv.scrollHeight;
+		
 	}
+	objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+	pre_objDiv_scrollHeight = objDiv.scrollHeight
 
 })
 
@@ -368,8 +372,7 @@ document.getElementById("comment_wrap").addEventListener("scroll",function(){
 	if( comment_wrap.scrollTop == 0 )
 	{
 		chat_board_get_list()
-		var objDiv = document.getElementById("comment_wrap")
-		objDiv.scrollTop = objDiv.scrollHeight - 1000;
+		objDiv.scrollTop = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 	}
 })
 var _el_div__sub_list_click = function(e){
