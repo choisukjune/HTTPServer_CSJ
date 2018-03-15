@@ -147,7 +147,7 @@ line-height: 1.5em !important;
 	<div class="item" style="padding : 0px !important">
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="comment_sidebar_header">Comment</div>
-			<div class="sixteen wide column" id="comment_wrap" style="background-color : #fff;;min-height : 768px;max-height : 768px;overflow-y : auto;">
+			<div class="sixteen wide column" id="comment_wrap" style="background-color : #fff;;min-height : 769px;max-height : 769px;overflow-y : auto;">
 				<div class="ui comments" id="comment_container">
 
 				</div>
