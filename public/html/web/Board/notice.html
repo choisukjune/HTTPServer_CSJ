@@ -441,7 +441,12 @@ var htmlEntities =  function(str){
 	.replace(/&nbsp;/g, '');
 //	.replace(//g, '<td>')
 };
-
+/**
+*
+*/
+var make_Array_dateFormat = function( arr ){
+	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
+}
 /**
  * [write_doc description]
  * @type {[type]}
@@ -487,7 +492,7 @@ var render_chat_data = function( arr ){
 
 		var div3 = document.createElement("div")
 			div3.setAttribute("class","date")
-			div3.appendChild( document.createTextNode( window.service.date.make_Array_dateFormat( io.regist_date ) ))
+			div3.appendChild( document.createTextNode( make_Array_dateFormat( io.regist_date ) ))
 
 			div2.appendChild( div3 )
 			div1.appendChild( div2 )
@@ -548,25 +553,6 @@ var render_chat_data = function( arr ){
 	// document.getElementById("comment_container").insertBefore( divider, document.getElementById("comment_container").childNodes[ 0 ] )
 }
 
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
-
-readTextFile("file://../../include/header.html")
 
 /**
  * 
@@ -816,7 +802,7 @@ var req_detail_by__id = function( _id ){
 		console.log( data );
 		current_view_doc__data = data[ 0 ];
 
-		var regist_date = window.service.date.make_Array_dateFormat( data[ 0 ].regist_date );
+		var regist_date = make_Array_dateFormat( data[ 0 ].regist_date );
 		var title = data[ 0 ].title
 		var content = data[ 0 ].content
 
@@ -914,7 +900,7 @@ var make_sub_list = function( cd$notebook ){
 				div1.setAttribute("id", "sub_list_date");
 				div1.setAttribute("class", "pad_b_10");
 
-			var div1_text = document.createTextNode( window.service.date.make_Array_dateFormat( io.regist_date ) );
+			var div1_text = document.createTextNode( make_Array_dateFormat( io.regist_date ) );
 
 			div__id.appendChild( div__id_text );
 			b.appendChild( b_text );
