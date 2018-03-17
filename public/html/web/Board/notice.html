@@ -812,6 +812,18 @@ var req_detail_by__id = function( _id ){
 		}
 
 
+var multilineString	= (function(){ /*
+  this
+  is
+  a
+  multiline
+  string.
+*/}).toString().split('\n').slice(1, -1).join('\n');
+
+console.log(multilineString);
+
+
+
 		var html = '<div class="ui basic segment item" id="view_document">\
 						<div class="ui basic segment item">\
 							<h2 id="view_document_title">{{title}}</h2>\
@@ -829,7 +841,7 @@ var req_detail_by__id = function( _id ){
 		html.replace("{{content}}",content)
 
 
-_el_div__view_container.innerHTML = html;
+_el_div__view_container.innerHTML = html
 // var div_content = document.createElement("div")
 		// 	div_content.setAttribute("class","ui basic segment item")
 		// 	div_content.setAttribute("id","view_document")
