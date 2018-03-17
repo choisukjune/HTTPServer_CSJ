@@ -827,10 +827,9 @@ var template_el = (function(){ /*
 //console.log(multilineString);
 
 
-		template_el.replace("{{title}}",title)
-
-		template_el.replace("{{date}}",regist_date)
-		template_el.replace("{{content}}",content)
+		template_el = template_el.replace("{{title}}",title)
+		.replace("{{date}}",regist_date)
+		.replace("{{content}}",content)
 
 console.log( template_el )
 _el_div__view_container.innerHTML = template_el
