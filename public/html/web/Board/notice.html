@@ -833,12 +833,12 @@ var make_string_multiline = function( d ){
 //console.log(multilineString);
 
 		var template_el_1 = make_string_multiline( template_el )
-		template_el_1 = template_el.replace("{{title}}",title)
+		template_el_1 = template_el_1.replace("{{title}}",title)
 		.replace("{{date}}",regist_date)
 		.replace("{{content}}",content)
 
-console.log( template_el )
-_el_div__view_container.innerHTML = template_el
+console.log( template_el_1 )
+_el_div__view_container.innerHTML = template_el_1
 // var div_content = document.createElement("div")
 		// 	div_content.setAttribute("class","ui basic segment item")
 		// 	div_content.setAttribute("id","view_document")
