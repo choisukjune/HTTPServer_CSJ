@@ -812,7 +812,8 @@ var req_detail_by__id = function( _id ){
 		}
 
 
-var template_el = (function(){ /*
+var template_el = (function(){ 
+/*
 <div class="ui basic segment item" id="view_document">
 	<div class="ui basic segment item">
 		<h2 id="view_document_title">{{title}}</h2>
@@ -822,12 +823,17 @@ var template_el = (function(){ /*
 		<p>{{content}}</p>
 	</div>
 </div>;
-*/}).toString().split('\n').slice(1, -1).join('\n');
+*/
+})
+
+var make_string_multiline = function( d ){
+	return d.toString().split('\n').slice(1, -1).join('\n');
+}
 
 //console.log(multilineString);
 
-
-		template_el = template_el.replace("{{title}}",title)
+		var template_el_1 = make_string_multiline( template_el )
+		template_el_1 = template_el.replace("{{title}}",title)
 		.replace("{{date}}",regist_date)
 		.replace("{{content}}",content)
 
