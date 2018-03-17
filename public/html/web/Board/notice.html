@@ -812,7 +812,7 @@ var req_detail_by__id = function( _id ){
 		}
 
 
-var html	= (function(){ /*
+var template_el = (function(){ /*
 <div class="ui basic segment item" id="view_document">
 	<div class="ui basic segment item">
 		<h2 id="view_document_title">{{title}}</h2>
@@ -827,13 +827,13 @@ var html	= (function(){ /*
 //console.log(multilineString);
 
 
-		html.replace("{{title}}",title)
+		template_el.replace("{{title}}",title)
 
-		html.replace("{{date}}",regist_date)
-		html.replace("{{content}}",content)
+		template_el.replace("{{date}}",regist_date)
+		template_el.replace("{{content}}",content)
 
-console.log( html )
-_el_div__view_container.innerHTML = html
+console.log( template_el )
+_el_div__view_container.innerHTML = template_el
 // var div_content = document.createElement("div")
 		// 	div_content.setAttribute("class","ui basic segment item")
 		// 	div_content.setAttribute("id","view_document")
