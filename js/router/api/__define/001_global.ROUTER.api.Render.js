@@ -3,7 +3,7 @@
 global.ROUTER.api.Render = {};
 //------------------------------;
 
-global.ROUTER.api.Render = {};
+global.ROUTER.api.Render.PATH = {};
 global.ROUTER.api.Render.PATH.CONFIG = {};
 var	_path = global.ROOTPath + "/public/html/thtml/";
 
