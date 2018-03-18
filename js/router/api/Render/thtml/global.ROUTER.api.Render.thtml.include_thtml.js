@@ -14,7 +14,7 @@ global.ROUTER.api.Render.thtml.include_thtml= function( req, res ){
 				//------------------------------;
 
 
-				var _path = global.ROUTER.api.Render.PATH.CONFIG;
+				var _path = global.ROUTER.api.Render.PATH.CONFIG._path;
 
 				var d = global.REQUIRES.fs.readFileSync( _path + _q.fileNm, "utf8")
 
