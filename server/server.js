@@ -65,7 +65,7 @@ global.SERVER.make_navi_resource = function(){
 	make_resource( r )
 };
 
-var	e =	function( name ){ return eval( name	) }
+
 global.SERVER.Initialize_commonJS = function(){
 
     var path = "./public/js/_define/";
@@ -82,8 +82,7 @@ global.SERVER.Initialize_commonJS = function(){
         console.log( "-[S]- Initialize_commonJS -- " + path + a0[ i ]);
         var r = global.REQUIRES.fs.readFileSync(path + a0[ i ],'utf8');
 
-		//*/
-		e( r );
+        //*/
         ws.write( global.REQUIRES.uglify.minify( r ).code,{ flag : "w" });
         /*/
         ws.write( r,{ flag : "w" });
