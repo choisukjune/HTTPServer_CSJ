@@ -68,83 +68,49 @@ connection.addEventListener('message',function( message ){
 var make_Array_dateFormat = function( arr ){
 	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
 }
+	
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
 
-	var div0 = document.createElement("div");
-		div0.setAttribute("class","comment");
-		div0.setAttribute("id","comment")
-
-	var a = document.createElement("a");
-		a.setAttribute("class","avatar")
-
-	var img = document.createElement("img");
-		img.src = recieve_message.member.image;
-		img.setAttribute("style","height : 35px !important;")
-
-		a.appendChild( img )
-
-	var div1 = document.createElement("div")
-		div1.setAttribute("class","content")
-
-	var a0 = document.createElement("a")
-		a0.setAttribute("class","author")
-		a0.appendChild( document.createTextNode( recieve_message.member.nm ) )
-
-		div1.appendChild( a0 )
-
-	var div2 = document.createElement("div")
-		div2.setAttribute("class","metadata")
-
-	var div3 = document.createElement("div")
-		div3.setAttribute("class","date")
-		div3.appendChild( document.createTextNode( make_Array_dateFormat( recieve_message.regist_date ) ))
-
-		div2.appendChild( div3 )
-		div1.appendChild( div2 )
-
-	var div4 = document.createElement("div")
-		div4.setAttribute("class","text")
-
-	// var p = document.createElement( "p" )
-
-		var broadcast_msg = "";
-		var msg = recieve_message.content;
-		if( msg.indexOf("\n") != -1)
+		var i = 0,iLen = arr.length,io;
+		for(;i<iLen;++i)
 		{
-			var _ta = msg.split("\n")
-			var i = 0,iLen = _ta.length,io;
-			for(;i<iLen;++i)
+
+			io = arr[ i ];
+			var broadcast_msg = "";
+			var msg = io.content;
+			if( msg.indexOf("\n") != -1)
 			{
-				io = _ta[ i ];
-				broadcast_msg += "<p>" + io + "</p>\n"
+				var _ta = msg.split("\n")
+				var j = 0,jLen = _ta.length,jo;
+				for(;j<jLen;++j)
+				{
+					jo = _ta[ j ];
+					broadcast_msg += "<p>" + jo + "</p>\n";
+				}
+
 			}
+			else
+			{
+				broadcast_msg = "<p>" + msg + "</p>";
+			};
 
+			var html_include_data = _templat.replace( "{{image_url}}", io.member.image )
+			.replace( "{{author}}", io.member.nm )
+			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+			.replace( "{{content}}", broadcast_msg );
+
+			document.getElementById("comment_container").insertAdjacentHTML( 'beforeend', html_include_data );
+
+			var objDiv = document.getElementById("comment_wrap")
+			objDiv.scrollTop = objDiv.scrollHeight;
 		}
-		else
-		{
-			broadcast_msg = "<p>" + msg + "</p>"
-		}
-		// p.appendChild( document.createTextNode( recieve_message.utf8Data ) )
-		div4.innerHTML = broadcast_msg
+	});
 
-		// div4.appendChild( p )
-		div1.appendChild( div4 )
 
-	var div5 = document.createElement("div")
-		div5.setAttribute("class","actions")
-
-	var a1 = document.createElement("a")
-		a1.setAttribute("class","reply")
-		a1.appendChild( document.createTextNode("Reply") );
-
-		div5.appendChild( a1 )
-		div1.appendChild( div5 )
-
-	div0.appendChild( a )
-	div0.appendChild( div1 )
-
-	document.getElementById("comment_container").appendChild( div0 )
-	var objDiv = document.getElementById("comment_wrap")
-		objDiv.scrollTop = objDiv.scrollHeight;
 
 })
 }
