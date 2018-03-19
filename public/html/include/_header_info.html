@@ -75,11 +75,11 @@ var make_Array_dateFormat = function( arr ){
 		
 		var _template = result;
 
-		var i = 0,iLen = arr.length,io;
+		var i = 0,iLen = _tmp0.length,io;
 		for(;i<iLen;++i)
 		{
 
-			io = arr[ i ];
+			io = _tmp0[ i ];
 			var broadcast_msg = "";
 			var msg = io.content;
 			if( msg.indexOf("\n") != -1)
@@ -103,7 +103,7 @@ var make_Array_dateFormat = function( arr ){
 			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg );
 
-			document.getElementById("comment_wrap").insertAdjacentHTML( 'beforeend', html_include_data );
+			document.getElementById("comment_container").insertAdjacentHTML( 'beforeend', html_include_data );
 
 			var objDiv = document.getElementById("comment_wrap")
 			objDiv.scrollTop = objDiv.scrollHeight;
