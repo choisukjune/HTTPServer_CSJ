@@ -148,44 +148,12 @@
 	<!-- contents -->
 <include>_footer_info.html</include>
 <script>
-	window.service.render.dimmer( window.service.cookie.getCookie('mid') );
-	//window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
-	//alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
-	
-	var _t0 = document.getElementById('data')
-	var url = "/api/Common/common/get_list?sid=" + window.service.cookie.getCookie('session')
-	
-	window.service.Request.req_GET_data__Callback(url,function(result){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "./Member/login";
-		}
-		var data = JSON.parse( result )
-		for(var i = 0; i < data.length; ++i){
-	
-			var tr = document.createElement("tr");
-	
-			for(var s in data[ i ]){
-	
-				var td = document.createElement("td")
-				var text = document.createTextNode( data[ i ][ s ] );
-				//console.log( text )
-				td.appendChild(text)
-				tr.appendChild(td)
-			}
-	
-			_t0.append(tr)
-	
-		}
-	})
-	</script>
-<!-- <script>
 window.service.render.dimmer( window.service.cookie.getCookie('mid') );
 //window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
 //alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
 
 var _t0 = document.getElementById('data')
-var url = "/api/Common/get_list?sid=" + window.service.cookie.getCookie('session')
+var url = "/api/Common/common/get_list?sid=" + window.service.cookie.getCookie('session')
 
 window.service.Request.req_GET_data__Callback(url,function(result){
 	if(result == 0){
@@ -210,8 +178,7 @@ window.service.Request.req_GET_data__Callback(url,function(result){
 
 	}
 })
-</script> -->
-<script>
+
 document.getElementById("global_sidebar").addEventListener("click",function(){
 	$('.ui.left.sidebar')
 	.sidebar('setting', 'transition', 'overlay')
