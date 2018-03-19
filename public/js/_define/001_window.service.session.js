@@ -479,3 +479,24 @@ window.service.session.removeSession = function( cookieName ){
 	}
 	//return count; // 삭제된 쿠키 개수 반환
   }
+
+
+  window.service.session.remove_deleteCookies_location_login =  function(){
+    var count = 0; // 쿠키 개수
+    if(document.cookie != ""){ // 저장된 쿠키가 있다면
+      var cookies = document.cookie.split("; ");
+      count = cookies.length;
+  
+      // 쿠키에 대한 날짜를 -1로 설정하면 쿠키 바로 소멸됨.
+      var expireDate = new Date();
+      expireDate.setDate(expireDate.getDate() + -1); // -1 쿠키 삭제
+      for(var i =0; i < count; i++){
+        var cookieName = cookies[i].split("=")[0];
+        window.service.session.removeSession( cookieName )
+      }
+
+      location.href = "/Member/login";
+    }
+    //return count; // 삭제된 쿠키 개수 반환
+    }
+  

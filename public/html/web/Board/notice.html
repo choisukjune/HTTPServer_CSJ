@@ -1090,19 +1090,15 @@ var delete_doc = function(){
 
 var add_doc = function(){
 
-	if( document.getElementById( "view_document" ) )
-	{
-		document.getElementById( "view_document" ).setAttribute("style","display : none;");
-	}
+	if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
+	
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "/Member/login";
-		}
+		if(result == 0) window.service.session.remove_deleteCookies_location_login()
+
 		var _template = result;
 
-		_el_div__view_container.appendChild( _template );
+		_el_div__view_container.innerHTML = _template;
 
 		//에디터 로드;
 		CKEDITOR.replace( 'contents',{
