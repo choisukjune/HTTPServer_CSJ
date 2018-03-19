@@ -352,12 +352,14 @@ var pre_objDiv_scrollHeight = 0;
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
-	if( !document.getElementById("comment") )
-	{
-		chat_board_get_list();
-		var objDiv = document.getElementById("comment_wrap")
+
+
+	_el_removeChild( document.getElementById("comment_wrap") );
+		
+	chat_board_get_list();
+	var objDiv = document.getElementById("comment_wrap")
 	objDiv.scrollTop = objDiv.scrollHeight;
-	}
+
 	
 })
 
