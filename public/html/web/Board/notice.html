@@ -490,7 +490,7 @@ var render_chat_data = function( arr ){
 				broadcast_msg = "<p>" + msg + "</p>";
 			};
 
-			var html_include_data = _templat.replace( "{{image_url}}", io.member.image )
+			var html_include_data = _template.replace( "{{image_url}}", io.member.image )
 			.replace( "{{author}}", io.member.nm )
 			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg );
