@@ -1,0 +1,9 @@
+<div class="ui basic segment item" id="view_document">
+	<div class="ui basic segment item">
+		<h2 id="view_document_title">{{title}}</h2>
+		<p id="view_document_date">{{date}}</p>
+	</div>
+	<div class="ui basic segment" id="view_document_content">
+		{{content}}
+	</div>
+</div>
