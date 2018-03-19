@@ -792,7 +792,7 @@ var req_detail_by__id = function( _id ){
 		 _el_div__view_container.removeChild( document.getElementById('add_doc_con') );
 	}
 	
-	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "navi.thtml"
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "req_detail_by__id.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
@@ -837,7 +837,7 @@ var req_detail_by__id = function( _id ){
 			document.getElementById("modify").style.display = "block";
 			document.getElementById("delete").style.display = "block";
 			var btn_control_obj = {modify : "block", delete : "block"};
-			
+
 			btn_control( btn_control_obj );
 			//---------- Button;
 
