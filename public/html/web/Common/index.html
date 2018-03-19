@@ -122,12 +122,7 @@
 									</div>
 								</div>
 							</div>
-
-							<div class="two wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
-								
-							</div>
-
-							<div class="twelve wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 808px !important;">
+							<div class="fourteen wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 808px !important;">
 							</div>
 						</div>
 					</div>
@@ -171,3 +166,10 @@ window.service.Request.req_GET_data__Callback(url,function(result){
 	}
 })
 </script> -->
+<script>
+document.getElementById("global_sidebar").addEventListener("click",function(){
+	$('.ui.left.sidebar')
+	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('toggle');
+})
+</script>
