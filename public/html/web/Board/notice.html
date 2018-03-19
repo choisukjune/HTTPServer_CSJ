@@ -1006,7 +1006,7 @@ var write_cancel = function(){
 	//Dom 삭제;
 	document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
-	if( current_view_doc__data._id != -1) req_detail_by__id( current_view_doc__data._id )
+	if( current_view_doc__data._id ) req_detail_by__id( current_view_doc__data._id )
 	//----------;
 
 }
