@@ -1102,7 +1102,7 @@ var add_doc = function(){
 		var parser = new DOMParser()
 		var el = parser.parseFromString(_template, "text/xml");
 
-		_el_div__view_container.appendChild( el );
+		_el_div__view_container.insertAdjacentHTML( 'beforeend', _template );
 
 		//에디터 로드;
 		CKEDITOR.replace( 'contents',{
