@@ -459,49 +459,17 @@ var make_Array_dateFormat = function( arr ){
 //--------------------------------------------------function;
 var render_chat_data = function( arr ){
 	
-	var i = 0,iLen = arr.length,io;
-	for(;i<iLen;++i)
-	{
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
 
-		io = arr[ i ]
+		var i = 0,iLen = arr.length,io;
+		for(;i<iLen;++i)
+		{
 
-		var div0 = document.createElement("div");
-			div0.setAttribute("class","comment");
-			div0.setAttribute("id","comment")
-
-		var a = document.createElement("a");
-			a.setAttribute("class","avatar")
-
-		var img = document.createElement("img");
-			img.src = io.member.image;
-			img.setAttribute("style","height : 35px !important;")
-
-			a.appendChild( img )
-
-		var div1 = document.createElement("div")
-			div1.setAttribute("class","content")
-
-		var a0 = document.createElement("a")
-			a0.setAttribute("class","author")
-			a0.appendChild( document.createTextNode( io.member.nm ) )
-
-			div1.appendChild( a0 )
-
-		var div2 = document.createElement("div")
-			div2.setAttribute("class","metadata")
-
-		var div3 = document.createElement("div")
-			div3.setAttribute("class","date")
-			div3.appendChild( document.createTextNode( make_Array_dateFormat( io.regist_date ) ))
-
-			div2.appendChild( div3 )
-			div1.appendChild( div2 )
-
-		var div4 = document.createElement("div")
-			div4.setAttribute("class","text")
-
-		// var p = document.createElement( "p" )
-
+			io = arr[ i ];
 			var broadcast_msg = "";
 			var msg = io.content;
 			if( msg.indexOf("\n") != -1)
@@ -511,48 +479,24 @@ var render_chat_data = function( arr ){
 				for(;j<jLen;++j)
 				{
 					jo = _ta[ j ];
-					broadcast_msg += "<p>" + jo + "</p>\n"
+					broadcast_msg += "<p>" + jo + "</p>\n";
 				}
 
 			}
 			else
 			{
-				broadcast_msg = "<p>" + msg + "</p>"
-			}
-			// p.appendChild( document.createTextNode( recieve_message.utf8Data ) )
-			div4.innerHTML = broadcast_msg
+				broadcast_msg = "<p>" + msg + "</p>";
+			};
 
-			// div4.appendChild( p )
-			div1.appendChild( div4 )
+			var html_include_data = _templat.replace( "{{image_url}}", io.member.image )
+			.replace( "{{author}}", io.member.nm )
+			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+			.replace( "{{content}}", broadcast_msg );
 
-		var div5 = document.createElement("div")
-			div5.setAttribute("class","actions")
-
-		var a1 = document.createElement("a")
-			a1.setAttribute("class","reply")
-			a1.appendChild( document.createTextNode("Reply") );
-
-			div5.appendChild( a1 )
-			div1.appendChild( div5 )
-
-		div0.appendChild( a )
-		div0.appendChild( div1 )
-			
-		if( document.getElementById("comment") )
-		{
-			document.getElementById("comment_container").insertBefore( div0, document.getElementById("comment_container").childNodes[ 0 ] )
+			document.getElementById("comment_container").insertAdjacentHTML( 'beforeend', html_include_data );
 		}
-		else
-		{
-			document.getElementById("comment_container").appendChild( div0 )
-		}
-	}
-	// var divider = document.createElement("div")
-	// 	divider.setAttribute("class","ui divider")
-
-	// document.getElementById("comment_container").insertBefore( divider, document.getElementById("comment_container").childNodes[ 0 ] )
-}
-
+	});
+};
 
 /**
  * 
@@ -739,6 +683,9 @@ var make_project_list = function(){
 	})
 }
 
+/**
+ * 노트북 리스트를 만든다.
+*/
 var make_notebook_list = function( cd$project ){
 
 	_el_btn__notebook_add_write.removeEventListener("click",write_notebook);
@@ -749,15 +696,13 @@ var make_notebook_list = function( cd$project ){
 
 	var url = "/api/Category/notebook/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$project=" + cd$project;
 	window.service.Request.req_GET_data__Callback(url,function(result){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "/Member/login";
-		}
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+
 		var data = JSON.parse( result );
 
-		console.log( data );
 		notebook_list_data = data;
 
+		//노트북리스트 초기화;
 		var _el_div__sub_list = document.getElementById( "sub_list" )
 		if( _el_div__sub_list ) if( _el_div__sub_list.firstChild ) while( _el_div__sub_list.firstChild ) _el_div__sub_list.removeChild( _el_div__sub_list.firstChild );
 		var _el_div__view_container = document.getElementById( "view_document" )
@@ -788,61 +733,39 @@ var make_notebook_list = function( cd$project ){
 */
 var req_detail_by__id = function( _id ){
 	var url = "/api/Board/notice/detail_view_by__id?sid=" + window.service.cookie.getCookie('session') + "&_id=" + _id
-	if( document.getElementById('add_doc_con') )
-	{
-		 _el_div__view_container.removeChild( document.getElementById('add_doc_con') );
-	}
-	
+	if( document.getElementById('add_doc_con') ) _el_div__view_container.removeChild( document.getElementById('add_doc_con') );
+
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "req_detail_by__id.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "/Member/login";
-		}
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
 		var _template = result;
 
 		window.service.Request.req_GET_data__Callback(url,function(result){
-			if(result == 0){
-				window.service.session.remove_deleteCookies()
-				location.href = "/Member/login";
-			}
+
+			if(result == 0) window.service.session.remove_deleteCookies_location_login();
 			var data = JSON.parse( result );
 
-			console.log( data );
 			current_view_doc__data = data[ 0 ];
 
-			var regist_date = make_Array_dateFormat( data[ 0 ].regist_date );
-			var title = data[ 0 ].title
-			var content = data[ 0 ].content
+			if( document.getElementById("view_document") ) _el_div__view_container.removeChild( document.getElementById("view_document") );
 
-			if( document.getElementById("view_document") )
-			{
-				_el_div__view_container.removeChild( document.getElementById("view_document") );
-			}
+			var html_include_data = _template.replace("{{title}}",data[ 0 ].title)
+			.replace("{{date}}",make_Array_dateFormat( data[ 0 ].regist_date ) )
+			.replace("{{content}}",data[ 0 ].content);
 
-			template_el_1 = _template.replace("{{title}}",title)
-			.replace("{{date}}",regist_date)
-			.replace("{{content}}",content)
+			_el_div__view_container.innerHTML = html_include_data;
 
-			console.log( template_el_1 )
-			_el_div__view_container.innerHTML = template_el_1
+			make_brcm_3();//breadScrumb 만든다;
 
-			make_brcm_3();
-
-			if( document.getElementById('add_doc_con') )
-			{
-				document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
-			}
+			if( document.getElementById('add_doc_con') ) document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
 			//---------- Button;
-			document.getElementById("modify").style.display = "block";
-			document.getElementById("delete").style.display = "block";
 			var btn_control_obj = {modify : "block", delete : "block"};
-
 			btn_control( btn_control_obj );
 			//---------- Button;
 
-			document.getElementById("modify").removeEventListener( "click",update_doc )
+			//button 이벤트 연결;
 			document.getElementById("modify").addEventListener( "click",modify_doc )
 			document.getElementById("delete").addEventListener( "click",delete_doc )
 		})
@@ -863,10 +786,8 @@ var make_sub_list = function( cd$notebook ){
 
 		var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
 		window.service.Request.req_GET_data__Callback(url,function(result){
-			if(result == 0){
-				window.service.session.remove_deleteCookies()
-				location.href = "/Member/login";
-			}
+			if(result == 0) window.service.session.remove_deleteCookies_location_login();
+
 			var data = JSON.parse( result )
 
 			_el_div__sub_list.innerHTML = "";//dom 초기화;
@@ -876,27 +797,22 @@ var make_sub_list = function( cd$notebook ){
 
 				io = data[ i ];
 
-
-// <div id="list" class="ui basic segment item bottom_line" idx="{{idx}}">
-// 	<div id="list_id" style="display : none;">{{list_id}}</div>
-// 	<b>{{title}}</b>
-// 	<div id="sub_list_date" class="pad_b_10">{{regist_date}}</div>
-// </div>
-
 				var html_include_data = _template.replace( "{{idx}}", io._id )
 				.replace( "{{list_id}}", io._id )
 				.replace( "{{title}}", io.title )
-				.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+				.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) );
 
 				_el_div__sub_list.insertAdjacentHTML( 'beforeend', html_include_data );
 			}
-
 			notebook_detail_data = data;
 		})
 
 	})
 }
 
+/**
+ * 프로젝트를 등록한다.
+*/
 var write_project = function(){
 
 	var project_nm =  document.getElementById("project_nm").value;
@@ -923,6 +839,9 @@ var write_project = function(){
 	})
 }
 
+/**
+ * 노트북을 등록한다.
+*/
 var write_notebook = function(){
 
 	var notebook_nm =  document.getElementById("notebook_nm").value;
@@ -992,7 +911,7 @@ var write_doc = function(){
 }
 
 /**
- * [description]
+ * 등록을 취소한다.
  * @return {[type]} [description]
  */
 var write_cancel = function(){
@@ -1006,7 +925,7 @@ var write_cancel = function(){
 }
 
 /**
- * [description]
+ * 문서를 업데이트 한다.
  * @param  {[type]} data [description]
  * @return {[type]}      [description]
  */
@@ -1037,7 +956,7 @@ var update_doc = function( data ){
 }
 
 /**
- * [description]
+ * 문서 수정폼을 호출한다.
  * @return {[type]} [description]
  */
 var modify_doc = function(){
@@ -1061,7 +980,7 @@ var modify_doc = function(){
 }
 
 /**
- * [description]
+ * 문서를 삭제한다.
  * @return {[type]} [description]
  */
 var delete_doc = function(){
@@ -1082,10 +1001,14 @@ var delete_doc = function(){
 	})
 }
 
+/**
+ * 문서등록폼을 호출한다.
+*/
 var add_doc = function(){
 
 	if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
 	
+	//thtml을 호출한다.
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
@@ -1119,7 +1042,7 @@ var add_doc = function(){
 	})
 }
 /**
- * [description]
+ * 페이지 초기화;
  * @return {[type]} [description]
  */
 var Initialize = function(){

@@ -1,0 +1,17 @@
+<div class="comment" id="comment">
+	<a class="avatar">
+		<img src="{{image_url}}" style="height : 35px !important;">
+	</a>
+	<div class="content">
+		<a class="author">{{author}}</a>
+		<div class="metadata">
+			<div class="date">{{regist_date}}</div>
+		</div>
+		<div class="text">
+			{{content}}
+		</div>
+		<div class="actions">
+			<a class="reply">Reply</a>
+		</div>
+	</div>
+</div>
