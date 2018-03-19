@@ -699,6 +699,7 @@ var make_project_list = function(){
 
 			_t0.appendChild( option )
 		}
+
 		document.getElementById("project_list_select").addEventListener("change",function(e){
 			console.log(e.target.selectedOptions[ 0 ].value)
 			var idx = e.target.selectedOptions[ 0 ].value;
@@ -1093,55 +1094,37 @@ var add_doc = function(){
 	{
 		document.getElementById( "view_document" ).setAttribute("style","display : none;");
 	}
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+		var _template = result;
 
-	var div_con =  document.createElement("div");
-		div_con.setAttribute("id", "add_doc_con");
+		_el_div__view_container.appendChild( _template );
 
-	var div0 = document.createElement("div")
-		div0.setAttribute("class", "ui fluid icon input");
-		div0.setAttribute("style", "margin-bottom : 14px;");
+		//에디터 로드;
+		CKEDITOR.replace( 'contents',{
+			customConfig : './config.js',
+			width: '100%',
+			height: '600px',
+			toolbarStartupExpanded : false
+		});
 
-	var input = document.createElement("input")
-		input.setAttribute("type", "text");
-		input.setAttribute("placeholder", "제목을 입력하세요");
-		input.setAttribute("id", "title");
+		//필드초기화;
+		document.getElementById("title").value = "";
+		CKEDITOR.instances.editor.setData("내용을 입력해주세요")
 
-	var textarea = document.createElement("textarea")
-		textarea.setAttribute("class", "ckeditor");
-		textarea.setAttribute("rows", "10");
-		textarea.setAttribute("name", "contents");
-		textarea.setAttribute("id", "editor");
-		textarea.setAttribute("style", "display : none;");
+		//----------;
+		var btn_control_obj = {cancel : "block", write : "block"}
+		btn_control( btn_control_obj );
+		//----------;
 
-	div0.appendChild( input )
-	div_con.appendChild( div0 );
-	div_con.appendChild( textarea );
+		document.getElementById("write").addEventListener("click",write_doc)
+		document.getElementById("cancel").addEventListener("click", write_cancel );
 
-	_el_div__view_container.appendChild( div_con );
-
-	//에디터 로드;
-	CKEDITOR.replace( 'contents',{
-		customConfig : './config.js',
-		width: '100%',
-		height: '600px',
-		toolbarStartupExpanded : false
-	});
-
-	//필드초기화;
-	document.getElementById("title").value = "";
-	CKEDITOR.instances.editor.setData("내용을 입력해주세요")
-
-	//----------;
-	var btn_control_obj = {
-		cancel : "block"
-		, write : "block"
-	}
-	btn_control( btn_control_obj );
-	//----------;
-
-	document.getElementById("write").addEventListener("click",write_doc)
-	document.getElementById("cancel").addEventListener("click", write_cancel );
-
+	})
 }
 /**
  * [description]
