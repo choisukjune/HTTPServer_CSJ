@@ -103,7 +103,7 @@ var make_Array_dateFormat = function( arr ){
 			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg );
 
-			document.getElementById("comment_container").insertAdjacentHTML( 'beforeend', html_include_data );
+			document.getElementById("comment_wrap").insertAdjacentHTML( 'beforeend', html_include_data );
 
 			var objDiv = document.getElementById("comment_wrap")
 			objDiv.scrollTop = objDiv.scrollHeight;

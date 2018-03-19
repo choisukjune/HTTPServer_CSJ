@@ -495,7 +495,7 @@ var render_chat_data = function( arr ){
 			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg );
 
-			document.getElementById("comment_container").insertAdjacentHTML( 'beforeend', html_include_data );
+			document.getElementById("comment_wrap").insertAdjacentHTML( 'beforeend', html_include_data );
 		}
 	});
 };
