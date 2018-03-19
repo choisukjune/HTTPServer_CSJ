@@ -68,7 +68,7 @@ connection.addEventListener('message',function( message ){
 var make_Array_dateFormat = function( arr ){
 	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
 }
-	
+	var _el = document.getElementById("comment_container");
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
@@ -103,7 +103,7 @@ var make_Array_dateFormat = function( arr ){
 			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg );
 
-			document.getElementById("comment_container").insertAdjacentHTML( 'beforeend', html_include_data );
+			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 
 			var objDiv = document.getElementById("comment_wrap")
 			objDiv.scrollTop = objDiv.scrollHeight;
