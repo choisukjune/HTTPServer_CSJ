@@ -54,6 +54,10 @@
 {
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 }
+.bg_color_eee
+{
+	background-color: #eee !important;
+}
 </style>
 <!-- <div class="ui centered grid">
 	<div class="twelve wide column pad_t_60 pad_b_60"> -->
@@ -179,13 +183,13 @@
 						</div>
 					</div>
 					<!-- <div id="div-PIMS-FooterContainer" class="sixteen wide column"style="background-color : #eeeeee; bottom : 0px !important;position : relative !important;border-top : 1px solid rgba(34, 36, 38, 0.15) !important;">Copyright © B2LABS All Rights Reserved.</div> -->
-					<div class="ui footer basic segment">
-							<div class="ui container">
-							  <p>
+					<div class="ui footer basic segment bg_color_eee">
+						<div class="ui container">
+							<p>
 								Place sticky footer content here.
-							  </p>
-							</div>
-						  </div>
+							</p>
+						</div>
+					</div>	
 				</div>
 			</div>
 		</div>
@@ -527,8 +531,8 @@ var chat_board_get_list = function(){
 
 	var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session') 
 			+ "&cd$doc=" + current_view_doc__data.cd
-			+ "&limit=" + current_note_chat__data.limit
-			+ "&skip=" + current_note_chat__data.skip;
+			+ "&limit=" + current_note_chat__data[ current_view_doc__data.cd ].limit
+			+ "&skip=" + current_note_chat__data[ current_view_doc__data.cd ].skip;
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login()
