@@ -65,9 +65,9 @@ connection.addEventListener('message',function( message ){
 /**
 *
 */
-var make_Array_dateFormat = function( arr ){
-	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
-}
+	var make_Array_dateFormat = function( arr ){
+		return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
+	}
 	var _el = document.getElementById("comment_container");
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
@@ -75,11 +75,7 @@ var make_Array_dateFormat = function( arr ){
 		
 		var _template = result;
 
-		var i = 0,iLen = _tmp0.length,io;
-		for(;i<iLen;++i)
-		{
-
-			io = _tmp0[ i ];
+			io = _tmp0;
 			var broadcast_msg = "";
 			var msg = io.content;
 			if( msg.indexOf("\n") != -1)
@@ -107,7 +103,6 @@ var make_Array_dateFormat = function( arr ){
 
 			var objDiv = document.getElementById("comment_wrap")
 			objDiv.scrollTop = objDiv.scrollHeight;
-		}
 	});
 
 
