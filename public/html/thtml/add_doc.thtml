@@ -2,5 +2,5 @@
 	<div class="ui fluid icon input" style="margin-bottom : 14px;">
 		<input type="text" placeholder="제목을 입력하세요" id="title" ></input>
 	</div>
-	<textarea class="ckeditor" row="10" name="content" id="editor" style="display : none;"></textarea>
+	<textarea class="ckeditor" row="10" name="contents" id="editor" style="display : none;"></textarea>
 </div>
