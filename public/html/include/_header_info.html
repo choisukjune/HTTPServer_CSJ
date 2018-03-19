@@ -37,34 +37,10 @@ connection.addEventListener('open',function(){
 connection.addEventListener('close',function(){ debugger; })
 connection.addEventListener('error',function(){ debugger; })
 connection.addEventListener('message',function( message ){
- console.log( message )
- var _tmp0 = JSON.parse( message.data )
- var recieve_message = JSON.parse( _tmp0.utf8Data )
- //window.service.message.toaster( recieve_message.utf8Data )
- //
- //
- //
-// <div class="comment">
-	// <a class="avatar">
-	// 	<img src="https://semantic-ui.com/images/avatar/small/joe.jpg">
-	// </a>
-	// <div class="content">
-		// 	<a class="author">Joe Henderson</a>
-		// 	<div class="metadata">
-		// 		<div class="date">1 day ago</div>
-		// 	</div>
-		// 	<div class="text">
-		// 		<p>The hours, minutes and seconds stand as visible reminders that your effort put them all there. </p>
-		// 		<p>Preserve until your next run, when the watch lets you see how Impermanent your efforts are.</p>
-		// 	</div>
-		// 	<div class="actions">
-		// 		<a class="reply">Reply</a>
-		// 	</div>
-	// </div>
-// </div>
-/**
-*
-*/
+	console.log( message )
+	var _tmp0 = JSON.parse( message.data )
+	var recieve_message = JSON.parse( _tmp0.utf8Data )
+
 	var make_Array_dateFormat = function( arr ){
 		return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
 	}
