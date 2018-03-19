@@ -27,31 +27,25 @@ window.WebSocket = window.WebSocket || window.MozWebSocket;
 if( window.service.cookie.getCookie('mid') ){
 	var connection = new WebSocket('ws://13.125.22.207:8888?mid=' + window.service.cookie.getCookie('mid'));
 
-// connection.onopen = function () {
-//   connection.send( "kkkkkkk" )
-// };
-connection.addEventListener('open',function(){
-//  //debugger;
-// connection.send("정말되나요?")
-})
-connection.addEventListener('close',function(){ debugger; })
-connection.addEventListener('error',function(){ debugger; })
-connection.addEventListener('message',function( message ){
-	console.log( message )
-	var _tmp0 = JSON.parse( message.data )
-	var recieve_message = JSON.parse( _tmp0.utf8Data )
+	connection.addEventListener('open',function(){console.log("open") })
+	connection.addEventListener('close',function(){ debugger; })
+	connection.addEventListener('error',function(){ debugger; })
+	connection.addEventListener('message',function( message ){
+		console.log( message )
+		var _tmp0 = JSON.parse( message.data )
+		var recieve_message = JSON.parse( _tmp0.utf8Data )
 
-	var make_Array_dateFormat = function( arr ){
-		return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
-	}
-	var _el = document.getElementById("comment_container");
-	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
-	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
-		
-		var _template = result;
+		var make_Array_dateFormat = function( arr ){
+			return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
+		}
+		var _el = document.getElementById("comment_container");
+		var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
+		window.service.Request.req_GET_data__Callback(url1,function(result){
+			if(result == 0) window.service.session.remove_deleteCookies_location_login();
+			
+			var _template = result;
 
-			io = recieve_message;
+			var io = recieve_message;
 			var broadcast_msg = "";
 			var msg = io.content;
 			if( msg.indexOf("\n") != -1)
@@ -79,11 +73,8 @@ connection.addEventListener('message',function( message ){
 
 			var objDiv = document.getElementById("comment_wrap")
 			objDiv.scrollTop = objDiv.scrollHeight;
-	});
-
-
-
-})
+		});
+	})
 }
 
 </script>
