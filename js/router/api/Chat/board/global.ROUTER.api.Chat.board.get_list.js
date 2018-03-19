@@ -15,7 +15,7 @@ global.ROUTER.api.Chat.board.get_list = function( req, res ){
 				global.CSJLog.log("Connected correctly to server");
 				var Long = require('mongodb').Long;
 				//------------------------------;
-
+console.log( _q )
 				var db0 = db.db('chat');
 				var _query = { _d : { $ne : 0},cd$doc : _q.cd$doc }
 				db0.collection("board").find(_query).sort({ _id : -1 })
