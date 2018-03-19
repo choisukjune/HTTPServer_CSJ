@@ -4,44 +4,54 @@
 <script>window.service.session.checkSession();</script>
 <include>navi.html</include>
 <style>
-#container{
+#container
+{
 	left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
 }
-#content{
+#content
+{
 	left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
 }
-#list{
+#list
+{
 	cursor: pointer;
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 }
-#list:last-child{
+#list:last-child
+{
 	margin : 0px !important;border-bottom : 0 !important;
 }
-#notebook_list_item{
+#notebook_list_item
+{
 	cursor: pointer;
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 }
-#notebook_list_item:last-child{
+#notebook_list_item:last-child
+{
 	margin : 0px !important;border-bottom : 0 !important;
 }
-#notebook_add_container{
+#notebook_add_container
+{
 	cursor: pointer;
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 	background-color: #eee;
 }
-#notebook_add_container:last-child{
+#notebook_add_container:last-child
+{
 	margin : 0px !important;border-bottom : 0 !important;
 }
-
-#note_add_container{
+#note_add_container
+{
 	cursor: pointer;
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 	background-color: #eee;
 }
-#note_add_container:last-child{
+#note_add_container:last-child
+{
 	margin : 0px !important;border-bottom : 0 !important;
 }
-.bottom_line{
+.bottom_line
+{
 	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
 }
 </style>
@@ -252,9 +262,10 @@
 <script></script>
 <script type="text/javascript">
 
+window.service.domStorage = {};
+
+
 //editor 라이브러리 로드;
-
-
 var sNew = document.createElement("script");
 sNew.async = true;
 sNew.src = "libs/ckeditor/ckeditor.js";
@@ -272,6 +283,7 @@ var current_project__data = {};
 var current_notebook__data = {};
 var current_note_chat__data = {};
 
+var pre_objDiv_scrollHeight = 0;
 //------------------------------_el;
 var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
@@ -282,6 +294,7 @@ var _el_btn__project_add_cancel = document.getElementById( "project_add_cancel" 
 var _el_btn__notebook_add_write = document.getElementById( "notebook_add_write" )
 var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel" )
 //------------------------------_el;
+
 //------------------------------ event;
 document.getElementById("global_sidebar").addEventListener("click",function(){
 	$('.ui.left.sidebar')
@@ -322,7 +335,6 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 })
 
 document.getElementById( "project_title_div" ).addEventListener("click",function(){
-
 	$('#project_select_modal').modal('setting', 'closable', true).modal('show');
 })
 
@@ -344,23 +356,18 @@ _el_btn__notebook_add.addEventListener("click",function(){
 	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
 })
 
-var pre_objDiv_scrollHeight = 0;
-
 document.getElementById("test_sidebar").addEventListener("click",function(){
+
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
 
-
-	current_note_chat__data[ current_view_doc__data.cd ] = {
-		data : [], limit : 20, skip : 0	
-	}
+	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
 
 	_el_removeChild( document.getElementById("comment_container") );
 		
 	chat_board_get_list();
-	var objDiv = document.getElementById("comment_wrap")
-	objDiv.scrollTop = objDiv.scrollHeight;
 
-	
+	var objDiv = document.getElementById("comment_wrap");
+	objDiv.scrollTop = objDiv.scrollHeight;
 })
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
@@ -373,9 +380,9 @@ document.getElementById("comment_wrap").addEventListener("scroll",function(){
 	{
 		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
 		chat_board_get_list()
-		
 	}
 })
+
 var _el_div__sub_list_click = function(e){
 
 	var pe = e.currentTarget.children
