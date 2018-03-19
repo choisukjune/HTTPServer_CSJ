@@ -855,51 +855,45 @@ var req_detail_by__id = function( _id ){
  */
 var make_sub_list = function( cd$notebook ){
 
-	var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_sub_list.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
+
+		var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
+		window.service.Request.req_GET_data__Callback(url,function(result){
+			if(result == 0){
+				window.service.session.remove_deleteCookies()
+				location.href = "/Member/login";
+			}
+			var data = JSON.parse( result )
+
+			_el_div__sub_list.innerHTML = "";//dom 초기화;
+
+			var i = 0,iLen = data.length,io;
+			for(; i<iLen; ++i ){
+
+				io = data[ i ];
 
 
-	window.service.Request.req_GET_data__Callback(url,function(result){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "/Member/login";
-		}
-		var data = JSON.parse( result )
+// <div id="list" class="ui basic segment item bottom_line" idx="{{idx}}">
+// 	<div id="list_id" style="display : none;">{{list_id}}</div>
+// 	<b>{{title}}</b>
+// 	<div id="sub_list_date" class="pad_b_10">{{regist_date}}</div>
+// </div>
 
-		_el_div__sub_list.innerHTML = "";//dom 초기화;
+				var html_include_data = _template.replace( "{{idx}}", io._id )
+				.replace( "{{list_id}}", io._id )
+				.replace( "{{title}}", io.title )
+				.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
 
-		var i = 0,iLen = data.length,io;
-		for(; i<iLen; ++i ){
+				_el_div__sub_list.insertAdjacentHTML( 'beforeend', html_include_data );
+			}
 
-			io = data[ i ];
-			var div0 = document.createElement("div")
-				div0.setAttribute("id", "list");
-				div0.setAttribute("class", "ui basic segment item bottom_line");
-				div0.setAttribute("idx", io._id);
+			notebook_detail_data = data;
+		})
 
-			var b = document.createElement("b")
-			var b_text = document.createTextNode( io.title );
-
-			var div__id = document.createElement("div")
-				div__id.setAttribute("id", "list_id");
-				div__id.setAttribute("style", "display : none;");
-			var div__id_text = document.createTextNode( io._id )
-
-			var div1 = document.createElement("div")
-				div1.setAttribute("id", "sub_list_date");
-				div1.setAttribute("class", "pad_b_10");
-
-			var div1_text = document.createTextNode( make_Array_dateFormat( io.regist_date ) );
-
-			div__id.appendChild( div__id_text );
-			b.appendChild( b_text );
-			div1.appendChild( div1_text );
-			div0.appendChild( div__id )
-			div0.appendChild( b )
-			div0.appendChild( div1 )
-			_el_div__sub_list.appendChild( div0 )
-		}
-
-		notebook_detail_data = data;
 	})
 }
 
@@ -1095,14 +1089,12 @@ var add_doc = function(){
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
-
-		var _template = result;
-
-		//var markup = '<div><p>text here</p></div>';
+		/*
+		var markup = '<div><p>text here</p></div>';
 		var parser = new DOMParser()
 		var el = parser.parseFromString(_template, "text/xml");
-
-		_el_div__view_container.insertAdjacentHTML( 'beforeend', _template );
+		*/
+		_el_div__view_container.insertAdjacentHTML( 'beforeend', result );
 
 		//에디터 로드;
 		CKEDITOR.replace( 'contents',{

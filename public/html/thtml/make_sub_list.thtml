@@ -1,0 +1,5 @@
+<div id="list" class="ui basic segment item bottom_line" idx="{{idx}}">
+	<div id="list_id" style="display : none;">{{list_id}}</div>
+	<b>{{title}}</b>
+	<div id="sub_list_date" class="pad_b_10">{{regist_date}}</div>
+</div>
