@@ -130,6 +130,7 @@ var write_todo = function(){
 		console.log( "--등록완료--" );
 		var sendObj = {}
 		sendObj.destination = "todo"
+		sendObj.doc_cd = current_view_doc__data.cd
 		sendObj.data = result
 
 		connection.send( JSON.stringify( sendObj ) );
@@ -175,6 +176,7 @@ var write_chat = function(){
 		console.log( "--등록완료--" );
 		var sendObj = {}
 		sendObj.destination = "chat"
+		sendObj.doc_cd = current_view_doc__data.cd
 		sendObj.data = result
 
 		connection.send( JSON.stringify( sendObj ) );
