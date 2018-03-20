@@ -69,8 +69,8 @@ line-height: 1.5em !important;
 			</div>
 			<div class="sixteen wide column fixed bottom" id="">
 				<div class="ui fluid action input">
-					<input type="text" placeholder="Search...">
-					<div class="ui button">Search</div>
+					<input type="text" placeholder="Todo..." id="todo_imput">
+					<div class="ui button" id="todo_write_btn">Write</div>
 				</div>
 			</div>
 		</div>
@@ -102,7 +102,46 @@ line-height: 1.5em !important;
 </div>
 <script>
 
-var _t1 = document.getElementById( "comment_send_btn" );
+var _t2 = document.getElementById( "todo_send_btn" );
+
+/**
+ * 
+*/
+var write_todo = function(){
+
+	var htmlEntities =  function(str){
+		return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		.replace(/<span >/g, '')
+		.replace(/<\/span>/g, '')
+		.replace(/<td >/g, '<td>')
+		.replace(/&nbsp;/g, '')
+		.toString("utf8")
+	//	.replace(//g, '<td>')
+	};
+
+	var url = "/api/Todo/board/write/"
+			+ "?sid=" + window.service.cookie.getCookie('session')
+			+ "&mid=" + window.service.cookie.getCookie('mid')
+			+ "&content=" + document.getElementById( "todo_input" ).value 
+			+ "&cd$project=" + current_project__data.cd
+			+ "&cd$notebook=" + current_notebook__data.cd
+			+ "&cd$doc=" + current_view_doc__data.cd;
+
+	window.service.Request.req_GET_data__Callback(url,function( result ){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+
+		var data = JSON.parse( result );
+		console.log( data );
+		console.log( "--등록완료--" );
+
+		connection.send( result );
+		document.getElementById( "comment_textarea" ).value = "";
+	})
+}
 
 /**
  * 
@@ -145,6 +184,7 @@ var write_chat = function(){
 }
 
 _t1.addEventListener("click",write_chat);
+_t2.addEventListener("click",write_todo);
 
 </script>
 <div class="pusher" style="overflow-y : hidden;">
