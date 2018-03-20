@@ -55,15 +55,36 @@ line-height: 1.5em !important;
 	<div class="item" style="padding : 0px !important">
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="todo_sidebar_header">ToDo</div>
-			<div class="sixteen wide column" id="todo_wrap" style="background-color : #fff;;min-height : 717px;max-height : 717px;overflow-y : auto;">
+			<div class="sixteen wide column" id="todo_wrap" style="background-color : #fff;;min-height : 677px;max-height : 677px;overflow-y : auto;">
 				<div class="ui divided items" id="todo_container">
 
 				</div>
 			</div>
 			<div class="sixteen wide column fixed bottom" id="">
 				<div class="ui form">
-						<input class="ui fluid input" type="text" placeholder="Todo..." id="todo_inputdddd">
-					
+					<div class="field">
+						<select multiple="" name="skills" class="ui fluid normal dropdown">
+							<option value="">Skills</option>	
+							<option value="angular">Angular</option>
+							<option value="css">CSS</option>
+							<option value="design">Graphic Design</option>
+							<option value="ember">Ember</option>
+							<option value="html">HTML</option>
+							<option value="ia">Information Architecture</option>
+							<option value="javascript">Javascript</option>
+							<option value="mech">Mechanical Engineering</option>
+							<option value="meteor">Meteor</option>
+							<option value="node">NodeJS</option>
+							<option value="plumbing">Plumbing</option>
+							<option value="python">Python</option>
+							<option value="rails">Rails</option>
+							<option value="react">React</option>
+							<option value="repair">Kitchen Repair</option>
+							<option value="ruby">Ruby</option>
+							<option value="ui">UI Design</option>
+							<option value="ux">User Experience</option>
+						</select>
+					</div>
 					<div class="field">
 						<input class="ui fluid input" type="text" placeholder="Todo..." id="todo_input">
 					</div>
