@@ -106,6 +106,13 @@ var _t1 = document.getElementById( "comment_send_btn" );
 var _t2 = document.getElementById( "todo_write_btn" );
 
 /**
+ * 채팅사이드바의 채팅리스트를 그린다.
+*/
+var render_todo_data = function( arr ){
+
+};
+
+/**
  * 
 */
 var write_todo = function(){
@@ -128,8 +135,24 @@ var write_todo = function(){
 		console.log( data );
 		console.log( "--등록완료--" );
 
-		connection.send( result );
-		document.getElementById( "comment_textarea" ).value = "";
+		var _el = document.getElementById("todo_container");
+
+		var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
+		window.service.Request.req_GET_data__Callback(url1,function(result){
+			if(result == 0) window.service.session.remove_deleteCookies_location_login();
+			
+			var _template = result;
+
+			var html_include_data = _template.replace( "{{content}}", result.content )
+			// .replace( "{{author}}", io.member.nm )
+			// .replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+			// .replace( "{{content}}", broadcast_msg );
+
+			_el.insertAdjacentHTML( 'beforeend', html_include_data );
+		});
+
+
+		document.getElementById( "todo_input" ).value = "";
 	})
 }
 
