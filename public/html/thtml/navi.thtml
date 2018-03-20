@@ -56,15 +56,8 @@ line-height: 1.5em !important;
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="todo_sidebar_header">ToDo</div>
 			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 850px;max-height : 850px;overflow-y : auto;"">
-				<div class="ui form">
-					<div class="grouped fields" id="todo_container">
-						<div class="field">
-							<div class="ui checkbox">
-								<input type="checkbox" name="todo_list" checked="">
-								<label></label>
-							</div>
-						</div>
-					</div>
+				<div class="ui divided items">
+
 				</div>
 			</div>
 			<div class="sixteen wide column fixed bottom" id="">

@@ -1,22 +1,21 @@
-<div class="field">
-	  <div class="ui grid">
-		<div class="left floated left aligned nine wide column">
-			<item>
-				<div class="middle aligned content">
-					<div class="ui basic segment">{{content}}</div>
+<div class="item">
+		<!--div class="image">
+		<img src="/images/wireframe/image.png">
+		</div-->
+		<div class="content">
+			<a class="header">{{content}}</a>
+			<div class="meta">
+				<span class="cinema">IFC Cinema</span>
+			</div>
+			<div class="description">
+				<p></p>
+			</div>
+			<div class="extra">
+				<div class="ui right floated primary button">
+				Buy tickets
+				<i class="right chevron icon"></i>
 				</div>
-			</item>
-		</div>
-		<div class="right floated right aligned seven wide column">
-			<div class="ui basic segment">
-				<button class="mini ui button">Mini</button>
-				<button class="mini ui button">Mini</button>
+				<div class="ui label">Limited</div>
 			</div>
 		</div>
-		<div class="sixteen wide column">
-		  <div class="ui segment">
-			Right Aligned Grid
-		  </div>
-		</div>
-	  </div>
-</div>
+	</div>
