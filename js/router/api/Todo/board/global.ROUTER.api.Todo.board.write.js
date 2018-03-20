@@ -49,6 +49,8 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 
 					//------------------------------;
 					var db0 = db.db('todo');
+					var db1 = db.db('member');
+
 					db0.collection("board").find({}).sort({_id : -1}).limit(1).toArray(function(err,result){
 
 
@@ -60,11 +62,30 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 						db0.collection("board").count({ cd$doc : _q.cd$doc },function(err,count){
 
 							doc.cd = _q.cd$doc + "-TODO" + count;
+							db1.collection("member_basic").find({id : _q.mid}).toArray(function(err,result){
+								if( err ) console.log( err )
 
-							db0.collection("board").insert(doc,function(err, result){
-								console.log( result )
-								global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
-								db.close();
+								/*
+								{
+									"_id" : 0,
+									"id" : "csj6311@naver.com",
+									"pwd" : "a",
+									"first_Nm" : "Choi",
+									"last_Nm" : "Sukjune",
+									"sid" : "655d451b83494e91b269506c87087bb5f1e4c7f0cc206fb114dcc63f8371fd4d"
+								}
+								*/
+
+								var member_info = result[ 0 ];
+								console.log( member_info )
+								doc.member._id = Long( member_info._id ).toInt();
+								doc.member.nm = member_info.first_Nm + " " + member_info.last_Nm;
+								doc.member.image = member_info.image;
+								
+								db0.collection("board").insert(doc,function(err, result){
+									global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
+									db.close();
+								});
 							});
 						});
 					});
