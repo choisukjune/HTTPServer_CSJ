@@ -566,8 +566,8 @@ var todo_board_get_list = function(){
 
 var url = "/api/Todo/board/get_list?sid=" + window.service.cookie.getCookie('session') 
 		+ "&cd$doc=" + current_view_doc__data.cd
-		+ "&limit=" + current_note_chat__data[ current_view_doc__data.cd ].limit
-		+ "&skip=" + current_note_chat__data[ current_view_doc__data.cd ].skip;
+		+ "&limit=" + current_note_todo__data[ current_view_doc__data.cd ].limit
+		+ "&skip=" + current_note_todo__data[ current_view_doc__data.cd ].skip;
 
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login()
