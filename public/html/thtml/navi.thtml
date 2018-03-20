@@ -64,27 +64,36 @@ line-height: 1.5em !important;
 
 				<div class="ui form">
 					<div class="field">
-						<!-- <select multiple="" name="skills" class="ui fluid normal dropdown" id="multi-select">
-							<option value="">Skills</option>	
-							<option value="angular">Angular</option>
-							<option value="css">CSS</option>
-							<option value="design">Graphic Design</option>
-							<option value="ember">Ember</option>
-							<option value="html">HTML</option>
-							<option value="ia">Information Architecture</option>
-							<option value="javascript">Javascript</option>
-							<option value="mech">Mechanical Engineering</option>
-							<option value="meteor">Meteor</option>
-							<option value="node">NodeJS</option>
-							<option value="plumbing">Plumbing</option>
-							<option value="python">Python</option>
-							<option value="rails">Rails</option>
-							<option value="react">React</option>
-							<option value="repair">Kitchen Repair</option>
-							<option value="ruby">Ruby</option>
-							<option value="ui">UI Design</option>
-							<option value="ux">User Experience</option>
-						</select> -->
+							<div class="ui fluid multiple search selection dropdown">
+									<input type="hidden" name="receipt">
+									<i class="dropdown icon"></i>
+									<div class="default text">Saved Contacts</div>
+									<div class="menu">
+									  <div class="item" data-value="jenny" data-text="Jenny">
+										<img class="ui mini avatar image" src="/images/avatar/small/jenny.jpg">
+										Jenny Hess
+									  </div>
+									  <div class="item" data-value="elliot" data-text="Elliot">
+										<img class="ui mini avatar image" src="/images/avatar/small/elliot.jpg">
+										Elliot Fu
+									  </div>
+									  <div class="item" data-value="stevie" data-text="Stevie">
+										<img class="ui mini avatar image" src="/images/avatar/small/stevie.jpg">
+										Stevie Feliciano
+									  </div>
+									  <div class="item" data-value="christian" data-text="Christian">
+										<img class="ui mini avatar image" src="/images/avatar/small/christian.jpg">
+										Christian
+									  </div>
+									  <div class="item" data-value="matt" data-text="Matt">
+										<img class="ui mini avatar image" src="/images/avatar/small/matt.jpg">
+										Matt
+									  </div>
+									  <div class="item" data-value="justen" data-text="Justen">
+										<img class="ui mini avatar image" src="/images/avatar/small/justen.jpg">
+										Justen Kitsune
+									  </div>
+									</div>
 					</div>
 					<div class="field">
 						<input class="ui fluid input" type="text" placeholder="Todo..." id="todo_input">
