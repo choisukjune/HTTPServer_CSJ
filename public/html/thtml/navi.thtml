@@ -94,6 +94,7 @@ line-height: 1.5em !important;
 										Justen Kitsune
 									  </div>
 									</div>
+							</div>
 					</div>
 					<div class="field">
 						<input class="ui fluid input" type="text" placeholder="Todo..." id="todo_input">
@@ -135,7 +136,7 @@ line-height: 1.5em !important;
 </div>
 <script>
 
-$('#multi-select')
+$('.ui fluid multiple search selection dropdown')
   .dropdown()
 ;
 
