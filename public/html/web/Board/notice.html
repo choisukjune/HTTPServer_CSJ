@@ -548,11 +548,11 @@ var render_todo_data = function( arr ){
 		for(;i<iLen;++i)
 		{
 			io = arr[ i ];
-			var html_include_data = _template.replace( "{{content}}", io.title )
+			var html_include_data = _template.replace( "{{title}}", io.title )
 			.replace( "{{image_url}}", io.member.image )
 			.replace( "{{memberNm}}", io.member.nm )
 			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
-			.replace( "{{regist_date}}", io.content )
+			.replace( "{{content}}", io.content )
 			//a.replace( "{{content}}", broadcast_msg );
 
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );

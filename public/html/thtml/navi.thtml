@@ -135,11 +135,11 @@ var write_todo = function(){
 			
 			var _template = result;
 
-			var html_include_data = _template.replace( "{{content}}", io.title )
-			.replace( "{{image_url}}", io.member.image )
-			.replace( "{{memberNm}}", io.member.nm )
-			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
-			.replace( "{{regist_date}}", io.content )
+			var html_include_data = _template.replace( "{{title}}", data.title )
+			.replace( "{{image_url}}", data.member.image )
+			.replace( "{{memberNm}}", data.member.nm )
+			.replace( "{{regist_date}}", make_Array_dateFormat( data.regist_date ) )
+			.replace( "{{content}}", data.content )
 
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		});
