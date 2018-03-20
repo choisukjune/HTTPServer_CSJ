@@ -62,7 +62,7 @@ var recive_msg_render_board_chat = function(recieve_message){
 
 		_el.insertAdjacentHTML( 'beforeend', html_include_data );
 
-		var objDiv = document.getElementById("todo_wrap")
+		var objDiv = document.getElementById("comment_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});
 }
@@ -77,15 +77,15 @@ var recive_msg_render_board_todo = function( recieve_message ){
 		
 		var _template = result;
 
-		var html_include_data = _template.replace( "{{title}}", data.title )
-		.replace( "{{image_url}}", data.member.image )
-		.replace( "{{memberNm}}", data.member.nm )
-		.replace( "{{regist_date}}", make_Array_dateFormat( data.regist_date ) )
-		.replace( "{{content}}", data.content )
+		var html_include_data = _template.replace( "{{title}}", recieve_message.title )
+		.replace( "{{image_url}}", recieve_message.member.image )
+		.replace( "{{memberNm}}", recieve_message.member.nm )
+		.replace( "{{regist_date}}", make_Array_dateFormat( recieve_message.regist_date ) )
+		.replace( "{{content}}", recieve_message.content )
 
 		_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		
-		var objDiv = document.getElementById("comment_wrap")
+		var objDiv = document.getElementById("todo_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});
 }
