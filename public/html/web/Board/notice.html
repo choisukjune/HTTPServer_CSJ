@@ -617,6 +617,11 @@ var url = "/api/Todo/board/get_list?sid=" + window.service.cookie.getCookie('ses
 		var data = JSON.parse( result );
 		
 		render_todo_data( data );
+		var objDiv = document.getElementById("todo_container")
+		var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+
+		objDiv.scrollTop =  cur_objDiv_scrollHeight;
+		pre_objDiv_scrollHeight = objDiv.scrollHeight;
 
 		current_note_todo__data[ current_view_doc__data.cd ].data.push( data );
 	})
