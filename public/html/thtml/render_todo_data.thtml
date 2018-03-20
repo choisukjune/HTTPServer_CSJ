@@ -1,6 +1,6 @@
 <div class="field">
 	<h2 class="ui sub header">
-		Price
+		{{content}}
 	  </h2>
 	  <span>$10.99</span>
 </div>
