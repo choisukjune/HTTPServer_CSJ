@@ -5,7 +5,7 @@
 			<div class="ui basic segment">{{content}}</div>
 		</div>
 		<div class="right floated right aligned six wide column">
-			<div class="left floated left aligned ten wide column"></div>
+			<div class="left floated left aligned ten wide column">
 				<button class="mini ui button">Mini</button>
 				<button class="mini ui button">Mini</button>
 			</div>
