@@ -1,21 +1,21 @@
 <div class="item">
-		<!--div class="image">
-		<img src="/images/wireframe/image.png">
-		</div-->
-		<div class="content">
-			<a class="header">{{content}}</a>
-			<div class="meta">
-				<span class="cinema">IFC Cinema</span>
+	<!--div class="image">
+	<img src="/images/wireframe/image.png">
+	</div-->
+	<div class="content">
+		<a class="header">{{content}}</a>
+		<div class="meta">
+			<span class="cinema">IFC Cinema</span>
+		</div>
+		<div class="description">
+			<p></p>
+		</div>
+		<div class="extra">
+			<div class="ui right floated primary button">
+			Buy tickets
+			<i class="right chevron icon"></i>
 			</div>
-			<div class="description">
-				<p></p>
-			</div>
-			<div class="extra">
-				<div class="ui right floated primary button">
-				Buy tickets
-				<i class="right chevron icon"></i>
-				</div>
-				<div class="ui label">Limited</div>
-			</div>
+			<div class="ui label">Limited</div>
 		</div>
 	</div>
+</div>
