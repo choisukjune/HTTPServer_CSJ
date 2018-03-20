@@ -375,7 +375,7 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
 
 	_el_removeChild( document.getElementById("comment_container") );
-	document.getElementById("comment_wrap").setAttribute("style","background-color : #fff;;min-height : 769px;max-height : 769px;overflow-y : auto;")
+	document.getElementById("comment_wrap").setAttribute("style","background-color : #fff;;min-height : 769px;max-height : 769px; height:769px;overflow-y : auto;")
 	pre_objDiv_scrollHeight = 0
 	
 	chat_board_get_list();
@@ -391,7 +391,7 @@ document.getElementById("test_sidebar1").addEventListener("click",function(){
 	current_note_todo__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
 
 	_el_removeChild( document.getElementById("todo_container") );
-	document.getElementById("todo_wrap").setAttribute("style","background-color : #fff;;min-height : 717px;max-height : 717px;overflow-y : auto;")
+	document.getElementById("todo_wrap").setAttribute("style","background-color : #fff;;min-height : 717px;max-height : 717px;height :717px;overflow-y : auto;")
 	pre_objDiv_scrollHeight = 0
 
 	todo_board_get_list();
