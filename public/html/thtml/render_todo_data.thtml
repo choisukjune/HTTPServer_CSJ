@@ -8,12 +8,16 @@
 			<span class="cinema">IFC Cinema</span>
 		</div>
 		<div class="description">
-			<p></p>
+			<p>sdfgsdfgsdfgsdfgsdfgsdfgd</p>
 		</div>
 		<div class="extra">
-			<div class="ui right floated primary button">
-			Buy tickets
-			<i class="right chevron icon"></i>
+			<div class="ui right floated primary mini button">
+			buttonA
+			<!-- <i class="right chevron icon"></i> -->
+			</div>
+			<div class="ui right floated primary mini button">
+			buttonB
+			<!-- <i class="right chevron icon"></i> -->
 			</div>
 			<div class="ui label">Limited</div>
 		</div>
