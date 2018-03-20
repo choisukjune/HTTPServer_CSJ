@@ -6,13 +6,13 @@
 		<div class="image">
 			<img class="right floated mini ui image" src="{{image_url}}">
 		</div>
-		<a class="header">{{content}}</a>
+		<a class="header">{{title}}</a>
 		<div class="meta">
 			<span class="">{{memberNm}}</span>
 			<span class="">{{regist_date}}</span>
 		</div>
 		<div class="description">
-			<p>sdfgsdfgsdfgsdfgsdfgsdfgd</p>
+			{{content}}
 		</div>
 		<div class="extra">
 			<div class="ui right floated green mini button">

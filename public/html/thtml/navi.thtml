@@ -55,7 +55,7 @@ line-height: 1.5em !important;
 	<div class="item" style="padding : 0px !important">
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="todo_sidebar_header">ToDo</div>
-			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 850px;max-height : 850px;overflow-y : auto;"">
+			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 850px;max-height : 810px;overflow-y : auto;"">
 				<div class="ui divided items" id="todo_container">
 
 				</div>
@@ -63,7 +63,11 @@ line-height: 1.5em !important;
 			<div class="sixteen wide column fixed bottom" id="">
 				<div class="ui fluid action input">
 					<input type="text" placeholder="Todo..." id="todo_input">
+				</div>
+				<div class="field">
 					<textarea rows="2" id="todo_textarea"></textarea>
+				</div>
+				<div class="field">
 					<div class="ui button" id="todo_write_btn">Write</div>
 				</div>
 			</div>
@@ -131,10 +135,11 @@ var write_todo = function(){
 			
 			var _template = result;
 
-			var html_include_data = _template.replace( "{{content}}", data.content )
-			// .replace( "{{author}}", io.member.nm )
-			// .replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
-			// .replace( "{{content}}", broadcast_msg );
+			var html_include_data = _template.replace( "{{content}}", io.title )
+			.replace( "{{image_url}}", io.member.image )
+			.replace( "{{memberNm}}", io.member.nm )
+			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+			.replace( "{{regist_date}}", io.content )
 
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		});
