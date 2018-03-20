@@ -110,18 +110,7 @@ var _t2 = document.getElementById( "todo_write_btn" );
 */
 var write_todo = function(){
 
-	var htmlEntities =  function(str){
-		return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
-		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
-		.replace(/<span >/g, '')
-		.replace(/<\/span>/g, '')
-		.replace(/<td >/g, '<td>')
-		.replace(/&nbsp;/g, '')
-		.toString("utf8")
-	//	.replace(//g, '<td>')
-	};
-
-	var url = "/api/Todo/board/write/"
+	var url = "/api/Todo/board/write"
 			+ "?sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
 			+ "&content=" + document.getElementById( "todo_input" ).value 
