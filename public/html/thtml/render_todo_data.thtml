@@ -6,7 +6,7 @@
 		<a class="header">{{content}}</a>
 		<div class="meta">
 			<div class="image">
-				<img class="right floated mini ui image" src="https://semantic-ui.com/images/avatar/small/joe.jpg">
+				<img class="mini ui image" src="https://semantic-ui.com/images/avatar/small/joe.jpg">
 			</div>
 			<span class="">IFC Cinema</span>
 			<span class="">IFC Cinema</span>
