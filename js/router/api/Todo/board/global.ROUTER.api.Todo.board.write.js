@@ -42,6 +42,7 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 						, cd$project : _q.cd$project
 						, cd$notebook : _q.cd$notebook
 						, cd$doc : _q.cd$doc
+						, title : _q.title
 						, content : _q.content
 						, regist_date : r
 						, delete_date : null

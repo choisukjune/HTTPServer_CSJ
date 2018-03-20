@@ -63,6 +63,7 @@ line-height: 1.5em !important;
 			<div class="sixteen wide column fixed bottom" id="">
 				<div class="ui fluid action input">
 					<input type="text" placeholder="Todo..." id="todo_input">
+					<textarea rows="2" id="todo_textarea"></textarea>
 					<div class="ui button" id="todo_write_btn">Write</div>
 				</div>
 			</div>
@@ -106,7 +107,8 @@ var write_todo = function(){
 	var url = "/api/Todo/board/write"
 			+ "?sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&content=" + document.getElementById( "todo_input" ).value 
+			+ "&title=" + document.getElementById( "todo_input" ).value 
+			+ "&content=" + document.getElementById( "todo_textarea" ).value 
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd
 			+ "&cd$doc=" + current_view_doc__data.cd;
