@@ -539,7 +539,7 @@ var render_chat_data = function( arr, cbFunction ){
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		}
 
-		cbFunction
+		cbFunction();
 	});
 };
 
@@ -570,7 +570,7 @@ var render_todo_data = function( arr, cbFunction ){
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		}
 
-		cbFunction
+		cbFunction();
 	});
 };
 
