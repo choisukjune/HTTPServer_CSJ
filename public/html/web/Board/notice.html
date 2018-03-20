@@ -598,7 +598,7 @@ var chat_board_get_list = function(){
 		
 		render_chat_data( data, function(){
 			
-			var objDiv = document.getElementById("comment_container")
+			var objDiv = document.getElementById("comment_wrap")
 			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 
 			objDiv.scrollTop =  cur_objDiv_scrollHeight;
