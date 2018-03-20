@@ -69,7 +69,7 @@ line-height: 1.5em !important;
 			</div>
 			<div class="sixteen wide column fixed bottom" id="">
 				<div class="ui fluid action input">
-					<input type="text" placeholder="Todo..." id="todo_imput">
+					<input type="text" placeholder="Todo..." id="todo_input">
 					<div class="ui button" id="todo_write_btn">Write</div>
 				</div>
 			</div>
