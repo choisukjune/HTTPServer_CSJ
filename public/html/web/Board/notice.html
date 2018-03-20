@@ -372,11 +372,11 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show", function(){
 
-		current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
+	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
 
-		_el_removeChild( document.getElementById("comment_container") );
+	_el_removeChild( document.getElementById("comment_container") );
 
-		chat_board_get_list();
+	chat_board_get_list();
 
 	})
 })
@@ -499,7 +499,7 @@ var make_Array_dateFormat = function( arr ){
 /**
  * 채팅사이드바의 채팅리스트를 그린다.
 */
-var render_chat_data = function( arr ){
+var render_chat_data = function( arr, cbFunction ){
 	var _el = document.getElementById("comment_container");
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
@@ -539,9 +539,7 @@ var render_chat_data = function( arr ){
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		}
 
-		
-		var objDiv = document.getElementById("comment_wrap");
-		objDiv.scrollTop = objDiv.scrollHeight;
+		cbFunction
 	});
 };
 
@@ -549,7 +547,7 @@ var render_chat_data = function( arr ){
 /**
  * 채팅사이드바의 채팅리스트를 그린다.
 */
-var render_todo_data = function( arr ){
+var render_todo_data = function( arr, cbFunction ){
 	var _el = document.getElementById("todo_container");
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
@@ -572,8 +570,7 @@ var render_todo_data = function( arr ){
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		}
 
-		var objDiv = document.getElementById("todo_wrap");
-		objDiv.scrollTop = objDiv.scrollHeight;
+		cbFunction
 	});
 };
 
@@ -593,7 +590,11 @@ var chat_board_get_list = function(){
 
 		var data = JSON.parse( result );
 		
-		render_chat_data( data );
+		render_chat_data( data, function(){
+			
+			var objDiv = document.getElementById("comment_wrap");
+				objDiv.scrollTop = objDiv.scrollHeight;
+		} );
 
 		var objDiv = document.getElementById("comment_container")
 		var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
@@ -621,7 +622,11 @@ var url = "/api/Todo/board/get_list?sid=" + window.service.cookie.getCookie('ses
 
 		var data = JSON.parse( result );
 		
-		render_todo_data( data );
+		render_todo_data( data, function(){
+			
+			var objDiv = document.getElementById("todo_wrap");
+				objDiv.scrollTop = objDiv.scrollHeight;
+		} );;
 		var objDiv = document.getElementById("todo_container")
 		var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 
