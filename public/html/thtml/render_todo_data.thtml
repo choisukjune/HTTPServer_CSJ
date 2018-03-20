@@ -1,6 +1,6 @@
 <div class="field">
-	<div class="ui checkbox">
-		<input type="checkbox" name="todo_list" checked="">
-		<label>{{content}}</label>
-	</div>
+	<h2 class="ui sub header">
+		Price
+	  </h2>
+	  <span>$10.99</span>
 </div>
