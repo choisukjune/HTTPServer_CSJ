@@ -136,7 +136,7 @@ var write_todo = function(){
 			
 			var _template = result;
 
-			var html_include_data = _template.replace( "{{content}}", result.content )
+			var html_include_data = _template.replace( "{{content}}", data.content )
 			// .replace( "{{author}}", io.member.nm )
 			// .replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
 			// .replace( "{{content}}", broadcast_msg );
