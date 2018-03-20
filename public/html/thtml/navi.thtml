@@ -124,6 +124,12 @@ line-height: 1.5em !important;
 	</div>
 </div>
 <script>
+$('.ui.dropdown')
+  .dropdown({
+    maxSelections: 3
+  })
+;
+
 
 var _t1 = document.getElementById( "comment_send_btn" );
 var _t2 = document.getElementById( "todo_write_btn" );
