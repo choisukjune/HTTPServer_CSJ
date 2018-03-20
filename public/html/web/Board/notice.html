@@ -382,6 +382,13 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	})
 })
 
+$('.sidebar')
+  .sidebar({
+    onHide: function() {
+      console.log('on hidden');
+    }
+});
+
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
 		
@@ -389,10 +396,16 @@ document.getElementById("test_sidebar1").addEventListener("click",function(){
 
 	_el_removeChild( document.getElementById("todo_container") );
 	pre_objDiv_scrollHeight = 0
-	
+
 	todo_board_get_list();
 
 	})
+	$('.ui.right.sidebar.todo_sidebar')
+  .sidebar({
+    onHide: function() {
+      console.log('on hidden');
+    }
+});
 })
 
 document.getElementById("comment_wrap").addEventListener("scroll",function(){
