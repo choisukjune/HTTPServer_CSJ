@@ -61,14 +61,16 @@ line-height: 1.5em !important;
 				</div>
 			</div>
 			<div class="sixteen wide column fixed bottom" id="">
-				<div class="ui fluid action input">
-					<input type="text" placeholder="Todo..." id="todo_input">
-				</div>
-				<div class="field">
-					<textarea rows="2" id="todo_textarea"></textarea>
-				</div>
-				<div class="field">
-					<div class="ui button" id="todo_write_btn">Write</div>
+				<div class="ui form">
+					<div class="field">
+						<input class="ui fluid input" type="text" placeholder="Todo..." id="todo_input">
+					</div>
+					<div class="field">
+						<textarea rows="2" id="todo_textarea"></textarea>
+					</div>
+					<div class="field">
+						<button class="ui button fluid" id="todo_write_btn">send</button>
+					</div>
 				</div>
 			</div>
 		</div>
