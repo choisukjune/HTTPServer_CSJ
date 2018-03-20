@@ -375,19 +375,17 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
 
 	_el_removeChild( document.getElementById("comment_container") );
-	pre_objDiv_scrollHeight = 0
 	
 	chat_board_get_list();
 
 	})
-})
 
-$('.sidebar')
-  .sidebar({
-    onHide: function() {
-      console.log('on hidden');
-    }
-});
+	$('.ui.right.sidebar.comment_sidebar').sidebar({
+    	onHide: function() {
+			pre_objDiv_scrollHeight = 0
+    	}
+	});
+})
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
@@ -395,17 +393,17 @@ document.getElementById("test_sidebar1").addEventListener("click",function(){
 	current_note_todo__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
 
 	_el_removeChild( document.getElementById("todo_container") );
-	pre_objDiv_scrollHeight = 0
+	
 
 	todo_board_get_list();
 
 	})
-	$('.ui.right.sidebar.todo_sidebar')
-  .sidebar({
-    onHide: function() {
-      console.log('on hidden');
-    }
-});
+
+	$('.ui.right.sidebar.todo_sidebar').sidebar({
+    	onHide: function() {
+			pre_objDiv_scrollHeight = 0
+    	}
+	});
 })
 
 document.getElementById("comment_wrap").addEventListener("scroll",function(){
