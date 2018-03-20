@@ -3,14 +3,13 @@
 	<img src="/images/wireframe/image.png">
 	</div-->
 	<div class="content">
-			<div class="image">
-					<img class="right floated mini ui image" src="https://semantic-ui.com/images/avatar/small/joe.jpg">
-					<img class="right floated mini ui image" src="https://semantic-ui.com/images/avatar/small/joe.jpg">
-				</div>
+		<div class="image">
+			<img class="right floated mini ui image" src="{{image_url}}">
+		</div>
 		<a class="header">{{content}}</a>
 		<div class="meta">
-			<span class="">IFC Cinema</span>
-			<span class="">IFC Cinema</span>
+			<span class="">{{memberNm}}</span>
+			<span class="">{{regist_date}}</span>
 		</div>
 		<div class="description">
 			<p>sdfgsdfgsdfgsdfgsdfgsdfgd</p>
