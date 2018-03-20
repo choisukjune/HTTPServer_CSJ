@@ -6,17 +6,19 @@
 		<a class="header">{{content}}</a>
 		<div class="meta">
 			<span class="cinema">IFC Cinema</span>
+			<span class="cinema">IFC Cinema</span>
+			<span class="cinema">IFC Cinema</span>
 		</div>
 		<div class="description">
 			<p>sdfgsdfgsdfgsdfgsdfgsdfgd</p>
 		</div>
 		<div class="extra">
-			<div class="ui right floated primary mini button">
-			buttonA
+			<div class="ui right floated green mini button">
+			Done
 			<!-- <i class="right chevron icon"></i> -->
 			</div>
-			<div class="ui right floated primary mini button">
-			buttonB
+			<div class="ui right floated red mini button">
+			Delete
 			<!-- <i class="right chevron icon"></i> -->
 			</div>
 			<div class="ui label">Limited</div>
