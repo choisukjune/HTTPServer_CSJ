@@ -101,11 +101,11 @@ if( window.service.cookie.getCookie('mid') ){
 	connection.addEventListener('error',function(){ debugger; })
 	connection.addEventListener('message',function( message ){
 		console.log( message )
-		var _tmp0 = JSON.parse( message.data.data )
+		var _tmp0 = JSON.parse( message.data )
 		var recieve_message = JSON.parse( _tmp0.utf8Data )
 
-		if(_tmp0.destination == "todo" ) recive_msg_render_board_todo( recieve_message )
-		else recive_msg_render_board_chat( recieve_message )
+		if(recieve_message.destination == "todo" ) recive_msg_render_board_todo( recieve_message.data )
+		else recive_msg_render_board_chat( recieve_message.data )
 	})
 }
 

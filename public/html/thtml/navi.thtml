@@ -132,7 +132,7 @@ var write_todo = function(){
 		sendObj.destination = "todo"
 		sendObj.data = result
 
-		connection.send( sendObj );
+		connection.send( JSON.stringify( sendObj ) );
 
 		document.getElementById( "todo_input" ).value = "";
 		document.getElementById( "todo_textarea" ).value = "";
@@ -177,7 +177,7 @@ var write_chat = function(){
 		sendObj.destination = "chat"
 		sendObj.data = result
 
-		connection.send( sendObj );
+		connection.send( JSON.stringify( sendObj ) );
 		document.getElementById( "comment_textarea" ).value = "";
 	})
 }
