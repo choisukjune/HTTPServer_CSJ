@@ -106,13 +106,6 @@ var _t1 = document.getElementById( "comment_send_btn" );
 var _t2 = document.getElementById( "todo_write_btn" );
 
 /**
- * 채팅사이드바의 채팅리스트를 그린다.
-*/
-var render_todo_data = function( arr ){
-
-};
-
-/**
  * 
 */
 var write_todo = function(){
