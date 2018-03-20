@@ -55,7 +55,7 @@ line-height: 1.5em !important;
 	<div class="item" style="padding : 0px !important">
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="todo_sidebar_header">ToDo</div>
-			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 720px;max-height : 720px;overflow-y : auto;"">
+			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 717px;max-height : 717px;overflow-y : auto;"">
 				<div class="ui divided items" id="todo_container">
 
 				</div>
