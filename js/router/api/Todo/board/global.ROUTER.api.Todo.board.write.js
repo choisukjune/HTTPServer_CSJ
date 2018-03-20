@@ -31,7 +31,7 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 					var doc = {
 						_id : -1
 						, _d : Long( 1 ).toInt()
-						, bDone : Long( -1 ).toInt()
+						, bDone : Long( 0 ).toInt()
 						, member : {
 							_id : -1
 							, mid : _q.mid
@@ -81,7 +81,7 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 								doc.member._id = Long( member_info._id ).toInt();
 								doc.member.nm = member_info.first_Nm + " " + member_info.last_Nm;
 								doc.member.image = member_info.image;
-								
+
 								db0.collection("board").insert(doc,function(err, result){
 									global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ));
 									db.close();

@@ -293,6 +293,7 @@ var current_view_doc__data = {};
 var current_project__data = {};
 var current_notebook__data = {};
 var current_note_chat__data = {};
+var current_note_todo__data = {};
 
 var pre_objDiv_scrollHeight = 0;
 //------------------------------_el;
@@ -383,6 +384,12 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show" )
+	
+	current_note_todo__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
+
+	_el_removeChild( document.getElementById("todo_container") );
+		
+	todo_board_get_list();
 })
 
 document.getElementById("comment_wrap").addEventListener("scroll",function(){
@@ -548,6 +555,28 @@ var chat_board_get_list = function(){
 		pre_objDiv_scrollHeight = objDiv.scrollHeight;
 
 		current_note_chat__data[ current_view_doc__data.cd ].data.push( data );
+	})
+}
+
+
+/**
+ * 각문서의 채팅리스트를 가져온다
+*/
+var todo_board_get_list = function(){
+
+var url = "/api/Todo/board/get_list?sid=" + window.service.cookie.getCookie('session') 
+		+ "&cd$doc=" + current_view_doc__data.cd
+		+ "&limit=" + current_note_chat__data[ current_view_doc__data.cd ].limit
+		+ "&skip=" + current_note_chat__data[ current_view_doc__data.cd ].skip;
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login()
+
+		var data = JSON.parse( result );
+		
+console.log( data )
+
+		current_note_todo__data[ current_view_doc__data.cd ].data.push( data );
 	})
 }
 
