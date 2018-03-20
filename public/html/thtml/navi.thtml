@@ -63,7 +63,7 @@ line-height: 1.5em !important;
 			<div class="sixteen wide column fixed bottom" id="">
 				<div class="ui form">
 					<div class="field">
-						<select multiple="" name="skills" class="ui fluid normal dropdown" id="multi-select">
+						<!-- <select multiple="" name="skills" class="ui fluid normal dropdown" id="multi-select">
 							<option value="">Skills</option>	
 							<option value="angular">Angular</option>
 							<option value="css">CSS</option>
@@ -83,7 +83,7 @@ line-height: 1.5em !important;
 							<option value="ruby">Ruby</option>
 							<option value="ui">UI Design</option>
 							<option value="ux">User Experience</option>
-						</select>
+						</select> -->
 					</div>
 					<div class="field">
 						<input class="ui fluid input" type="text" placeholder="Todo..." id="todo_input">
