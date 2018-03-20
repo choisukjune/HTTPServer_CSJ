@@ -390,6 +390,9 @@ document.getElementById("test_sidebar1").addEventListener("click",function(){
 	_el_removeChild( document.getElementById("todo_container") );
 		
 	todo_board_get_list();
+
+	var objDiv = document.getElementById("todo_wrap");
+	objDiv.scrollTop = objDiv.scrollHeight;
 })
 
 document.getElementById("comment_wrap").addEventListener("scroll",function(){
@@ -398,6 +401,15 @@ document.getElementById("comment_wrap").addEventListener("scroll",function(){
 	{
 		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
 		chat_board_get_list()
+	}
+})
+
+document.getElementById("todo_wrap").addEventListener("scroll",function(){
+	var todo_wrap = document.getElementById("todo_wrap");
+	if( todo_wrap.scrollTop == 0 )
+	{
+		current_note_todo__data[ current_view_doc__data.cd ].skip += 20
+		todo_board_get_list()
 	}
 })
 
