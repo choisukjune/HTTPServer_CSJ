@@ -104,7 +104,7 @@ if( window.service.cookie.getCookie('mid') ){
 		var _tmp0 = JSON.parse( message.data )
 		var recieve_message = JSON.parse( _tmp0.utf8Data )
 
-		var renderData = JSON.parse( recieve_message )
+		var renderData = JSON.parse( recieve_message.data )
 		if(recieve_message.destination == "todo" ) recive_msg_render_board_todo( renderData )
 		else recive_msg_render_board_chat( renderData )
 	})
