@@ -592,7 +592,7 @@ var chat_board_get_list = function(){
 		
 		render_chat_data( data, function(){
 			
-			var objDiv = document.getElementById("todo_container")
+			var objDiv = document.getElementById("comment_container")
 			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 
 			objDiv.scrollTop =  cur_objDiv_scrollHeight;
@@ -624,12 +624,11 @@ var url = "/api/Todo/board/get_list?sid=" + window.service.cookie.getCookie('ses
 		render_todo_data( data, function(){
 			
 			var objDiv = document.getElementById("todo_wrap");
-			var objDiv = document.getElementById("comment_container")
 			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 
 			objDiv.scrollTop =  cur_objDiv_scrollHeight;
 			pre_objDiv_scrollHeight = objDiv.scrollHeight;
-			
+
 		} );;
 		// var objDiv = document.getElementById("todo_container")
 		// var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
