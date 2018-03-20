@@ -60,8 +60,8 @@ line-height: 1.5em !important;
 					<div class="grouped fields" id="todo_container">
 						<div class="field">
 							<div class="ui checkbox">
-								<input type="checkbox" name="example2" checked="checked">
-								<label>Once a week</label>
+								<input type="checkbox" name="todo_list" checked="">
+								<label></label>
 							</div>
 						</div>
 					</div>

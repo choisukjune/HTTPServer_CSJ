@@ -531,6 +531,34 @@ var render_chat_data = function( arr ){
 	});
 };
 
+
+/**
+ * 채팅사이드바의 채팅리스트를 그린다.
+*/
+var render_todo_data = function( arr ){
+	var _el = document.getElementById("todo_container");
+
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
+
+		var i = 0,iLen = arr.length,io;
+		for(;i<iLen;++i)
+		{
+			io = arr[ i ];
+			var html_include_data = _template.replace( "{{content}}", io.content )
+			// .replace( "{{author}}", io.member.nm )
+			// .replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+			// .replace( "{{content}}", broadcast_msg );
+
+			_el.insertAdjacentHTML( 'beforeend', html_include_data );
+		}
+	});
+};
+
+
 /**
  * 각문서의 채팅리스트를 가져온다
 */
@@ -574,7 +602,7 @@ var url = "/api/Todo/board/get_list?sid=" + window.service.cookie.getCookie('ses
 
 		var data = JSON.parse( result );
 		
-console.log( data )
+		render_todo_data( data );
 
 		current_note_todo__data[ current_view_doc__data.cd ].data.push( data );
 	})
