@@ -1,12 +1,16 @@
 <div class="item" style="border-top : 0px;padding : 2em 0em;">
-	<div class="ui mini image">
-	<img src="https://semantic-ui.com/images/avatar/small/joe.jpg">
-	</div>
+	<!--div class="image">
+	<img src="/images/wireframe/image.png">
+	</div-->
 	<div class="content">
 		<a class="header">{{content}}</a>
 		<div class="meta">
-				<span class="">IFC Cinema</span>
-				<span class="">IFC Cinema</span>
+			<div class="image">
+				<img class="right floated mini ui image" src="https://semantic-ui.com/images/avatar/small/joe.jpg">
+				<img class="right floated mini ui image" src="https://semantic-ui.com/images/avatar/small/joe.jpg">
+			</div>
+			<span class="">IFC Cinema</span>
+			<span class="">IFC Cinema</span>
 		</div>
 		<div class="description">
 			<p>sdfgsdfgsdfgsdfgsdfgsdfgd</p>
