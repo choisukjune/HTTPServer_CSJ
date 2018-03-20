@@ -23,6 +23,75 @@
 <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
 <script src="/libs/alertify/dist/js/alertify.js"></script>
 <Script>
+
+var make_Array_dateFormat = function( arr ){
+	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
+}
+
+var recive_msg_render_board_chat = function(recieve_message){
+	var _el = document.getElementById("comment_container");
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
+
+		var io = recieve_message;
+		var broadcast_msg = "";
+		var msg = io.content;
+		if( msg.indexOf("\n") != -1)
+		{
+			var _ta = msg.split("\n")
+			var j = 0,jLen = _ta.length,jo;
+			for(;j<jLen;++j)
+			{
+				jo = _ta[ j ];
+				broadcast_msg += "<p>" + jo + "</p>\n";
+			}
+
+		}
+		else
+		{
+			broadcast_msg = "<p>" + msg + "</p>";
+		};
+
+		var html_include_data = _template.replace( "{{image_url}}", io.member.image )
+		.replace( "{{author}}", io.member.nm )
+		.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+		.replace( "{{content}}", broadcast_msg );
+
+		_el.insertAdjacentHTML( 'beforeend', html_include_data );
+
+		var objDiv = document.getElementById("todo_wrap")
+		objDiv.scrollTop = objDiv.scrollHeight;
+	});
+}
+
+
+var recive_msg_render_board_todo = function( recieve_message ){
+	var _el = document.getElementById("todo_container");
+
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
+
+		var html_include_data = _template.replace( "{{title}}", data.title )
+		.replace( "{{image_url}}", data.member.image )
+		.replace( "{{memberNm}}", data.member.nm )
+		.replace( "{{regist_date}}", make_Array_dateFormat( data.regist_date ) )
+		.replace( "{{content}}", data.content )
+
+		_el.insertAdjacentHTML( 'beforeend', html_include_data );
+		
+		var objDiv = document.getElementById("comment_wrap")
+		objDiv.scrollTop = objDiv.scrollHeight;
+	});
+}
+
+
+
 window.WebSocket = window.WebSocket || window.MozWebSocket;
 if( window.service.cookie.getCookie('mid') ){
 	var connection = new WebSocket('ws://13.125.22.207:8888?mid=' + window.service.cookie.getCookie('mid'));
@@ -32,48 +101,11 @@ if( window.service.cookie.getCookie('mid') ){
 	connection.addEventListener('error',function(){ debugger; })
 	connection.addEventListener('message',function( message ){
 		console.log( message )
-		var _tmp0 = JSON.parse( message.data )
+		var _tmp0 = JSON.parse( message.data.data )
 		var recieve_message = JSON.parse( _tmp0.utf8Data )
 
-		var make_Array_dateFormat = function( arr ){
-			return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
-		}
-		var _el = document.getElementById("comment_container");
-		var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
-		window.service.Request.req_GET_data__Callback(url1,function(result){
-			if(result == 0) window.service.session.remove_deleteCookies_location_login();
-			
-			var _template = result;
-
-			var io = recieve_message;
-			var broadcast_msg = "";
-			var msg = io.content;
-			if( msg.indexOf("\n") != -1)
-			{
-				var _ta = msg.split("\n")
-				var j = 0,jLen = _ta.length,jo;
-				for(;j<jLen;++j)
-				{
-					jo = _ta[ j ];
-					broadcast_msg += "<p>" + jo + "</p>\n";
-				}
-
-			}
-			else
-			{
-				broadcast_msg = "<p>" + msg + "</p>";
-			};
-
-			var html_include_data = _template.replace( "{{image_url}}", io.member.image )
-			.replace( "{{author}}", io.member.nm )
-			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
-			.replace( "{{content}}", broadcast_msg );
-
-			_el.insertAdjacentHTML( 'beforeend', html_include_data );
-
-			var objDiv = document.getElementById("comment_wrap")
-			objDiv.scrollTop = objDiv.scrollHeight;
-		});
+		if(_tmp0.destination == "todo" ) recive_msg_render_board_todo( recieve_message )
+		else recive_msg_render_board_chat( recieve_message )
 	})
 }
 

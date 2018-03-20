@@ -55,7 +55,7 @@ line-height: 1.5em !important;
 	<div class="item" style="padding : 0px !important">
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="todo_sidebar_header">ToDo</div>
-			<div class="sixteen wide column" id="" style="background-color : #fff;;min-height : 717px;max-height : 717px;overflow-y : auto;"">
+			<div class="sixteen wide column" id="todo_wrap" style="background-color : #fff;;min-height : 717px;max-height : 717px;overflow-y : auto;"">
 				<div class="ui divided items" id="todo_container">
 
 				</div>
@@ -128,26 +128,14 @@ var write_todo = function(){
 		var data = JSON.parse( result );
 		console.log( data );
 		console.log( "--등록완료--" );
+		var sendObj = {}
+		sendObj.destination = "todo"
+		sendObj.data = result
 
-		var _el = document.getElementById("todo_container");
-
-		var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
-		window.service.Request.req_GET_data__Callback(url1,function(result){
-			if(result == 0) window.service.session.remove_deleteCookies_location_login();
-			
-			var _template = result;
-
-			var html_include_data = _template.replace( "{{title}}", data.title )
-			.replace( "{{image_url}}", data.member.image )
-			.replace( "{{memberNm}}", data.member.nm )
-			.replace( "{{regist_date}}", make_Array_dateFormat( data.regist_date ) )
-			.replace( "{{content}}", data.content )
-
-			_el.insertAdjacentHTML( 'beforeend', html_include_data );
-		});
-
+		connection.send( sendObj );
 
 		document.getElementById( "todo_input" ).value = "";
+		document.getElementById( "todo_textarea" ).value = "";
 	})
 }
 
@@ -185,8 +173,11 @@ var write_chat = function(){
 		var data = JSON.parse( result );
 		console.log( data );
 		console.log( "--등록완료--" );
+		var sendObj = {}
+		sendObj.destination = "chat"
+		sendObj.data = result
 
-		connection.send( result );
+		connection.send( sendObj );
 		document.getElementById( "comment_textarea" ).value = "";
 	})
 }
