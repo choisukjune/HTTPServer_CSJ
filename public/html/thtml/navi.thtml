@@ -136,9 +136,9 @@ line-height: 1.5em !important;
 </div>
 <script>
 
-$('.ui fluid multiple search selection dropdown')
-  .dropdown()
-;
+// $('.ui fluid multiple search selection dropdown')
+//   .dropdown()
+// ;
 
 var _t1 = document.getElementById( "comment_send_btn" );
 var _t2 = document.getElementById( "todo_write_btn" );
