@@ -1,10 +1,9 @@
 <div class="field">
-
 	  <div class="ui grid">
-		<div class="left floated left aligned ten wide column">
+		<div class="left floated left aligned nine wide column">
 			<div class="ui basic segment">{{content}}</div>
 		</div>
-		<div class="right floated right aligned six wide column">
+		<div class="right floated right aligned seven wide column">
 			<div class="ui basic segment">
 				<button class="mini ui button">Mini</button>
 				<button class="mini ui button">Mini</button>
