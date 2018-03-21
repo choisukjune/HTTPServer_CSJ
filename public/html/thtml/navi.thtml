@@ -64,7 +64,7 @@ line-height: 1.5em !important;
 
 				<div class="ui form">
 					<div class="field">
-						<select>
+						<select multiple="" name="skills" class="ui fluid normal dropdown" id="multi-select">
 							<option value="">Skills</option>	
 							<option value="angular">Angular</option>
 							<option value="css">CSS</option>
