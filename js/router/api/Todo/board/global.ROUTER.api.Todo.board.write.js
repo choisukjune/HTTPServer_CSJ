@@ -66,10 +66,10 @@ console.log( d )
 
 						db0.collection("board").count({ cd$doc : d.cd$doc },function(err,count){
 
-							doc.cd = _q.cd$doc + "-TODO" + count;
-							db1.collection("member_basic").find({id : d.mid}).toArray(function(err,result){
+							doc.cd = d.cd$doc + "-TODO" + count;
+							db1.collection("member_basic").find({ id : d.mid}).toArray(function(err,result){
 								if( err ) console.log( err )
-
+console.log( doc )
 								/*
 								{
 									"_id" : 0,
