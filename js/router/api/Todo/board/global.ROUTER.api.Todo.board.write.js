@@ -1,7 +1,7 @@
 global.ROUTER.api.Todo.board.write = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
-		console.log( _q )
+		console.log( "_q ====>"_q )
 
 		var d = JSON.parse( _q.data );
 
