@@ -21,14 +21,14 @@ console.log( "------>4" + d )
 					//ToDo function 으로 분리하기;
 					var Long = require('mongodb').Long;
 
-					var d = new Date();
+					var date_now = new Date();
 					var r = [
-						Long( d.getFullYear() ).toInt()
-						, Long( d.getMonth() + 1 ).toInt()
-						, Long( d.getDate() ).toInt()
-						, Long( d.getHours() ).toInt()
-						, Long( d.getMinutes() ).toInt()
-						, Long( d.getSeconds() ).toInt()
+						Long( date_now.getFullYear() ).toInt()
+						, Long( date_now.getMonth() + 1 ).toInt()
+						, Long( date_now.getDate() ).toInt()
+						, Long( date_now.getHours() ).toInt()
+						, Long( date_now.getMinutes() ).toInt()
+						, Long( date_now.getSeconds() ).toInt()
 					];
 console.log( "------>3" + d )
 					var doc = {
