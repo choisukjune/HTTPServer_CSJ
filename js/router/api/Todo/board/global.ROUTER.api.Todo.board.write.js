@@ -4,7 +4,7 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 		console.log( _q )
 
 		var d = JSON.parse( _q.data );
-console.log( "------>4" + d )
+
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 			if( result == 0 )
@@ -30,7 +30,7 @@ console.log( "------>4" + d )
 						, Long( date_now.getMinutes() ).toInt()
 						, Long( date_now.getSeconds() ).toInt()
 					];
-console.log( "------>3" + d )
+
 					var doc = {
 						_id : -1
 						, _d : Long( 1 ).toInt()
@@ -69,7 +69,6 @@ console.log( "------>3" + d )
 							doc.cd = d.cd$doc + "-TODO" + count;
 							db1.collection("member_basic").find({ id : d.mid}).toArray(function(err,result){
 								if( err ) console.log( err )
-console.log( "------>1" + doc )
 								/*
 								{
 									"_id" : 0,
@@ -82,7 +81,6 @@ console.log( "------>1" + doc )
 								*/
 
 								var member_info = result[ 0 ];
-								console.log("------>2" +  member_info )
 								doc.member._id = Long( member_info._id ).toInt();
 								doc.member.nm = member_info.first_Nm + " " + member_info.last_Nm;
 								doc.member.image = member_info.image;
