@@ -141,7 +141,7 @@ var write_todo = function(){
 
 	var d = {
 		mid : ""
-		, title ; ""
+		, title : ""
 		, content : ""
 		, cd$project : ""
 		, cd$notebook : ""
@@ -171,7 +171,7 @@ var write_todo = function(){
 	var url = "/api/Todo/board/write"
 			+ "?sid=" + window.service.cookie.getCookie('session')
 			+ "&data=" + JSON.stringify( d );
-			
+
 	window.service.Request.req_GET_data__Callback(url,function( result ){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
