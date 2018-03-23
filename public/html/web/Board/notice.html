@@ -574,6 +574,24 @@ var render_todo_data = function( arr, cbFunction ){
 			//a.replace( "{{content}}", broadcast_msg );
 
 			_el.insertAdjacentHTML( 'beforeend', html_include_data );
+				
+			//------------------------------ tag;
+			
+			var label_source = "<div class='ui label'>{{label}}</div>"
+			_el_label = document.getElementById("extra");
+
+			var j = 0,jLen = recieve_message.cd$tag.length,jo,label;
+			for(;j<jLen;++j)
+			{
+				
+				jo = io.cd$tag[ j ]
+				label = label_source
+				label = label.replace("{{label}}", jo )
+
+				_el_label.insertAdjacentHTML( 'beforeend', label );
+			}
+			//------------------------------ tag;
+
 		}
 
 		cbFunction();

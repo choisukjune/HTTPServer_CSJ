@@ -14,7 +14,7 @@
 		<div class="description">
 			{{content}}
 		</div>
-		<div class="extra">
+		<div class="extra" id="extra">
 			<div class="ui right floated green mini button">
 			Done
 			<!-- <i class="right chevron icon"></i> -->
@@ -23,10 +23,7 @@
 			Delete
 			<!-- <i class="right chevron icon"></i> -->
 			</div>
-			<div class="ui label">Limited</div>
-			<div class="ui label">Limited</div>
-			<div class="ui label">Limited</div>
-			<div class="ui label">Limited</div>
+			
 		</div>
 	</div>
 </div>

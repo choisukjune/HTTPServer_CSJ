@@ -85,6 +85,23 @@ var recive_msg_render_board_todo = function( recieve_message ){
 
 		_el.insertAdjacentHTML( 'beforeend', html_include_data );
 		
+		var label_source = "<div class='ui label'>{{label}}</div>"
+		
+		//------------------------------ tag;
+		_el_label = document.getElementById("extra");
+		
+		var i = 0,iLen = recieve_message.cd$tag.length,io,label;
+		for(;i<iLen;++i)
+		{
+			
+			io = recieve_message.cd$tag[ i ]
+			label = label_source
+			label = label.replace("{{label}}", io )
+		
+			_el_label.insertAdjacentHTML( 'beforeend', label );
+		}
+		//------------------------------ tag;
+
 		var objDiv = document.getElementById("todo_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});
