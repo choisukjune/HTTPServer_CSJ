@@ -77,19 +77,11 @@ var recive_msg_render_board_todo = function( recieve_message ){
 		
 		var _template = result;
 
-		var html_include_data = _template.replace( "{{title}}", recieve_message.title )
-		.replace( "{{image_url}}", recieve_message.member.image )
-		.replace( "{{memberNm}}", recieve_message.member.nm )
-		.replace( "{{regist_date}}", make_Array_dateFormat( recieve_message.regist_date ) )
-		.replace( "{{content}}", recieve_message.content )
 
-		_el.insertAdjacentHTML( 'beforeend', html_include_data );
-		
 		var label_source = "<div class='ui label'>{{label}}</div>"
+		var include_source = ""
 		
 		//------------------------------ tag;
-		_el_label = document.getElementById("extra");
-		
 		var i = 0,iLen = recieve_message.cd$tag.length,io,label;
 		for(;i<iLen;++i)
 		{
@@ -98,10 +90,23 @@ var recive_msg_render_board_todo = function( recieve_message ){
 			label = label_source
 			label = label.replace("{{label}}", io )
 		
-			_el_label.insertAdjacentHTML( 'beforeend', label );
+			include_source += label;
 		}
 		//------------------------------ tag;
 
+
+
+
+		var html_include_data = _template.replace( "{{title}}", recieve_message.title )
+		.replace( "{{image_url}}", recieve_message.member.image )
+		.replace( "{{memberNm}}", recieve_message.member.nm )
+		.replace( "{{regist_date}}", make_Array_dateFormat( recieve_message.regist_date ) )
+		.replace( "{{content}}", recieve_message.content )
+		.replace( "{{label_con}}", include_source )
+		
+
+		_el.insertAdjacentHTML( 'beforeend', html_include_data );
+		
 		var objDiv = document.getElementById("todo_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});

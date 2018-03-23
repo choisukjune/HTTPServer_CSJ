@@ -23,7 +23,7 @@
 			Delete
 			<!-- <i class="right chevron icon"></i> -->
 			</div>
-			
+			{{label_con}}
 		</div>
 	</div>
 </div>

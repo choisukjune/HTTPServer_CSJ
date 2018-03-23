@@ -566,20 +566,11 @@ var render_todo_data = function( arr, cbFunction ){
 		for(;i<iLen;++i)
 		{
 			io = arr[ i ];
-			var html_include_data = _template.replace( "{{title}}", io.title )
-			.replace( "{{image_url}}", io.member.image )
-			.replace( "{{memberNm}}", io.member.nm )
-			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
-			.replace( "{{content}}", io.content )
-			//a.replace( "{{content}}", broadcast_msg );
-
-			_el.insertAdjacentHTML( 'beforeend', html_include_data );
-				
-			//------------------------------ tag;
 			
-			var label_source = "<div class='ui label'>{{label}}</div>"
-			_el_label = document.getElementById("extra");
+			//------------------------------ tag;
 
+			var label_source = "<div class='ui label'>{{label}}</div>"
+			var include_source = "";
 			var j = 0,jLen = io.cd$tag.length,jo,label;
 			for(;j<jLen;++j)
 			{
@@ -588,9 +579,22 @@ var render_todo_data = function( arr, cbFunction ){
 				label = label_source
 				label = label.replace("{{label}}", jo )
 
-				_el_label.insertAdjacentHTML( 'beforeend', label );
+				include_source += label;
+
+				// _el_label.insertAdjacentHTML( 'beforeend', label );
+			
 			}
 			//------------------------------ tag;
+
+			
+			var html_include_data = _template.replace( "{{title}}", io.title )
+			.replace( "{{image_url}}", io.member.image )
+			.replace( "{{memberNm}}", io.member.nm )
+			.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+			.replace( "{{content}}", io.content )
+			.replace("{{label_con}}",include_source);
+
+			_el.insertAdjacentHTML( 'beforeend', html_include_data );
 
 		}
 
