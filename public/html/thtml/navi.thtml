@@ -126,10 +126,6 @@ line-height: 1.5em !important;
 </div>
 <script>
 
-$('#multi-select')
-  .dropdown()
-;
-
 var _t1 = document.getElementById( "comment_send_btn" );
 var _t2 = document.getElementById( "todo_write_btn" );
 
@@ -190,7 +186,7 @@ var write_todo = function(){
 
 		document.getElementById( "todo_input" ).value = "";
 		document.getElementById( "todo_textarea" ).value = "";
-		document.getElementById("multi-select").dropdown('clear');
+		$('#multi-select').dropdown('clear');
 	})
 }
 
