@@ -138,15 +138,40 @@ var _t2 = document.getElementById( "todo_write_btn" );
 */
 var write_todo = function(){
 
+
+	var d = {
+		mid : ""
+		, title ; ""
+		, content : ""
+		, cd$project : ""
+		, cd$notebook : ""
+		, cd$doc : ""
+		, cd$tag : []
+	}
+
+	d.mid = window.service.cookie.getCookie('mid');
+	d.title = document.getElementById( "todo_input" ).value;
+	d.content = document.getElementById( "todo_textarea" ).value
+	d.cd$project = current_project__data.cd;
+	d.cd$notebook = current_notebook__data.cd;
+	d.cd$doc = current_view_doc__data.cd
+
+	var tags_arr = []
+	var _tmp0 = document.getElementById("multi-select").selectedOptions
+	var i = 0,iLen =  _tmp0.length,io
+	for(;i<iLen;++i)
+	{
+		io = _tmp0[ i ].value;
+		tags_arr.push( io )
+	}
+
+	d.cd$tag =  tags_arr;
+
+
 	var url = "/api/Todo/board/write"
 			+ "?sid=" + window.service.cookie.getCookie('session')
-			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&title=" + document.getElementById( "todo_input" ).value 
-			+ "&content=" + document.getElementById( "todo_textarea" ).value 
-			+ "&cd$project=" + current_project__data.cd
-			+ "&cd$notebook=" + current_notebook__data.cd
-			+ "&cd$doc=" + current_view_doc__data.cd;
-
+			+ "&data=" + JSON.stringify( d );
+			
 	window.service.Request.req_GET_data__Callback(url,function( result ){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()

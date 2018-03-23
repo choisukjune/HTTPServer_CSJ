@@ -2,6 +2,9 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
 		console.log( _q )
+
+		var d = JSON.parse( _q.data );
+console.log( d )
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 			if( result == 0 )
@@ -34,16 +37,17 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 						, bDone : Long( 0 ).toInt()
 						, member : {
 							_id : -1
-							, mid : _q.mid
+							, mid : d.mid
 							, nm : ""
 							, image : ""
 						}
 						, cd : ""
-						, cd$project : _q.cd$project
-						, cd$notebook : _q.cd$notebook
-						, cd$doc : _q.cd$doc
-						, title : _q.title
-						, content : _q.content
+						, cd$project : d.cd$project
+						, cd$notebook : d.cd$notebook
+						, cd$doc : d.cd$doc
+						, cd$tag : d.cd$tag
+						, title : d.title
+						, content : d.content
 						, regist_date : r
 						, delete_date : null
 					}
@@ -60,10 +64,10 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 
 						doc._id = Long( idx ).toInt()
 
-						db0.collection("board").count({ cd$doc : _q.cd$doc },function(err,count){
+						db0.collection("board").count({ cd$doc : d.cd$doc },function(err,count){
 
 							doc.cd = _q.cd$doc + "-TODO" + count;
-							db1.collection("member_basic").find({id : _q.mid}).toArray(function(err,result){
+							db1.collection("member_basic").find({id : d.mid}).toArray(function(err,result){
 								if( err ) console.log( err )
 
 								/*
