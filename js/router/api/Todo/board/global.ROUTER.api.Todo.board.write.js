@@ -1,8 +1,9 @@
 global.ROUTER.api.Todo.board.write = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
-		console.log( "_q ====>" + _q )
-
+		console.log( "=================================" )
+		console.log( _q )
+		console.log( "=================================" )
 		var d = JSON.parse( _q.data );
 
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
