@@ -190,6 +190,7 @@ var write_todo = function(){
 
 		document.getElementById( "todo_input" ).value = "";
 		document.getElementById( "todo_textarea" ).value = "";
+		document.getElementById("multi-select").selectedOptions = [];
 	})
 }
 
