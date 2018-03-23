@@ -30,7 +30,7 @@ console.log( d )
 						, Long( d.getMinutes() ).toInt()
 						, Long( d.getSeconds() ).toInt()
 					];
-
+console.log( d )
 					var doc = {
 						_id : -1
 						, _d : Long( 1 ).toInt()
