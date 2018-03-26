@@ -13,6 +13,8 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 		console.log( body )
 		console.log( decodeURIComponent( body ) )
 		console.log( global.REQUIRES.querystring.escape( body ) )
+
+		console.log( global.REQUIRES.querystring.parse( global.REQUIRES.querystring.escape( body ) ) )
 		console.log( global.REQUIRES.querystring.unescape( body ) )
 		
 		console.log(_q)
