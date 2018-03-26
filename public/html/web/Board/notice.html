@@ -477,7 +477,7 @@ var _el_removeChild = function( el ){
 /**
 *
 */
-var htmlEntities =  function(str){
+var htmlEntities1 =  function(str){
 	//return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
 	return String(str).replace(/\"/g, "'")
 	.replace(/&quot;/g, "'")
@@ -488,6 +488,13 @@ var htmlEntities =  function(str){
 	.replace(/&nbsp;/g, '');
 //	.replace(//g, '<td>')
 };
+
+
+function htmlEntities(str) {
+	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
+
+
 /**
 *
 */
@@ -1027,7 +1034,7 @@ var write_doc = function(){
 	var url = "/api/Board/notice/write"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
-			+ "&data=" + escape( htmlEntities( CKEDITOR.instances.editor.getData() ) )
+			+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
 			+ "&title=" + title
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd;
@@ -1075,7 +1082,7 @@ var update_doc = function( data ){
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + current_view_doc__data._id
-	+ "&data=" + escape( htmlEntities(CKEDITOR.instances.editor.getData() ) )
+	+ "&data=" + htmlEntities(CKEDITOR.instances.editor.getData())
 	+ "&title=" + title;
 
 	window.service.Request.req_POST_data__Callback(url,data,function( result){
