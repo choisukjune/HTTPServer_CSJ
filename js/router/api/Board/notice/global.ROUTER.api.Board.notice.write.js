@@ -9,7 +9,7 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 	req.on('end', function () {
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	body ).replace(/^.*\?/, '') );
-
+console.log(_q)
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 			if( result == 0 )
