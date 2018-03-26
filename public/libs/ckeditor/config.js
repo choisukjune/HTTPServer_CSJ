@@ -30,5 +30,7 @@
 
     config.extraPlugins = 'uploadimage';
     config.extraPlugins = 'uploadwidget';
-    config.filebrowserUploadUrl = '../../api/File/file_upload__single_form_readAsArrayBuffer';
+	config.filebrowserUploadUrl = '../../api/File/file_upload__single_form_readAsArrayBuffer';
+	config.pasteFromWordRemoveStyles = false;
+	config.pasteFromWordRemoveFontStyles = false;
  };
