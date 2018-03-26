@@ -1158,6 +1158,13 @@ var delete_doc = function(){
 
 		make_sub_list( current_notebook__data.cd );
 		document.getElementById("view_container").removeChild(document.getElementById("view_document"));
+	
+		//----------;
+		var btn_control_obj = {add : "block"}
+		btn_control( btn_control_obj );
+		//----------;
+		document.getElementById("note_add").addEventListener("click", add_doc );
+	
 	})
 }
 
