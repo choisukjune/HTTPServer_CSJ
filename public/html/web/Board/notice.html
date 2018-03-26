@@ -478,7 +478,8 @@ var _el_removeChild = function( el ){
 *
 */
 var htmlEntities =  function(str){
-	return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+	//return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+	return String(str).replace(/\"/g, "'")
 	.replace(/^<table.*[">$]/g, '<table class="ui celled compact table">')
 	// .replace(/<span >/g, '')
 	// .replace(/<\/span>/g, '')
