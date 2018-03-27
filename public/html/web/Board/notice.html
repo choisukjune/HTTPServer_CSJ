@@ -1035,13 +1035,6 @@ var write_doc = function(){
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd;
 
-var encodedStr = 'hello &amp; world';
-
-var parser = new DOMParser;
-var dom = parser.parseFromString(data);
-var decodedString = dom.body.textContent;
-
-console.log(decodedString);
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result ){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login()
