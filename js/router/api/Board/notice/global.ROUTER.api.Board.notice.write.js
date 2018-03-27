@@ -11,6 +11,7 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 		//var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var	_q = global.REQUIRES.querystring.parse(	body );
 
+		console.log( body )
 		// global.CSJLog.timeStamp(_q)
 		console.log( _q )
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
