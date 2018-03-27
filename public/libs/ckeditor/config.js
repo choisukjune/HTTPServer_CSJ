@@ -33,8 +33,6 @@
 	config.filebrowserUploadUrl = '../../api/File/file_upload__single_form_readAsArrayBuffer';
 	config.pasteFromWordRemoveStyles = false;
 	config.pasteFromWordRemoveFontStyles = false;
-	config.entities_processNumerical = true;
 	config.forceSimpleAmpersand = true;
-	config.specialChars = [];
-	
+	config.entities = false
  };
