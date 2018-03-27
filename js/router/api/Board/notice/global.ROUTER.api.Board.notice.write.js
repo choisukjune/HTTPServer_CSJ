@@ -9,7 +9,7 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 	req.on('end', function () {
 
 		//var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
-		var	_q = global.REQUIRES.querystring.parse(	body  );
+		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 
 		console.log( global.REQUIRES.querystring.escape( decodeURI( body ) ))
 		// global.CSJLog.timeStamp(_q)
