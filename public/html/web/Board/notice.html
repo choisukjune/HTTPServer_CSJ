@@ -1038,8 +1038,7 @@ var write_doc = function(){
 var encodedStr = 'hello &amp; world';
 
 var parser = new DOMParser;
-var dom = parser.parseFromString(
-   data);
+var dom = parser.parseFromString(data);
 var decodedString = dom.body.textContent;
 
 console.log(decodedString);
