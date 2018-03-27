@@ -486,7 +486,7 @@ var htmlEntities =  function(str){
 	// .replace(/<\/span>/g, '')
 	// .replace(/<td >/g, '<td>')
 	.replace(/&nbsp;/g, '')
-	.replace(/\&/g, '&amp;');
+	//.replace(/\&/g, '&amp;');
 //	.replace(//g, '<td>')
 };
 
@@ -1029,7 +1029,7 @@ var write_doc = function(){
 	var url = "/api/Board/notice/write"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
-			+ "&data=" + CKEDITOR.instances.editor.getData()
+			+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
 			+ "&title=" + title
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd;
@@ -1074,7 +1074,7 @@ var update_doc = function( data ){
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + current_view_doc__data._id
-	+ "&data=" + htmlEntities(CKEDITOR.instances.editor.getData())
+	+ "&data=" + htmlEntities( htmlEntities(CKEDITOR.instances.editor.getData()) )
 	+ "&title=" + title;
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result){
