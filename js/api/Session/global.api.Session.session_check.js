@@ -13,7 +13,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get( sid, function(err, data){
 			global.CSJLog.timeStamp( "sid : " + sid )
-			global.CSJLog.timeStamp( JSON.stringify( data, null, 4 ) )
+			global.CSJLog.timeStamp( data )
 			//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
 			//global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
 			_cbFunction( JSON.stringify( data ) )
