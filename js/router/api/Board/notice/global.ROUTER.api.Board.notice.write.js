@@ -9,15 +9,8 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 	req.on('end', function () {
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
-
-		// console.log( body.toString('utf8') )
-		// console.log( decodeURIComponent( body ) )
-		// console.log( global.REQUIRES.querystring.escape( body ) )
-
-		// console.log( global.REQUIRES.querystring.parse( global.REQUIRES.querystring.escape( body ) ) )
-		// console.log( global.REQUIRES.querystring.unescape( body ) )
 		
-		console.log(_q)
+		global.CSJLog.log(_q)
 		
 		global.api.Session.session_check(req, res, _q.sid, function( result ){
 
