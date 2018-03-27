@@ -35,6 +35,6 @@
 	config.pasteFromWordRemoveFontStyles = false;
 	config.entities_processNumerical = true;
 	config.forceSimpleAmpersand = true;
-
+	config.specialChars = [];
 	
  };
