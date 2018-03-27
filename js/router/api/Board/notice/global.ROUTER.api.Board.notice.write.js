@@ -9,7 +9,10 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 	req.on('end', function () {
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	body ) );
-		
+		var url = require("url")
+
+		console.log(url.parse( body ) )
+
 		console.log( body )
 		console.log( decodeURIComponent( body ) )
 		console.log( global.REQUIRES.querystring.escape( body ) )
