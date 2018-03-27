@@ -33,4 +33,5 @@
 	config.filebrowserUploadUrl = '../../api/File/file_upload__single_form_readAsArrayBuffer';
 	config.pasteFromWordRemoveStyles = false;
 	config.pasteFromWordRemoveFontStyles = false;
+	config.forceSimpleAmpersand = true;
  };
