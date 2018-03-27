@@ -35,4 +35,5 @@
 	config.pasteFromWordRemoveFontStyles = false;
 	config.htmlEncodeOutput = false;
 	config.forceSimpleAmpersand = true;
+	config.forcePasteAsPlainText = true;
  };
