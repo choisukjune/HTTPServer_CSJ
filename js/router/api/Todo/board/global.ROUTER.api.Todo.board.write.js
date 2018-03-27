@@ -59,7 +59,6 @@ global.ROUTER.api.Todo.board.write = function( req, res ){
 
 					db0.collection("board").find({}).sort({_id : -1}).limit(1).toArray(function(err,result){
 
-						if( err ) global.api.Response.res_200_ok_String( req, res, "{ r:0,m : "+ err +"}" );
 						if( result.length == 0 ) var idx = 0
 						else var idx = result[ 0 ]._id + 1
 
