@@ -1030,7 +1030,7 @@ var write_doc = function(){
 	var url = "/api/Board/notice/write"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
-			+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
+			+ "&data=" + htmlEntities( encodeURIComponent( CKEDITOR.instances.editor.getData() ) )
 			+ "&title=" + title
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd;
