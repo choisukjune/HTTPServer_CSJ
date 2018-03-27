@@ -33,9 +33,9 @@
 	config.filebrowserUploadUrl = '../../api/File/file_upload__single_form_readAsArrayBuffer';
 	config.pasteFromWordRemoveStyles = false;
 	config.pasteFromWordRemoveFontStyles = false;
-	config.htmlEncodeOutput = false;
+	config.htmlEncodeOutput = true;
+	config.entities = true;
 	config.forceSimpleAmpersand = true;
 	config.forcePasteAsPlainText = true;
-
-	config.specialChars = config.specialChars.concat( [['&larr;', 'Left Arrow Bar'], [ '&uarr;', 'Upper Arrow Bar' ],  [ '&darr;', 'Down Arrow Bar' ] ,['&lArr;','Left double Arrow' ],['&uArr;','Up double Arrow' ] ,['&dArr;','Down double Arrow' ],[ '&cong;', 'Congruent to' ],['&radic;','Square Root' ],['&alpha;','Alpha'],['&gamma;','Gamma'],['&delta;','Delta'],['&le;','less than or equal to'],['&ge;','greater than or equal to']]); 
+	
  };
