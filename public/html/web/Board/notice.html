@@ -1035,7 +1035,7 @@ var write_doc = function(){
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd;
 
-	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
+	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result ){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login()
 
 		var data = JSON.parse( result );
