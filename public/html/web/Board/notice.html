@@ -482,7 +482,7 @@ var htmlEntities =  function(str){
 	return String(str).replace(/\"/g, "'")
 	.replace(/&quot;/g, "'")
 	// .replace(/^<table.*[">$]/g, '<table class="ui celled compact table">')
-	.replace(/<table/g, '<table class="ui celled compact table" ')
+	//.replace(/<table/g, '<table class="ui celled compact table" ')
 	// .replace(/<span >/g, '')
 	// .replace(/<\/span>/g, '')
 	// .replace(/<td >/g, '<td>')
@@ -1075,7 +1075,7 @@ var update_doc = function( data ){
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + current_view_doc__data._id
-	+ "&data=" + CKEDITOR.instances.editor.getData()
+	+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
 	+ "&title=" + title;
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result){
