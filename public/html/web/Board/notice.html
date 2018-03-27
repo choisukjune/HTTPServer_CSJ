@@ -1076,10 +1076,10 @@ var update_doc = function( data ){
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + current_view_doc__data._id
-	+ "&data=" + htmlEntities( CKEDITOR.instances.editor.getData() )
+	+ "&data=" + htmlEntities( encodeURIComponent( CKEDITOR.instances.editor.getData() ) )
 	+ "&title=" + title;
 
-	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result){
+	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
 		if(result == 0){
 			window.service.session.remove_deleteCookies()
 			location.href = "/Member/login";

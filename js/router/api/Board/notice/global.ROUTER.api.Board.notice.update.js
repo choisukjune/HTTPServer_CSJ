@@ -8,7 +8,9 @@ global.ROUTER.api.Board.notice.update = function( req, res ){
 
 		req.on('end', function () {
 
-			var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	body ).replace(/^.*\?/, '') );
+			var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
+
+			global.CSJLog.timeStamp(_q)	
 
 			global.api.Session.session_check(req, res, _q.sid, function( result ){
 
