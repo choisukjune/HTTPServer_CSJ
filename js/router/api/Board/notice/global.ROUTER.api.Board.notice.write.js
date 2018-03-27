@@ -2,14 +2,14 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 
 	var	body = '';
 	req.on('data', function	(data) {
-		body +=	data;
+		body +=	data.toString();
 	   // global.CSJLog.timeStamp("Partial body: " + body);
 	})
 
 	req.on('end', function () {
 
 		//var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
-		var	_q = global.REQUIRES.querystring.parse(	body );
+		var	_q = global.REQUIRES.querystring.parse(	global.REQUIRES.querystring.escape( body ) );
 
 		console.log( body )
 		// global.CSJLog.timeStamp(_q)
