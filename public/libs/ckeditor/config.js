@@ -34,4 +34,5 @@
 	config.pasteFromWordRemoveStyles = false;
 	config.pasteFromWordRemoveFontStyles = false;
 	config.forceSimpleAmpersand = true;
+	config.entities_processNumerical = 'force';
  };
