@@ -12,9 +12,8 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 		r.auth( global.REDIS.CONFIG.pass );
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get( sid, function(err, data){
-			global.CSJlog.timeStamp( sid )
-			global.CSJlog.timeStamp( data )
-			global.CSJLog.timeStamp('server has started.');
+			global.CSJLog.timeStamp( sid )
+			global.CSJLog.timeStamp( data )
 			//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
 			//global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
 			_cbFunction( JSON.stringify( data ) )
