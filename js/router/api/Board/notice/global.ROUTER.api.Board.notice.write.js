@@ -10,7 +10,7 @@ global.ROUTER.api.Board.notice.write = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	body.toString('utf8') ) );
 
-		console.log( body )
+		console.log( body.toString('utf8') )
 		console.log( decodeURIComponent( body ) )
 		console.log( global.REQUIRES.querystring.escape( body ) )
 
