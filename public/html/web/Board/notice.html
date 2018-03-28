@@ -297,17 +297,6 @@
 <script type="text/javascript">
 
 window.service.domStorage = {};
-
-document.getElementById("test_flip").addEventListener("click",function(){
-
- $('#app .ui.sidebar')
-    .sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	  .sidebar('setting', 'dimPage', false)
-	  .sidebar('toggle')
-
-
-})
  
 // secondary menu
 // $('.secondary.menu .ui.sidebar')
@@ -424,7 +413,14 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	})
 })
 
+document.getElementById("test_flip").addEventListener("click",function(){
 
+$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('toggle')
+})
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	_el_removeChild( document.getElementById("todo_container") );
@@ -1216,6 +1212,8 @@ var delete_doc = function(){
  * 문서등록폼을 호출한다.
 */
 var add_doc = function(){
+
+	$('#app .ui.sidebar').sidebar({context:$('#app')}).sidebar('setting', 'transition', 'push').sidebar('setting', 'dimPage', false).sidebar('hide')
 
 	if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
 	
