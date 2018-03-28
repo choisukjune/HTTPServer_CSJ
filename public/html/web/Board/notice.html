@@ -123,6 +123,7 @@
 									</div>
 								<!--Content-->
 							<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
+								<a class="ui tag label">New</a>
 								<div id="app">
 									<div class="ui left very wide sidebar">
 										<div class="ui grid" style="margin : 0px;padding : 0px; background-color:#fff;overflow-y: hidden !important;">
@@ -1212,10 +1213,13 @@ var delete_doc = function(){
 		var btn_control_obj = {add : "block"}
 		btn_control( btn_control_obj );
 		//----------;
-		//$('#app .ui.sidebar').sidebar('is open');
-		//$('#app .ui.sidebar').sidebar('is closed');
+		/*
+		$('#app .ui.sidebar').sidebar('is open');
+		$('#app .ui.sidebar').sidebar('is closed');
 		$('#app .ui.sidebar').sidebar('is visible');
-		//$('#app .ui.sidebar').sidebar('is hidden');
+		$('#app .ui.sidebar').sidebar('is hidden');
+		*/
+		
 		if( $('#app .ui.sidebar').sidebar('is hidden') )
 		{
 			$('#app .ui.sidebar')
@@ -1225,6 +1229,7 @@ var delete_doc = function(){
 			.sidebar('toggle')
 		
 		}
+
 		document.getElementById("note_add").addEventListener("click", add_doc );
 	
 	})
