@@ -25,7 +25,7 @@
 
     config.extraPlugins = 'autogrow';
 
-    config.autoGrow_minHeight = 500;
+    config.autoGrow_minHeight = 400;
     // config.autoGrow_maxHeight = 600;
 
     config.extraPlugins = 'uploadimage';
