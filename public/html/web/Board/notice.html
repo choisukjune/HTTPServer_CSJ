@@ -388,7 +388,7 @@ var make_Array_dateFormat = function( arr ){
 /**
  * 
 */
-var project_sub_nav_sidbar_open = function(){
+var project_sub_nav_sidebar_open = function(){
 	$('#app .ui.sidebar')
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'push')
@@ -474,7 +474,7 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	})
 })
 
-document.getElementById("test_flip").addEventListener("click", project_sub_nav_sidbar_open );
+document.getElementById("test_flip").addEventListener("click", project_sub_nav_sidebar_open );
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	_el_removeChild( document.getElementById("todo_container") );
@@ -856,8 +856,7 @@ var make_project_list = function(){
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
 			$('#project_select_modal').modal('hide')
-
-			project_sub_nav_sidbar_open();
+			project_sub_nav_sidebar_open();
 
 			make_notebook_list( current_project__data.cd );
 		})
@@ -871,7 +870,7 @@ var make_project_list = function(){
 		{
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
-			project_sub_nav_sidbar_open();
+			project_sub_nav_sidebar_open();
 			make_notebook_list( current_project__data.cd );
 		}
 	})
@@ -922,8 +921,6 @@ var make_notebook_list = function( cd$project ){
 		var btn_control_obj = {};
 		btn_control( btn_control_obj );
 		//----------;
-
-	project_sub_nav_sidbar_open();
 
 	})
 }
@@ -1110,7 +1107,7 @@ var write_cancel = function(){
 	var btn_control_obj = {}
 	btn_control( btn_control_obj );
 
-	project_sub_nav_sidbar_open();
+	project_sub_nav_sidebar_open();
 }
 
 /**
@@ -1221,7 +1218,7 @@ var delete_doc = function(){
 		$('#app .ui.sidebar').sidebar('is hidden');
 		*/
 		
-		if( $('#app .ui.sidebar').sidebar('is hidden') ) project_sub_nav_sidbar_open();
+		if( $('#app .ui.sidebar').sidebar('is hidden') ) project_sub_nav_sidebar_open();
 
 		document.getElementById("note_add").addEventListener("click", add_doc );
 	
