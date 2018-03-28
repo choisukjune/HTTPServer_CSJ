@@ -924,6 +924,13 @@ var make_notebook_list = function( cd$project ){
 		btn_control( btn_control_obj );
 		//----------;
 
+		$('#app .ui.sidebar')
+			.sidebar({context:$('#app')})
+			.sidebar('setting', 'transition', 'push')
+			.sidebar('setting', 'dimPage', false)
+			.sidebar('setting', 'closable', false)
+			.sidebar('toggle')
+
 	})
 }
 
