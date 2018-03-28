@@ -856,8 +856,6 @@ var make_project_list = function(){
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
 			$('#project_select_modal').modal('hide')
-			project_sub_nav_sidebar_open();
-
 			make_notebook_list( current_project__data.cd );
 		})
 
@@ -870,7 +868,6 @@ var make_project_list = function(){
 		{
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
-			project_sub_nav_sidebar_open();
 			make_notebook_list( current_project__data.cd );
 		}
 	})
@@ -921,6 +918,8 @@ var make_notebook_list = function( cd$project ){
 		var btn_control_obj = {};
 		btn_control( btn_control_obj );
 		//----------;
+
+		project_sub_nav_sidebar_open();
 
 	})
 }
