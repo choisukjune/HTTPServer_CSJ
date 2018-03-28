@@ -389,12 +389,28 @@ var make_Array_dateFormat = function( arr ){
  * 
 */
 var project_sub_nav_sidebar_open = function(){
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar('show')
+	if( $('#app .ui.sidebar') ){
+		if( $('#app .ui.sidebar').sidebar('is hidden') )
+		{
+			$('#app .ui.sidebar')
+		.sidebar({context:$('#app')})
+		.sidebar('setting', 'transition', 'push')
+		.sidebar('setting', 'dimPage', false)
+		.sidebar('setting', 'closable', false)
+		.sidebar('show')
+		}
+		else
+		{
+			$('#app .ui.sidebar')
+		.sidebar({context:$('#app')})
+		.sidebar('setting', 'transition', 'push')
+		.sidebar('setting', 'dimPage', false)
+		.sidebar('setting', 'closable', false)
+		.sidebar('hide')
+		}
+		
+	}
+	
 }
 //--------------------------------------------------function;
 
