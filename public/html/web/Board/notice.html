@@ -394,7 +394,7 @@ var project_sub_nav_sidebar_open = function(){
 	.sidebar('setting', 'transition', 'push')
 	.sidebar('setting', 'dimPage', false)
 	.sidebar('setting', 'closable', false)
-	.sidebar('toggle')
+	.sidebar('show')
 }
 //--------------------------------------------------function;
 
@@ -474,7 +474,14 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	})
 })
 
-document.getElementById("test_flip").addEventListener("click", project_sub_nav_sidebar_open );
+document.getElementById("test_flip").addEventListener("click", function(){
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar('toggle')
+});
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	_el_removeChild( document.getElementById("todo_container") );
