@@ -138,39 +138,47 @@
 								</div> -->
 							</div>
 							<div class="two wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
-								<div class="ui top attached demo menu">
-									<a class="item">
-									  <i class="sidebar icon"></i>
-									  Menu
-									</a>
-								  </div>
-								  <div class="ui bottom attached segment pushable">
-									<div class="ui inverted labeled icon left inline vertical sidebar menu" style="">
+								<div id="app">
+									<div class="ui left vertical inverted labeled icon sidebar menu">
 									  <a class="item">
-										<i class="home icon"></i>
-										Home
+										  <i class="home icon"></i>
+										  Home
 									  </a>
 									  <a class="item">
-										<i class="block layout icon"></i>
-										Topics
+										  <i class="block layout icon"></i>
+										  Topics
 									  </a>
 									  <a class="item">
-										<i class="smile icon"></i>
-										Friends
+										  <i class="smile icon"></i>
+										  Friends
 									  </a>
 									  <a class="item">
-										<i class="calendar icon"></i>
-										History
+										  <i class="calendar icon"></i>
+										  History
+									  </a>
+									  <a class="item">
+										  <i class="mail icon"></i>
+										  Messages
+									  </a>
+									  <a class="item">
+										  <i class="chat icon"></i>
+										  Discussions
+									  </a>
+									  <a class="item">
+										  <i class="trophy icon"></i>
+										  Achievements
+									  </a>
+									  <a class="item">
+										  <i class="shop icon"></i>
+										  Store
+									  </a>
+									  <a class="item">
+										  <i class="settings icon"></i>
+										  Settings
 									  </a>
 									</div>
 									<div class="pusher">
-									  <div class="ui basic segment">
-										<h3 class="ui header">Application Content</h3>
-										<p></p>
-										<p></p>
-										<p></p>
-										<p></p>
-									  </div>
+									  Your site's actual content
 									</div>
 								  </div>
 							</div>
@@ -310,13 +318,10 @@
 
 window.service.domStorage = {};
 
-// using context
-$('.context.example .ui.sidebar')
-  .sidebar({
-    context: $('.context.example .bottom.segment')
-  })
-  .sidebar('attach events', '.context.example .menu .item')
-;
+  $('#app .ui.sidebar')
+    .sidebar({context:$('#app')})
+    .sidebar('setting', 'transition', 'overlay')
+    .sidebar('toggle');
 
 
 //editor 라이브러리 로드;
