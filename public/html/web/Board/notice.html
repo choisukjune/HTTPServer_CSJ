@@ -1101,8 +1101,14 @@ var write_cancel = function(){
 	document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
 	if( current_view_doc__data._id ) req_detail_by__id( current_view_doc__data._id )
-	//----------;
+	var btn_control_obj = {}
+	btn_control( btn_control_obj );
 
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('toggle')
 }
 
 /**
