@@ -331,6 +331,72 @@ var _el_btn__project_add_cancel = document.getElementById( "project_add_cancel" 
 var _el_btn__notebook_add_write = document.getElementById( "notebook_add_write" )
 var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel" )
 //------------------------------_el;
+/*
+	//ToDo 정리해야할 함수;
+	function htmlEntities(str) {
+	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
+
+	function htmlEntities3(str) {
+	    return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		.replace(/<span >/g, '')
+		.replace(/<\/span>/g, '')
+		.replace(/<td >/g, '<td>')
+		.replace(/&nbsp;/g, '')
+	//	.replace(//g, '<td>')
+	}
+*/
+
+//--------------------------------------------------function;
+var _el_removeChild = function( el ){
+	if( el.firstChild ) while( el.firstChild ) el.removeChild( el.firstChild );
+}
+/**
+*
+*/
+var htmlEntities =  function(str){
+	//return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+	return String(str).replace(/\"/g, "'")
+	.replace(/&quot;/g, "'")
+	//.replace(/^<table.*[">$]/g, '<table class="ui celled compact table">')
+	//.replace(/<table/g, '<table class="ui celled compact table" ')
+	// .replace(/<span >/g, '')
+	// .replace(/<\/span>/g, '')
+	// .replace(/<td >/g, '<td>')
+	.replace(/&nbsp;/g, '')
+	//.replace(/\&/g, '&amp;');
+//	.replace(//g, '<td>')
+};
+
+/**
+*
+*/
+var make_Array_dateFormat = function( arr ){
+	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
+}
+/**
+ * [write_doc description]
+ * @type {[type]}
+ */
+ var check_dom = function( e, str ){
+	 if( e.getAttribute("id") == str ) return e
+	 else if( e.getAttribute("id") == "sub_list" ) return "";
+	 else return check_dom( e.parentElement, "list" )
+ }
+
+/**
+ * 
+*/
+var project_sub_nav_sidbar_open = function(){
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar('toggle')
+}
+//--------------------------------------------------function;
 
 //------------------------------ event;
 document.getElementById("global_sidebar").addEventListener("click",function(){
@@ -477,73 +543,6 @@ var btn_control = function( o ){
 
 //------------------------------ btn;
 //--------------------------------------------------variable;
-
-/*
-	//ToDo 정리해야할 함수;
-	function htmlEntities(str) {
-	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-	}
-
-	function htmlEntities3(str) {
-	    return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
-		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
-		.replace(/<span >/g, '')
-		.replace(/<\/span>/g, '')
-		.replace(/<td >/g, '<td>')
-		.replace(/&nbsp;/g, '')
-	//	.replace(//g, '<td>')
-	}
-*/
-
-//--------------------------------------------------function;
-var _el_removeChild = function( el ){
-	if( el.firstChild ) while( el.firstChild ) el.removeChild( el.firstChild );
-}
-/**
-*
-*/
-var htmlEntities =  function(str){
-	//return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
-	return String(str).replace(/\"/g, "'")
-	.replace(/&quot;/g, "'")
-	//.replace(/^<table.*[">$]/g, '<table class="ui celled compact table">')
-	//.replace(/<table/g, '<table class="ui celled compact table" ')
-	// .replace(/<span >/g, '')
-	// .replace(/<\/span>/g, '')
-	// .replace(/<td >/g, '<td>')
-	.replace(/&nbsp;/g, '')
-	//.replace(/\&/g, '&amp;');
-//	.replace(//g, '<td>')
-};
-
-/**
-*
-*/
-var make_Array_dateFormat = function( arr ){
-	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
-}
-/**
- * [write_doc description]
- * @type {[type]}
- */
- var check_dom = function( e, str ){
-	 if( e.getAttribute("id") == str ) return e
-	 else if( e.getAttribute("id") == "sub_list" ) return "";
-	 else return check_dom( e.parentElement, "list" )
- }
-
-/**
- * 
-*/
-var project_sub_nav_sidbar_open = function(){
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar('toggle')
-}
-//--------------------------------------------------function;
 
 /**
  * 채팅사이드바의 채팅리스트를 그린다.
