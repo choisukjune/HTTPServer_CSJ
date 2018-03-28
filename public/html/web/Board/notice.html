@@ -389,7 +389,6 @@ var make_Array_dateFormat = function( arr ){
  * 
 */
 var project_sub_nav_sidebar_open = function(){
-
 	$('#app .ui.sidebar')
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'push')
@@ -857,7 +856,7 @@ var make_project_list = function(){
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
 			$('#project_select_modal').modal('hide')
-			if( $('#app .ui.sidebar').sidebar('is hidden') ) project_sub_nav_sidebar_open();
+			project_sub_nav_sidebar_open();
 
 			make_notebook_list( current_project__data.cd );
 		})
@@ -871,7 +870,7 @@ var make_project_list = function(){
 		{
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
-			if( $('#app .ui.sidebar').sidebar('is hidden') ) project_sub_nav_sidebar_open();
+			project_sub_nav_sidebar_open();
 			make_notebook_list( current_project__data.cd );
 		}
 	})
@@ -1108,7 +1107,7 @@ var write_cancel = function(){
 	var btn_control_obj = {}
 	btn_control( btn_control_obj );
 
-	if( $('#app .ui.sidebar').sidebar('is hidden') ) project_sub_nav_sidebar_open();
+	project_sub_nav_sidebar_open();
 }
 
 /**
