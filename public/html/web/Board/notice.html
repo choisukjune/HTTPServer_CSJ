@@ -314,6 +314,14 @@
 
 window.service.domStorage = {};
 
+// using context
+$('.context.example .ui.sidebar')
+  .sidebar({
+    context: $('.context.example .bottom.segment')
+  })
+  .sidebar('attach events', '.context.example .menu .item')
+;
+
 
 //editor 라이브러리 로드;
 var sNew = document.createElement("script");
