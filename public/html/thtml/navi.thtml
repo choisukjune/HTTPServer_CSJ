@@ -42,7 +42,7 @@ line-height: 1.5em !important;
 </style>
 
 
-<div class="ui left sidebar inverted vertical menu word-break">
+<div class="ui left sidebar inverted vertical menu word-break" id="global_LNB_sidebar">
 
 	<a class="item" href="./">ProjectName</a>
 
