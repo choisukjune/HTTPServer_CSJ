@@ -1212,16 +1212,19 @@ var delete_doc = function(){
 		var btn_control_obj = {add : "block"}
 		btn_control( btn_control_obj );
 		//----------;
-		$('#app .ui.sidebar').sidebar('is open');
-		$('#app .ui.sidebar').sidebar('is closed');
+		//$('#app .ui.sidebar').sidebar('is open');
+		//$('#app .ui.sidebar').sidebar('is closed');
 		$('#app .ui.sidebar').sidebar('is visible');
-		$('#app .ui.sidebar').sidebar('is hidden');
-
-		$('#app .ui.sidebar')
+		//$('#app .ui.sidebar').sidebar('is hidden');
+		if( $('#app .ui.sidebar').sidebar('is hidden') )
+		{
+			$('#app .ui.sidebar')
 			.sidebar({context:$('#app')})
 			.sidebar('setting', 'transition', 'push')
 			.sidebar('setting', 'dimPage', false)
 			.sidebar('toggle')
+		
+		}
 		document.getElementById("note_add").addEventListener("click", add_doc );
 	
 	})
