@@ -857,6 +857,16 @@ var make_project_list = function(){
 			make_brcm_1();
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
 			$('#project_select_modal').modal('hide')
+
+			document.getElementById("test_flip").addEventListener("click",function(){
+
+			$('#app .ui.sidebar')
+				.sidebar({context:$('#app')})
+				.sidebar('setting', 'transition', 'push')
+				.sidebar('setting', 'dimPage', false)
+				.sidebar('toggle')
+			})
+
 			make_notebook_list( current_project__data.cd );
 		})
 
