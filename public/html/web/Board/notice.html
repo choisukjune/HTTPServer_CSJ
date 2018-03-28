@@ -83,6 +83,9 @@
 				<a class="item" style="padding : 13px !important;" id="test_sidebar">
 					<i class="comment fitted icon"  style="margin : 0px !important;"></i>
 				</a>
+				<a class="item" style="padding : 13px !important;" id="test_flip">
+					<i class="comment fitted icon"  style="margin : 0px !important;"></i>
+				</a>
 			</div>
 
 			<!-- 좌측 레이아웃이 더필요하다면 사용; -->
@@ -116,65 +119,35 @@
 										</div>
 									</div>
 								<!--Content-->
-							<div class="two wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
-								<div id="notebook_add_container" class="ui basic segment item">
-									<div class="ui grid">
-										<div class="eight wide column" id="project_title_div"><b id="project_title"></b></div>
-										<div class="right floated right aligned eight wide column">
-											<i class="plus icon right floated" id="notebook_add"></i>
-											<!-- <i class="minus icon right floated" id="notebook_add"></i> -->
-										</div>
-									</div>
-								</div>
-								<div id="notebook_list"></div>
-								<!-- <div id="list" class="ui basic segment item">
-									<b>본문요약입니다.</b>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<b>본문요약입니다.</b>
-								</div>
-								<div id="list" class="ui basic segment item">
-									<b>본문요약입니다.</b>
-								</div> -->
-							</div>
-							<div class="two wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
+							<!-- <div class="two wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
+
+							</div> -->
+							<div class="four wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 808px !important;height: 808px !important;">
 								<div id="app">
 									<div class="ui left vertical inverted labeled icon sidebar menu">
 									  <a class="item">
-										  <i class="home icon"></i>
-										  Home
-									  </a>
-									  <a class="item">
-										  <i class="block layout icon"></i>
-										  Topics
-									  </a>
-									  <a class="item">
-										  <i class="smile icon"></i>
-										  Friends
-									  </a>
-									  <a class="item">
-										  <i class="calendar icon"></i>
-										  History
-									  </a>
-									  <a class="item">
-										  <i class="mail icon"></i>
-										  Messages
-									  </a>
-									  <a class="item">
-										  <i class="chat icon"></i>
-										  Discussions
-									  </a>
-									  <a class="item">
-										  <i class="trophy icon"></i>
-										  Achievements
-									  </a>
-									  <a class="item">
-										  <i class="shop icon"></i>
-										  Store
-									  </a>
-									  <a class="item">
-										  <i class="settings icon"></i>
-										  Settings
+
+										<div id="notebook_add_container" class="ui basic segment item">
+											<div class="ui grid">
+												<div class="eight wide column" id="project_title_div"><b id="project_title"></b></div>
+												<div class="right floated right aligned eight wide column">
+													<i class="plus icon right floated" id="notebook_add"></i>
+													<!-- <i class="minus icon right floated" id="notebook_add"></i> -->
+												</div>
+											</div>
+										</div>
+										<div id="notebook_list"></div>
+										<!-- <div id="list" class="ui basic segment item">
+											<b>본문요약입니다.</b>
+										</div>
+										<div id="list" class="ui basic segment item">
+											<b>본문요약입니다.</b>
+										</div>
+										<div id="list" class="ui basic segment item">
+											<b>본문요약입니다.</b>
+										</div> -->
+
+
 									  </a>
 									</div>
 									<div class="pusher">
@@ -318,11 +291,16 @@
 
 window.service.domStorage = {};
 
-  $('#app .ui.sidebar')
+document.getElementById("test_flip").addEventListener("click",function(){
+
+ $('#app .ui.sidebar')
     .sidebar({context:$('#app')})
     .sidebar('setting', 'transition', 'overlay')
     .sidebar('toggle');
 
+
+})
+ 
 
 //editor 라이브러리 로드;
 var sNew = document.createElement("script");
