@@ -410,10 +410,11 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 
 document.getElementById("test_flip").addEventListener("click",function(){
 
-$('#app .ui.sidebar')
+	$('#app .ui.sidebar')
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'push')
 	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
 	.sidebar('toggle')
 })
 
@@ -854,10 +855,11 @@ var make_project_list = function(){
 			$('#project_select_modal').modal('hide')
 
 			$('#app .ui.sidebar')
-				.sidebar({context:$('#app')})
-				.sidebar('setting', 'transition', 'push')
-				.sidebar('setting', 'dimPage', false)
-				.sidebar('toggle')
+			.sidebar({context:$('#app')})
+			.sidebar('setting', 'transition', 'push')
+			.sidebar('setting', 'dimPage', false)
+			.sidebar('setting', 'closable', false)
+			.sidebar('toggle')
 
 			make_notebook_list( current_project__data.cd );
 		})
@@ -1107,6 +1109,7 @@ var write_cancel = function(){
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'push')
 	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
 	.sidebar('toggle')
 }
 
@@ -1224,6 +1227,7 @@ var delete_doc = function(){
 			.sidebar({context:$('#app')})
 			.sidebar('setting', 'transition', 'push')
 			.sidebar('setting', 'dimPage', false)
+			.sidebar('setting', 'closable', false)
 			.sidebar('toggle')
 		
 		}
