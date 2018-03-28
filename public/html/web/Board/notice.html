@@ -408,15 +408,7 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 	})
 })
 
-document.getElementById("test_flip").addEventListener("click",function(){
-
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar('toggle')
-})
+document.getElementById("test_flip").addEventListener("click", project_sub_nav_sidbar_open );
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
 	_el_removeChild( document.getElementById("todo_container") );
@@ -539,6 +531,18 @@ var make_Array_dateFormat = function( arr ){
 	 else if( e.getAttribute("id") == "sub_list" ) return "";
 	 else return check_dom( e.parentElement, "list" )
  }
+
+/**
+ * 
+*/
+var project_sub_nav_sidbar_open = function(){
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar('toggle')
+}
 //--------------------------------------------------function;
 
 /**
@@ -854,12 +858,7 @@ var make_project_list = function(){
 			document.getElementById( "project_title" ).innerText = current_project__data.nm
 			$('#project_select_modal').modal('hide')
 
-			$('#app .ui.sidebar')
-			.sidebar({context:$('#app')})
-			.sidebar('setting', 'transition', 'push')
-			.sidebar('setting', 'dimPage', false)
-			.sidebar('setting', 'closable', false)
-			.sidebar('toggle')
+			project_sub_nav_sidbar_open();
 
 			make_notebook_list( current_project__data.cd );
 		})
@@ -924,12 +923,7 @@ var make_notebook_list = function( cd$project ){
 		btn_control( btn_control_obj );
 		//----------;
 
-		$('#app .ui.sidebar')
-			.sidebar({context:$('#app')})
-			.sidebar('setting', 'transition', 'push')
-			.sidebar('setting', 'dimPage', false)
-			.sidebar('setting', 'closable', false)
-			.sidebar('toggle')
+	project_sub_nav_sidbar_open();
 
 	})
 }
@@ -1116,12 +1110,7 @@ var write_cancel = function(){
 	var btn_control_obj = {}
 	btn_control( btn_control_obj );
 
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar('toggle')
+	project_sub_nav_sidbar_open();
 }
 
 /**
@@ -1232,16 +1221,7 @@ var delete_doc = function(){
 		$('#app .ui.sidebar').sidebar('is hidden');
 		*/
 		
-		if( $('#app .ui.sidebar').sidebar('is hidden') )
-		{
-			$('#app .ui.sidebar')
-			.sidebar({context:$('#app')})
-			.sidebar('setting', 'transition', 'push')
-			.sidebar('setting', 'dimPage', false)
-			.sidebar('setting', 'closable', false)
-			.sidebar('toggle')
-		
-		}
+		if( $('#app .ui.sidebar').sidebar('is hidden') ) project_sub_nav_sidbar_open();
 
 		document.getElementById("note_add").addEventListener("click", add_doc );
 	
