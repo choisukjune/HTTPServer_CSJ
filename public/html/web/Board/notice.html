@@ -814,7 +814,7 @@ var make_project_list = function(){
 				document.getElementById("project_list").addEventListener("click",function(e){
 					console.log( e.target)
 					var pe = e.currentTarget.children
-					var te = check_dom( e.target, "project_list_card", "project_list_card" )
+					var te = check_dom( e.target, "project_list_card", "project_list_container" )
 
 					var i = 0,iLen = pe.length,io;
 					for(;i < iLen;++i){
@@ -828,7 +828,7 @@ var make_project_list = function(){
 
 							current_project__data = project_list_data[ i ];
 							document.getElementById( "project_title" ).innerText = current_project__data.nm
-							document.getElementById("project_list_container").style.display = "none";
+							_el_removeChild( document.getElementById("project_list_container"))
 							make_notebook_list( current_project__data.cd );
 							//make_brcm_1();
 						}
