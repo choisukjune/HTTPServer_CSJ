@@ -812,6 +812,8 @@ var make_project_list = function(){
 
 
 			document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : none;" )
+			document.getElementById( "note_add_container" ).setAttribute( "style", "display : none;" )
+
 			_el_removeChild( document.getElementById("notebook_list") );
 
 			var i = 0,iLen = data.length,io
@@ -1015,7 +1017,9 @@ var make_sub_list = function( cd$notebook ){
 
 				_el_div__sub_list.insertAdjacentHTML( 'beforeend', html_include_data );
 			}
+			document.getElementById( "note_add_container" ).setAttribute( "style", "display : block;" )
 			notebook_detail_data = data;
+
 		})
 
 	})
