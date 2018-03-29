@@ -505,6 +505,12 @@ var _el_div__sub_list_click = function(e){
 }
 
 document.getElementById("project_list_view_btn").addEventListener("click",function(){
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar()	
 make_project_list();
 })
 
