@@ -1,6 +1,6 @@
 <div class="card">
 	<div class="content">
-		<div class="header">{{title}}</div>
+		<div class="header">{{nm}}</div>
 		<div class="meta">{{regist_date}}</div>
 		<div class="description">{{description}}</div>
 	</div>
