@@ -397,7 +397,7 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 			var _t0 = document.getElementById( "view_document" )
 			if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
 
-			make_brcm_2();
+			//make_brcm_2();
 
 		}
 	}
@@ -832,7 +832,7 @@ var make_project_list = function(){
 							document.getElementById( "project_title" ).innerText = current_project__data.nm
 							document.getElementById("project_list_container").style.display = "none";
 							make_notebook_list( current_project__data.cd );
-							make_brcm_1();
+							//make_brcm_1();
 						}
 					}
 				})
@@ -871,7 +871,7 @@ var make_project_list = function(){
 
 			if( current_project__data.cd )
 			{
-				make_brcm_1();
+				//make_brcm_1();
 				document.getElementById( "project_title" ).innerText = current_project__data.nm
 				make_notebook_list( current_project__data.cd );
 			}
@@ -959,7 +959,7 @@ var req_detail_by__id = function( _id ){
 
 			_el_div__view_container.innerHTML = html_include_data;
 
-			make_brcm_3();//breadScrumb 만든다;
+			//make_brcm_3();//breadScrumb 만든다;
 
 			if( document.getElementById('add_doc_con') ) document.getElementById("view_container").removeChild(document.getElementById("add_doc_con"));
 
