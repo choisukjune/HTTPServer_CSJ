@@ -953,8 +953,11 @@ var make_notebook_list = function( cd$project ){
 				div.setAttribute( "id", "notebook_list_item" )
 				div.setAttribute( "class", "ui basic segment item" )
 
-				div.appendChild( document.createTextNode( io.nm ) )
+			var a = document.createElement("a")
+				a_text = document.createTextNode('delete')
 
+				div.appendChild( document.createTextNode( io.nm ) )
+				div.appendChild( a_text )
 			_t0.appendChild( div )
 		}
 		//----------;
