@@ -306,147 +306,9 @@ var project_sub_nav_sidebar_open = function(){
 //--------------------------------------------------function;
 
 //------------------------------ event;
-document.getElementById("global_sidebar").addEventListener("click",function(){
-	$('#global_LNB_sidebar')
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('toggle');
-})
-
-document.getElementById("notebook_list").addEventListener("click",function(e){
-
-	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "notebook_list_item", "notebook_list" )
-
-	var i = 0,iLen = pe.length,io;
-	for(;i < iLen;++i){
-		io = pe[ i ]
-		if( io == te ){
-			console.log( i )
-			current_notebook__data = notebook_list_data[ i ]
-
-			document.getElementById("note_add_container").setAttribute("style","display : block;")
-			document.getElementById("notebook_title").innerText = current_notebook__data.nm
-
-			make_sub_list( current_notebook__data.cd );
-
-			var _t0 = document.getElementById( "view_document" )
-			if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
-
-			//make_brcm_2();
-
-		}
-	}
-})
-
-_el_btn__notebook_add_cancel.addEventListener("click",function(){
-	document.getElementById( "notebook_nm" ).value = "";
-	document.getElementById( "notebook_desc" ).value = "";
-	$('#notebook_add_modal').modal('hide');
-})
-
-document.getElementById( "project_title_div" ).addEventListener("click",function(){
-	$('#project_select_modal').modal('setting', 'closable', true).modal('show');
-})
-
-_el_btn__project_add_cancel.addEventListener("click",function(){
-	document.getElementById( "project_nm" ).value = "";
-	document.getElementById( "project_desc" ).value = "";
-	$('#project_add_modal').modal('hide');
-})
-
-_el_btn__project_add.addEventListener("click",function(){
-	$('#project_add_modal').modal('show');
-	console.log("_el_btn__project_add")
-	_el_btn__project_add_write.addEventListener("click", write_project );
-})
-
-_el_btn__notebook_add.addEventListener("click",function(){
-	$('#notebook_add_modal').modal('toggle');
-	console.log("_el_btn__project_add")
-	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
-})
-
-document.getElementById("test_sidebar").addEventListener("click",function(){
-	_el_removeChild( document.getElementById("comment_container") );
-
-	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show", function(){
-
-	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
-
-	document.getElementById("comment_wrap").setAttribute("style","background-color : #fff;;min-height : 769px;max-height : 769px; height:769px;overflow-y : auto;")
-	pre_objDiv_scrollHeight = 0
-	
-	chat_board_get_list();
-
-	})
-})
-
-document.getElementById("test_flip").addEventListener("click", function(){
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar('toggle')
-});
-
-document.getElementById("test_sidebar1").addEventListener("click",function(){
-	_el_removeChild( document.getElementById("todo_container") );
-	$('#multi-select').dropdown();
-	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
-		
-	current_note_todo__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
-
-	document.getElementById("todo_wrap").setAttribute("style","background-color : #fff;;min-height : 664px;max-height : 664px;height :664px;overflow-y : auto;")
-	pre_objDiv_scrollHeight = 0
-	
-	todo_board_get_list();
-
-	})
-})
-
-document.getElementById("comment_wrap").addEventListener("scroll",function(){
-	var comment_wrap = document.getElementById("comment_wrap");
-	if( comment_wrap.scrollTop == 0 )
-	{
-		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
-		chat_board_get_list()
-	}
-})
-
-document.getElementById("todo_wrap").addEventListener("scroll",function(){
-	var todo_wrap = document.getElementById("todo_wrap");
-	if( todo_wrap.scrollTop == 0 )
-	{
-		current_note_todo__data[ current_view_doc__data.cd ].skip += 20
-		todo_board_get_list()
-	}
-})
-
-var _el_div__sub_list_click = function(e){
-
-	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "list", "sub_list" )
-
-	var i = 0,iLen = pe.length,io;
-	for(;i < iLen;++i){
-		io = pe[ i ]
-		if( io == te ){
-			console.log( i )
-			req_detail_by__id( notebook_detail_data[ i ]._id )
-		}
-	}
-}
-
-document.getElementById("project_list_view_btn").addEventListener("click",function(){
-
-	make_project_list();
-})
 
 //------------------------------ event;
-//------------------------------ addEventListener;
-_el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
-//------------------------------ addEventListener;
+
 //------------------------------ btn;
 var btn_object = { modify : "none", delete : "none", delete : "none", cancel : "none", lists : "none", write : "none"}
 
@@ -1231,5 +1093,142 @@ var Initialize = function(){
 }
 
 Initialize();
+//------------------------------ addEventListener;
+_el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
+document.getElementById("global_sidebar").addEventListener("click",function(){
+	$('#global_LNB_sidebar')
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('toggle');
+})
 
+document.getElementById("notebook_list").addEventListener("click",function(e){
+
+	var pe = e.currentTarget.children
+	var te = check_dom( e.target, "notebook_list_item", "notebook_list" )
+
+	var i = 0,iLen = pe.length,io;
+	for(;i < iLen;++i){
+		io = pe[ i ]
+		if( io == te ){
+			console.log( i )
+			current_notebook__data = notebook_list_data[ i ]
+
+			document.getElementById("note_add_container").setAttribute("style","display : block;")
+			document.getElementById("notebook_title").innerText = current_notebook__data.nm
+
+			make_sub_list( current_notebook__data.cd );
+
+			var _t0 = document.getElementById( "view_document" )
+			if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
+
+			//make_brcm_2();
+
+		}
+	}
+})
+
+_el_btn__notebook_add_cancel.addEventListener("click",function(){
+	document.getElementById( "notebook_nm" ).value = "";
+	document.getElementById( "notebook_desc" ).value = "";
+	$('#notebook_add_modal').modal('hide');
+})
+
+document.getElementById( "project_title_div" ).addEventListener("click",function(){
+	$('#project_select_modal').modal('setting', 'closable', true).modal('show');
+})
+
+_el_btn__project_add_cancel.addEventListener("click",function(){
+	document.getElementById( "project_nm" ).value = "";
+	document.getElementById( "project_desc" ).value = "";
+	$('#project_add_modal').modal('hide');
+})
+
+_el_btn__project_add.addEventListener("click",function(){
+	$('#project_add_modal').modal('show');
+	console.log("_el_btn__project_add")
+	_el_btn__project_add_write.addEventListener("click", write_project );
+})
+
+_el_btn__notebook_add.addEventListener("click",function(){
+	$('#notebook_add_modal').modal('toggle');
+	console.log("_el_btn__project_add")
+	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
+})
+
+document.getElementById("test_sidebar").addEventListener("click",function(){
+	_el_removeChild( document.getElementById("comment_container") );
+
+	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show", function(){
+
+	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
+
+	document.getElementById("comment_wrap").setAttribute("style","background-color : #fff;;min-height : 769px;max-height : 769px; height:769px;overflow-y : auto;")
+	pre_objDiv_scrollHeight = 0
+	
+	chat_board_get_list();
+
+	})
+})
+
+document.getElementById("test_flip").addEventListener("click", function(){
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar('toggle')
+});
+
+document.getElementById("test_sidebar1").addEventListener("click",function(){
+	_el_removeChild( document.getElementById("todo_container") );
+	$('#multi-select').dropdown();
+	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
+		
+	current_note_todo__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
+
+	document.getElementById("todo_wrap").setAttribute("style","background-color : #fff;;min-height : 664px;max-height : 664px;height :664px;overflow-y : auto;")
+	pre_objDiv_scrollHeight = 0
+	
+	todo_board_get_list();
+
+	})
+})
+
+document.getElementById("comment_wrap").addEventListener("scroll",function(){
+	var comment_wrap = document.getElementById("comment_wrap");
+	if( comment_wrap.scrollTop == 0 )
+	{
+		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
+		chat_board_get_list()
+	}
+})
+
+document.getElementById("todo_wrap").addEventListener("scroll",function(){
+	var todo_wrap = document.getElementById("todo_wrap");
+	if( todo_wrap.scrollTop == 0 )
+	{
+		current_note_todo__data[ current_view_doc__data.cd ].skip += 20
+		todo_board_get_list()
+	}
+})
+
+var _el_div__sub_list_click = function(e){
+
+	var pe = e.currentTarget.children
+	var te = check_dom( e.target, "list", "sub_list" )
+
+	var i = 0,iLen = pe.length,io;
+	for(;i < iLen;++i){
+		io = pe[ i ]
+		if( io == te ){
+			console.log( i )
+			req_detail_by__id( notebook_detail_data[ i ]._id )
+		}
+	}
+}
+
+document.getElementById("project_list_view_btn").addEventListener("click",function(){
+
+	make_project_list();
+})
 </script>
