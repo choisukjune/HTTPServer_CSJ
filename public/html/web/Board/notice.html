@@ -349,10 +349,10 @@ var make_Array_dateFormat = function( arr ){
  * [write_doc description]
  * @type {[type]}
  */
- var check_dom = function( e, str ){
+ var check_dom = function( e, str, p0){
 	 if( e.getAttribute("id") == str ) return e
-	 else if( e.getAttribute("id") == "sub_list" ) return "";
-	 else return check_dom( e.parentElement, "list" )
+	 else if( e.getAttribute("id") == p0 ) return "";
+	 else return check_dom( e.parentElement, str )
  }
 
 /**
@@ -378,7 +378,7 @@ document.getElementById("global_sidebar").addEventListener("click",function(){
 document.getElementById("notebook_list").addEventListener("click",function(e){
 
 	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "notebook_list_item" )
+	var te = check_dom( e.target, "notebook_list_item", "notebook_list" )
 
 	var i = 0,iLen = pe.length,io;
 	for(;i < iLen;++i){
@@ -489,7 +489,7 @@ document.getElementById("todo_wrap").addEventListener("scroll",function(){
 var _el_div__sub_list_click = function(e){
 
 	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "list" )
+	var te = check_dom( e.target, "list", "sub_list" )
 
 	var i = 0,iLen = pe.length,io;
 	for(;i < iLen;++i){
@@ -812,7 +812,17 @@ var make_project_list = function(){
 
 
 				document.getElementById("project_list").addEventListener("click",function(e){
-console.log( e.target)
+					console.log( e.target)
+					var pe = e.currentTarget.children
+					var te = check_dom( e.target, "project_list_card", "project_list" )
+
+					var i = 0,iLen = pe.length,io;
+					for(;i < iLen;++i){
+						io = pe[ i ]
+						if( io == te ){
+							console.log( i )
+						}
+					}
 				})
 
 
