@@ -1,5 +1,12 @@
 <div class="ui basic segment item" id="view_document">
 	<div class="ui basic segment item">
+									<div class="ui breadcrumb" id="brscm">
+										<!-- <a class="section" id="brscm_1">Home</a>
+										<span class="divider">/</span>
+										<a class="section" id="brscm_2">Registration</a>
+										<span class="divider" id="brscm_3">/</span>
+										<div class="active section">Personal Information</div> -->
+										</div>
 		<h2 id="view_document_title">{{title}}</h2>
 		<p id="view_document_date">{{date}}</p>
 	</div>
