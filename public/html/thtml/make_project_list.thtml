@@ -1,6 +1,6 @@
 <div class="card" id="project_list_card" style="margin : 5px;border-radius :0px;cursor : pointer;box-shadow : 0px 0px 0px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5">
 	<div class="content">
-		<img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+		<img class="right floated mini ui image" src="https://semantic-ui.com/images/avatar/small/joe.jpg">
 		<div class="header">{{nm}}</div>
 		<div class="description">{{description}}</div>
 		<div class="meta">{{regist_date}}</div>
