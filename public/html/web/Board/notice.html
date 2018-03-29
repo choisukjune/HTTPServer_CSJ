@@ -358,6 +358,17 @@ var make_Array_dateFormat = function( arr ){
 	 else return check_dom( e.parentElement, str, p0 )
  }
 
+var btn_object = { modify : "none", delete : "none", delete : "none", cancel : "none", lists : "none", write : "none"}
+
+var btn_control = function( o ){
+	for( var s in btn_object )
+	{
+		if( o[ s ] ) document.getElementById( s ).style.display = o[ s ];
+		else document.getElementById( s ).style.display = btn_object[ s ];
+	}
+	return;
+}
+
 /**
  * 
 */
@@ -402,6 +413,10 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 
 		}
 	}
+	//----------;
+	var btn_control_obj = {};
+	btn_control( btn_control_obj );
+	//----------;
 })
 
 _el_btn__notebook_add_cancel.addEventListener("click",function(){
@@ -514,19 +529,6 @@ document.getElementById("project_list_view_btn").addEventListener("click",functi
 //------------------------------ addEventListener;
 _el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
 //------------------------------ addEventListener;
-//------------------------------ btn;
-var btn_object = { modify : "none", delete : "none", delete : "none", cancel : "none", lists : "none", write : "none"}
-
-var btn_control = function( o ){
-	for( var s in btn_object )
-	{
-		if( o[ s ] ) document.getElementById( s ).style.display = o[ s ];
-		else document.getElementById( s ).style.display = btn_object[ s ];
-	}
-	return;
-}
-
-//------------------------------ btn;
 //--------------------------------------------------variable;
 
 /**
