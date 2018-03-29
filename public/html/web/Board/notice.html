@@ -88,7 +88,10 @@
 				</a>
 				<a class="item" style="padding : 13px !important;" id="test_flip">
 						<i class="list ul fitted icon"  style="margin : 0px !important;"></i>
-					</a>
+				</a>
+				<a class="item" style="padding : 13px !important;" id="project_list_view_btn">
+						<i class="list ul fitted icon"  style="margin : 0px !important;"></i>
+				</a>
 			</div>
 
 			<!-- 좌측 레이아웃이 더필요하다면 사용; -->
@@ -501,6 +504,13 @@ var _el_div__sub_list_click = function(e){
 	}
 }
 
+document.getElementById("project_list_view_btn").addEventListener("click",function(){
+	_el_removeChild( document.getElementById( "notebook_list" ));
+	_el_removeChild( document.getElementById( "sub_list" ));
+	_el_removeChild( document.getElementById( "view_container" ));
+
+	make_project_list();
+})
 
 //------------------------------ event;
 //------------------------------ addEventListener;
@@ -777,6 +787,7 @@ var make_project_list = function(){
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 	document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
+	document.getElementById( "project_list_container" ).setAttribute("style","display : block;")
 	_el_removeChild( document.getElementById("project_list"))
 
 
