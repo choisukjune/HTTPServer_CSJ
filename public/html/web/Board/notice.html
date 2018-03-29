@@ -509,6 +509,13 @@ document.getElementById("project_list_view_btn").addEventListener("click",functi
 	_el_removeChild( document.getElementById( "sub_list" ));
 	_el_removeChild( document.getElementById( "view_container" ));
 
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar('hide')
+
 	make_project_list();
 })
 
@@ -786,7 +793,6 @@ var make_project_list = function(){
 	
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
-	document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
 	document.getElementById( "project_list_container" ).setAttribute("style","display : block;")
 	_el_removeChild( document.getElementById("project_list"))
 
