@@ -232,11 +232,11 @@
 			<div class="ui form">
 				<div class="field">
 					<label>Project Name</label>
-					<input type="text" name="projec-name" placeholder="Project Name" id="project_nm">
+					<input type="text" name="projec-name" placeholder="Project Name" id="modal_project_nm">
 				</div>
 				<div class="field">
 					<label>Description</label>
-					<textarea id="project_desc"></textarea>
+					<textarea id="modal_project_desc"></textarea>
 				</div>
 				<div class="field">
 					<button class="green fluid ui button" id="project_add_write">Add</button>
@@ -260,11 +260,11 @@
 			<div class="ui form">
 				<div class="field">
 					<label>Notebook Name</label>
-					<input type="text" name="notebook-name" placeholder="Notebook Name" id="notebook_nm">
+					<input type="text" name="notebook-name" placeholder="Notebook Name" id="modal_notebook_nm">
 				</div>
 				<div class="field">
 					<label>Description</label>
-					<textarea id="notebook_desc"></textarea>
+					<textarea id="modal_notebook_desc"></textarea>
 				</div>
 				<div class="field">
 					<button class="green fluid ui button" id="notebook_add_write">Add</button>
@@ -439,8 +439,8 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 })
 
 _el_btn__notebook_add_cancel.addEventListener("click",function(){
-	document.getElementById( "notebook_nm" ).value = "";
-	document.getElementById( "notebook_desc" ).value = "";
+	document.getElementById( "modal_notebook_nm" ).value = "";
+	document.getElementById( "modal_notebook_desc" ).value = "";
 	$('#notebook_add_modal').modal('hide');
 })
 
@@ -449,8 +449,8 @@ document.getElementById( "project_title_div" ).addEventListener("click",function
 })
 
 _el_btn__project_add_cancel.addEventListener("click",function(){
-	document.getElementById( "project_nm" ).value = "";
-	document.getElementById( "project_desc" ).value = "";
+	document.getElementById( "modal_project_nm" ).value = "";
+	document.getElementById( "modal_project_desc" ).value = "";
 	$('#project_add_modal').modal('hide');
 })
 
@@ -1052,8 +1052,8 @@ var make_sub_list = function( cd$notebook ){
 */
 var write_project = function(){
 
-	var project_nm =  document.getElementById("project_nm").value;
-	var project_desc = document.getElementById("project_desc").value;
+	var project_nm =  document.getElementById("modal_project_nm").value;
+	var project_desc = document.getElementById("modal_project_desc").value;
 
 	var url = "/api/Category/project/write?sid=" + window.service.cookie.getCookie('session')
 			+ "&project_nm=" + project_nm
@@ -1066,8 +1066,8 @@ var write_project = function(){
 		}
 		var data = JSON.parse( result );
 
-		document.getElementById( "project_nm" ).value = "";
-		document.getElementById( "project_desc" ).value = "";
+		document.getElementById( "modal_project_nm" ).value = "";
+		document.getElementById( "modal_project_desc" ).value = "";
 		$('#project_add_modal').modal('hide');
 
 		current_project__data = data;
@@ -1081,8 +1081,8 @@ var write_project = function(){
 */
 var write_notebook = function(){
 
-	var notebook_nm =  document.getElementById("notebook_nm").value;
-	var notebook_desc = document.getElementById("notebook_desc").value;
+	var notebook_nm =  document.getElementById("modal_notebook_nm").value;
+	var notebook_desc = document.getElementById("modal_notebook_desc").value;
 
 	var url = "/api/Category/notebook/write?sid=" + window.service.cookie.getCookie('session')
 			+ "&notebook_nm=" + notebook_nm
@@ -1097,8 +1097,8 @@ var write_notebook = function(){
 		}
 		var data = JSON.parse( result );
 
-		document.getElementById( "notebook_nm" ).value = "";
-		document.getElementById( "notebook_desc" ).value = "";
+		document.getElementById( "modal_notebook_nm" ).value = "";
+		document.getElementById( "modal_notebook_desc" ).value = "";
 		$('#notebook_add_modal').modal('hide');
 
 		make_notebook_list( current_project__data.cd );
