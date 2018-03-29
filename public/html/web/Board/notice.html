@@ -509,8 +509,8 @@ document.getElementById("project_list_view_btn").addEventListener("click",functi
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'push')
 	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar()	
+	.sidebar('setting', 'visible', false)
+	.sidebar('hide')	
 make_project_list();
 })
 
