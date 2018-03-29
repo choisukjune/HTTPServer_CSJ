@@ -112,7 +112,7 @@
 						</div>
 						<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 848px !important;">
 							<div class="ui grid">
-								<div class="sixteen wide column" id="div-PIMS-headerContainer" style="width: 100%;min-height : 800px !important;">
+								<div class="sixteen wide column" id="project_list_container" style="width: 100%;min-height : 800px !important;">
 										<div class="ui cards" id="project_list"></div>	
 								</div>
 								<!--Content-->
@@ -828,7 +828,7 @@ var make_project_list = function(){
 
 							current_project__data = project_list_data[ i ];
 							document.getElementById( "project_title" ).innerText = current_project__data.nm
-							document.getElementById("project_list").style.display = "none";
+							document.getElementById("project_list_container").style.display = "none";
 							make_notebook_list( current_project__data.cd );
 							make_brcm_1();
 						}
