@@ -803,7 +803,7 @@ var make_project_list = function(){
 				{
 					io = data[ i ];
 					
-					var html_include_data = _template.replace( "{{title}}", io.title )
+					var html_include_data = _template.replace( "{{nm}}", io.title )
 					.replace( "{{description}}", io.description )
 					.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) );
 
@@ -811,7 +811,9 @@ var make_project_list = function(){
 				}
 
 
-
+				document.getElementById(project_list).addEventListener("click",function(e){
+console.log( e.target)
+				})
 
 
 
@@ -1256,7 +1258,6 @@ var add_doc = function(){
 var Initialize = function(){
 
 	make_project_list();
-	//$('#project_select_modal').modal('setting', 'closable', false).modal('show');
 	//----------;
 	var btn_control_obj = {add : "block"}
 	btn_control( btn_control_obj );
