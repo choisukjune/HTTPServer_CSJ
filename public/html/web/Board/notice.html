@@ -119,74 +119,8 @@
 										<div class="ui cards" id="project_list"></div>	
 								</div>
 								<!--Content-->
-								<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
-									<div id="app">
-										<div class="ui left very wide sidebar">
-											<div class="ui grid" style="margin : 0px;padding : 0px; background-color:#fff;overflow-y: hidden !important;">
-													<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
-														<div id="notebook_add_container" class="ui basic segment item">
-															<div class="ui grid">
-																<div class="eight wide column" id="project_title_div"><b id="project_title"></b></div>
-																<div class="right floated right aligned eight wide column">
-																	<i class="plus icon right floated" id="notebook_add"></i>
-																	<!-- <i class="minus icon right floated" id="notebook_add"></i> -->
-																</div>
-															</div>
-														</div>
-														<div id="notebook_list"></div>
-															<!-- <div id="list" class="ui basic segment item">
-																<b>본문요약입니다.</b>
-															</div>
-															<div id="list" class="ui basic segment item">
-																<b>본문요약입니다.</b>
-															</div>
-															<div id="list" class="ui basic segment item">
-																<b>본문요약입니다.</b>
-															</div> -->
-													</div>
-													<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
-														<div id="note_add_container" class="ui basic segment item" style="display : none;">
-															<div class="ui grid">
-																<div class="eight wide column" id="notebook_title_div"><b id="notebook_title"></b></div>
-																<div class="right floated right aligned eight wide column">
-																	<i class="plus icon right floated" id="note_add"></i>
-																	<!-- <i class="minus icon right floated" id="notebook_add"></i> -->
-																</div>
-															</div>
-														</div>
-														<div id="sub_list" style="overflow-y: auto !important;min-height:761px;max-height:761px;"></div>
-														<!-- <div id="list" class="ui basic segment item">
-															<h4>제목입니다.</h4>
-															<p>본문요약입니다.</p>
-														</div>
-														<div id="list" class="ui basic segment item">
-															<h4>제목입니다.</h4>
-															<p>본문요약입니다.</p>
-														</div>
-														<div id="list" class="ui basic segment item">
-															<h4>제목입니다.</h4>
-															<p>본문요약입니다.</p>
-														</div> -->
-													</div>
-												</div>
-											</div>
-											<div class="pusher">
-												<div class="ui grid container" style="padding:0px;margin:0px;">
-													<div class="sixteen wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 848px !important;">
-														<div class="ui basic segment" id="view_container" style="min-height : 738px"></div>
-														<div class="ui basic segment" style="margin : 0px">
-															<div class="ui buttons">
-																<button class="ui button" id="modify" style="display : none;">수정</button>
-																<button class="ui button" id="delete" style="display : none;">삭제</button>
-																<button class="ui button" id="cancel" style="display : none;">취소</button>
-																<button class="ui button" id="lists" style="display : none;">목록</button>
-																<button class="ui button" id="write" style="display : none;">등록</button>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-									</div>
+								<div class="sixteen wide column" id="sidebar_container" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
+
 								</div>
 						</div>
 					</div>
@@ -506,10 +440,6 @@ var _el_div__sub_list_click = function(e){
 
 document.getElementById("project_list_view_btn").addEventListener("click",function(){
 
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('hide')
-
 	make_project_list();
 })
 
@@ -788,10 +718,9 @@ var make_project_list = function(){
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 	
-	_el_removeChild( document.getElementById( "notebook_list" ));
-	_el_removeChild( document.getElementById( "sub_list" ));
-	_el_removeChild( document.getElementById( "view_container" ));
+	_el_removeChild( document.getElementById( "sidebar_container" ));
 
+	sidebar_include();
 	document.getElementById( "project_list_container" ).setAttribute("style","display : block;")
 	_el_removeChild( document.getElementById("project_list"))
 
@@ -1154,7 +1083,13 @@ var update_doc = function( data ){
 		req_detail_by__id( data )
 	})
 }
-
+var sidebar_include = function(){
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "notice_sidebar.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		document.getElementById("sidebar_container").insertAdjacentHTML( 'beforeend', result );
+	})
+}
 /**
  * 문서 수정폼을 호출한다.
  * @return {[type]} [description]
@@ -1286,7 +1221,7 @@ var add_doc = function(){
  * @return {[type]} [description]
  */
 var Initialize = function(){
-
+	sidebar_include();
 	make_project_list();
 	//----------;
 	var btn_control_obj = {add : "block"}
