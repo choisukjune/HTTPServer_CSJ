@@ -1,7 +1,7 @@
 <div class="card" id="project_list_card" style="margin : 0px;border-radius :0px;cursor : pointer;">
 	<div class="content">
 		<div class="header">{{nm}}</div>
-		<div class="description">{{description}}</div>\
+		<div class="description">{{description}}</div>
 		<div class="meta">{{regist_date}}</div>
 	</div>
 	<div class="extra content">
