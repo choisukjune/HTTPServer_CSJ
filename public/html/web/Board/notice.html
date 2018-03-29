@@ -352,7 +352,7 @@ var make_Array_dateFormat = function( arr ){
  var check_dom = function( e, str, p0){
 	 if( e.getAttribute("id") == str ) return e
 	 else if( e.getAttribute("id") == p0 ) return "";
-	 else return check_dom( e.parentElement, str )
+	 else return check_dom( e.parentElement, str, p0 )
  }
 
 /**
@@ -814,7 +814,7 @@ var make_project_list = function(){
 				document.getElementById("project_list").addEventListener("click",function(e){
 					console.log( e.target)
 					var pe = e.currentTarget.children
-					var te = check_dom( e.target, "project_list_card", "project_list" )
+					var te = check_dom( e.target, "project_list_card", "project_list_card" )
 
 					var i = 0,iLen = pe.length,io;
 					for(;i < iLen;++i){
