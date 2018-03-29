@@ -1,4 +1,4 @@
-<div class="card" id="project_list_card" style="margin : -1px -1px;border-radius :0px;cursor : pointer;box-shdow : 0px 0px 0px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5">
+<div class="card" id="project_list_card" style="margin : 0px 0px 0px -4px;border-radius :0px;cursor : pointer;box-shdow : 0px 0px 0px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5">
 	<div class="content">
 		<div class="header">{{nm}}</div>
 		<div class="description">{{description}}</div>
