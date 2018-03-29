@@ -505,16 +505,7 @@ var _el_div__sub_list_click = function(e){
 }
 
 document.getElementById("project_list_view_btn").addEventListener("click",function(){
-	_el_removeChild( document.getElementById( "notebook_list" ));
-	_el_removeChild( document.getElementById( "sub_list" ));
-	_el_removeChild( document.getElementById( "view_container" ));
-
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar('hide')
+s
 
 	make_project_list();
 })
@@ -793,6 +784,18 @@ var make_project_list = function(){
 	
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
+	
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar('hide')
+
+	_el_removeChild( document.getElementById( "notebook_list" ));
+	_el_removeChild( document.getElementById( "sub_list" ));
+	_el_removeChild( document.getElementById( "view_container" ));
+
 	document.getElementById( "project_list_container" ).setAttribute("style","display : block;")
 	_el_removeChild( document.getElementById("project_list"))
 
@@ -880,10 +883,10 @@ var make_project_list = function(){
 			// 	make_notebook_list( current_project__data.cd );
 			// })
 
-			_el_removeChild( document.getElementById( "notebook_list" ));
-			_el_removeChild( document.getElementById( "sub_list" ));
-			_el_removeChild( document.getElementById( "view_container" ));
-			//_el_removeChild( document.getElementById( "brscm" ));
+			// _el_removeChild( document.getElementById( "notebook_list" ));
+			// _el_removeChild( document.getElementById( "sub_list" ));
+			// _el_removeChild( document.getElementById( "view_container" ));
+			// _el_removeChild( document.getElementById( "brscm" ));
 		})
 
 	})
