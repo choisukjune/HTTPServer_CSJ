@@ -128,24 +128,16 @@
 													<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
 														<div id="notebook_add_container" class="ui basic segment item">
 															<div class="ui grid">
-																<div class="eight wide column" id="project_title_div"><b id="project_title"></b></div>
-																<div class="right floated right aligned eight wide column">
-																	<i class="plus icon right floated" id="notebook_add"></i>
-																	<!-- <i class="minus icon right floated" id="notebook_add"></i> -->
-																</div>
 																<div class="sixteen wide column" id="project_title_div">
 																	<div class="ui items">
 																		<div class="item">
 																		  <div class="content">
-																			<a class="header">Cute Dog</a>
-																			<div class="description">
-																			  <p></p>
-																			  <p></p>
+																			<a class="header" id="project_title"></a>
+																			<div class="description" id="project_desc">
 																			</div>
 																			<div class="extra">
-																				<div class="ui fluid primary button">
-																					Buy tickets
-																					<i class="right chevron icon"></i>
+																				<div class="ui fluid primary button" id="notebook_add">
+																					Add
 																				  </div>
 																			</div>
 																		  </div>
@@ -869,6 +861,7 @@ var make_project_list = function(){
 
 						current_project__data = project_list_data[ i ];
 						document.getElementById( "project_title" ).innerText = current_project__data.nm
+						document.getElementById( "project_dsc" ).innerText = current_project__data.description
 						document.getElementById("project_list_container").style.display ="none";
 						document.getElementById("app").style.display = "block";
 						make_notebook_list( current_project__data.cd );
