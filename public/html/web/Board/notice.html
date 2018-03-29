@@ -821,6 +821,15 @@ var make_project_list = function(){
 						io = pe[ i ]
 						if( io == te ){
 							console.log( i )
+
+							document.getElementById("note_add_container").setAttribute("style","display : none;")
+							document.getElementById("notebook_title").innerText = "";
+
+
+							current_project__data = project_list_data[ i ];
+							make_brcm_1();
+							document.getElementById( "project_title" ).innerText = current_project__data.nm
+							make_notebook_list( current_project__data.cd );
 						}
 					}
 				})
