@@ -1,0 +1,11 @@
+<div class="card">
+	<div class="content">
+		<div class="header">{{title}}</div>
+		<div class="meta">{{regist_date}}</div>
+		<div class="description">{{description}}</div>
+	</div>
+	<div class="extra content">
+		<i class="check icon"></i>
+		121 Votes
+	</div>
+</div>
