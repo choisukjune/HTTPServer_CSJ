@@ -777,6 +777,7 @@ var make_project_list = function(){
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 	document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
+	_el_removeChild( document.getElementById("project_list_container"))
 
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_project_list.thtml"
