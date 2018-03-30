@@ -34349,6 +34349,11 @@ body.pushable > .pusher {
   width: 475px;
 }
 
+.ui[class*="700 wide"].left.sidebar,
+.ui[class*="700 wide"].right.sidebar {
+  width: 700px;
+}
+
 /* Left Visible */
 
 .ui.visible.thin.left.sidebar ~ .fixed,
@@ -34373,6 +34378,12 @@ body.pushable > .pusher {
 .ui.visible[class*="very wide"].left.sidebar ~ .pusher {
   -webkit-transform: translate3d(475px, 0, 0);
   transform: translate3d(475px, 0, 0);
+}
+
+.ui.visible[class*="700 wide"].left.sidebar ~ .fixed,
+.ui.visible[class*="700 wide"].left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(700px, 0, 0);
+  transform: translate3d(700px, 0, 0);
 }
 
 /* Right Visible */
@@ -34401,6 +34412,11 @@ body.pushable > .pusher {
   transform: translate3d(-475px, 0, 0);
 }
 
+.ui.visible[class*="700 wide"].right.sidebar ~ .fixed,
+.ui.visible[class*="700 wide"].right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-700px, 0, 0);
+  transform: translate3d(-700px, 0, 0);
+}
 /*******************************
           Animations
 *******************************/

@@ -138,7 +138,7 @@
 								<!--Content-->
 								<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
 									<div id="app">
-										<div class="ui left very wide sidebar" style="width : 700px;">
+										<div class="ui left very wide sidebar">
 											<div class="ui grid" style="margin : 0px;padding : 0px; background-color:#fff;overflow-y: hidden !important;">
 													<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
 														<div id="notebook_add_container" class="ui basic segment item">
@@ -415,7 +415,7 @@ var detect_scrollHeight = function( d ){
 var project_sub_nav_sidebar_open = function(){
 	$('#app .ui.sidebar')
 	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('setting', 'transition', 'push')
 	.sidebar('setting', 'dimPage', false)
 	.sidebar('setting', 'closable', false)
 	.sidebar('show')
@@ -523,7 +523,7 @@ document.getElementById("test_sidebar").addEventListener("click",function(){
 document.getElementById("test_flip").addEventListener("click", function(){
 	$('#app .ui.sidebar')
 	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('setting', 'transition', 'push')
 	.sidebar('setting', 'dimPage', false)
 	.sidebar('setting', 'closable', false)
 	.sidebar('toggle')
@@ -1378,7 +1378,7 @@ var delete_doc = function( doc_id ){
 */
 var add_doc = function(){
 
-	$('#app .ui.sidebar').sidebar({context:$('#app')}).sidebar('setting', 'transition', 'overlay').sidebar('setting', 'dimPage', false).sidebar('hide')
+	$('#app .ui.sidebar').sidebar({context:$('#app')}).sidebar('setting', 'transition', 'push').sidebar('setting', 'dimPage', false).sidebar('hide')
 
 	if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
 	
