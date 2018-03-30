@@ -1,5 +1,24 @@
-<div id="list" class="ui basic segment item bottom_line" idx="{{idx}}">
+<!-- <div id="list" class="ui basic segment item bottom_line" idx="{{idx}}">
 	<div id="list_id" style="display : none;">{{list_id}}</div>
 	<b>{{title}}</b>
 	<div id="sub_list_date" class="pad_b_10">{{regist_date}}</div>
-</div>
+</div> -->
+  <div class="item" id="list">
+    <div class="content">
+      <div class="header" style="max-width : 80%;">{{title}}</div>
+      <div class="ui right floated mini icon button"><i class="cloud icon"></i></div>
+              
+      <div class="meta">
+        <span class="date">{{regist_date}}</span>
+      </div>
+      <div class="description">
+        {{description}}
+      </div>
+      <!-- <div class="extra">
+        <div class="ui right floated tiny primary button">
+          Delete
+          <i class="right chevron icon"></i>
+        </div>
+      </div> -->
+    </div>
+  </div>
