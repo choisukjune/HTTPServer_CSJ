@@ -945,9 +945,9 @@ var make_notebook_list = function( cd$project ){
 	var _h = document.body.clientHeight;
 	var header_h = document.getElementById("div-PIMS-HeaderContainer").scrollHeight;
 	var footer_h = document.getElementById("footer").scrollHeight;
-	var note_add_h = document.getElementById("notebook_add_container").scrollHeight;
+	var notebook_add_h = document.getElementById("notebook_add_container").scrollHeight;
 	
-	document.getElementById("notebook_list").style.height = _h - note_add_h - header_h - footer_h;
+	document.getElementById("notebook_list").style.height = _h - notebook_add_h - header_h - footer_h;
 	//----- 리스트높이 자동조절;
 
 
