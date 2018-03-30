@@ -9,10 +9,10 @@
         {{description}}
       </div>
       <div class="extra">
-        <div class="ui right floated tiny primary button">
+        <!-- <div class="ui right floated tiny primary button">
           Delete
           <i class="right chevron icon"></i>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
