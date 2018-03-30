@@ -557,16 +557,18 @@ var _el_div__sub_list_click = function(e){
 		if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
 		return;
 	}
+	else
+	{
+		var pe = e.currentTarget.children
+		var te = check_dom( e.target, "list", "sub_list" )
 
-	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "list", "sub_list" )
-
-	var i = 0,iLen = pe.length,io;
-	for(;i < iLen;++i){
-		io = pe[ i ]
-		if( io == te ){
-			console.log( i )
-			return req_detail_by__id( notebook_detail_data[ i ]._id )
+		var i = 0,iLen = pe.length,io;
+		for(;i < iLen;++i){
+			io = pe[ i ]
+			if( io == te ){
+				console.log( i )
+				return req_detail_by__id( notebook_detail_data[ i ]._id )
+			}
 		}
 	}
 }
@@ -1052,7 +1054,10 @@ var req_detail_by__id = function( _id ){
 
 			//button 이벤트 연결;
 			document.getElementById("modify").addEventListener( "click",modify_doc )
-			document.getElementById("delete").addEventListener( "click",delete_doc( current_view_doc__data._id ) )
+			document.getElementById("delete").addEventListener( "click",function(){
+				debugger;
+				//delete_doc( current_view_doc__data._id )
+			} )
 		})
 	})
 }
