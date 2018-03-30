@@ -448,10 +448,6 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 				document.getElementById("note_add_container").setAttribute("style","display : none;")
 				document.getElementById("notebook_title").innerText = "";
 
-
-				current_project__data = project_list_data[ i ];
-				document.getElementById( "project_title" ).innerText = current_project__data.nm
-				document.getElementById( "project_desc" ).innerText = current_project__data.description
 				document.getElementById("project_list_container").style.display ="none";
 				document.getElementById("app").style.display = "block";
 				make_notebook_list( current_project__data.cd );
