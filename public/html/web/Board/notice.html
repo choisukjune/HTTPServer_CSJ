@@ -941,16 +941,6 @@ var make_notebook_list = function( cd$project ){
 
 	_el_btn__notebook_add_write.removeEventListener("click",write_notebook);
 
-	//----- 리스트높이 자동조절;
-	var _h = document.body.clientHeight;
-	var header_h = document.getElementById("div-PIMS-HeaderContainer").scrollHeight;
-	var footer_h = document.getElementById("footer").scrollHeight;
-	var notebook_add_h = document.getElementById("notebook_add_container").scrollHeight;
-	
-	document.getElementById("notebook_list").style.height = _h - notebook_add_h - header_h - footer_h;
-	//----- 리스트높이 자동조절;
-
-
 	var _t0 = document.getElementById("notebook_list")
 
 	if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
@@ -976,6 +966,15 @@ var make_notebook_list = function( cd$project ){
 			if( _el_div__view_container ) if( _el_div__view_container.firstChild ) while( _el_div__view_container.firstChild ) _el_div__view_container.removeChild( _el_div__view_container.firstChild );
 
 			document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : block;" )
+
+			//----- 리스트높이 자동조절;
+			var _h = document.body.clientHeight;
+			var header_h = document.getElementById("div-PIMS-HeaderContainer").scrollHeight;
+			var footer_h = document.getElementById("footer").scrollHeight;
+			var notebook_add_h = document.getElementById("notebook_add_container").scrollHeight;
+			
+			document.getElementById("notebook_list").style.height = _h - notebook_add_h - header_h - footer_h;
+			//----- 리스트높이 자동조절;
 
 			_el_removeChild( _t0 );
 
