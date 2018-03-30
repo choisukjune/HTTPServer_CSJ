@@ -1,15 +1,15 @@
   <div class="item">
     <div class="content">
-      <a class="header">Watchmen</a>
+      <a class="header">{{nm}}</a>
       <div class="meta">
-        <span class="cinema">IFC</span>
+        <span class="date">{{regist_date}}</span>
       </div>
       <div class="description">
-        <p></p>
+        {{description}}
       </div>
       <div class="extra">
-        <div class="ui right floated primary button">
-          Buy tickets
+        <div class="ui right floated tiny primary button">
+          Delete
           <i class="right chevron icon"></i>
         </div>
       </div>
