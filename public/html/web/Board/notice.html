@@ -224,7 +224,7 @@
 						</div>
 					</div>
 					<!-- <div id="div-PIMS-FooterContainer" class="sixteen wide column"style="background-color : #eeeeee; bottom : 0px !important;position : relative !important;border-top : 1px solid rgba(34, 36, 38, 0.15) !important;">Copyright © B2LABS All Rights Reserved.</div> -->
-					<div class="ui footer basic segment" style="background-color: #eee !important;">
+					<div class="ui footer basic segment" style="background-color: #eee !important;" id="footer">
 						<div class="ui container">
 							<p>
 								Place sticky footer content here.
@@ -400,6 +400,13 @@ var btn_control = function( o ){
 		else document.getElementById( s ).style.display = btn_object[ s ];
 	}
 	return;
+}
+
+/**
+ * 
+*/
+var detect_scrollHeight = function( d ){
+	return d.scrollHeight
 }
 
 /**
@@ -934,6 +941,16 @@ var make_notebook_list = function( cd$project ){
 
 	_el_btn__notebook_add_write.removeEventListener("click",write_notebook);
 
+	//----- 리스트높이 자동조절;
+	var _h = document.body.clientHeight;
+	var header_h = document.getElementById("div-PIMS-HeaderContainer").scrollHeight;
+	var footer_h = document.getElementById("footer").scrollHeight;
+	var note_add_h = document.getElementById("notebook_add_container").scrollHeight;
+	
+	document.getElementById("sub_list").style.height = _h - note_add_h - header_h - footer_h;
+	//----- 리스트높이 자동조절;
+
+
 	var _t0 = document.getElementById("notebook_list")
 
 	if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
@@ -1037,10 +1054,12 @@ var req_detail_by__id = function( _id ){
 var make_sub_list = function( cd$notebook ){
 
 	//----- 리스트높이 자동조절;
-	var _h = 848;
+	var _h = document.body.clientHeight;
+	var header_h = document.getElementById("div-PIMS-HeaderContainer").scrollHeight;
+	var footer_h = document.getElementById("footer").scrollHeight;
 	var note_add_h = document.getElementById("note_add_container").scrollHeight;
 	
-	document.getElementById("sub_list").style.height = _h - note_add_h;
+	document.getElementById("sub_list").style.height = _h - note_add_h - header_h - footer_h;
 	//----- 리스트높이 자동조절;
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_sub_list.thtml"
