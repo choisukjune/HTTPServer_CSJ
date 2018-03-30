@@ -954,7 +954,9 @@ var make_notebook_list = function( cd$project ){
 				div.setAttribute( "class", "ui basic segment item" )
 
 			var a = document.createElement("a")
+				
 				a_text = document.createTextNode( a )
+				a.appendChild( a_text )
 
 				div.appendChild( document.createTextNode( io.nm ) )
 				div.appendChild( a_text )
