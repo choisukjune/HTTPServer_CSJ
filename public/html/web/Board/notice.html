@@ -1059,7 +1059,7 @@ var make_sub_list = function( cd$notebook ){
 
 				var html_include_data = _template.replace( "{{title}}", io.title )
 				.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
-				.replace("{{content}}", io.content.replace(regex, "") );
+				.replace("{{content}}", io.content.replace(regex, "").substr(0, 50) );
 
 				_el_div__sub_list.insertAdjacentHTML( 'beforeend', html_include_data );
 			}
