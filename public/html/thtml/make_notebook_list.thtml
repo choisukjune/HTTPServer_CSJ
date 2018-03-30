@@ -1,4 +1,4 @@
-  <div class="item">
+  <div class="item" id="notebook_list_item">
     <div class="content">
       <a class="header">{{nm}}</a>
       <div class="meta">
