@@ -545,26 +545,18 @@ document.getElementById("todo_wrap").addEventListener("scroll",function(){
 	}
 })
 
-
-
-
-document.getElementById("sub_list_delete_btn").addEventListener('click',function(e){
-	debugger;
-	console.log( e.target )
-
-	// if( e.target.id == "sub_list_delete_btn")
-	// {
-	// 	console.log('sub_list_delete_btn')
-	// 	delete_doc( notebook_detail_data[ i ]._id )
-	// 	make_sub_list( current_notebook__data.cd );
-
-	// 	var _t0 = document.getElementById( "view_document" )
-	// 	if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
-	// 	return;
-	// }
-
-})
 var _el_div__sub_list_click = function(e){
+
+	if( e.target.id == "sub_list_delete_btn")
+	{
+		console.log('sub_list_delete_btn')
+		delete_doc( notebook_detail_data[ i ]._id )
+		make_sub_list( current_notebook__data.cd );
+
+		var _t0 = document.getElementById( "view_document" )
+		if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
+		return;
+	}
 
 	var pe = e.currentTarget.children
 	var te = check_dom( e.target, "list", "sub_list" )
