@@ -1046,9 +1046,7 @@ var make_sub_list = function( cd$notebook ){
 
 				io = data[ i ];
 
-				var html_include_data = _template.replace( "{{idx}}", io._id )
-				.replace( "{{list_id}}", io._id )
-				.replace( "{{title}}", io.title )
+				var html_include_data = _template.replace( "{{title}}", io.title )
 				.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) );
 
 				_el_div__sub_list.insertAdjacentHTML( 'beforeend', html_include_data );
