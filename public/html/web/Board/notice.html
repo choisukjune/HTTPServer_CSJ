@@ -933,7 +933,7 @@ var make_project_list = function(){
 							document.getElementById("project_list_container").style.display ="none";
 							document.getElementById("app").style.display = "block";
 							make_notebook_list( current_project__data.cd );
-							//make_brcm_1();
+							return;
 						}
 					}
 				}
@@ -1326,17 +1326,17 @@ var modify_doc = function(){
  */
  var delete_project = function( notebook_id ){
 
-var url = "/api/Category/project/delete?sid=" + window.service.cookie.getCookie('session')
-+ "&_id=" + notebook_id
+	var url = "/api/Category/project/delete?sid=" + window.service.cookie.getCookie('session')
+	+ "&_id=" + notebook_id
 
-window.service.Request.req_GET_data__Callback(url,function( result ){
-	if(result == 0) window.service.session.remove_deleteCookies_location_login();
+	window.service.Request.req_GET_data__Callback(url,function( result ){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
 
-	console.log( result );
-	console.log( "--삭제완료--" )
+		console.log( result );
+		console.log( "--삭제완료--" )
 
-	make_project_list()
-})
+		make_project_list()
+	})
 }
 
 /**
