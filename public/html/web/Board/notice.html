@@ -555,7 +555,14 @@ var _el_div__sub_list_click = function(e){
 		io = pe[ i ]
 		if( io == te ){
 			console.log( i )
-			req_detail_by__id( notebook_detail_data[ i ]._id )
+			if( e.target.id == "sub_list_delete_btn")
+			{
+				console.log('sub_list_delete_btn')
+			}
+			else
+			{
+				req_detail_by__id( notebook_detail_data[ i ]._id )
+			}
 		}
 	}
 }
