@@ -1307,7 +1307,7 @@ var delete_doc = function( doc_id ){
 		console.log( "--삭제완료--" )
 
 		make_sub_list( current_notebook__data.cd );
-		if( document.getElementById("view_container") ) document.getElementById("view_container").removeChild(document.getElementById("view_document"));
+		if( document.getElementById("view_document") ) document.getElementById("view_container").removeChild(document.getElementById("view_document"));
 	
 		//----------;
 		var btn_control_obj = {add : "block"}
