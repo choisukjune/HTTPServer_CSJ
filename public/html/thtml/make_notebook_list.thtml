@@ -1,9 +1,9 @@
   <div class="item" id="notebook_list_item">
     <div class="content">
       <a class="header">{{nm}}</a>
+              <button class="ui right floated mini icon button"><i class="cloud icon"></i></button>
       <div class="meta">
         <span class="date">{{regist_date}}</span>
-        <button class="ui left floated button">Left Floated</button>
       </div>
       <div class="description">
         {{description}}
