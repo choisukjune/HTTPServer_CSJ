@@ -7,7 +7,7 @@
 	</div>
 	<div class="extra content">
 		<div class="ui two buttons">
-			<!--div class="ui basic green button">Approve</div-->
+			<div class="ui basic green button">Modify</div>
 			<div class="ui basic red mini button">Delete</div>
 		</div>
 	</div>
