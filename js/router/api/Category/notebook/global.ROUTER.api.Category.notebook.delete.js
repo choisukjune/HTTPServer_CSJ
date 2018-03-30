@@ -1,6 +1,6 @@
 global.ROUTER.api.Category.notebook.delete= function( req, res ){
 
-	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
+	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ) );
 
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
 
@@ -16,7 +16,7 @@ global.ROUTER.api.Category.notebook.delete= function( req, res ){
 				global.CSJLog.log("Connected correctly to server");
 
 				//------------------------------;
-				var db0 = db.db('board');
+				var db0 = db.db('category');
 
 				//ToDo function 으로 분리하기;
 				var Long = require('mongodb').Long;
@@ -34,7 +34,7 @@ global.ROUTER.api.Category.notebook.delete= function( req, res ){
 				var _query = { _id : Long( _q._id ).toInt() };
 				var doc = { $set : { _d : Long( 1 ).toInt(),delete_date : r }};
 
-				db0.collection("notice").update(_query,doc,function(err, result){
+				db0.collection("notebook").update(_query,doc,function(err, result){
 					if (err) throw err;
 					console.log( result );
 					global.api.Response.res_200_ok_String( req, res, "true");
