@@ -591,6 +591,45 @@ var _el_div__sub_list_click = function(e){
 		}
 }
 
+
+var _el_div_prject_list_click = function(e){
+					
+	var pe = e.currentTarget.children
+	var te = check_dom( e.target, "project_list_card", "project_list_container" )
+
+	if( check_dom(e.target,"project_list_delete_btn","project_list_card").id == "project_list_delete_btn")
+	{
+		var i = 0,iLen = pe.length,io;
+		for(;i < iLen;++i){
+			io = pe[ i ]
+			if( io == te ){
+				console.log( i )
+				console.log('project_list_delete_btn')
+				delete_project( project_list_data[ i ]._id )
+			}
+		}
+	}	
+	else
+	{
+		var i = 0,iLen = pe.length,io;
+		for(;i < iLen;++i){
+			io = pe[ i ]
+			if( io == te ){
+				console.log( i )
+				document.getElementById("note_add_container").setAttribute("style","display : none;")
+				document.getElementById("notebook_title").innerText = "";
+
+
+				current_project__data = project_list_data[ i ];
+				document.getElementById( "project_title" ).innerText = current_project__data.nm
+				document.getElementById( "project_desc" ).innerText = current_project__data.description
+				document.getElementById("project_list_container").style.display ="none";
+				document.getElementById("app").style.display = "block";
+				make_notebook_list( current_project__data.cd );
+			}
+		}
+	}
+}
 document.getElementById("project_list_view_btn").addEventListener("click",function(){
 
 	document.getElementById("app").style.display = "none";
@@ -902,78 +941,9 @@ var make_project_list = function(){
 				document.getElementById("project_list").insertAdjacentHTML( 'beforeend', html_include_data );
 			}
 
+			document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click(e) )
+			document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click(e) )
 
-			document.getElementById("project_list").addEventListener("click",function(e){
-				
-				var pe = e.currentTarget.children
-				var te = check_dom( e.target, "project_list_card", "project_list_container" )
-
-				if( check_dom(e.target,"project_list_delete_btn","project_list_card").id == "project_list_delete_btn")
-				{
-					var i = 0,iLen = pe.length,io;
-					for(;i < iLen;++i){
-						io = pe[ i ]
-						if( io == te ){
-							console.log( i )
-							console.log('project_list_delete_btn')
-							delete_project( project_list_data[ i ]._id )
-						}
-					}
-				}	
-				else
-				{
-					var i = 0,iLen = pe.length,io;
-					for(;i < iLen;++i){
-						io = pe[ i ]
-						if( io == te ){
-							console.log( i )
-							document.getElementById("note_add_container").setAttribute("style","display : none;")
-							document.getElementById("notebook_title").innerText = "";
-
-
-							current_project__data = project_list_data[ i ];
-							document.getElementById( "project_title" ).innerText = current_project__data.nm
-							document.getElementById( "project_desc" ).innerText = current_project__data.description
-							document.getElementById("project_list_container").style.display ="none";
-							document.getElementById("app").style.display = "block";
-							make_notebook_list( current_project__data.cd );
-						}
-					}
-
-				}
-			})
-
-
-
-			// document.getElementById("project_list_select").addEventListener("change",function(e){
-			// 	console.log(e.target.selectedOptions[ 0 ].value)
-			// 	var idx = e.target.selectedOptions[ 0 ].value;
-			// 	if( idx == "" )
-			// 	{
-			// 		_el_removeChild( document.getElementById( "notebook_list" ));
-			// 		_el_removeChild( document.getElementById( "sub_list" ));
-			// 		_el_removeChild( document.getElementById( "view_container" ));
-			// 		_el_removeChild( document.getElementById( "brscm" ));
-
-			// 		document.getElementById( "notebook_add_container" ).setAttribute("style","display : none;")
-			// 		return;
-			// 	}
-
-			// 	document.getElementById("note_add_container").setAttribute("style","display : none;")
-			// 	document.getElementById("notebook_title").innerText = "";
-
-
-			// 	current_project__data = project_list_data[ idx ];
-			// 	make_brcm_1();
-			// 	document.getElementById( "project_title" ).innerText = current_project__data.nm
-			// 	$('#project_select_modal').modal('hide')
-			// 	make_notebook_list( current_project__data.cd );
-			// })
-
-			// _el_removeChild( document.getElementById( "notebook_list" ));
-			// _el_removeChild( document.getElementById( "sub_list" ));
-			// _el_removeChild( document.getElementById( "view_container" ));
-			// _el_removeChild( document.getElementById( "brscm" ));
 		})
 
 	})
