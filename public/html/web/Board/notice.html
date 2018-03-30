@@ -74,7 +74,7 @@
 #notebook_list,#sub_list{
 	margin : 0px;
 	overflow-y: auto !important;
-	min-height:700px;max-height:700px;height: 700px;
+	/* min-height:700px;max-height:700px;height: 700px; */
 }
 </style>
 <!-- <div class="ui centered grid">
@@ -1035,6 +1035,13 @@ var req_detail_by__id = function( _id ){
  * @return {[type]} [description]
  */
 var make_sub_list = function( cd$notebook ){
+
+	//----- 리스트높이 자동조절;
+	var _h = 848;
+	var note_add_h = document.getElementById("note_add_container").scrollHeight;
+	
+	document.getElementById("sub_list").style.height = _h - note_add_h;
+	//----- 리스트높이 자동조절;
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_sub_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
