@@ -3,6 +3,7 @@
       <a class="header">{{nm}}</a>
       <div class="meta">
         <span class="date">{{regist_date}}</span>
+        <button class="ui left floated button">Left Floated</button>
       </div>
       <div class="description">
         {{description}}
