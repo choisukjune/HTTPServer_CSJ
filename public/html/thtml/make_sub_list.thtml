@@ -1,8 +1,3 @@
-<!-- <div id="list" class="ui basic segment item bottom_line" idx="{{idx}}">
-	<div id="list_id" style="display : none;">{{list_id}}</div>
-	<b>{{title}}</b>
-	<div id="sub_list_date" class="pad_b_10">{{regist_date}}</div>
-</div> -->
   <div class="item" id="list">
     <div class="content">
       <div class="header" style="max-width : 80%;">{{title}}</div>
@@ -12,7 +7,7 @@
         <span class="date">{{regist_date}}</span>
       </div>
       <div class="description">
-        {{description}}
+        {{content}}
       </div>
       <!-- <div class="extra">
         <div class="ui right floated tiny primary button">

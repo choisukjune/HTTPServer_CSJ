@@ -1040,6 +1040,8 @@ var make_sub_list = function( cd$notebook ){
 			var data = JSON.parse( result )
 
 			_el_div__sub_list.innerHTML = "";//dom 초기화;
+			
+			var regex = /(&nbsp;|<([^>]+)>)/ig
 
 			var i = 0,iLen = data.length,io;
 			for(; i<iLen; ++i ){
@@ -1047,7 +1049,8 @@ var make_sub_list = function( cd$notebook ){
 				io = data[ i ];
 
 				var html_include_data = _template.replace( "{{title}}", io.title )
-				.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) );
+				.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
+				.replace("{{content}}", io.content.replace(regex, "") );
 
 				_el_div__sub_list.insertAdjacentHTML( 'beforeend', html_include_data );
 			}
