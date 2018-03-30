@@ -1,6 +1,6 @@
   <div class="item" id="notebook_list_item">
     <div class="content">
-      <div class="header">{{nm}}</div>
+      <div class="header" style="max-width : 80%;">{{nm}}</div>
       <div class="ui right floated mini icon button"><i class="cloud icon"></i></div>
               
       <div class="meta">
