@@ -279,8 +279,11 @@
 					<label>Description</label>
 					<textarea id="modal_notebook_desc"></textarea>
 				</div>
-				<div class="field">
+				<div class="field" id="notebook_add_write_field">
 					<button class="green fluid ui button" id="notebook_add_write">Add</button>
+				</div>
+				<div class="field" id="notebook_add_modify_field">
+					<button class="orange fluid ui button" id="notebook_modify_write">Modify</button>
 				</div>
 				<div class="field">
 					<button class="fluid ui button" id="notebook_add_cancel">Cancel</button>
@@ -458,6 +461,10 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 
 				$('#notebook_add_modal').modal('show');
 				console.log("modify_notebook")
+				document.getElementById("notebook_add_write_field").style.display = "none";
+				document.getElementById("modal_notebook_nm").value = current_notebook__data[ i ].nm;
+				document.getElementById("modal_notebook_desc").value = current_notebook__data[ i ].description;
+
 
 				return;
 			}		
