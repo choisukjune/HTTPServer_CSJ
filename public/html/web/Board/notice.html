@@ -529,7 +529,6 @@ var event_project_update_btn = function(d){
 	console.log( _uo )
 	
 	update_project( _uo );
-	document.getElementById("project_update_btn").removeEventListener("click",event_project_update_btn)
 }
 
 
@@ -1361,6 +1360,7 @@ var update_project = function( d ){
 		console.log( "--수정완료--" )
 		$('#project_add_modal').modal('toggle');
 		make_project_list();
+		document.getElementById("project_update_btn").removeEventListener("click",event_project_update_btn)
 	})
 }
 
