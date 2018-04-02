@@ -988,6 +988,8 @@ var make_brcm_3 = function(){
 var make_project_list = function(){
 	
 	_el_removeChild( document.getElementById("project_list") );
+	document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
+	document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click )
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 
@@ -1000,7 +1002,6 @@ var make_project_list = function(){
 	document.getElementById( "project_list_container" ).setAttribute("style","display : block;")
 	_el_removeChild( document.getElementById("project_list"))
 
-document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_project_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
@@ -1033,8 +1034,6 @@ document.getElementById("project_list").removeEventListener("click",_el_div_prje
 
 				document.getElementById("project_list").insertAdjacentHTML( 'beforeend', html_include_data );
 			}
-
-			document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click )
 
 		})
 
