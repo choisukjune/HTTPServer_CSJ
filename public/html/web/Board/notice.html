@@ -1279,7 +1279,6 @@ var update_doc = function( data ){
 var update_notebook = function( d ){
 
 	var url = "/api/Category/notebook/update"
-	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + d._id
 	+ "&data=" + htmlEntities( encodeURIComponent( d.description ) )
