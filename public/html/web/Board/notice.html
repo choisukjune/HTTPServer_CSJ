@@ -510,15 +510,6 @@ var notebook_modify = function( d ){
 }
 
 var project_modify = function( d ){
-	document.getElementById("project_update_btn").removeEventListener("click",function(){
-		var _uo;
-		_uo = d
-		_uo.nm = document.getElementById("modal_project_nm").value;
-		_uo.description = document.getElementById("modal_project_desc").value;
-		console.log( _uo )
-		
-		update_project( _uo );
-	})
 	document.getElementById("modal_project_header").innerText = "Project Modify."
 	document.getElementById("project_add_write_field").style.display = "none";
 	document.getElementById("project_update_btn_field").style.display = "block";
@@ -528,17 +519,6 @@ var project_modify = function( d ){
 	$('#project_add_modal').modal('show');
 	console.log("modify_project")
 }
-
-
-document.getElementById("project_update_btn").addEventListener("click",function(){
-	var _uo;
-	_uo = d
-	_uo.nm = document.getElementById("modal_project_nm").value;
-	_uo.description = document.getElementById("modal_project_desc").value;
-	console.log( _uo )
-	
-	update_project( _uo );
-})
 
 document.getElementById("notebook_title_modify_btn").addEventListener("click",function(){
 	notebook_modify( current_notebook__data )
@@ -703,6 +683,17 @@ var _el_div_prject_list_click = function(e){
 				project_modify( project_list_data[ i ] )
 			}
 		}
+
+		document.getElementById("project_update_btn").addEventListener("click",function(){
+			var _uo;
+			_uo = project_list_data[ i ]
+			_uo.nm = document.getElementById("modal_project_nm").value;
+			_uo.description = document.getElementById("modal_project_desc").value;
+			console.log( _uo )
+			
+			update_project( _uo );
+		})
+
 		return;
 	}	
 	else
