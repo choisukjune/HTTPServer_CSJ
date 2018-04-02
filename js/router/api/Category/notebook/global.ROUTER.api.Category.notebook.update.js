@@ -62,7 +62,7 @@ global.ROUTER.api.Category.notebook.update = function( req, res ){
 						console.log( _query )
 						console.log( doc )
 
-						db0.collection("notice").update(_query,doc,function(err, result){
+						db0.collection("notebook").update(_query,doc,function(err, result){
 							if (err) throw err;
 							console.log( result )
 							global.api.Response.res_200_ok_String( req, res, JSON.stringify( _q._id ) );

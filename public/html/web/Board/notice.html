@@ -1281,7 +1281,7 @@ var update_notebook = function( d ){
 	var url = "/api/Category/notebook/update"
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + d._id
-	+ "&data=" + htmlEntities( encodeURIComponent( d.description ) )
+	+ "&description=" + htmlEntities( encodeURIComponent( d.description ) )
 	+ "&nm=" + encodeURIComponent( d.nm );
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
