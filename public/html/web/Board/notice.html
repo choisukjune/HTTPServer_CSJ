@@ -1031,7 +1031,8 @@ var make_notebook_list = function( cd$project ){
 
 			project_sub_nav_sidebar_open();
 			document.getElementById("notebook_list_modify_btn").addEventListener("click",function(){
-				modify_notebook();
+				$('#notebook_add_modal').modal('toggle');
+				console.log("notebook_list_modify_btn")
 			})
 		})
 	})
