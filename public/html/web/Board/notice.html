@@ -282,8 +282,8 @@
 				<div class="field" id="notebook_add_write_field">
 					<button class="green fluid ui button" id="notebook_add_write">Add</button>
 				</div>
-				<div class="field" id="notebook_add_modify_field">
-					<button class="orange fluid ui button" id="notebook_modify_write">Modify</button>
+				<div class="field" id="notebook_update_btn_field">
+					<button class="orange fluid ui button" id="notebook_update_btn">Modify</button>
 				</div>
 				<div class="field">
 					<button class="fluid ui button" id="notebook_add_cancel">Cancel</button>
@@ -461,11 +461,16 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 
 				$('#notebook_add_modal').modal('show');
 				console.log("modify_notebook")
+				
+				var _uo;
+				
 				document.getElementById("notebook_add_write_field").style.display = "none";
 				document.getElementById("modal_notebook_nm").value = notebook_list_data[ i ].nm;
-				document.getElementById("modal_notebook_desc").value = notebook_list_data[ i ].description;
+				document.getElementById("modal_notebook_desc").value = notebook_list_datas[ i ].description;
 
-
+				uo = notebook_list_datas[ i ];
+				
+				document.getElementById("notebook_update_btn").addEventListener("click",update_notebook( uo ) )
 				return;
 			}		
 			else
@@ -1266,8 +1271,23 @@ var update_doc = function( data ){
  * 
 */
 
-var modify_notebook = function(){
+var update_notebook = function( d ){
 
+	var url = "/api/Category/notebook/update"
+	var title = document.getElementById("title").value
+	var data = "sid=" + window.service.cookie.getCookie('session')
+	+ "&_id=" + d._id
+	+ "&data=" + htmlEntities( encodeURIComponent( d.description ) )
+	+ "&nm=" + encodeURIComponent( d.nm );
+
+	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		var data = JSON.parse( result );
+
+		console.log( data );
+		console.log( "--수정완료--" )
+
+	})
 }
 
 /**
