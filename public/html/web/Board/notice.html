@@ -511,8 +511,6 @@ var notebook_modify = function( d ){
 
 var project_modify = function( d ){
 	
-	document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
-
 	document.getElementById("modal_project_header").innerText = "Project Modify."
 	document.getElementById("project_add_write_field").style.display = "none";
 	document.getElementById("project_update_btn_field").style.display = "block";
@@ -697,6 +695,7 @@ var _el_div_prject_list_click = function(e){
 			if( io == te ){
 				console.log( i )
 				console.log('project_list_delete_btn')
+				document.getElementById("project_list").removeEventListener("click",this )
 				project_modify( project_list_data[ i ] )
 			}
 		}
