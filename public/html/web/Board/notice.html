@@ -492,6 +492,7 @@ var notebook_modify = function( d ){
 	console.log("modify_notebook")
 	
 	document.getElementById("notebook_add_write_field").style.display = "none";
+	document.getElementById("notebook_update_btn_field").style.display = "block";
 	document.getElementById("modal_notebook_nm").value = d.nm;
 	document.getElementById("modal_notebook_desc").value = d.description;
 
@@ -516,6 +517,8 @@ _el_btn__notebook_add_cancel.addEventListener("click",function(){
 	document.getElementById( "modal_notebook_nm" ).value = "";
 	document.getElementById( "modal_notebook_desc" ).value = "";
 	document.getElementById("notebook_add_write_field").style.display = "block";
+	document.getElementById("notebook_update_btn_field").style.display = "none";
+
 	$('#notebook_add_modal').modal('hide');
 })
 
@@ -538,7 +541,9 @@ _el_btn__project_add.addEventListener("click",function(){
 _el_btn__notebook_add.addEventListener("click",function(){
 	$('#notebook_add_modal').modal('toggle');
 	console.log("_el_btn__project_add")
+	document.getElementById("notebook_add_write_field").style.display = "block";
 	document.getElementById("notebook_update_btn_field").style.display = "none";
+	
 	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
 })
 
