@@ -460,7 +460,6 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 			{
 				console.log('notebook_list_modify_btn')
 				notebook_modify( notebook_list_data[ i ] )
-
 				return;
 			}		
 			else
@@ -538,6 +537,7 @@ _el_btn__project_add.addEventListener("click",function(){
 _el_btn__notebook_add.addEventListener("click",function(){
 	$('#notebook_add_modal').modal('toggle');
 	console.log("_el_btn__project_add")
+	document.getElementById("notebook_update_btn_field").style.display = "none";
 	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
 })
 
