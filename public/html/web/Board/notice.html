@@ -150,6 +150,7 @@
 																			<div class="content">
 																				<div class="header" id="project_title" style="max-width : 80%;"></div>
 																				<div class="ui right floated mini icon button" id="notebook_add"><i class="plus icon"></i></div>
+																				<div class="ui right floated mini icon button" id="notebook_add"><i class="file alternate icon"></i></div>
 																				<div class="description" id="project_desc"></div>
 																			</div>
 																		  </div>
@@ -1242,6 +1243,16 @@ var update_doc = function( data ){
 		make_sub_list( current_notebook__data.cd );
 		req_detail_by__id( data )
 	})
+}
+/**
+ * 
+*/
+
+var modify_notebook = function(){
+	_el_btn__notebook_add.addEventListener("click",function(){
+	$('#notebook_add_modal').modal('show');
+	console.log("_el_btn__project_add")
+
 }
 
 /**
