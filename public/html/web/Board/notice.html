@@ -462,17 +462,20 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 				$('#notebook_add_modal').modal('show');
 				console.log("modify_notebook")
 				
-				var _uo;
+
 				
 				document.getElementById("notebook_add_write_field").style.display = "none";
 				document.getElementById("modal_notebook_nm").value = notebook_list_data[ i ].nm;
 				document.getElementById("modal_notebook_desc").value = notebook_list_data[ i ].description;
 
-				_uo = notebook_list_data[ i ];
-				_uo.nm = document.getElementById("modal_notebook_nm").value;
-				_uo.description = document.getElementById("modal_notebook_desc").value;
-console.log( _uo )
+
 				document.getElementById("notebook_update_btn").addEventListener("click",function(){
+					var _uo;
+					_uo = notebook_list_data[ i ];
+					_uo.nm = document.getElementById("modal_notebook_nm").value;
+					_uo.description = document.getElementById("modal_notebook_desc").value;
+					console.log( _uo )
+					
 					update_notebook( _uo );
 				})
 				return;
