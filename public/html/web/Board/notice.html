@@ -252,8 +252,11 @@
 					<label>Description</label>
 					<textarea id="modal_project_desc"></textarea>
 				</div>
-				<div class="field">
+				<div class="field" id="project_add_write_field">
 					<button class="green fluid ui button" id="project_add_write">Add</button>
+				</div>
+				<div class="field" id="project_modify_write_field">
+					<button class="orange fluid ui button" id="project_update_btn">Modify</button>
 				</div>
 				<div class="field">
 					<button class="fluid ui button"  id="project_add_cancel">Cancel</button>
@@ -508,6 +511,27 @@ var notebook_modify = function( d ){
 
 }
 
+var project_modify = function( d ){
+
+$('#project_add_modal').modal('show');
+console.log("modify_project")
+
+document.getElementById("project_add_write_field").style.display = "none";
+document.getElementById("project_update_btn_field").style.display = "block";
+document.getElementById("modal_project_nm").value = d.nm;
+document.getElementById("modal_project_desc").value = d.description;
+
+document.getElementById("project_update_btn").addEventListener("click",function(){
+	var _uo;
+	_uo = d
+	_uo.nm = document.getElementById("modal_notebook_nm").value;
+	_uo.description = document.getElementById("modal_notebook_desc").value;
+	console.log( _uo )
+	
+	update_notebook( _uo );
+})
+
+}
 
 document.getElementById("notebook_title_modify_btn").addEventListener("click",function(){
 	notebook_modify( current_notebook__data )
@@ -533,6 +557,12 @@ _el_btn__project_add_cancel.addEventListener("click",function(){
 })
 
 _el_btn__project_add.addEventListener("click",function(){
+
+	document.getElementById( "modal_project_nm" ).value = "";
+	document.getElementById( "modal_project_desc" ).value = "";
+	document.getElementById("project_add_write_field").style.display = "block";
+	document.getElementById("project_update_btn_field").style.display = "none";
+
 	$('#project_add_modal').modal('show');
 	console.log("_el_btn__project_add")
 	_el_btn__project_add_write.addEventListener("click", write_project );
@@ -650,6 +680,18 @@ var _el_div_prject_list_click = function(e){
 				console.log( i )
 				console.log('project_list_delete_btn')
 				delete_project( project_list_data[ i ]._id )
+			}
+		}
+	}
+	else if( check_dom(e.target,"project_list_modify_btn","project_list_card").id == "project_list_modify_btn")
+	{
+		var i = 0,iLen = pe.length,io;
+		for(;i < iLen;++i){
+			io = pe[ i ]
+			if( io == te ){
+				console.log( i )
+				console.log('project_list_delete_btn')
+				project_modify( project_list_data[ i ] )
 			}
 		}
 	}	
