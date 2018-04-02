@@ -466,7 +466,7 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 				
 				document.getElementById("notebook_add_write_field").style.display = "none";
 				document.getElementById("modal_notebook_nm").value = notebook_list_data[ i ].nm;
-				document.getElementById("modal_notebook_desc").value = notebook_list_datas[ i ].description;
+				document.getElementById("modal_notebook_desc").value = notebook_list_data[ i ].description;
 
 				uo = notebook_list_datas[ i ];
 				
@@ -549,7 +549,7 @@ document.getElementById("test_flip").addEventListener("click", function(){
 });
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
-	_el_removeChild( document.getElementById("todo_container") );
+	_el_removeChild( document.getElementById("todo_container") );notebook_
 	$('#multi-select').dropdown();
 	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
 		
