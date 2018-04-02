@@ -666,45 +666,36 @@ var _el_div__sub_list_click = function(e){
 }
 
 
-var _el_div_prject_list_click = function(e){
-					
+document.getElementById("project_list").addEventListener("click",function(e){
+
 	var pe = e.currentTarget.children
 	var te = check_dom( e.target, "project_list_card", "project_list_container" )
 
-	if( check_dom(e.target,"project_list_delete_btn","project_list_card").id == "project_list_delete_btn")
-	{
-		var i = 0,iLen = pe.length,io;
-		for(;i < iLen;++i){
-			io = pe[ i ]
-			if( io == te ){
+	var i = 0,iLen = pe.length,io;
+	for(;i < iLen;++i){
+		io = pe[ i ]
+		if( io == te )
+		{
+			console.log( i )
+			if( check_dom(e.target,"project_list_delete_btn","project_list_card").id == "project_list_delete_btn")
+			{
 				console.log( i )
 				console.log('project_list_delete_btn')
 				delete_project( project_list_data[ i ]._id )
+
+				return;
 			}
-		}
-		return;
-	}
-	else if( check_dom(e.target,"project_list_modify_btn","project_list_card").id == "project_list_modify_btn")
-	{
-		console.log( check_dom(e.target,"project_list_modify_btn","project_list_card") )		
-		var i = 0,iLen = pe.length,io;
-		for(;i < iLen;++i){
-			io = pe[ i ]
-			if( io == te ){
+			else if( check_dom(e.target,"project_list_modify_btn","project_list_card").id == "project_list_modify_btn")
+			{
 				console.log( i )
 				console.log('project_list_delete_btn')
 				project_modify( project_list_data[ i ] )
-			}
-		}
-		return;
-	}	
-	else
-	{
-		var i = 0,iLen = pe.length,io;
-		for(;i < iLen;++i){
-			io = pe[ i ]
-			if( io == te ){
-				console.log( i )
+
+				return;
+			}	
+			else
+			{
+			console.log( i )
 				document.getElementById("note_add_container").setAttribute("style","display : none;")
 				document.getElementById("notebook_title").innerText = "";
 
@@ -715,12 +706,16 @@ var _el_div_prject_list_click = function(e){
 				document.getElementById("project_list_container").style.display ="none";
 				document.getElementById("app").style.display = "block";
 				make_notebook_list( current_project__data.cd );
+
+				return;
 			}
 		}
-		return;
 	}
-}
-document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click )
+	//----------;
+	var btn_control_obj = {};
+	btn_control( btn_control_obj );
+	//----------;
+})
 
 document.getElementById("project_list_view_btn").addEventListener("click",function(){
 
@@ -1356,8 +1351,6 @@ var update_project = function( d ){
 		console.log( data );
 		console.log( "--수정완료--" )
 		$('#project_add_modal').modal('toggle');
-		document.getElementById("project_update_btn").removeEventListener("click",function(){})
-
 		make_project_list();
 		//document.getElementById("project_update_btn").removeEventListener("click",event_project_update_btn)
 	})
