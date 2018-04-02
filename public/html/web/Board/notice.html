@@ -523,11 +523,11 @@ var project_modify = function( d ){
 	document.getElementById("project_update_btn").addEventListener("click",function(){
 		var _uo;
 		_uo = d
-		_uo.nm = document.getElementById("modal_notebook_nm").value;
-		_uo.description = document.getElementById("modal_notebook_desc").value;
+		_uo.nm = document.getElementById("modal_project_nm").value;
+		_uo.description = document.getElementById("modal_project_desc").value;
 		console.log( _uo )
 		
-		update_notebook( _uo );
+		update_project( _uo );
 	})
 }
 
@@ -1342,7 +1342,7 @@ var update_doc = function( data ){
 var update_project = function( d ){
 
 	var url = "/api/Category/project/update"
-	var data = "sid=" + window.service.cookie.getCookie('session')
+	var data = "sid=" + wincddow.service.cookie.getCookie('session')
 	+ "&_id=" + d._id
 	+ "&description=" + htmlEntities( encodeURIComponent( d.description ) )
 	+ "&nm=" + encodeURIComponent( d.nm );
