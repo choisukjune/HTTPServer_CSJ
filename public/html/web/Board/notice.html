@@ -511,14 +511,14 @@ var notebook_modify = function( d ){
 
 var project_modify = function( d ){
 
+	$('#project_add_modal').modal('show');
+	console.log("modify_project")
+
 	document.getElementById("modal_project_header").innerText = "Project Modify."
 	document.getElementById("project_add_write_field").style.display = "none";
 	document.getElementById("project_update_btn_field").style.display = "block";
 	document.getElementById("modal_project_nm").value = d.nm;
 	document.getElementById("modal_project_desc").value = d.description;
-
-	$('#project_add_modal').modal('show');
-	console.log("modify_project")
 
 	document.getElementById("project_update_btn").addEventListener("click",function(){
 		var _uo;
