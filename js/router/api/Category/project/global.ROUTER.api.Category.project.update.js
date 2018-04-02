@@ -41,7 +41,7 @@ global.ROUTER.api.Category.project.update = function( req, res ){
 
 						global.CSJLog.log("Connected correctly to server");
 
-						var db0 = db.db('board');
+						var db0 = db.db('category');
 
 						//ToDo function 으로 분리하기;
 						var Long = require('mongodb').Long;
@@ -62,7 +62,7 @@ global.ROUTER.api.Category.project.update = function( req, res ){
 						console.log( _query )
 						console.log( doc )
 
-						db0.collection("notice").update(_query,doc,function(err, result){
+						db0.collection("project").update(_query,doc,function(err, result){
 							if (err) throw err;
 							console.log( result )
 							global.api.Response.res_200_ok_String( req, res, JSON.stringify( _q._id ) );
