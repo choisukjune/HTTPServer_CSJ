@@ -520,17 +520,18 @@ var project_modify = function( d ){
 	document.getElementById("modal_project_nm").value = d.nm;
 	document.getElementById("modal_project_desc").value = d.description;
 
-	document.getElementById("project_update_btn").addEventListener("click",function(){
-		var _uo;
-		_uo = d
-		_uo.nm = document.getElementById("modal_project_nm").value;
-		_uo.description = document.getElementById("modal_project_desc").value;
-		console.log( _uo )
-		
-		update_project( _uo );
-	})
-	
+	current_project__data = d;
 }
+
+document.getElementById("project_update_btn").addEventListener("click",function(){
+	var _uo;
+	_uo = current_project__data
+	_uo.nm = document.getElementById("modal_project_nm").value;
+	_uo.description = document.getElementById("modal_project_desc").value;
+	console.log( _uo )
+	
+	update_project( _uo );
+})
 
 document.getElementById("notebook_title_modify_btn").addEventListener("click",function(){
 	notebook_modify( current_notebook__data )
