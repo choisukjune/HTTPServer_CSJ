@@ -988,8 +988,9 @@ var make_brcm_3 = function(){
 var make_project_list = function(){
 	
 	_el_removeChild( document.getElementById("project_list") );
-	document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
 	document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click )
+	document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
+
 
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 
