@@ -1295,6 +1295,21 @@ var update_notebook = function( d ){
 		console.log( "--수정완료--" )
 		make_notebook_list( current_project__data.cd )
 		$('#notebook_add_modal').modal('toggle');
+
+
+		current_notebook__data = d
+
+		document.getElementById("note_add_container").setAttribute("style","display : block;")
+		document.getElementById("notebook_title").innerText = current_notebook__data.nm
+		document.getElementById("notebook_desc").innerText = current_notebook__data.description
+
+		make_sub_list( current_notebook__data.cd );
+
+		var _t0 = document.getElementById( "view_document" )
+		if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
+
+		//make_brcm_2();
+
 	})
 }
 
