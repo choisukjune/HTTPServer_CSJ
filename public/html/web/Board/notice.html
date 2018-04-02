@@ -510,6 +510,8 @@ var notebook_modify = function( d ){
 }
 
 var project_modify = function( d ){
+	
+	document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
 
 	document.getElementById("modal_project_header").innerText = "Project Modify."
 	document.getElementById("project_add_write_field").style.display = "none";
@@ -989,9 +991,7 @@ var make_project_list = function(){
 	
 	_el_removeChild( document.getElementById("project_list") );
 	document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click )
-	document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
-
-
+	
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 
 	document.getElementById("app").style.display = "none";
