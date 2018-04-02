@@ -1356,17 +1356,6 @@ var update_project = function( d ){
 		console.log( data );
 		console.log( "--수정완료--" )
 		$('#project_add_modal').modal('toggle');
-
-		document.getElementById("project_update_btn").removeEventListener("click",function(){
-			var _uo;
-			_uo = d
-			_uo.nm = document.getElementById("modal_project_nm").value;
-			_uo.description = document.getElementById("modal_project_desc").value;
-			console.log( _uo )
-			
-			update_project( _uo );
-		})
-
 		document.getElementById("project_update_btn").removeEventListener("click",function(){})
 
 		make_project_list();
