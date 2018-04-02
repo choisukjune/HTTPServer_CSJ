@@ -518,10 +518,10 @@ var project_modify = function( d ){
 
 	$('#project_add_modal').modal('show');
 	console.log("modify_project")
-	document.getElementById("project_update_btn").addEventListener("click",event_project_update_btn)
+	document.getElementById("project_update_btn").addEventListener("click",event_project_update_btn(d))
 }
 
-var event_project_update_btn = function(){
+var event_project_update_btn = function(d){
 	var _uo;
 	_uo = d
 	_uo.nm = document.getElementById("modal_project_nm").value;
