@@ -472,7 +472,9 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 				_uo.nm = document.getElementById("modal_notebook_nm").value;
 				_uo.description = document.getElementById("modal_notebook_desc").value;
 
-				document.getElementById("notebook_update_btn").addEventListener("click",update_notebook( _uo ) )
+				document.getElementById("notebook_update_btn").addEventListener("click",function(){
+					update_notebook( _uo );
+				})
 				return;
 			}		
 			else
