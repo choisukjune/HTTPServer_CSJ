@@ -519,10 +519,9 @@ var project_modify = function( d ){
 
 	$('#project_add_modal').modal('show');
 	console.log("modify_project")
-	document.getElementById("project_update_btn").addEventListener("click",function(){
-		event_project_update_btn(d)
-	})
 }
+
+
 
 var event_project_update_btn = function(d){
 	var _uo;
@@ -534,6 +533,9 @@ var event_project_update_btn = function(d){
 	update_project( _uo );
 }
 
+document.getElementById("project_update_btn").addEventListener("click",function(){
+	event_project_update_btn(d)
+})
 
 document.getElementById("notebook_title_modify_btn").addEventListener("click",function(){
 	notebook_modify( current_notebook__data )
