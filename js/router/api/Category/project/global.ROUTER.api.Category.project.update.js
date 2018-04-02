@@ -57,7 +57,7 @@ global.ROUTER.api.Category.project.update = function( req, res ){
 						];
 
 						var _query = { _id : Long( _q._id ).toInt() };
-						var doc = { $set : {title : _q.title, content : _q.data, modify_date : r} };
+						var doc = { $set : {nm : _q.nm, description : _q.description, modify_date : r} };
 
 						console.log( _query )
 						console.log( doc )
