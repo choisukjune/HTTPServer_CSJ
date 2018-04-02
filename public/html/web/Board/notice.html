@@ -518,9 +518,7 @@ var project_modify = function( d ){
 
 	$('#project_add_modal').modal('show');
 	console.log("modify_project")
-	document.getElementById("project_update_btn").addEventListener("click",function(){
-		event_project_update_btn(d)
-	})
+	document.getElementById("project_update_btn").addEventListener("click",function(){event_project_update_btn(d)})
 }
 
 var event_project_update_btn = function(d){
@@ -529,7 +527,6 @@ var event_project_update_btn = function(d){
 	_uo.nm = document.getElementById("modal_project_nm").value;
 	_uo.description = document.getElementById("modal_project_desc").value;
 	console.log( _uo )
-	
 	update_project( _uo );
 }
 
@@ -1362,7 +1359,7 @@ var update_project = function( d ){
 		console.log( "--수정완료--" )
 		$('#project_add_modal').modal('toggle');
 		make_project_list();
-		//document.getElementById("project_update_btn").removeEventListener("click",event_project_update_btn)
+		document.getElementById("project_update_btn").removeEventListener("click",function(){event_project_update_btn(d)})
 	})
 }
 
