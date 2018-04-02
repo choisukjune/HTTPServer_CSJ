@@ -688,7 +688,8 @@ var _el_div_prject_list_click = function(e){
 		return;
 	}
 	else if( check_dom(e.target,"project_list_modify_btn","project_list_card").id == "project_list_modify_btn")
-	{		
+	{
+		console.log( check_dom(e.target,"project_list_modify_btn","project_list_card") )		
 		var i = 0,iLen = pe.length,io;
 		for(;i < iLen;++i){
 			io = pe[ i ]
@@ -722,8 +723,6 @@ var _el_div_prject_list_click = function(e){
 		return;
 	}
 }
-
-
 document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click )
 
 document.getElementById("project_list_view_btn").addEventListener("click",function(){
