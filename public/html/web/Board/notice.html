@@ -451,7 +451,16 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 				make_notebook_list( current_project__data.cd );
 				
 				return;
-			}	
+			}
+			else if( check_dom(e.target,"notebook_list_modify_btn","notebook_list_item").id == "notebook_list_modify_btn")
+			{
+				console.log('notebook_list_modify_btn')
+
+				$('#notebook_add_modal').modal('show');
+				console.log("modify_notebook")
+
+				return;
+			}		
 			else
 			{
 				current_notebook__data = notebook_list_data[ i ]
@@ -1251,8 +1260,6 @@ var update_doc = function( data ){
 */
 
 var modify_notebook = function(){
-	$('#notebook_add_modal').modal('show');
-	console.log("modify_notebook")
 
 }
 
