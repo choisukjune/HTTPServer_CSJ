@@ -2,7 +2,7 @@
     <div class="content">
       <div class="header" style="max-width : 80%;">{{nm}}</div>
       <div class="ui right floated mini icon button" id="notebook_list_delete_btn"><i class="minus icon"></i></div>
-              
+      <div class="ui right floated mini icon button" id="notebook_list_modify_btn"><i class="file alternate icon"></i></div>
       <div class="meta">
         <span class="date">{{regist_date}}</span>
       </div>

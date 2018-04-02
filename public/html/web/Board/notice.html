@@ -150,7 +150,7 @@
 																			<div class="content">
 																				<div class="header" id="project_title" style="max-width : 80%;"></div>
 																				<div class="ui right floated mini icon button" id="notebook_add"><i class="plus icon"></i></div>
-																				<div class="ui right floated mini icon button" id="notebook_add"><i class="file alternate icon"></i></div>
+																				<div class="ui right floated mini icon button" id="project_title_modify_btn"><i class="file alternate icon"></i></div>
 																				<div class="description" id="project_desc"></div>
 																			</div>
 																		  </div>
@@ -1007,7 +1007,9 @@ var make_notebook_list = function( cd$project ){
 			//----------;
 
 			project_sub_nav_sidebar_open();
-
+			document.getElementById("notebook_list_modify_btn").addEventListener("click",function(){
+				modify_notebook();
+			})
 		})
 	})
 
