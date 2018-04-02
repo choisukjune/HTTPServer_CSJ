@@ -471,7 +471,7 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 				_uo = notebook_list_data[ i ];
 				_uo.nm = document.getElementById("modal_notebook_nm").value;
 				_uo.description = document.getElementById("modal_notebook_desc").value;
-
+console.log( _uo )
 				document.getElementById("notebook_update_btn").addEventListener("click",function(){
 					update_notebook( _uo );
 				})
