@@ -1342,7 +1342,7 @@ var update_doc = function( data ){
 var update_project = function( d ){
 
 	var url = "/api/Category/project/update"
-	var data = "sid=" + wincddow.service.cookie.getCookie('session')
+	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + d._id
 	+ "&description=" + htmlEntities( encodeURIComponent( d.description ) )
 	+ "&nm=" + encodeURIComponent( d.nm );
