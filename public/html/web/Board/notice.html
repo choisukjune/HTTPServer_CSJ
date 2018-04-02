@@ -1029,9 +1029,10 @@ var make_project_list = function(){
 
 				document.getElementById("project_list").insertAdjacentHTML( 'beforeend', html_include_data );
 			}
-			
-			document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
-			document.getElementById("project_list").addEventListener("click",_el_div_prject_list_click )
+
+			document.getElementById("project_list").addEventListener("click",function(e){
+				_el_div_prject_list_click(e)
+			} )
 
 		})
 
@@ -1461,8 +1462,6 @@ var modify_doc = function(){
 
 		console.log( result );
 		console.log( "--삭제완료--" )
-
-		document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
 		
 		make_project_list()
 	})
