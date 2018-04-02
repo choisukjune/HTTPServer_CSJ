@@ -681,6 +681,7 @@ var _el_div_prject_list_click = function(e){
 				delete_project( project_list_data[ i ]._id )
 			}
 		}
+		return;
 	}
 	else if( check_dom(e.target,"project_list_modify_btn","project_list_card").id == "project_list_modify_btn")
 	{		
@@ -693,6 +694,7 @@ var _el_div_prject_list_click = function(e){
 				project_modify( project_list_data[ i ] )
 			}
 		}
+		return;
 	}	
 	else
 	{
@@ -713,6 +715,7 @@ var _el_div_prject_list_click = function(e){
 				make_notebook_list( current_project__data.cd );
 			}
 		}
+		return;
 	}
 }
 document.getElementById("project_list_view_btn").addEventListener("click",function(){
