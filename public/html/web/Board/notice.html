@@ -981,7 +981,7 @@ var make_brcm_3 = function(){
 var make_project_list = function(){
 	
 	document.getElementById("project_list").removeEventListener("click",_el_div_prject_list_click )
-	
+
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 	
 	document.getElementById("app").style.display = "none";
@@ -1355,7 +1355,6 @@ var update_project = function( d ){
 		console.log( data );
 		console.log( "--수정완료--" )
 		$('#project_add_modal').modal('toggle');
-		doc
 		make_project_list();
 	})
 }
