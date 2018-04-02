@@ -177,6 +177,7 @@
 																		<div class="item" style="padding : 30px;margin : 0px;">
 																		  <div class="content">
 																			<div class="header" id="notebook_title" style="max-width : 80%;"></div>
+																			<div class="ui right floated mini icon button" id="notebook_title_modify_btn"><i class="file alternate icon"></i></div>
 																			<div class="ui right floated mini icon button" id="note_add"><i class="plus icon"></i></div>
 																			<div class="description" id="notebook_desc"></div>
 																		  </div>
@@ -458,26 +459,8 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 			else if( check_dom(e.target,"notebook_list_modify_btn","notebook_list_item").id == "notebook_list_modify_btn")
 			{
 				console.log('notebook_list_modify_btn')
+				notebook_modify( notebook_list_data[ i ] )
 
-				$('#notebook_add_modal').modal('show');
-				console.log("modify_notebook")
-				
-
-				
-				document.getElementById("notebook_add_write_field").style.display = "none";
-				document.getElementById("modal_notebook_nm").value = notebook_list_data[ i ].nm;
-				document.getElementById("modal_notebook_desc").value = notebook_list_data[ i ].description;
-
-
-				document.getElementById("notebook_update_btn").addEventListener("click",function(){
-					var _uo;
-					_uo = notebook_list_data[ i ];
-					_uo.nm = document.getElementById("modal_notebook_nm").value;
-					_uo.description = document.getElementById("modal_notebook_desc").value;
-					console.log( _uo )
-					
-					update_notebook( _uo );
-				})
 				return;
 			}		
 			else
@@ -501,6 +484,33 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 	var btn_control_obj = {};
 	btn_control( btn_control_obj );
 	//----------;
+})
+
+
+var notebook_modify = function( d ){
+
+	$('#notebook_add_modal').modal('show');
+	console.log("modify_notebook")
+	
+	document.getElementById("notebook_add_write_field").style.display = "none";
+	document.getElementById("modal_notebook_nm").value = d.nm;
+	document.getElementById("modal_notebook_desc").value = d.description;
+
+	document.getElementById("notebook_update_btn").addEventListener("click",function(){
+		var _uo;
+		_uo = d
+		_uo.nm = document.getElementById("modal_notebook_nm").value;
+		_uo.description = document.getElementById("modal_notebook_desc").value;
+		console.log( _uo )
+		
+		update_notebook( _uo );
+	})
+
+}
+
+
+document.getElementById("notebook_title_modify_btn").addEventListener("click",function(){
+	notebook_modify( current_notebook__data )
 })
 
 _el_btn__notebook_add_cancel.addEventListener("click",function(){
