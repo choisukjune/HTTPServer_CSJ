@@ -515,6 +515,7 @@ document.getElementById("notebook_title_modify_btn").addEventListener("click",fu
 _el_btn__notebook_add_cancel.addEventListener("click",function(){
 	document.getElementById( "modal_notebook_nm" ).value = "";
 	document.getElementById( "modal_notebook_desc" ).value = "";
+	document.getElementById("notebook_add_write_field").style.display = "block";
 	$('#notebook_add_modal').modal('hide');
 })
 
