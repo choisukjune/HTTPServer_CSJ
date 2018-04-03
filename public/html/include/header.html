@@ -39,3 +39,71 @@
 							</div>
 							<!--Content-->
 							<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
+<script>
+	//------------------------------_el;
+
+var _el_btn__project_add = document.getElementById( "project_add" );
+
+//------------------------------_el;
+//-------------------- eventListener;
+document.getElementById("global_sidebar").addEventListener("click",function(){
+	$('#global_LNB_sidebar')
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('toggle');
+})
+
+_el_btn__project_add.addEventListener("click",function(){
+
+document.getElementById("modal_project_header").innerText = "Project Add."
+document.getElementById( "modal_project_nm" ).value = "";
+document.getElementById( "modal_project_desc" ).value = "";
+document.getElementById("project_add_write_field").style.display = "block";
+document.getElementById("project_update_btn_field").style.display = "none";
+
+$('#project_add_modal').modal('show');
+console.log("_el_btn__project_add")
+_el_btn__project_add_write.addEventListener("click", write_project );
+})
+
+
+document.getElementById("test_sidebar").addEventListener("click",function(){
+	_el_removeChild( document.getElementById("comment_container") );
+
+	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show", function(){
+
+	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
+
+	document.getElementById("comment_wrap").setAttribute("style","background-color : #fff;;min-height : 769px;max-height : 769px; height:769px;overflow-y : auto;")
+	pre_objDiv_scrollHeight = 0
+	
+	chat_board_get_list();
+
+	})
+})
+
+document.getElementById("test_flip").addEventListener("click", function(){
+	$('#app .ui.sidebar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'push')
+	.sidebar('setting', 'dimPage', false)
+	.sidebar('setting', 'closable', false)
+	.sidebar('toggle')
+});
+
+document.getElementById("test_sidebar1").addEventListener("click",function(){
+	_el_removeChild( document.getElementById("todo_container") );
+	$('#multi-select').dropdown();
+	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
+		
+	current_note_todo__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
+
+	document.getElementById("todo_wrap").setAttribute("style","background-color : #fff;;min-height : 664px;max-height : 664px;height :664px;overflow-y : auto;")
+	pre_objDiv_scrollHeight = 0
+	
+	todo_board_get_list();
+
+	})
+})
+
+//-------------------- eventListener;
+</script>

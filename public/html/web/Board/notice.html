@@ -242,7 +242,6 @@ var pre_objDiv_scrollHeight = 0;
 //------------------------------_el;
 var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list')
-var _el_btn__project_add = document.getElementById( "project_add" );
 var _el_btn__notebook_add = document.getElementById( "notebook_add" );
 var _el_btn__project_add_write = document.getElementById( "project_add_write" )
 var _el_btn__project_add_cancel = document.getElementById( "project_add_cancel" )
@@ -335,11 +334,6 @@ var project_sub_nav_sidebar_open = function(){
 //--------------------------------------------------function;
 
 //------------------------------ event;
-document.getElementById("global_sidebar").addEventListener("click",function(){
-	$('#global_LNB_sidebar')
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('toggle');
-})
 
 document.getElementById("notebook_list").addEventListener("click",function(e){
 
@@ -464,19 +458,6 @@ _el_btn__project_add_cancel.addEventListener("click",function(){
 	$('#project_add_modal').modal('hide');
 })
 
-_el_btn__project_add.addEventListener("click",function(){
-
-	document.getElementById("modal_project_header").innerText = "Project Add."
-	document.getElementById( "modal_project_nm" ).value = "";
-	document.getElementById( "modal_project_desc" ).value = "";
-	document.getElementById("project_add_write_field").style.display = "block";
-	document.getElementById("project_update_btn_field").style.display = "none";
-
-	$('#project_add_modal').modal('show');
-	console.log("_el_btn__project_add")
-	_el_btn__project_add_write.addEventListener("click", write_project );
-})
-
 _el_btn__notebook_add.addEventListener("click",function(){
 	$('#notebook_add_modal').modal('toggle');
 	console.log("_el_btn__project_add")
@@ -488,62 +469,6 @@ _el_btn__notebook_add.addEventListener("click",function(){
 	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
 })
 
-document.getElementById("test_sidebar").addEventListener("click",function(){
-	_el_removeChild( document.getElementById("comment_container") );
-
-	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show", function(){
-
-	current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
-
-	document.getElementById("comment_wrap").setAttribute("style","background-color : #fff;;min-height : 769px;max-height : 769px; height:769px;overflow-y : auto;")
-	pre_objDiv_scrollHeight = 0
-	
-	chat_board_get_list();
-
-	})
-})
-
-document.getElementById("test_flip").addEventListener("click", function(){
-	$('#app .ui.sidebar')
-	.sidebar({context:$('#app')})
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('setting', 'dimPage', false)
-	.sidebar('setting', 'closable', false)
-	.sidebar('toggle')
-});
-
-document.getElementById("test_sidebar1").addEventListener("click",function(){
-	_el_removeChild( document.getElementById("todo_container") );
-	$('#multi-select').dropdown();
-	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
-		
-	current_note_todo__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
-
-	document.getElementById("todo_wrap").setAttribute("style","background-color : #fff;;min-height : 664px;max-height : 664px;height :664px;overflow-y : auto;")
-	pre_objDiv_scrollHeight = 0
-	
-	todo_board_get_list();
-
-	})
-})
-
-document.getElementById("comment_wrap").addEventListener("scroll",function(){
-	var comment_wrap = document.getElementById("comment_wrap");
-	if( comment_wrap.scrollTop == 0 )
-	{
-		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
-		chat_board_get_list()
-	}
-})
-
-document.getElementById("todo_wrap").addEventListener("scroll",function(){
-	var todo_wrap = document.getElementById("todo_wrap");
-	if( todo_wrap.scrollTop == 0 )
-	{
-		current_note_todo__data[ current_view_doc__data.cd ].skip += 20
-		todo_board_get_list()
-	}
-})
 
 var _el_div__sub_list_click = function(e){
 
@@ -573,6 +498,23 @@ var _el_div__sub_list_click = function(e){
 	}
 }
 
+document.getElementById("comment_wrap").addEventListener("scroll",function(){
+	var comment_wrap = document.getElementById("comment_wrap");
+	if( comment_wrap.scrollTop == 0 )
+	{
+		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
+		chat_board_get_list()
+	}
+})
+
+document.getElementById("todo_wrap").addEventListener("scroll",function(){
+	var todo_wrap = document.getElementById("todo_wrap");
+	if( todo_wrap.scrollTop == 0 )
+	{
+		current_note_todo__data[ current_view_doc__data.cd ].skip += 20
+		todo_board_get_list()
+	}
+})
 
 document.getElementById("project_list").addEventListener("click",function(e){
 
