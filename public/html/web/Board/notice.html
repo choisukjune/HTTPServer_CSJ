@@ -120,108 +120,118 @@
 			-->
 			<!-- 좌측 레이아웃이 더필요하다면 사용; -->
 
-			<div id="div-PIMS-VerticalContainer" class="ui fluid basic segment" style="min-height: auto !important; max-height: 100% !important;overflow-y : hidden !important;">
-
-					<div id="div-PIMS-GridContainer" class="ui grid" style="height : auto !important;">
-						<div id="div-PIMS-HeaderContainer"class="sixteen wide fixed column" style="background-color : #303841">
+			<div class="ui fluid basic segment" style="min-height: auto !important; max-height: 100% !important;overflow-y : hidden !important;">
+					<div class="ui grid" style="height : auto !important;">
+						<div class="sixteen wide fixed column" style="background-color : #303841">
 							<div class="ui red horizontal label">Notice!</div>
 							<a class="avatar">
 								<img class="ui avatar Mini image" src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
 							</a>
 						</div>
-						<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 848px !important;">
-							<div class="ui grid">
+						
+						
+						
+						
+						<!-- <div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 848px !important;">
+							<div class="ui grid"> -->
 								<div class="sixteen wide column" id="project_list_container" style="width: 100%;">
-										<div class="ui basic segment">
-											<div class="ui cards" id="project_list"></div>	
-										</div>
+									<div class="ui basic segment">
+										<div class="ui cards" id="project_list"></div>	
+									</div>
 								</div>
 								<!--Content-->
 								<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
 									<div id="app">
 										<div class="ui left 700 wide sidebar">
 											<div class="ui grid" style="margin : 0px;padding : 0px; background-color:#fff;overflow-y: hidden !important;">
-													<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
-														<div id="notebook_add_container" class="ui basic segment item">
-															<div class="ui grid">
-																<div class="sixteen wide column" id="project_title_div" style="padding : 0px;">
-																	<div class="ui items">
-																		  <div class="item" style="padding : 30px;margin : 0px;">
-																			<div class="content">
-																				<div class="header" id="project_title" style="max-width : 80%;"></div>
-																				<div class="ui right floated mini icon button" id="notebook_add"><i class="plus icon"></i></div>
-																				<div class="ui right floated mini icon button" id="project_title_modify_btn"><i class="file alternate icon"></i></div>
-																				<div class="description" id="project_desc"></div>
-																			</div>
-																		  </div>
-																	  </div>
-																</div>
+												<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
+													<div id="notebook_add_container" class="ui basic segment item">
+														<div class="ui grid">
+															<div class="sixteen wide column" id="project_title_div" style="padding : 0px;">
+																<div class="ui items">
+																		<div class="item" style="padding : 30px;margin : 0px;">
+																		<div class="content">
+																			<div class="header" id="project_title" style="max-width : 80%;"></div>
+																			<div class="ui right floated mini icon button" id="notebook_add"><i class="plus icon"></i></div>
+																			<div class="ui right floated mini icon button" id="project_title_modify_btn"><i class="file alternate icon"></i></div>
+																			<div class="description" id="project_desc"></div>
+																		</div>
+																		</div>
+																	</div>
 															</div>
 														</div>
-														<div class="ui items" id="notebook_list"></div>
-															<!-- <div id="list" class="ui basic segment item">
-																<b>본문요약입니다.</b>
-															</div>
-															<div id="list" class="ui basic segment item">
-																<b>본문요약입니다.</b>
-															</div>
-															<div id="list" class="ui basic segment item">
-																<b>본문요약입니다.</b>
-															</div> -->
 													</div>
-													<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
-														<div id="note_add_container" class="ui basic segment item" style="display : none;">
-															<div class="ui grid">
-																<div class="sixteen wide column" id="notebook_title_div"  style="padding : 0px;">
-																	<div class="ui items">
-																		<div class="item" style="padding : 30px;margin : 0px;">
-																		  <div class="content">
-																			<div class="header" id="notebook_title" style="max-width : 80%;"></div>
-																			<div class="ui right floated mini icon button" id="note_add"><i class="plus icon"></i></div>
-																			<div class="ui right floated mini icon button" id="notebook_title_modify_btn"><i class="file alternate icon"></i></div>
-																			<div class="description" id="notebook_desc"></div>
-																		  </div>
+													<div class="ui items" id="notebook_list"></div>
+														<!-- <div id="list" class="ui basic segment item">
+															<b>본문요약입니다.</b>
+														</div>
+														<div id="list" class="ui basic segment item">
+															<b>본문요약입니다.</b>
+														</div>
+														<div id="list" class="ui basic segment item">
+															<b>본문요약입니다.</b>
+														</div> -->
+												</div>
+												<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
+													<div id="note_add_container" class="ui basic segment item" style="display : none;">
+														<div class="ui grid">
+															<div class="sixteen wide column" id="notebook_title_div"  style="padding : 0px;">
+																<div class="ui items">
+																	<div class="item" style="padding : 30px;margin : 0px;">
+																		<div class="content">
+																		<div class="header" id="notebook_title" style="max-width : 80%;"></div>
+																		<div class="ui right floated mini icon button" id="note_add"><i class="plus icon"></i></div>
+																		<div class="ui right floated mini icon button" id="notebook_title_modify_btn"><i class="file alternate icon"></i></div>
+																		<div class="description" id="notebook_desc"></div>
 																		</div>
 																	</div>
 																</div>
 															</div>
 														</div>
-														<div id="sub_list"  class="ui items"></div>
-														<!-- <div id="list" class="ui basic segment item">
-															<h4>제목입니다.</h4>
-															<p>본문요약입니다.</p>
+													</div>
+													<div id="sub_list"  class="ui items"></div>
+													<!-- <div id="list" class="ui basic segment item">
+														<h4>제목입니다.</h4>
+														<p>본문요약입니다.</p>
+													</div>
+													<div id="list" class="ui basic segment item">
+														<h4>제목입니다.</h4>
+														<p>본문요약입니다.</p>
+													</div>
+													<div id="list" class="ui basic segment item">
+														<h4>제목입니다.</h4>
+														<p>본문요약입니다.</p>
+													</div> -->
+												</div>
+											</div>
+										</div>
+										<div class="pusher">
+											<div class="ui grid container" style="padding:0px;margin:0px;">
+												<div class="sixteen wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 848px !important;">
+													<div class="ui basic segment" id="view_container" style="min-height : 738px"></div>
+													<div class="ui basic segment" style="margin : 0px">
+														<div class="ui buttons">
+															<button class="ui button" id="modify" style="display : none;">수정</button>
+															<button class="ui button" id="delete" style="display : none;">삭제</button>
+															<button class="ui button" id="cancel" style="display : none;">취소</button>
+															<button class="ui button" id="lists" style="display : none;">목록</button>
+															<button class="ui button" id="write" style="display : none;">등록</button>
 														</div>
-														<div id="list" class="ui basic segment item">
-															<h4>제목입니다.</h4>
-															<p>본문요약입니다.</p>
-														</div>
-														<div id="list" class="ui basic segment item">
-															<h4>제목입니다.</h4>
-															<p>본문요약입니다.</p>
-														</div> -->
 													</div>
 												</div>
 											</div>
-											<div class="pusher">
-												<div class="ui grid container" style="padding:0px;margin:0px;">
-													<div class="sixteen wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 848px !important;">
-														<div class="ui basic segment" id="view_container" style="min-height : 738px"></div>
-														<div class="ui basic segment" style="margin : 0px">
-															<div class="ui buttons">
-																<button class="ui button" id="modify" style="display : none;">수정</button>
-																<button class="ui button" id="delete" style="display : none;">삭제</button>
-																<button class="ui button" id="cancel" style="display : none;">취소</button>
-																<button class="ui button" id="lists" style="display : none;">목록</button>
-																<button class="ui button" id="write" style="display : none;">등록</button>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
+										</div>
 									</div>
+
+
+
+
+
+
+
 								</div>
-						</div>
-					</div>
+						<!-- </div>
+					</div> -->
 					<!-- <div id="div-PIMS-FooterContainer" class="sixteen wide column"style="background-color : #eeeeee; bottom : 0px !important;position : relative !important;border-top : 1px solid rgba(34, 36, 38, 0.15) !important;">Copyright © B2LABS All Rights Reserved.</div> -->
 					<div class="ui footer basic segment" style="background-color: #eee !important;" id="footer">
 						<div class="ui container">
