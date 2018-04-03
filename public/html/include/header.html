@@ -1,46 +1,36 @@
+<style>
+	.pad13{
+		padding : 13px;
+	}
+</style>
 <script>window.service.session.checkSession();</script>
 <div class="ui horizontal segments" style="left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important; position: absolute; margin: 0px;overflow-y: hidden !important;">
 		<div class="ui vertical icon menu segment" style="padding : 0px; min-width: 40px !important; max-width: 40px !important; overflow-y: auto !important;">
-			<a class="item" style="padding : 13px !important;" id="global_sidebar">
-				<i class="bars fitted icon"  style="margin : 0px !important;"></i>
-			</a>
-			<a class="item" style="padding : 13px !important;" id="project_add">
-				<i class="plus circle fitted icon"  style="margin : 0px !important;"></i>
-			</a>
-			<a class="item" style="padding : 13px !important;" id="test_sidebar1">
-				<i class="check square fitted icon"  style="margin : 0px !important;"></i>
-			</a>
-			<a class="item" style="padding : 13px !important;" id="test_sidebar">
-				<i class="comment fitted icon"  style="margin : 0px !important;"></i>
-			</a>
-			<a class="item" style="padding : 13px !important;" id="test_flip">
-				<i class="list ul fitted icon"  style="margin : 0px !important;"></i>
-			</a>
-			<a class="item" style="padding : 13px !important;" id="project_list_view_btn">
-				<i class="file alternate fitted icon"  style="margin : 0px !important;"></i>
-			</a>
+			<a class="item pad13" id="global_sidebar"><i class="bars fitted icon"></i></a>
+			<a class="item pad13" id="project_add"><i class="plus circle fitted icon"></i></a>
+			<a class="item pad13" id="test_sidebar1"><i class="check square fitted icon"></i></a>
+			<a class="item pad13" id="test_sidebar"><i class="comment fitted icon"></i></a>
+			<a class="item pad13" id="test_flip"><i class="list ul fitted icon"></i></a>
+			<a class="item pad13" id="project_list_view_btn"><i class="file alternate fitted icon"></i></a>
 		</div>
 
 		<!-- 좌측 레이아웃이 더필요하다면 사용; -->
 		<!--
-
 		<div id="div-PIMS-menu-list" class="ui vertical menu segment" style="padding : 0px; min-width: 270px !important; max-width: 270px !important; overflow-y: auto !important;">
-
 		</div>
-
 		-->
 		<!-- 좌측 레이아웃이 더필요하다면 사용; -->
 
-		<div id="div-PIMS-VerticalContainer" class="ui fluid basic segment" style="min-height: auto !important; max-height: 100% !important;overflow-y : hidden !important;">
+		<div class="ui fluid basic segment" style="min-height: auto !important; max-height: 100% !important;overflow-y : hidden !important;">
 
-				<div id="div-PIMS-GridContainer" class="ui grid" style="height : auto !important;">
-					<div id="div-PIMS-HeaderContainer"class="sixteen wide fixed column" style="background-color : #303841">
+				<div class="ui grid" style="height : auto !important;">
+					<div class="sixteen wide fixed column" style="background-color : #303841">
 						<div class="ui red horizontal label">Notice!</div>
 						<a class="avatar">
 							<img class="ui avatar Mini image" src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
 						</a>
 					</div>
-					<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 848px !important;">
+					<div class="sixteen wide column" style="min-height: 848px !important;">
 						<div class="ui grid">
 							<div class="sixteen wide column" id="project_list_container" style="width: 100%;">
 									<div class="ui basic segment">
