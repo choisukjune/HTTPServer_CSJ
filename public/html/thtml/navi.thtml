@@ -237,5 +237,24 @@ var write_chat = function(){
 _t1.addEventListener("click",write_chat);
 _t2.addEventListener("click",write_todo);
 
+
+document.getElementById("comment_wrap").addEventListener("scroll",function(){
+	var comment_wrap = document.getElementById("comment_wrap");
+	if( comment_wrap.scrollTop == 0 )
+	{
+		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
+		chat_board_get_list()
+	}
+})
+
+document.getElementById("todo_wrap").addEventListener("scroll",function(){
+	var todo_wrap = document.getElementById("todo_wrap");
+	if( todo_wrap.scrollTop == 0 )
+	{
+		current_note_todo__data[ current_view_doc__data.cd ].skip += 20
+		todo_board_get_list()
+	}
+})
+
 </script>
 <div class="pusher" style="overflow-y : hidden;">

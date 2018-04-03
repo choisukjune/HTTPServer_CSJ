@@ -263,3 +263,10 @@ window.service.render.dimmer  = function( txt ){
 
 	return $('.dimmer').dimmer('show');
 }
+
+/**
+*
+*/
+window.service.render.detect_scrollHeight = function( d ){
+	return d.scrollHeight
+};

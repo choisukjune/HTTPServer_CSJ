@@ -54,15 +54,15 @@ document.getElementById("global_sidebar").addEventListener("click",function(){
 
 _el_btn__project_add.addEventListener("click",function(){
 
-document.getElementById("modal_project_header").innerText = "Project Add."
-document.getElementById( "modal_project_nm" ).value = "";
-document.getElementById( "modal_project_desc" ).value = "";
-document.getElementById("project_add_write_field").style.display = "block";
-document.getElementById("project_update_btn_field").style.display = "none";
+	document.getElementById("modal_project_header").innerText = "Project Add."
+	document.getElementById( "modal_project_nm" ).value = "";
+	document.getElementById( "modal_project_desc" ).value = "";
+	document.getElementById("project_add_write_field").style.display = "block";
+	document.getElementById("project_update_btn_field").style.display = "none";
 
-$('#project_add_modal').modal('show');
-console.log("_el_btn__project_add")
-_el_btn__project_add_write.addEventListener("click", write_project );
+	$('#project_add_modal').modal('show');
+	console.log("_el_btn__project_add")
+	_el_btn__project_add_write.addEventListener("click", write_project );
 })
 
 
