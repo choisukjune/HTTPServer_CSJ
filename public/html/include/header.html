@@ -192,6 +192,10 @@
 <!-- <div class="pusher"></div> -->
 <script>
 
+document.getElementById("global_sidebar").addEventListener("click",function(){
+	$('#global_LNB_sidebar').sidebar('setting', 'transition', 'push').sidebar('toggle');
+})
+
 $('#test0').dropdown({ transition: 'drop' });
 $('#test1').dropdown({ transition: 'drop' });
 $('#test2').dropdown({ transition: 'drop' });

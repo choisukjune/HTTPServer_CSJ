@@ -426,11 +426,6 @@ var project_sub_nav_sidebar_open = function(){
 //--------------------------------------------------function;
 
 //------------------------------ event;
-document.getElementById("global_sidebar").addEventListener("click",function(){
-	$('#global_LNB_sidebar')
-	.sidebar('setting', 'transition', 'push')
-	.sidebar('toggle');
-})
 
 document.getElementById("notebook_list").addEventListener("click",function(e){
 
@@ -506,7 +501,6 @@ var notebook_modify = function( d ){
 		
 		update_notebook( _uo );
 	})
-
 }
 
 var project_modify = function( d ){
@@ -639,31 +633,30 @@ document.getElementById("todo_wrap").addEventListener("scroll",function(){
 
 var _el_div__sub_list_click = function(e){
 
+	var pe = e.currentTarget.children
+	var te = check_dom( e.target, "list", "sub_list" )
 
-		var pe = e.currentTarget.children
-		var te = check_dom( e.target, "list", "sub_list" )
+	var i = 0,iLen = pe.length,io;
+	for(;i < iLen;++i){
+		io = pe[ i ]
+		if( io == te ){
+			console.log( i )
+			if( check_dom(e.target,"sub_list_delete_btn","list").id == "sub_list_delete_btn")
+			{
+				console.log('sub_list_delete_btn')
+				delete_doc( notebook_detail_data[ i ]._id )
+				make_sub_list( current_notebook__data.cd );
 
-		var i = 0,iLen = pe.length,io;
-		for(;i < iLen;++i){
-			io = pe[ i ]
-			if( io == te ){
-				console.log( i )
-				if( check_dom(e.target,"sub_list_delete_btn","list").id == "sub_list_delete_btn")
-				{
-					console.log('sub_list_delete_btn')
-					delete_doc( notebook_detail_data[ i ]._id )
-					make_sub_list( current_notebook__data.cd );
-
-					var _t0 = document.getElementById( "view_document" )
-					if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
-					return;
-				}
-				else
-				{
-					return req_detail_by__id( notebook_detail_data[ i ]._id )
-				}
+				var _t0 = document.getElementById( "view_document" )
+				if( _t0 ) if( document.getElementById("view_document").firstChild ) while( document.getElementById("view_document").firstChild ) document.getElementById("view_document").removeChild( _t0.firstChild );
+				return;
+			}
+			else
+			{
+				return req_detail_by__id( notebook_detail_data[ i ]._id )
 			}
 		}
+	}
 }
 
 
@@ -724,10 +717,10 @@ document.getElementById("project_list_view_btn").addEventListener("click",functi
 	make_project_list();
 })
 
-//------------------------------ event;
-//------------------------------ addEventListener;
 _el_div__sub_list.addEventListener("click",_el_div__sub_list_click)
+
 //------------------------------ addEventListener;
+
 //--------------------------------------------------variable;
 
 /**

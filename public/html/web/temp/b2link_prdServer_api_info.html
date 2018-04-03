@@ -4,79 +4,79 @@
 <script>window.service.session.checkSession();</script>
 <include>navi.html</include>
 <style>
-#container
-{
-	left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
-}
-#content
-{
-	left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
-}
-#list
-{
-	cursor: pointer;
-	padding : 30px;
-	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
-}
-#list:last-child
-{
-	cursor: pointer;
-	padding : 30px;
-	margin : 0px !important;
-}
-#notebook_list_item
-{
-	cursor: pointer;
-	padding : 30px;
-	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
-}
-#notebook_list_item:last-child
-{
-	cursor: pointer;
-	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
-	padding : 30px;
-}
-#notebook_add_container
-{
-	cursor: pointer;
-	margin : 0px !important;
-	background-color: #eee;
-}
-#notebook_add_container:last-child
-{
-	margin : 0px !important;border-bottom : 0 !important;
-}
-#note_add_container
-{
-	cursor: pointer;
-	margin : 0px !important;
-	background-color: #eee;
-}
-#note_add_container:last-child
-{
-	margin : 0px !important;border-bottom : 0 !important;
-}
-.bottom_line
-{
-	margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
-}
-.bg_color_eee
-{
-	background-color: #eee !important;
-}
-.sidebar{
-	box-shadow :none !important;
-}
-#project_list_container{
-	overflow-y : auto !important;
-	height : 850px;
-}
+	#container
+	{
+		left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
+	}
+	#content
+	{
+		left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
+	}
+	#list
+	{
+		cursor: pointer;
+		padding : 30px;
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+	}
+	#list:last-child
+	{
+		cursor: pointer;
+		padding : 30px;
+		margin : 0px !important;
+	}
+	#notebook_list_item
+	{
+		cursor: pointer;
+		padding : 30px;
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+	}
+	#notebook_list_item:last-child
+	{
+		cursor: pointer;
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+		padding : 30px;
+	}
+	#notebook_add_container
+	{
+		cursor: pointer;
+		margin : 0px !important;
+		background-color: #eee;
+	}
+	#notebook_add_container:last-child
+	{
+		margin : 0px !important;border-bottom : 0 !important;
+	}
+	#note_add_container
+	{
+		cursor: pointer;
+		margin : 0px !important;
+		background-color: #eee;
+	}
+	#note_add_container:last-child
+	{
+		margin : 0px !important;border-bottom : 0 !important;
+	}
+	.bottom_line
+	{
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+	}
+	.bg_color_eee
+	{
+		background-color: #eee !important;
+	}
+	.sidebar{
+		box-shadow :none !important;
+	}
+	#project_list_container{
+		overflow-y : auto !important;
+		height : 850px;
+	}
 
-#notebook_list,#sub_list{
-	margin : 0px;
-	overflow-y: auto !important;
-	/* min-height:700px;max-height:700px;height: 700px; */
-}
+	#notebook_list,#sub_list{
+		margin : 0px;
+		overflow-y: auto !important;
+		/* min-height:700px;max-height:700px;height: 700px; */
+	}
 </style>
 <!-- <div class="ui centered grid">
 	<div class="twelve wide column pad_t_60 pad_b_60"> -->
@@ -121,7 +121,6 @@
 			<!-- 좌측 레이아웃이 더필요하다면 사용; -->
 
 			<div id="div-PIMS-VerticalContainer" class="ui fluid basic segment" style="min-height: auto !important; max-height: 100% !important;overflow-y : hidden !important;">
-
 					<div id="div-PIMS-GridContainer" class="ui grid" style="height : auto !important;">
 						<div id="div-PIMS-HeaderContainer"class="sixteen wide fixed column" style="background-color : #303841">
 							<div class="ui red horizontal label">Notice!</div>
@@ -1953,7 +1952,7 @@ var data = [
 var m = document.getElementById('m')
 var api_navi = document.getElementById('api_navi')
 
-	api_navi.appendChild( window.service.render.h( "API List", 3 ))
+api_navi.appendChild( window.service.render.h( "API List", 3 ))
 for(var i = 0;i < data.length;++i){
 	var aaa = window.service.render.a( data[ i ].nm, "#" + data[ i ].nm, null )
 	var bbb = window.service.render.li( "", null )
