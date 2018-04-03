@@ -33,7 +33,7 @@ var recive_msg_render_board_chat = function(recieve_message){
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
-		
+
 		var _template = result;
 
 		var io = recieve_message;
@@ -67,35 +67,37 @@ var recive_msg_render_board_chat = function(recieve_message){
 	});
 }
 
-
+/**
+ * [description]
+ * @method
+ * @param  {[type]} recieve_message [description]
+ * @return {[type]}                 [description]
+ */
 var recive_msg_render_board_todo = function( recieve_message ){
 	var _el = document.getElementById("todo_container");
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
-		
+
 		var _template = result;
 
 
 		var label_source = "<div class='ui label'>{{label}}</div>"
 		var include_source = ""
-		
+
 		//------------------------------ tag;
 		var i = 0,iLen = recieve_message.cd$tag.length,io,label;
 		for(;i<iLen;++i)
 		{
-			
+
 			io = recieve_message.cd$tag[ i ]
 			label = label_source
 			label = label.replace("{{label}}", io )
-		
+
 			include_source += label;
 		}
 		//------------------------------ tag;
-
-
-
 
 		var html_include_data = _template.replace( "{{title}}", recieve_message.title )
 		.replace( "{{image_url}}", recieve_message.member.image )
@@ -103,10 +105,10 @@ var recive_msg_render_board_todo = function( recieve_message ){
 		.replace( "{{regist_date}}", make_Array_dateFormat( recieve_message.regist_date ) )
 		.replace( "{{content}}", recieve_message.content )
 		.replace( "{{label_con}}", include_source )
-		
+
 
 		_el.insertAdjacentHTML( 'beforeend', html_include_data );
-		
+
 		var objDiv = document.getElementById("todo_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});
@@ -130,7 +132,7 @@ if( window.service.cookie.getCookie('mid') ){
 		if(recieve_message.doc_cd == current_view_doc__data.cd )
 		{
 			if(recieve_message.destination == "todo" ) recive_msg_render_board_todo( renderData )
-			else recive_msg_render_board_chat( renderData )	
+			else recive_msg_render_board_chat( renderData )
 		}
 	})
 }
