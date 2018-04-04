@@ -912,6 +912,7 @@ var req_detail_by__id = function( _id ){
 			//---------- Button;
 
 			//button 이벤트 연결;
+			document.getElementById("modify").removeEventListener( "click",update_doc )
 			document.getElementById("modify").addEventListener( "click",modify_doc )
 			document.getElementById("delete").addEventListener( "click",function(){
 				console.log("asdfasdfasdfasdfasdf")
