@@ -79,68 +79,67 @@
 <include>header.html</include>
 								
 <!-- contents -->
-	<div class="ui grid">
-		<div class="sixteen wide column" id="project_list_container" style="width: 100%;">
-				<div class="ui basic segment">
-					<div class="ui cards" id="project_list"></div>	
-				</div>
-		</div>
-		<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
-			<div id="app">
-				<div class="ui left 700 wide sidebar">
-					<div class="ui grid" style="margin : 0px;padding : 0px; background-color:#fff;overflow-y: hidden !important;">
-						<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
-							<div id="notebook_add_container" class="ui basic segment item">
-								<div class="ui grid">
-									<div class="sixteen wide column" id="project_title_div" style="padding : 0px;">
-										<div class="ui items">
-												<div class="item" style="padding : 30px;margin : 0px;">
-												<div class="content">
-													<div class="header" id="project_title" style="max-width : 80%;"></div>
-													<div class="ui right floated mini icon button" id="notebook_add"><i class="plus icon"></i></div>
-													<div class="ui right floated mini icon button" id="project_title_modify_btn"><i class="file alternate icon"></i></div>
-													<div class="description" id="project_desc"></div>
-												</div>
-												</div>
+<div class="ui grid">
+	<div class="sixteen wide column" id="project_list_container" style="width: 100%;">
+			<div class="ui basic segment">
+				<div class="ui cards" id="project_list"></div>	
+			</div>
+	</div>
+	<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
+		<div id="app">
+			<div class="ui left 700 wide sidebar">
+				<div class="ui grid" style="margin : 0px;padding : 0px; background-color:#fff;overflow-y: hidden !important;">
+					<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
+						<div id="notebook_add_container" class="ui basic segment item">
+							<div class="ui grid">
+								<div class="sixteen wide column" id="project_title_div" style="padding : 0px;">
+									<div class="ui items">
+											<div class="item" style="padding : 30px;margin : 0px;">
+											<div class="content">
+												<div class="header" id="project_title" style="max-width : 80%;"></div>
+												<div class="ui right floated mini icon button" id="notebook_add"><i class="plus icon"></i></div>
+												<div class="ui right floated mini icon button" id="project_title_modify_btn"><i class="file alternate icon"></i></div>
+												<div class="description" id="project_desc"></div>
 											</div>
-									</div>
+											</div>
+										</div>
 								</div>
 							</div>
-							<div class="ui items" id="notebook_list"></div>
 						</div>
-						<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
-							<div id="note_add_container" class="ui basic segment item" style="display : none;">
-								<div class="ui grid">
-									<div class="sixteen wide column" id="notebook_title_div"  style="padding : 0px;">
-										<div class="ui items">
-											<div class="item" style="padding : 30px;margin : 0px;">
-												<div class="content">
-												<div class="header" id="notebook_title" style="max-width : 80%;"></div>
-												<div class="ui right floated mini icon button" id="note_add"><i class="plus icon"></i></div>
-												<div class="ui right floated mini icon button" id="notebook_title_modify_btn"><i class="file alternate icon"></i></div>
-												<div class="description" id="notebook_desc"></div>
-												</div>
+						<div class="ui items" id="notebook_list"></div>
+					</div>
+					<div class="eight wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
+						<div id="note_add_container" class="ui basic segment item" style="display : none;">
+							<div class="ui grid">
+								<div class="sixteen wide column" id="notebook_title_div"  style="padding : 0px;">
+									<div class="ui items">
+										<div class="item" style="padding : 30px;margin : 0px;">
+											<div class="content">
+											<div class="header" id="notebook_title" style="max-width : 80%;"></div>
+											<div class="ui right floated mini icon button" id="note_add"><i class="plus icon"></i></div>
+											<div class="ui right floated mini icon button" id="notebook_title_modify_btn"><i class="file alternate icon"></i></div>
+											<div class="description" id="notebook_desc"></div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div id="sub_list"  class="ui items"></div>
 						</div>
+						<div id="sub_list"  class="ui items"></div>
 					</div>
 				</div>
-				<div class="pusher">
-					<div class="ui grid container" style="padding:0px;margin:0px;">
-						<div class="sixteen wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 848px !important;">
-							<div class="ui basic segment" id="view_container" style="min-height : 738px"></div>
-							<div class="ui basic segment" style="margin : 0px">
-								<div class="ui buttons">
-									<button class="ui button" id="modify" style="display : none;">수정</button>
-									<button class="ui button" id="delete" style="display : none;">삭제</button>
-									<button class="ui button" id="cancel" style="display : none;">취소</button>
-									<button class="ui button" id="lists" style="display : none;">목록</button>
-									<button class="ui button" id="write" style="display : none;">등록</button>
-								</div>
+			</div>
+			<div class="pusher">
+				<div class="ui grid container" style="padding:0px;margin:0px;">
+					<div class="sixteen wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 848px !important;">
+						<div class="ui basic segment" id="view_container" style="min-height : 738px"></div>
+						<div class="ui basic segment" style="margin : 0px">
+							<div class="ui buttons">
+								<button class="ui button" id="modify" style="display : none;">수정</button>
+								<button class="ui button" id="delete" style="display : none;">삭제</button>
+								<button class="ui button" id="cancel" style="display : none;">취소</button>
+								<button class="ui button" id="lists" style="display : none;">목록</button>
+								<button class="ui button" id="write" style="display : none;">등록</button>
 							</div>
 						</div>
 					</div>
@@ -148,6 +147,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 
 <!-- contents -->
 							
