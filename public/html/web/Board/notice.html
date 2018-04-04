@@ -1175,7 +1175,7 @@ var modify_doc = function(){
 
 	//수정폼 로드;
 	if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
-	
+	_el_removeChild( _el_div__view_container );
 	//thtml을 호출한다.
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
