@@ -513,7 +513,8 @@ var _el_div__sub_list_click = function(e){
 			if( check_dom(e.target,"sub_list_modify_btn","list").id == "sub_list_modify_btn")
 			{
 				console.log('sub_list_modify_btn')
-
+				current_view_doc__data = notebook_detail_data[ i ]
+				modify_doc()
 				return;
 			}
 			else
@@ -1191,8 +1192,8 @@ var modify_doc = function(){
 		});
 
 		//필드초기화;
-		document.getElementById("title").value = document.getElementById("view_document_title").innerText;
-		CKEDITOR.instances.editor.setData( document.getElementById("view_document_content").innerHTML );
+		document.getElementById("title").value = current_view_doc__data.title;
+		CKEDITOR.instances.editor.setData( current_view_doc__data.content );
 
 		//----------;
 		var btn_control_obj = {
