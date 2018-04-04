@@ -270,3 +270,21 @@ window.service.render.dimmer  = function( txt ){
 window.service.render.detect_scrollHeight = function( d ){
 	return d.scrollHeight
 };
+
+
+/**
+*
+*/
+window.service.render.textarea_html_tag_chane =  function(str){
+	//return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+	return String(str).replace(/\"/g, "'")
+	.replace(/&quot;/g, "'")
+	//.replace(/^<table.*[">$]/g, '<table class="ui celled compact table">')
+	//.replace(/<table/g, '<table class="ui celled compact table" ')
+	// .replace(/<span >/g, '')
+	// .replace(/<\/span>/g, '')
+	// .replace(/<td >/g, '<td>')
+	.replace(/&nbsp;/g, '')
+	//.replace(/\&/g, '&amp;');
+//	.replace(//g, '<td>')
+};

@@ -277,39 +277,6 @@ var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel
 */
 
 //--------------------------------------------------function;
-/**
-*
-*/
-var _el_removeChild = function( el ){
-	if( el.firstChild ) while( el.firstChild ) el.removeChild( el.firstChild );
-}
-
-/**
-*
-*/
-var htmlEntities =  function(str){
-	//return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
-	return String(str).replace(/\"/g, "'")
-	.replace(/&quot;/g, "'")
-	//.replace(/^<table.*[">$]/g, '<table class="ui celled compact table">')
-	//.replace(/<table/g, '<table class="ui celled compact table" ')
-	// .replace(/<span >/g, '')
-	// .replace(/<\/span>/g, '')
-	// .replace(/<td >/g, '<td>')
-	.replace(/&nbsp;/g, '')
-	//.replace(/\&/g, '&amp;');
-//	.replace(//g, '<td>')
-};
-
-/**
- * [write_doc description]
- * @type {[type]}
- */
- var check_dom = function( e, str, p0){
-	 if( e.getAttribute("id") == str ) return e
-	 else if( e.getAttribute("id") == p0 ) return "";
-	 else return check_dom( e.parentElement, str, p0 )
- }
 
 /**
  *
@@ -344,7 +311,7 @@ var project_sub_nav_sidebar_open = function(){
 document.getElementById("notebook_list").addEventListener("click",function(e){
 
 	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "notebook_list_item", "notebook_list" )
+	var te = window.service.element.match_el( e.target, "notebook_list_item", "notebook_list" )
 
 	var i = 0,iLen = pe.length,io;
 	for(;i < iLen;++i){
@@ -352,7 +319,7 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 		if( io == te )
 		{
 			console.log( i )
-			if( check_dom(e.target,"notebook_list_delete_btn","notebook_list_item").id == "notebook_list_delete_btn")
+			if( window.service.element.match_el(e.target,"notebook_list_delete_btn","notebook_list_item").id == "notebook_list_delete_btn")
 			{
 				console.log('notebook_list_delete_btn')
 				delete_notebook( notebook_list_data[ i ]._id )
@@ -366,7 +333,7 @@ document.getElementById("notebook_list").addEventListener("click",function(e){
 				
 				return;
 			}
-			else if( check_dom(e.target,"notebook_list_modify_btn","notebook_list_item").id == "notebook_list_modify_btn")
+			else if( window.service.element.match_el(e.target,"notebook_list_modify_btn","notebook_list_item").id == "notebook_list_modify_btn")
 			{
 				console.log('notebook_list_modify_btn')
 				notebook_modify( notebook_list_data[ i ] )
@@ -484,14 +451,14 @@ _el_btn__notebook_add.addEventListener("click",function(){
 var _el_div__sub_list_click = function(e){
 
 	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "list", "sub_list" )
+	var te = window.service.element.match_el( e.target, "list", "sub_list" )
 
 	var i = 0,iLen = pe.length,io;
 	for(;i < iLen;++i){
 		io = pe[ i ]
 		if( io == te ){
 			console.log( i )
-			if( check_dom(e.target,"sub_list_delete_btn","list").id == "sub_list_delete_btn")
+			if( window.service.element.match_el(e.target,"sub_list_delete_btn","list").id == "sub_list_delete_btn")
 			{
 				console.log('sub_list_delete_btn')
 				delete_doc( notebook_detail_data[ i ]._id )
@@ -510,7 +477,7 @@ var _el_div__sub_list_click = function(e){
 				}
 				return;
 			}
-			if( check_dom(e.target,"sub_list_modify_btn","list").id == "sub_list_modify_btn")
+			if( window.service.element.match_el(e.target,"sub_list_modify_btn","list").id == "sub_list_modify_btn")
 			{
 				console.log('sub_list_modify_btn')
 				current_view_doc__data = notebook_detail_data[ i ]
@@ -528,7 +495,7 @@ var _el_div__sub_list_click = function(e){
 document.getElementById("project_list").addEventListener("click",function(e){
 
 	var pe = e.currentTarget.children
-	var te = check_dom( e.target, "project_list_card", "project_list_container" )
+	var te = window.service.element.match_el( e.target, "project_list_card", "project_list_container" )
 
 	var i = 0,iLen = pe.length,io;
 	for(;i < iLen;++i){
@@ -536,7 +503,7 @@ document.getElementById("project_list").addEventListener("click",function(e){
 		if( io == te )
 		{
 			console.log( i )
-			if( check_dom(e.target,"project_list_delete_btn","project_list_card").id == "project_list_delete_btn")
+			if( window.service.element.match_el(e.target,"project_list_delete_btn","project_list_card").id == "project_list_delete_btn")
 			{
 				console.log( i )
 				console.log('project_list_delete_btn')
@@ -544,7 +511,7 @@ document.getElementById("project_list").addEventListener("click",function(e){
 
 				return;
 			}
-			else if( check_dom(e.target,"project_list_modify_btn","project_list_card").id == "project_list_modify_btn")
+			else if( window.service.element.match_el(e.target,"project_list_modify_btn","project_list_card").id == "project_list_modify_btn")
 			{
 				console.log( i )
 				console.log('project_list_delete_btn')
@@ -763,9 +730,9 @@ var make_project_list = function(){
 
 	document.getElementById("app").style.display = "none";
 
-	_el_removeChild( document.getElementById( "notebook_list" ));
-	_el_removeChild( document.getElementById( "sub_list" ));
-	_el_removeChild( document.getElementById( "view_container" ));
+	window.service.element.removeChild_all( document.getElementById( "notebook_list" ));
+	window.service.element.removeChild_all( document.getElementById( "sub_list" ));
+	window.service.element.removeChild_all( document.getElementById( "view_container" ));
 
 	document.getElementById( "project_list_container" ).setAttribute("style","display : block;")
 
@@ -787,8 +754,8 @@ var make_project_list = function(){
 
 			document.getElementById( "notebook_add_container" ).setAttribute( "style", "display : none;" )
 			document.getElementById( "note_add_container" ).setAttribute( "style", "display : none;" )
-			_el_removeChild( document.getElementById("project_list"))
-			_el_removeChild( document.getElementById("notebook_list") );
+			window.service.element.removeChild_all( document.getElementById("project_list"))
+			window.service.element.removeChild_all( document.getElementById("notebook_list") );
 
 			var i = 0,iLen = data.length,io
 			for(;i<iLen; ++i)
@@ -849,7 +816,7 @@ var make_notebook_list = function( cd$project ){
 			document.getElementById("notebook_list").style.height = _h - notebook_add_h - header_h - footer_h;
 			//----- 리스트높이 자동조절;
 
-			_el_removeChild( _t0 );
+			window.service.element.removeChild_all( _t0 );
 
 			var i = 0,iLen = data.length,io
 			for(;i<iLen; ++i)
@@ -1038,7 +1005,7 @@ var write_doc = function(){
 	var url = "/api/Board/notice/write"
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
-			+ "&data=" + htmlEntities( encodeURIComponent( CKEDITOR.instances.editor.getData() ) )
+			+ "&data=" + window.service.render.textarea_html_tag_change( encodeURIComponent( CKEDITOR.instances.editor.getData() ) )
 			+ "&title=" + encodeURIComponent( title )
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd;
@@ -1086,7 +1053,7 @@ var update_doc = function( data ){
 	var title = document.getElementById("title").value
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + current_view_doc__data._id
-	+ "&data=" + htmlEntities( encodeURIComponent( CKEDITOR.instances.editor.getData() ) )
+	+ "&data=" + window.service.render.textarea_html_tag_change( encodeURIComponent( CKEDITOR.instances.editor.getData() ) )
 	+ "&title=" + encodeURIComponent( title );
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
@@ -1115,7 +1082,7 @@ var update_project = function( d ){
 	var url = "/api/Category/project/update"
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + d._id
-	+ "&description=" + htmlEntities( encodeURIComponent( d.description ) )
+	+ "&description=" + window.service.render.textarea_html_tag_change( encodeURIComponent( d.description ) )
 	+ "&nm=" + encodeURIComponent( d.nm );
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
@@ -1139,7 +1106,7 @@ var update_notebook = function( d ){
 	var url = "/api/Category/notebook/update"
 	var data = "sid=" + window.service.cookie.getCookie('session')
 	+ "&_id=" + d._id
-	+ "&description=" + htmlEntities( encodeURIComponent( d.description ) )
+	+ "&description=" + window.service.render.textarea_html_tag_change( encodeURIComponent( d.description ) )
 	+ "&nm=" + encodeURIComponent( d.nm );
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
@@ -1176,7 +1143,7 @@ var modify_doc = function(){
 
 	//수정폼 로드;
 	if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
-	_el_removeChild( _el_div__view_container );
+	window.service.element.removeChild_all( _el_div__view_container );
 	//thtml을 호출한다.
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
