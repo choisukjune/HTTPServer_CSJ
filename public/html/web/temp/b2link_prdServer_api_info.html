@@ -1906,7 +1906,7 @@ for(var i = 0;i < data.length;++i){
 
 	var _tmp_html = api_list_template.replace("{{anchor}}", data[ i ].nm )
 		.replace("{{nm}}", data[ i ].nm);
-	document.getElementById("api_navi").insertAdjacentHTML( 'beforeend', api_list_template );
+	document.getElementById("api_navi").insertAdjacentHTML( 'beforeend', _tmp_html );
 
 	var con0 = window.service.render.div( "", [["class","ten wide column"]] )
 	con0.appendChild( window.service.render.h( data[ i ].nm, 1,[["id", data[ i ].nm],["style","padding-top : 0px;"]] ))
