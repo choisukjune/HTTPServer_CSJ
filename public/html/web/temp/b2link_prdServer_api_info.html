@@ -76,7 +76,13 @@
 	height: 848px;
     overflow-y: auto;
 }
-
+#navi_title{
+	color : #000000;
+	background-color: #eee;
+}
+#navi_item{
+	padding: 1em 1em !important
+}
 .margin0{
 	margin : 0px !important;
 }
@@ -93,7 +99,9 @@
 <div class="ui centered grid">
 	<!-- contents -->
 	<div class="four wide column padding0">
-		<div class="ui divided items" id="api_navi"></div>
+		<div class="ui divided items" id="api_navi">
+			<div class="item" id="navi_title"><div class="middle aligned content"><h4>API_List</h4></div></div>
+		</div>
 	</div>
 	<div class="twelve wide column" id="m" style="height:848px;min-height: 848px !important;overflow-y : auto !important;">
 	</div>
@@ -1904,18 +1912,17 @@ var data = [
 var m = document.getElementById('m')
 var api_navi = document.getElementById('api_navi')
 
-api_navi.appendChild( window.service.render.h( "API List", 3 ))
 for(var i = 0;i < data.length;++i){
 	// var aaa = window.service.render.a( data[ i ].nm, "#" + data[ i ].nm, null )
 	// var bbb = window.service.render.li( "", null )
 	// bbb.appendChild( aaa )
 	// api_navi.appendChild( bbb )
 
-	var api_list_template = "<div class=\"item\"><div class=\"middle aligned content\"><a href=\"#{{anchor}}\">{{nm}}</a></div></div>"
+	var api_list_template = "<div class=\"item\" id=\"navi_item\"><div class=\"middle aligned content\"><a href=\"#{{anchor}}\">{{nm}}</a></div></div>"
 
 	var _tmp_html = api_list_template.replace("{{anchor}}", data[ i ].nm )
 		.replace("{{nm}}", data[ i ].nm);
-	document.getElementById("api_navi").insertAdjacentHTML( 'beforeend', _tmp_html );
+		api_navi.insertAdjacentHTML( 'beforeend', _tmp_html );
 
 	var con0 = window.service.render.div( "", [["class","ten wide column"]] )
 	con0.appendChild( window.service.render.h( data[ i ].nm, 1,[["id", data[ i ].nm],["style","padding-top : 0px;"]] ))
