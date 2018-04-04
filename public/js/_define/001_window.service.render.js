@@ -275,7 +275,7 @@ window.service.render.detect_scrollHeight = function( d ){
 /**
 *
 */
-window.service.render.textarea_html_tag_chane =  function(str){
+window.service.render.textarea_html_tag_change =  function(str){
 	//return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
 	return String(str).replace(/\"/g, "'")
 	.replace(/&quot;/g, "'")
