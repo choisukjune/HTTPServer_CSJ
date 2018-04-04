@@ -510,6 +510,12 @@ var _el_div__sub_list_click = function(e){
 				}
 				return;
 			}
+			if( check_dom(e.target,"sub_list_modify_btn","list").id == "sub_list_modify_btn")
+			{
+				console.log('sub_list_modify_btn')
+
+				return;
+			}
 			else
 			{
 				return req_detail_by__id( notebook_detail_data[ i ]._id )
