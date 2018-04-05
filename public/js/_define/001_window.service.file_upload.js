@@ -324,9 +324,9 @@ var f0 = window.service.EVENT.byID;
 f0("file_upload_input","change", window.service.file_upload.file_upload__single_readAsArrayBuffer.openFile(event) );
 f0("upload","click", window.service.file_upload.file_upload__single_readAsArrayBuffer.parseFile( fileDataInfo[ c ] ) );
 f0("select_file_button","click", window.service.file_upload.file_upload__single_readAsArrayBuffer.popFileSelector() );
-/*/
-var el_file_input = document.getElementById("file_upload_input");
-var el_file_button = document.getElementById("upload");
+// /*/
+// var el_file_input = document.getElementById("file_upload_input");
+// var el_file_button = document.getElementById("upload");
 
-window.service.file_upload.file_upload__single_readAsArrayBuffer.addEvent( el_file_input, el_file_button )
-//*/
+// window.service.file_upload.file_upload__single_readAsArrayBuffer.addEvent( el_file_input, el_file_button )
+// //*/
