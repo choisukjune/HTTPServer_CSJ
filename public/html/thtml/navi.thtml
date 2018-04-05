@@ -101,7 +101,7 @@ line-height: 1.5em !important;
 	</div>
 </div>
 
-<div class="ui very wide right sidebar vertical menu comment_sidebar" style="overflow-y : hidden !importan;">
+<div class="ui very wide right sidebar vertical menu comment_sidebar" style="overflow-y : hidden !important;">
 	<div class="item" style="padding : 0px !important">
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="comment_sidebar_header">Comment</div>
