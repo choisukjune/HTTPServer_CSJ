@@ -198,10 +198,8 @@ var file_uplode = new window.service.file_upload.file_upload__single_readAsArray
 file_uplode.file_upload_input = "doc_file_upload_input";
 file_uplode.upload_files = "upload_files";
 
-file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button,function(){
-	console.log("ㅒOK!")
-} );
-
+var a = file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button);
+console.log("=====>", a)
 window.service.domStorage = {};
  
 // secondary menu

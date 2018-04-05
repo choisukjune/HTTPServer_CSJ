@@ -68,7 +68,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
                 _this.initailize();
                 _this.write_OK_check( data.id )
 
-                return;
+                return data;
             }
 
             setTimeout(function(){ _this.parseFile( key ); },100 );
