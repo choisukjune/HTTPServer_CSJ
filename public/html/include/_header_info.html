@@ -56,7 +56,15 @@ var recive_msg_render_board_chat = function(recieve_message){
 			broadcast_msg = "<p>" + msg + "</p>";
 		};
 		
-		var fileHtmlSource = "<div class=\"text\"><i class=\"file alternate outline icon\"></i>" + io.fileNm + "</div>"
+		if( io.fileNm != "")
+		{
+			var fileHtmlSource = "<div class=\"text\"><i class=\"file alternate outline icon\"></i>" + io.fileNm + "</div>";
+		}
+		else
+		{
+			var fileHtmlSource = "";
+		}
+		
 		var html_include_data = _template.replace( "{{image_url}}", io.member.image )
 		.replace( "{{author}}", io.member.nm )
 		.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
