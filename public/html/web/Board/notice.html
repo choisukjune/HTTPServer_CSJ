@@ -282,6 +282,8 @@ var send_file = function( d ){
 
 	var url = "/api/Chat/board/write"
 
+	var _tmp = d.fileNm.split(".")
+	var fileExtend = _tmp[ tmp.length - 1 ].toLowerCase();
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
 			+ "&content=" + document.getElementById( "doc_file_textarea" ).value 
@@ -290,6 +292,7 @@ var send_file = function( d ){
 			+ "&cd$doc=" + current_view_doc__data.cd
 			+ "&filePath=" + d.ws.path
 			+ "&fileNm=" + d.fileNm
+			+ "&fileExtend=" + fileExtend
 			
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
@@ -414,7 +417,8 @@ var write_chat = function(){
 			+ "&cd$notebook=" + current_notebook__data.cd
 			+ "&cd$doc=" + current_view_doc__data.cd
 			+ "&filePath=" + ""
-			+ "&fileNm=" + "";
+			+ "&fileNm=" + ""
+			+ "&fileExtend=" + "";
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
 		if(result == 0){
