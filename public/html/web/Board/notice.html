@@ -197,8 +197,8 @@ var el_doc_chat__file_button = document.getElementById("doc_file_add_send_btn");
 var file_uplode = new window.service.file_upload.file_upload__single_readAsArrayBuffer();
 file_uplode.file_upload_input = "doc_file_upload_input";
 file_uplode.upload_files = "upload_files";
-file_uplode.upload_end_cbFuntion = function(){
-	console.log("야호!======================================>")
+file_uplode.upload_end_cbFuntion = function( d ){
+	console.log( d )
 }
 file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button);
 
