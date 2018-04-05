@@ -194,7 +194,12 @@
 var el_doc_chat__file_input = document.getElementById("doc_file_upload_input");
 var el_doc_chat__file_button = document.getElementById("doc_file_add_send_btn");
 
-window.service.file_upload.file_upload__single_readAsArrayBuffer.addEvent( el_doc_chat__file_input, el_doc_chat__file_button )
+var file_uplode = new window.service.file_upload.file_upload__single_readAsArrayBuffer();
+file_uplode.file_upload_input = "doc_file_upload_input";
+file_uplode.upload_files = "upload_files";
+
+file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button );
+
 window.service.domStorage = {};
  
 // secondary menu
