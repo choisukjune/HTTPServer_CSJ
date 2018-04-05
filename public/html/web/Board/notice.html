@@ -113,13 +113,12 @@
 		<div class="content">
 			<div class="ui form">
 				<div class="field">
-						<div class="ui action fluid input">
-								<input type="file"  id="file_upload_input">
-								<button id="upload" class="ui teal  right labeled icon button"><i class="copy icon"></i>Upload</button>
-						</div>
+					<div class="ui action fluid input">
+							<input type="file"  id="doc_file_upload_input">
+					</div>
 				</div>
 				<div class="field">
-					<button class="fluid ui button"  id="project_add_cancel">Cancel</button>
+					<button class="fluid ui positive button"  id="doc_file_add_send_btn">Send</button>
 				</div>
 			</div>
 		</div>
@@ -189,7 +188,10 @@
 <include>_footer_info.html</include>
 
 <script type="text/javascript">
+var el_doc_chat__file_input = document.getElementById("doc_file_upload_input");
+var el_doc_chat__file_button = document.getElementById("doc_file_add_send_btn");
 
+window.service.file_upload.file_upload__single_readAsArrayBuffer.addEvent( el_doc_chat__file_input, el_doc_chat__file_button )
 window.service.domStorage = {};
  
 // secondary menu
