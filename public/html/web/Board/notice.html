@@ -84,7 +84,7 @@
 												<div class="ui form">
 												  <div class="field">
 													<!--label>Short Text</label-->
-													<textarea rows="2" id="comment_textarea"></textarea>
+													<textarea rows="2" id="doc_c"></textarea>
 												  </div>
 												  <div class="field">
 														  <button class="ui button fluid" id="doc_comment_send_btn">send</button>
@@ -334,7 +334,7 @@ var write_chat = function(){
 
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&content=" + document.getElementById( "comment_textarea" ).value 
+			+ "&content=" + document.getElementById( "doc_comment_textarea" ).value 
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd
 			+ "&cd$doc=" + current_view_doc__data.cd;
@@ -354,7 +354,7 @@ var write_chat = function(){
 		sendObj.data = result
 
 		connection.send( JSON.stringify( sendObj ) );
-		document.getElementById( "comment_textarea" ).value = "";
+		document.getElementById( "doc_comment_textarea" ).value = "";
 	})
 }
 
