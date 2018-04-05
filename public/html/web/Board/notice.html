@@ -283,7 +283,7 @@ var send_file = function( d ){
 	var url = "/api/Chat/board/write"
 
 	var _tmp = d.fileNm.split(".")
-	var fileExtend = _tmp[ tmp.length - 1 ].toLowerCase();
+	var fileExtend = _tmp[ _tmp.length - 1 ].toLowerCase();
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
 			+ "&content=" + document.getElementById( "doc_file_textarea" ).value 
