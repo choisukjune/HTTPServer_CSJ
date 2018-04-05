@@ -313,6 +313,8 @@ var send_file = function( d ){
 		
 		connection.send( JSON.stringify( sendObj ) );
 		document.getElementById( "doc_comment_textarea" ).value = "";
+
+		$('#doc_chat_file_add_modal').modal('hide');
 	})
 }
 
@@ -1218,7 +1220,7 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 _el_btn__doc_chat_file_add_btn.addEventListener("click", function(){
-	$('#doc_chat_file_add_modal').modal('toggle');
+	$('#doc_chat_file_add_modal').modal('show');
 })
 
 _el_div__project_list.addEventListener("click",function(e){
