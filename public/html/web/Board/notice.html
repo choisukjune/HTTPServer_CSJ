@@ -402,8 +402,8 @@ var make_notebook_list = function( cd$project ){
 			var btn_control_obj = {};
 			btn_control( btn_control_obj );
 			//----------;
-			document.getElementById("pusher_container").style.display = "block"
-			//project_sub_nav_sidebar_open();
+
+			project_sub_nav_sidebar_open();
 		})
 	})
 
@@ -469,7 +469,7 @@ var make_sub_list = function( cd$notebook ){
 	var header_h = document.getElementById("headerContainer").scrollHeight;
 	var footer_h = document.getElementById("footer").scrollHeight;
 	var note_add_h = document.getElementById("note_add_container").scrollHeight;
-	
+	document.getElementById("pusher_container").style.display = "block"
 	document.getElementById("sub_list").style.height = _h - note_add_h - header_h - footer_h;
 	//----- 리스트높이 자동조절;
 
