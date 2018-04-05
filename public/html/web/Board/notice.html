@@ -72,27 +72,27 @@
 					</div>
 					<div class="three wide column" style="overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 848px !important;">
 						<div class="ui basic segment" id="chat_container" style="min-height : 848px;padding : 0px">
-								<div class="item" style="padding : 0px !important">
-										<div class="ui grid" style="margin : 0px !important;">
-											<div class="sixteen wide column" id="comment_sidebar_header" style="line-height : 36px">Comment
-													<div style="float:right"><i class="file alternate fitted icon"></i></div>
+							<div class="item" style="padding : 0px !important">
+								<div class="ui grid" style="margin : 0px !important;">
+									<div class="sixteen wide column" id="comment_sidebar_header" style="line-height : 36px">Comment
+											<div id="doc_chat_file_add_btn"style="float:right;cursor : pointer;"><i class="file alternate fitted icon"></i></div>
+									</div>
+									<div class="sixteen wide column" id="doc_comment_wrap" style="background-color : #fff;;min-height : 650px;max-height : 650px;overflow-y : auto;">
+										<div class="ui comments" id="doc_comment_container"></div>
+									</div>
+									<div class="sixteen wide column" id="">
+										<div class="ui form">
+											<div class="field">
+											<!--label>Short Text</label-->
+											<textarea rows="2" id="doc_comment_textarea"></textarea>
 											</div>
-											<div class="sixteen wide column" id="doc_comment_wrap" style="background-color : #fff;;min-height : 650px;max-height : 650px;overflow-y : auto;">
-												<div class="ui comments" id="doc_comment_container"></div>
-											</div>
-											<div class="sixteen wide column" id="">
-												<div class="ui form">
-												  <div class="field">
-													<!--label>Short Text</label-->
-													<textarea rows="2" id="doc_comment_textarea"></textarea>
-												  </div>
-												  <div class="field">	  
-														<button class="ui button fluid" id="doc_comment_send_btn">send</button>
-												  </div>
-												</div>
+											<div class="field">	  
+												<button class="ui button fluid" id="doc_comment_send_btn">send</button>
 											</div>
 										</div>
 									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -106,6 +106,34 @@
 <include>footer.html</include>
 
 <!--modal-->
+
+<!-- 파일 추가 모달 -->
+<div class="ui mini modal transition" id="doc_chat_file_add_modal">
+		<div class="header" id="modal_project_header"></div>
+		<div class="content">
+			<div class="ui form">
+				<div class="field">
+					<label>Project Name</label>
+					<input type="text" name="projec-name" placeholder="Project Name" id="modal_project_nm">
+				</div>
+				<div class="field">
+					<label>Description</label>
+					<textarea id="modal_project_desc"></textarea>
+				</div>
+				<div class="field" id="project_add_write_field">
+					<button class="green fluid ui button" id="project_add_write">Add</button>
+				</div>
+				<div class="field" id="project_update_btn_field">
+					<button class="orange fluid ui button" id="project_update_btn">Modify</button>
+				</div>
+				<div class="field">
+					<button class="fluid ui button"  id="project_add_cancel">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- 파일 추가 모달 -->
+
 <!-- 프로젝트 추가 모달 -->
 
 <div class="ui mini modal transition" id="project_add_modal">
@@ -218,6 +246,7 @@ var _el_btn__project_update_btn = document.getElementById("project_update_btn");
 var _el_btn__notebook_title_modify_btn = document.getElementById("notebook_title_modify_btn");
 var _el_btn__project_list_view_btn = document.getElementById("project_list_view_btn")
 var _el_btn__doc_comment_send_btn = document.getElementById( "doc_comment_send_btn" );
+var _el_btn__doc_chat_file_add_btn = document.getElementById( "doc_chat_file_add_btn" );
 //------------------------------_el;
 /*
 	//ToDo 정리해야할 함수;
@@ -1138,6 +1167,10 @@ _el_btn__notebook_add.addEventListener("click",function(){
 	document.getElementById("notebook_update_btn_field").style.display = "none";
 
 	_el_btn__notebook_add_write.addEventListener("click",write_notebook );
+})
+
+_el_btn__doc_chat_file_add_btn.addEventListener("click", function(){
+	$('#doc_chat_file_add_modal').modal('toggle');
 })
 
 _el_div__project_list.addEventListener("click",function(e){
