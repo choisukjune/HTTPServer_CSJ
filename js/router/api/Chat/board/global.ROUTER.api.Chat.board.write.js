@@ -61,6 +61,8 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 						, cd$notebook : _q.cd$notebook
 						, cd$doc : _q.cd$doc
 						, content : _q.content
+						, filePath : _q.filePath
+						, fileNm : _q.fileNm
 						, regist_date : r
 						, delete_date : null
 					}

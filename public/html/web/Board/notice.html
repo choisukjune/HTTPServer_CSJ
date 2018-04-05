@@ -77,7 +77,7 @@
 									<div class="sixteen wide column" id="comment_sidebar_header" style="line-height : 36px">Comment
 											<div id="doc_chat_file_add_btn"style="float:right;cursor : pointer;"><i class="file alternate fitted icon"></i></div>
 									</div>
-									<div class="sixteen wide column" id="doc_comment_wrap" style="background-color : #fff;;min-height : 650px;max-height : 650px;overflow-y : auto;">
+									<div class="sixteen wide column" id="doc_comment_wrap" style="background-color : #fff;;min-height : 630px;max-height : 630px;overflow-y : auto;">
 										<div class="ui comments" id="doc_comment_container"></div>
 									</div>
 									<div class="sixteen wide column" id="">
@@ -190,20 +190,7 @@
 <!--modal-->
 <include>_footer_info.html</include>
 
-<script type="text/javascript">
-var el_doc_chat__file_input = document.getElementById("doc_file_upload_input");
-var el_doc_chat__file_button = document.getElementById("doc_file_add_send_btn");
-
-var file_uplode = new window.service.file_upload.file_upload__single_readAsArrayBuffer();
-file_uplode.file_upload_input = "doc_file_upload_input";
-file_uplode.upload_files = "upload_files";
-file_uplode.upload_end_cbFuntion = function( d ){
-	console.log( d )
-}
-file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button);
-
-window.service.domStorage = {};
- 
+<script type="text/javascript"> 
 // secondary menu
 // $('.secondary.menu .ui.sidebar')
 //   .sidebar({ context: $('.bottom.segment') })
@@ -211,6 +198,7 @@ window.service.domStorage = {};
 //   .sidebar('setting', 'transition', 'push')
 //   .sidebar('setting', 'dimPage', false)
 
+window.service.domStorage = {};
 
 //editor 라이브러리 로드;
 var sNew = document.createElement("script");
@@ -251,6 +239,10 @@ var _el_btn__notebook_title_modify_btn = document.getElementById("notebook_title
 var _el_btn__project_list_view_btn = document.getElementById("project_list_view_btn")
 var _el_btn__doc_comment_send_btn = document.getElementById( "doc_comment_send_btn" );
 var _el_btn__doc_chat_file_add_btn = document.getElementById( "doc_chat_file_add_btn" );
+
+var el_doc_chat__file_input = document.getElementById("doc_file_upload_input");
+var el_doc_chat__file_button = document.getElementById("doc_file_add_send_btn");
+
 //------------------------------_el;
 /*
 	//ToDo 정리해야할 함수;
@@ -268,8 +260,55 @@ var _el_btn__doc_chat_file_add_btn = document.getElementById( "doc_chat_file_add
 	//	.replace(//g, '<td>')
 	}
 */
+var file_uplode = new window.service.file_upload.file_upload__single_readAsArrayBuffer();
 
 //--------------------------------------------------function;
+
+file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button);
+file_uplode.file_upload_input = "doc_file_upload_input";
+file_uplode.upload_files = "upload_files";
+file_uplode.upload_end_cbFuntion = function( d ){
+	send_file( d )
+}
+
+
+/**
+ * 
+*/
+var send_file = function( d ){
+
+	var url = "/api/Chat/board/write"
+
+	var data = "sid=" + window.service.cookie.getCookie('session')
+			+ "&mid=" + window.service.cookie.getCookie('mid')
+			+ "&content=" + document.getElementById( "doc_comment_textarea" ).value 
+			+ "&cd$project=" + current_project__data.cd
+			+ "&cd$notebook=" + current_notebook__data.cd
+			+ "&cd$doc=" + current_view_doc__data.cd
+			+ "&filePath=" + d.ws.path
+			+ "&fileNm=" + d.fileNm
+			
+
+	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+
+		var data = JSON.parse( result );
+		console.log( data );
+		console.log( "--등록완료--" );
+		var sendObj = {}
+		sendObj.destination = "chat"
+		sendObj.doc_cd = current_view_doc__data.cd
+		sendObj.data = result
+
+		connection.send( JSON.stringify( sendObj ) );
+		document.getElementById( "doc_comment_textarea" ).value = "";
+	})
+}
+
+
 /**
  * 채팅사이드바의 채팅리스트를 그린다.
 */
@@ -376,7 +415,9 @@ var write_chat = function(){
 			+ "&content=" + document.getElementById( "doc_comment_textarea" ).value 
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd
-			+ "&cd$doc=" + current_view_doc__data.cd;
+			+ "&cd$doc=" + current_view_doc__data.cd
+			+ "&filePath=" + ""
+			+ "&fileNm=" + "";
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
 		if(result == 0){
