@@ -235,7 +235,7 @@ var project_sub_nav_sidebar_open = function(){
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
-	.sidebar('setting', 'closable', true)
+	.sidebar('setting', 'closable', false)
 	.sidebar('show')
 }
 
@@ -247,7 +247,7 @@ var project_sub_nav_sidebar_open = function(){
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
-	.sidebar('setting', 'closable', true)
+	.sidebar('setting', 'closable', false)
 	.sidebar('hide')
 }
 
@@ -351,7 +351,7 @@ var make_notebook_list = function( cd$project ){
 	_el_btn__notebook_add_write.removeEventListener("click",write_notebook);
 
 	var _t0 = document.getElementById("notebook_list")
-
+	_t0.style.display = "block"
 	if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_notebook_list.thtml"
