@@ -351,7 +351,7 @@ var make_notebook_list = function( cd$project ){
 	_el_btn__notebook_add_write.removeEventListener("click",write_notebook);
 
 	var _t0 = document.getElementById("notebook_list")
-	document.getElementById("pusher_container").style.display = "block"
+	
 	if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_notebook_list.thtml"
@@ -402,8 +402,8 @@ var make_notebook_list = function( cd$project ){
 			var btn_control_obj = {};
 			btn_control( btn_control_obj );
 			//----------;
-
-			project_sub_nav_sidebar_open();
+			document.getElementById("pusher_container").style.display = "block"
+			//project_sub_nav_sidebar_open();
 		})
 	})
 
