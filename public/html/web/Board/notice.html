@@ -303,7 +303,7 @@ var send_file = function( d ){
 		sendObj.doc_cd = current_view_doc__data.cd
 		sendObj.data = result
 
-		current_note_chat__data[ current_view_doc__data.cd ].data.push( result );
+		current_note_chat__data[ current_view_doc__data.cd ].data.push( JSON.parse( result ) );
 		
 		connection.send( JSON.stringify( sendObj ) );
 		document.getElementById( "doc_comment_textarea" ).value = "";
@@ -427,7 +427,7 @@ var write_chat = function(){
 		sendObj.doc_cd = current_view_doc__data.cd
 		sendObj.data = result
 		
-		current_note_chat__data[ current_view_doc__data.cd ].data.push( result );
+		current_note_chat__data[ current_view_doc__data.cd ].data.push( JSON.parse( result ) );
 
 		connection.send( JSON.stringify( sendObj ) );
 		document.getElementById( "doc_comment_textarea" ).value = "";
