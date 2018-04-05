@@ -275,7 +275,7 @@ var render_chat_data = function( arr, cbFunction ){
 			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg );
 
-			_el.insertAdjacentHTML( 'beforeend', html_include_data );
+			_el.insertAdjacentHTML( 'afterbegin', html_include_data );
 		}
 
 		cbFunction();
