@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<div class="pusher">
-				<div class="ui grid container" style="padding:0px;margin:0px;" id="pusher_container" style="display:none;">
+				<div class="ui grid container" style="padding:0px;margin:0px;display:none;" id="pusher_container">
 					<div class="three wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
 						<div id="note_add_container" class="ui basic segment item" style="display : none;">
 							<div class="ui grid">
@@ -469,7 +469,7 @@ var make_sub_list = function( cd$notebook ){
 	var header_h = document.getElementById("headerContainer").scrollHeight;
 	var footer_h = document.getElementById("footer").scrollHeight;
 	var note_add_h = document.getElementById("note_add_container").scrollHeight;
-	document.getElementById("pusher_container").style.display = "none"
+	document.getElementById("pusher_container").style.display = "block;"
 	document.getElementById("sub_list").style.height = _h - note_add_h - header_h - footer_h;
 	//----- 리스트높이 자동조절;
 
