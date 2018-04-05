@@ -590,7 +590,7 @@ var req_detail_by__id = function( _id ){
 			var btn_control_obj = {modify : "block", delete : "block"};
 			btn_control( btn_control_obj );
 			//---------- Button;
-
+			chat_board_get_list();
 			//button 이벤트 연결;
 			document.getElementById("modify").removeEventListener( "click",update_doc )
 			document.getElementById("modify").addEventListener( "click",modify_doc )
