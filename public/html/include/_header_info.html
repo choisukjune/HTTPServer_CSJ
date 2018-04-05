@@ -30,7 +30,7 @@ var make_Array_dateFormat = function( arr ){
 }
 
 var recive_msg_render_board_chat = function(recieve_message){
-	var _el = document.getElementById("comment_container");
+	var _el = document.getElementById("doc_comment_container");
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
@@ -63,7 +63,7 @@ var recive_msg_render_board_chat = function(recieve_message){
 
 		_el.insertAdjacentHTML( 'beforeend', html_include_data );
 
-		var objDiv = document.getElementById("comment_wrap")
+		var objDiv = document.getElementById("doc_comment_wrap")
 		objDiv.scrollTop = objDiv.scrollHeight;
 	});
 }
