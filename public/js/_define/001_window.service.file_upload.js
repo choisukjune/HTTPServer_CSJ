@@ -290,7 +290,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
         _this.infoAdd( _store[ key ] );
         return key;
     };
-    _this.addEvent = function( el_input, el_button )
+    _this.addEvent = function( el_input, el_button, cbFunction )
     {
 
         var keyInfo = { key : "" };
@@ -304,6 +304,8 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
                 el_button.removeEventListener( "click", arguments.callee, false );
                 _this.parseFile( keyInfo.key );
+                
+                cbFunction;
 
             }, false, 0, true );
         };
