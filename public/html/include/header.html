@@ -58,7 +58,7 @@ _el_btn__project_add.addEventListener("click",function(){
 
 
 document.getElementById("test_sidebar").addEventListener("click",function(){
-	_el_removeChild( document.getElementById("comment_container") );
+	window.service.element.removeChild_all( document.getElementById("comment_container") );
 
 	$('.ui.right.sidebar.comment_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show", function(){
 
@@ -82,7 +82,7 @@ document.getElementById("test_flip").addEventListener("click", function(){
 });
 
 document.getElementById("test_sidebar1").addEventListener("click",function(){
-	_el_removeChild( document.getElementById("todo_container") );
+	window.service.element.removeChild_all( document.getElementById("todo_container") );
 	$('#multi-select').dropdown();
 	$('.ui.right.sidebar.todo_sidebar').sidebar('setting', 'transition', 'overlay').sidebar("show",function(){
 		
