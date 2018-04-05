@@ -305,7 +305,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
                 el_button.removeEventListener( "click", arguments.callee, false );
                 _this.parseFile( keyInfo.key );
                 
-                cbFunction;
+                cbFunction();
 
             }, false, 0, true );
         };
