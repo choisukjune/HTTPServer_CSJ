@@ -101,7 +101,7 @@ line-height: 1.5em !important;
 	</div>
 </div>
 
-<!-- <div class="ui very wide right sidebar vertical menu comment_sidebar" style="overflow-y : hidden !important;">
+<div class="ui very wide right sidebar vertical menu comment_sidebar" style="overflow-y : hidden !important;">
 	<div class="item" style="padding : 0px !important">
 		<div class="ui grid" style="margin : 0px !important;">
 			<div class="sixteen wide column" id="comment_sidebar_header">Comment</div>
@@ -112,9 +112,9 @@ line-height: 1.5em !important;
 			</div>
 			<div class="sixteen wide column" id="">
 				<div class="ui form">
-				  <div class="field"> -->
+				  <div class="field">
 					<!--label>Short Text</label-->
-					<!-- <textarea rows="2" id="comment_textarea"></textarea>
+					<textarea rows="2" id="comment_textarea"></textarea>
 				  </div>
 				  <div class="field">
 				  		<button class="ui button fluid" id="comment_send_btn">send</button>
@@ -123,7 +123,7 @@ line-height: 1.5em !important;
 			</div>
 		</div>
 	</div>
-</div> -->
+</div>
 <script>
 
 /**

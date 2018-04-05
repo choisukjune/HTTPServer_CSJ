@@ -75,8 +75,8 @@
 								<div class="item" style="padding : 0px !important">
 										<div class="ui grid" style="margin : 0px !important;">
 											<div class="sixteen wide column" id="comment_sidebar_header">Comment</div>
-											<div class="sixteen wide column" id="comment_wrap" style="background-color : #fff;;min-height : 650px;max-height : 650px;overflow-y : auto;">
-												<div class="ui comments" id="comment_container">
+											<div class="sixteen wide column" id="doc_comment_wrap" style="background-color : #fff;;min-height : 650px;max-height : 650px;overflow-y : auto;">
+												<div class="ui comments" id="doc_comment_container">
 								
 												</div>
 											</div>
@@ -87,7 +87,7 @@
 													<textarea rows="2" id="comment_textarea"></textarea>
 												  </div>
 												  <div class="field">
-														  <button class="ui button fluid" id="comment_send_btn">send</button>
+														  <button class="ui button fluid" id="doc_comment_send_btn">send</button>
 												  </div>
 												</div>
 											</div>
@@ -207,7 +207,6 @@ var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list');
 var _el_div__notebook_list = document.getElementById("notebook_list");
 var _el_div__project_list = document.getElementById("project_list");
-var _el_div__project_list = document.getElementById( "comment_send_btn" );
 
 var _el_btn__notebook_add = document.getElementById( "notebook_add" );
 var _el_btn__project_add_write = document.getElementById( "project_add_write" );
@@ -217,7 +216,7 @@ var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel
 var _el_btn__project_update_btn = document.getElementById("project_update_btn");
 var _el_btn__notebook_title_modify_btn = document.getElementById("notebook_title_modify_btn");
 var _el_btn__project_list_view_btn = document.getElementById("project_list_view_btn")
-var _el_btn__comment_send_btn = document.getElementById( "comment_send_btn" );
+var _el_btn__doc_comment_container = document.getElementById( "doc_comment_container" );
 //------------------------------_el;
 /*
 	//ToDo 정리해야할 함수;
@@ -241,7 +240,7 @@ var _el_btn__comment_send_btn = document.getElementById( "comment_send_btn" );
  * 채팅사이드바의 채팅리스트를 그린다.
 */
 var render_chat_data = function( arr, cbFunction ){
-	var _el = document.getElementById("comment_container");
+	var _el = document.getElementById("doc_comment_container");
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
@@ -302,7 +301,7 @@ var chat_board_get_list = function(){
 		
 		render_chat_data( data, function(){
 			
-			var objDiv = document.getElementById("comment_wrap")
+			var objDiv = document.getElementById("doc_comment_wrap")
 			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 
 			objDiv.scrollTop =  cur_objDiv_scrollHeight;
@@ -1012,11 +1011,11 @@ var add_doc = function(){
 //--------------------------------------------------function;
 
 //------------------------------ event;
-_el_btn__comment_send_btn.addEventListener("click",write_chat);
+_el_btn__doc_comment_container.addEventListener("click",write_chat);
 
-document.getElementById("comment_wrap").addEventListener("scroll",function(){
-	var comment_wrap = document.getElementById("comment_wrap");
-	if( comment_wrap.scrollTop == 0 )
+document.getElementById("doc_comment_wrap").addEventListener("scroll",function(){
+	var doc_comment_wrap = document.getElementById("doc_comment_wrap");
+	if( doc_comment_wrap.scrollTop == 0 )
 	{
 		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
 		chat_board_get_list()
