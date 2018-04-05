@@ -207,6 +207,7 @@ var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list');
 var _el_div__notebook_list = document.getElementById("notebook_list");
 var _el_div__project_list = document.getElementById("project_list");
+var _el_div__project_list = document.getElementById( "comment_send_btn" );
 
 var _el_btn__notebook_add = document.getElementById( "notebook_add" );
 var _el_btn__project_add_write = document.getElementById( "project_add_write" );
@@ -216,6 +217,7 @@ var _el_btn__notebook_add_cancel = document.getElementById( "notebook_add_cancel
 var _el_btn__project_update_btn = document.getElementById("project_update_btn");
 var _el_btn__notebook_title_modify_btn = document.getElementById("notebook_title_modify_btn");
 var _el_btn__project_list_view_btn = document.getElementById("project_list_view_btn")
+var _el_btn__comment_send_btn = document.getElementById( "comment_send_btn" );
 //------------------------------_el;
 /*
 	//ToDo 정리해야할 함수;
@@ -235,6 +237,127 @@ var _el_btn__project_list_view_btn = document.getElementById("project_list_view_
 */
 
 //--------------------------------------------------function;
+/**
+ * 채팅사이드바의 채팅리스트를 그린다.
+*/
+var render_chat_data = function( arr, cbFunction ){
+	var _el = document.getElementById("comment_container");
+
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
+
+		var i = 0,iLen = arr.length,io;
+		for(;i<iLen;++i)
+		{
+
+			io = arr[ i ];
+			var broadcast_msg = "";
+			var msg = io.content;
+			if( msg.indexOf("\n") != -1)
+			{
+				var _ta = msg.split("\n")
+				var j = 0,jLen = _ta.length,jo;
+				for(;j<jLen;++j)
+				{
+					jo = _ta[ j ];
+					broadcast_msg += "<p>" + jo + "</p>\n";
+				}
+
+			}
+			else
+			{
+				broadcast_msg = "<p>" + msg + "</p>";
+			};
+
+			var html_include_data = _template.replace( "{{image_url}}", io.member.image )
+			.replace( "{{author}}", io.member.nm )
+			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
+			.replace( "{{content}}", broadcast_msg );
+
+			_el.insertAdjacentHTML( 'beforeend', html_include_data );
+		}
+
+		cbFunction();
+	});
+};
+
+
+/**
+ * 각문서의 채팅리스트를 가져온다
+*/
+var chat_board_get_list = function(){
+
+	var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session') 
+			+ "&cd$doc=" + current_view_doc__data.cd
+			+ "&limit=" + current_note_chat__data[ current_view_doc__data.cd ].limit
+			+ "&skip=" + current_note_chat__data[ current_view_doc__data.cd ].skip;
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login()
+
+		var data = JSON.parse( result );
+		
+		render_chat_data( data, function(){
+			
+			var objDiv = document.getElementById("comment_wrap")
+			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+
+			objDiv.scrollTop =  cur_objDiv_scrollHeight;
+			pre_objDiv_scrollHeight = objDiv.scrollHeight;
+		} );
+
+
+
+		current_note_chat__data[ current_view_doc__data.cd ].data.push( data );
+	})
+}
+
+/**
+ * 
+*/
+var write_chat = function(){
+
+	var htmlEntities =  function(str){
+		return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		.replace(/<span >/g, '')
+		.replace(/<\/span>/g, '')
+		.replace(/<td >/g, '<td>')
+		.replace(/&nbsp;/g, '')
+		.toString("utf8")
+	//	.replace(//g, '<td>')
+	};
+
+	var url = "/api/Chat/board/write"
+
+	var data = "sid=" + window.service.cookie.getCookie('session')
+			+ "&mid=" + window.service.cookie.getCookie('mid')
+			+ "&content=" + document.getElementById( "comment_textarea" ).value 
+			+ "&cd$project=" + current_project__data.cd
+			+ "&cd$notebook=" + current_notebook__data.cd
+			+ "&cd$doc=" + current_view_doc__data.cd;
+
+	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+
+		var data = JSON.parse( result );
+		console.log( data );
+		console.log( "--등록완료--" );
+		var sendObj = {}
+		sendObj.destination = "chat"
+		sendObj.doc_cd = current_view_doc__data.cd
+		sendObj.data = result
+
+		connection.send( JSON.stringify( sendObj ) );
+		document.getElementById( "comment_textarea" ).value = "";
+	})
+}
 
 /**
  *
@@ -889,6 +1012,16 @@ var add_doc = function(){
 //--------------------------------------------------function;
 
 //------------------------------ event;
+_el_btn__comment_send_btn.addEventListener("click",write_chat);
+
+document.getElementById("comment_wrap").addEventListener("scroll",function(){
+	var comment_wrap = document.getElementById("comment_wrap");
+	if( comment_wrap.scrollTop == 0 )
+	{
+		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
+		chat_board_get_list()
+	}
+})
 
 _el_div__notebook_list.addEventListener("click",function(e){
 
