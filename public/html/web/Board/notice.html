@@ -241,7 +241,7 @@ var _el_btn__doc_comment_send_btn = document.getElementById( "doc_comment_send_b
 */
 var render_chat_data = function( arr, cbFunction ){
 	var _el = document.getElementById("doc_comment_container");
-
+	window.service.element.removeChild_all( _el );
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
