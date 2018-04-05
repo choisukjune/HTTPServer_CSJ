@@ -109,22 +109,14 @@
 
 <!-- 파일 추가 모달 -->
 <div class="ui mini modal transition" id="doc_chat_file_add_modal">
-		<div class="header" id="modal_project_header"></div>
+		<div class="header">File Send</div>
 		<div class="content">
 			<div class="ui form">
 				<div class="field">
-					<label>Project Name</label>
-					<input type="text" name="projec-name" placeholder="Project Name" id="modal_project_nm">
-				</div>
-				<div class="field">
-					<label>Description</label>
-					<textarea id="modal_project_desc"></textarea>
-				</div>
-				<div class="field" id="project_add_write_field">
-					<button class="green fluid ui button" id="project_add_write">Add</button>
-				</div>
-				<div class="field" id="project_update_btn_field">
-					<button class="orange fluid ui button" id="project_update_btn">Modify</button>
+						<div class="ui action fluid input">
+								<input type="file"  id="file_upload_input">
+								<button id="upload" class="ui teal  right labeled icon button"><i class="copy icon"></i>Upload</button>
+						</div>
 				</div>
 				<div class="field">
 					<button class="fluid ui button"  id="project_add_cancel">Cancel</button>
