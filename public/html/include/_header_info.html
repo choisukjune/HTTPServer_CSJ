@@ -55,11 +55,13 @@ var recive_msg_render_board_chat = function(recieve_message){
 		{
 			broadcast_msg = "<p>" + msg + "</p>";
 		};
-
+		
+		var fileHtmlSource = "<div class=\"text\">" + io.fileNm + "</div>"
 		var html_include_data = _template.replace( "{{image_url}}", io.member.image )
 		.replace( "{{author}}", io.member.nm )
 		.replace( "{{regist_date}}", make_Array_dateFormat( io.regist_date ) )
-		.replace( "{{content}}", broadcast_msg );
+		.replace( "{{content}}", broadcast_msg )
+		.replace( "{{file}}", fileHtmlSource );
 
 		_el.insertAdjacentHTML( 'beforeend', html_include_data );
 
