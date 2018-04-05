@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<div class="pusher">
-				<div class="ui grid container" style="padding:0px;margin:0px;">
+				<div class="ui grid container" style="padding:0px;margin:0px;" id="pusher_container" style="display:none;">
 					<div class="three wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
 						<div id="note_add_container" class="ui basic segment item" style="display : none;">
 							<div class="ui grid">
@@ -351,7 +351,7 @@ var make_notebook_list = function( cd$project ){
 	_el_btn__notebook_add_write.removeEventListener("click",write_notebook);
 
 	var _t0 = document.getElementById("notebook_list")
-	_t0.style.display = "block"
+	document.getElementById("pusher_container").style.display = "block"
 	if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_notebook_list.thtml"
