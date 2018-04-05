@@ -26,6 +26,7 @@ var _store = {};
 window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
     var file_upload_input;
+    var upload_end_cbFuntion;
 
     //-------------------------;
     // FUNCTION;
@@ -67,8 +68,8 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
                 console.log("end")
                 _this.initailize();
                 _this.write_OK_check( data.id )
-
-                return data;
+                upload_end_cbFuntion();
+                return;
             }
 
             setTimeout(function(){ _this.parseFile( key ); },100 );
@@ -304,7 +305,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
                 el_button.removeEventListener( "click", arguments.callee, false );
                 _this.parseFile( keyInfo.key );
-                
+            
 
             }, false, 0, true );
         };
@@ -323,6 +324,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
     //_this.__defineSetter__( "a", function(){ return _a; } );
     _this.__defineSetter__( "file_upload_input", function( str ){ file_upload_input = str; } );
     _this.__defineSetter__( "upload_files", function( str ){ upload_files = str; } );
+    _this.__defineSetter__( "upload_end_cbFuntion", function( fn ){ upload_end_cbFuntion = fn; } );
     
 	//----------;
 
