@@ -590,6 +590,14 @@ var req_detail_by__id = function( _id ){
 			var btn_control_obj = {modify : "block", delete : "block"};
 			btn_control( btn_control_obj );
 			//---------- Button;
+
+			current_note_chat__data[ current_view_doc__data.cd ] = { data : [], limit : 20, skip : 0 };
+
+			document.getElementById("doc_comment_wrap").setAttribute("style","background-color : #fff;;min-height : 769px;max-height : 769px; height:769px;overflow-y : auto;")
+			pre_objDiv_scrollHeight = 0
+
+			chat_board_get_list();
+
 			chat_board_get_list();
 			//button 이벤트 연결;
 			document.getElementById("modify").removeEventListener( "click",update_doc )
