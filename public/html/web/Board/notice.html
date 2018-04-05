@@ -87,7 +87,8 @@
 													<textarea rows="2" id="doc_comment_textarea"></textarea>
 												  </div>
 												  <div class="field">
-														  <button class="ui button fluid" id="doc_comment_send_btn">send</button>
+														<button class="ui button fluid" id="doc_comment_send_btn">file</button>	  
+													<button class="ui button fluid" id="doc_comment_send_btn">send</button>
 												  </div>
 												</div>
 											</div>
@@ -275,6 +276,13 @@ var render_chat_data = function( arr, cbFunction ){
 			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg );
 
+			
+			/*
+			'beforebegin' element 앞에 
+			'afterbegin'element 안에 가장 첫번째 child
+			'beforeend' element 안에 가장 마지막 child
+			'afterend' element 뒤에
+			*/
 			_el.insertAdjacentHTML( 'afterbegin', html_include_data );
 		}
 
