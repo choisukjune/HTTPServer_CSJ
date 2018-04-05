@@ -113,9 +113,12 @@
 		<div class="content">
 			<div class="ui form">
 				<div class="field">
-					<div class="ui action fluid input">
-							<input type="file"  id="doc_file_upload_input">
+					<div class="ui input">
+						<input type="file"  id="doc_file_upload_input">
 					</div>
+				</div>
+				<div class="field">
+					<textarea rows="2" id="doc_file_textarea"></textarea>
 				</div>
 				<div class="field">
 					<div class="ui bulleted list" id="upload_files"></div>
@@ -281,7 +284,7 @@ var send_file = function( d ){
 
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&content=" + document.getElementById( "doc_comment_textarea" ).value 
+			+ "&content=" + document.getElementById( "doc_file_textarea" ).value 
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd
 			+ "&cd$doc=" + current_view_doc__data.cd
@@ -344,7 +347,7 @@ var render_chat_data = function( arr, cbFunction ){
 				broadcast_msg = "<p>" + msg + "</p>";
 			};
 
-			var fileHtmlSource = "<div class=\"text\">" + io.fileNm + "</div>"
+			var fileHtmlSource = "<div class=\"text\"><i class=\"file alternate outline icon\"></i>" + io.fileNm + "</div>"
 			var html_include_data = _template.replace( "{{image_url}}", io.member.image )
 			.replace( "{{author}}", io.member.nm )
 			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
