@@ -207,6 +207,7 @@ var _el_div__view_container = document.getElementById("view_container");
 var _el_div__sub_list = document.getElementById('sub_list');
 var _el_div__notebook_list = document.getElementById("notebook_list");
 var _el_div__project_list = document.getElementById("project_list");
+var _el_div__doc_comment_container = document.getElementById("doc_comment_container");
 
 var _el_btn__notebook_add = document.getElementById( "notebook_add" );
 var _el_btn__project_add_write = document.getElementById( "project_add_write" );
@@ -286,9 +287,7 @@ var render_chat_data = function( arr, cbFunction ){
  * 각문서의 채팅리스트를 가져온다
 */
 var chat_board_get_list = function(){
-	var _el = document.getElementById("doc_comment_container");
-	window.service.element.removeChild_all( _el );
-	
+
 	var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session') 
 			+ "&cd$doc=" + current_view_doc__data.cd
 			+ "&limit=" + current_note_chat__data[ current_view_doc__data.cd ].limit
@@ -595,7 +594,9 @@ var req_detail_by__id = function( _id ){
 
 			document.getElementById("doc_comment_wrap").setAttribute("style","background-color : #fff;;min-height : 650px;max-height : 650px; height:650px;overflow-y : auto;")
 			pre_objDiv_scrollHeight = 0
-
+			
+			window.service.element.removeChild_all( _el_div__doc_comment_container );
+			
 			chat_board_get_list();
 			//button 이벤트 연결;
 			document.getElementById("modify").removeEventListener( "click",update_doc )
