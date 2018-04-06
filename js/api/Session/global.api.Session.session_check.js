@@ -10,7 +10,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 	//*/
 	var r = global.REQUIRES.redis.createClient( _con );
 		r.auth( global.REDIS.CONFIG.pass );
-		global.CSJLog.timeStamp( "Session - ", _p.sid);
+
 		r.get( sid, function(err, data){
 
 			console.log( "===>",data )
