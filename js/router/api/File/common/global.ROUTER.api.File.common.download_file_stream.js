@@ -15,7 +15,6 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 		//console.log( "---------- end ----------" );
 		res.end();
 		console.log("end")
-		global.api.Response.res_200_ok_String( req, res, "asdf" )
 	});
 	filestream.on('close',	function(){	console.log( "---------- close ----------" ); });
 
@@ -103,12 +102,13 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 		'zip': 'application/zip'
 	};
 	
-
-	res.setHeader('Content-disposition', 'attachment; filename=' + "asdf.jpg");
-	res.setHeader('Content-type',CONTENTTYPES[ extension ]);
+	res.writeHeader(200, {
+		"Content-Type":	CONTENTTYPES[ extension ]
+		, "Content-disposition" : "attachment; filename=" + "asdf.jpg"
+	});
   
 	filestream.pipe(res);
 
-	
+	global.api.Response.res_200_ok_String( req, res, "asdf" )
 
 }
