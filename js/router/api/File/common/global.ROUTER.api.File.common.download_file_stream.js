@@ -12,7 +12,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	global.CSJLog.timeStamp( JSON.stringify( _q ) );
 
 	global.api.Session.session_check(req, res, _q.sid, function( d ){
-console.log( _q )
+
 			if( d ){
 				var	filestream = global.REQUIRES.fs.createReadStream( _q.filePath );
 
@@ -107,12 +107,10 @@ console.log( _q )
 					'xslt': 'application/xslt+xml',
 					'zip': 'application/zip'
 				};
-				console.log( _q.fileNm )
-				console.log( typeof( _q.fileNm ))
-				var download_fileNm = _q.fileNm.toString('utf8')
+				
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
-					, "Content-disposition" : "attachment; filename=" + download_fileNm
+					, "Content-disposition" : "attachment; filename=" + "asdf.jpg"
 				});
 			  
 				filestream.pipe(res);
