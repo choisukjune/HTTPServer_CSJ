@@ -25,7 +25,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 				//global.CSJLog.timeStamp( data )
 				global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
 				r.quit()
-				if( data == null )
+				if( data == "null" )
 				{
 					_cbFunction( "error" )
 				}
