@@ -12,7 +12,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	global.CSJLog.timeStamp( JSON.stringify( _q ) );
 
 	global.api.Session.session_check(req, res, _q.sid, function( d ){
-
+console.log( _q )
 			if( d ){
 				var	filestream = global.REQUIRES.fs.createReadStream( _q.filePath );
 
