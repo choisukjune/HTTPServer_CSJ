@@ -320,6 +320,23 @@ var send_file = function( d ){
 
 
 /**
+ * 
+*/
+var download_doc_chat_file = function( d ){
+
+	var url = "/api/File/common/download_file_stream?sid=" + window.service.cookie.getCookie('session') 
+			+ "&mid=" + window.service.cookie.getCookie('mid')
+			+ "&filePath=" + d;
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+
+		console.log( result )
+	})
+}
+
+
+/**
  * 채팅사이드바의 채팅리스트를 그린다.
 */
 var render_chat_data = function( arr, cbFunction ){
