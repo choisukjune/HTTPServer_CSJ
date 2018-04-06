@@ -10,14 +10,16 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 	//*/
 	var r = global.REQUIRES.redis.createClient( _con );
 		r.auth( global.REDIS.CONFIG.pass );
-		// global.CSJLog.timeStamp( "Session - ", _p.sid);
+		global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get( sid, function(err, data){
 
 			console.log( "===>",data )
 
-			if( err )
-			{	
-				global.CSJLog.timeStamp( err )
+			if( err ) global.CSJLog.timeStamp( err )
+			if( data == null )
+			{
+				global.CSJLog.timeStamp( "Session__data - ", "데이터 없음." );
+				return false;
 			}
 			else
 			{
@@ -25,15 +27,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 				//global.CSJLog.timeStamp( data )
 				global.CSJLog.timeStamp( "Session__data - ", data );
 				r.quit()
-				if( data == null )
-				{
-					global.api.Response.res_200_ok_String( req, res, "0" );
-				}
-				else
-				{
-					_cbFunction();
-				}
-			
+				return _cbFunction();
 			}
 		});
 
