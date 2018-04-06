@@ -12,6 +12,9 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 		r.auth( global.REDIS.CONFIG.pass );
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get( sid, function(err, data){
+
+			console.log( data )
+
 			if( err )
 			{	
 				console.log( err )
