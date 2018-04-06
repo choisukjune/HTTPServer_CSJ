@@ -1,6 +1,9 @@
 global.ROUTER.api.Board.notice.get_list = function( req, res ){
 
-	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ).replace(/^.*\?/, '') );
+	var	_q = global.REQUIRES.querystring.parse(	global.REQUIRES.url.parse( decodeURIComponent(	req.url ) ).query );
+	
+	global.CSJLog.timeStamp( JSON.stringify( _q ) );
+	
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
 
 		if( result == 0 )

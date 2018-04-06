@@ -297,10 +297,7 @@ var send_file = function( d ){
 			
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "/Member/login";
-		}
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
 
 		var data = JSON.parse( result );
 		console.log( data );
@@ -329,12 +326,9 @@ var download_doc_chat_file = function( d ){
 			+ "&mid=" + window.service.cookie.getCookie('mid')
 			+ "&filePath=" + d ;
 
-	window.location = url
+	window.location = url;
 }
 
-document.getElementById("download_test").addEventListener("click",function(){
-	download_doc_chat_file("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG")
-})
 /**
  * 채팅사이드바의 채팅리스트를 그린다.
 */
@@ -449,10 +443,7 @@ var write_chat = function(){
 			+ "&fileExtend=" + "";
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
-		if(result == 0){
-			window.service.session.remove_deleteCookies()
-			location.href = "/Member/login";
-		}
+		if(result == 0) window.service.session.remove_deleteCookies_location_login();
 
 		var data = JSON.parse( result );
 		console.log( data );
@@ -1138,6 +1129,22 @@ document.getElementById("doc_comment_wrap").addEventListener("scroll",function()
 		chat_board_get_list()
 	}
 })
+
+
+document.getElementById("doc_comment_container").addEventListener("click",function(e){
+	var pe = e.currentTarget.children
+	var te = window.service.element.match_el( e.target, "comment", "doc_comment_container" )
+
+	var i = 0,iLen = pe.length,io;
+	for(;i < iLen;++i){
+		io = pe[ i ]
+		if( io == te )
+		{
+			console.log( i )	
+		}
+	}
+})
+
 
 _el_div__notebook_list.addEventListener("click",function(e){
 

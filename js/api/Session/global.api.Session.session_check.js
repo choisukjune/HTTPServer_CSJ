@@ -13,12 +13,9 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 
 		r.get( sid, function(err, data){
 
-			console.log( "===>",data )
-
 			if( err ) global.CSJLog.timeStamp( err )
 			if( data == null )
 			{
-				console.log("2222222222222222222222")
 				global.CSJLog.timeStamp( "Session__data - 데이터 없음." );
 				return _cbFunction( 0 );
 			}
@@ -26,11 +23,10 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 			{
 				//global.CSJLog.timeStamp( "sid : " + sid )
 				//global.CSJLog.timeStamp( data )
-				console.log("1111111111111111111111")
-				console.log( data )
 				global.CSJLog.timeStamp( "Session__data - " + data );
 				r.quit()
-				return _cbFunction( 1 );
+				
+				return _cbFunction( data );
 			}
 		});
 
