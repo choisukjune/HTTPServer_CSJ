@@ -31,7 +31,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 				}
 				else
 				{
-					_cbFunction
+					_cbFunction();
 				}
 			
 			}
