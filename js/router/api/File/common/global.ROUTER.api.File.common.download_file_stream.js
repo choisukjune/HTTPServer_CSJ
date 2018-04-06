@@ -109,7 +109,7 @@ console.log( _q )
 				};
 				console.log( _q.fileNm )
 				console.log( typeof( _q.fileNm ))
-				var download_fileNm = "attachment; filename=" + _q.fileNm
+				var download_fileNm = "attachment; filename=" + _q.fileNm.toString()
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
 					, "Content-disposition" : download_fileNm
