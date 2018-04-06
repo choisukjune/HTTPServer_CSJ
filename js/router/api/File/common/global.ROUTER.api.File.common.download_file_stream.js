@@ -107,7 +107,8 @@ console.log( _q )
 					'xslt': 'application/xslt+xml',
 					'zip': 'application/zip'
 				};
-				
+				console.log( _q.fileNm )
+				console.log( typeof( _q.fileNm ))
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
 					, "Content-disposition" : "attachment; filename=" + _q.fileNm
