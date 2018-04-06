@@ -328,36 +328,8 @@ var download_doc_chat_file = function( d ){
 	var url = "/api/File/common/download_file_stream?sid=" + window.service.cookie.getCookie('session') 
 			+ "&mid=" + window.service.cookie.getCookie('mid')
 			+ "&filePath=" + d ;
-			var http = new XMLHttpRequest();
 
-http.open("GET", url, true);
-http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-//*/
-http.onloadend = function(){
-	if(http.status == 200){
-	            console.log( "onloadend" )
-	            console.log( "request_ok! --- " + http.responseText )
-	//_cbFunction( http.responseText )
-	}
-	else
-	{
-		console.log('readyState=' + http.readyState + ', status: ' + http.status);
-	}
-}
-/*/
-http.onreadystatechange = function(){
-	if(http.readyState == 4 && http.status == 200){
-		console.log( "request_ok! --- " + http.responseText )
-		_cbFunction( http.responseText )
-	}
-	else
-	{
-		console.log('readyState=' + http.readyState + ', status: ' + http.status);
-	}
-}
-//*/
-http.send();
+	location.href(url)
 	// window.service.Request.req_GET_data__Callback( url,function(result){
 	// 	if(result == 0) window.service.session.remove_deleteCookies_location_login();
 
