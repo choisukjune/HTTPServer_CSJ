@@ -13,8 +13,5 @@
 
 		{{file}}
 
-		<div class="actions">
-			<a class="reply">Reply</a>
-		</div>
 	</div>
 </div>

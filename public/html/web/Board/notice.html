@@ -365,7 +365,8 @@ var render_chat_data = function( arr, cbFunction ){
 
 			if( io.fileNm != "")
 			{
-				var fileHtmlSource = "<div class=\"text\"><i class=\"file alternate outline icon\"></i>" + io.fileNm + "</div>";
+				var fileHtmlSource = "<div class=\"text\"><i class=\"file alternate outline icon\"></i>" + io.fileNm + "</div>"
+									+ "<div class=\"actions\"><a class=\"comment_file_download_btn\">download</a></div>";
 			}
 			else
 			{
@@ -1140,7 +1141,13 @@ document.getElementById("doc_comment_container").addEventListener("click",functi
 		io = pe[ i ]
 		if( io == te )
 		{
-			console.log( i )	
+			console.log( i )
+			if( window.service.element.match_el(e.target,"comment_file_download_btn","comment").id == "comment_file_download_btn")
+			{
+
+				console.log( "comment_file_download_btn" )				
+				return;
+			}	
 		}
 	}
 })

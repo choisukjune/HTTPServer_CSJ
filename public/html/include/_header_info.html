@@ -58,7 +58,8 @@ var recive_msg_render_board_chat = function(recieve_message){
 		
 		if( io.fileNm != "")
 		{
-			var fileHtmlSource = "<div class=\"text\"><i class=\"file alternate outline icon\"></i>" + io.fileNm + "</div>";
+			var fileHtmlSource = "<div class=\"text\"><i class=\"file alternate outline icon\"></i>" + io.fileNm + "</div>"
+							+ "<div class=\"actions\"><a class=\"comment_file_download_btn\">download</a></div>";
 		}
 		else
 		{
