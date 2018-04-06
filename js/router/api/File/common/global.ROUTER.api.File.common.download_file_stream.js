@@ -130,7 +130,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
-					, "Content-disposition" : "attachment; filename=" + getDownloadFilename( _q.fileNm )
+					, "Content-disposition" : "attachment; filename=" + getDownloadFilename( req, _q.fileNm )
 				});
 			  
 				filestream.pipe(res);
