@@ -15,20 +15,19 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 			if( err )
 			{	
 				console.log( err )
-				_cbFunction( 0 )
+				_cbFunction( data )
 			}
 			else
 			{
-				global.CSJLog.timeStamp( "sid : " + sid )
-				global.CSJLog.timeStamp( data )
-				//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
-			
-				console.log( data )
+				//global.CSJLog.timeStamp( "sid : " + sid )
+				//global.CSJLog.timeStamp( data )
+				global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
+				r.quit()
 				_cbFunction( JSON.stringify( data ) )
 			}
 		});
 
-	r.quit()
+
 
 	/*/
 
