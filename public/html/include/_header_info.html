@@ -33,7 +33,7 @@ var recive_msg_render_board_chat = function(recieve_message){
 	var _el = document.getElementById("doc_comment_container");
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 		var _template = result;
 
@@ -90,7 +90,7 @@ var recive_msg_render_board_todo = function( recieve_message ){
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 		var _template = result;
 

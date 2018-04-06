@@ -296,7 +296,7 @@ var send_file = function( d ){
 			
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 		var data = JSON.parse( result );
 		console.log( data );
@@ -338,7 +338,7 @@ var render_chat_data = function( arr, cbFunction ){
 	
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		
 		var _template = result;
 
@@ -445,7 +445,7 @@ var write_chat = function(){
 			+ "&fileExtend=" + "";
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 		var data = JSON.parse( result );
 		console.log( data );
@@ -555,13 +555,13 @@ var make_project_list = function(){
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_project_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		
 		var _template = result;
 		
 		var url = "/api/Category/project/get_list?sid=" + window.service.cookie.getCookie('session');
 		window.service.Request.req_GET_data__Callback(url,function(result){
-			if(result == 0) window.service.session.remove_deleteCookies_location_login();
+			if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 			var data = JSON.parse( result );
 
@@ -604,13 +604,13 @@ var make_notebook_list = function( cd$project ){
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_notebook_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		
 		var _template = result;
 
 		var url = "/api/Category/notebook/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$project=" + cd$project;
 		window.service.Request.req_GET_data__Callback(url,function(result){
-			if(result == 0) window.service.session.remove_deleteCookies_location_login();
+			if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 			var data = JSON.parse( result );
 
@@ -667,13 +667,13 @@ var req_detail_by__id = function( _id ){
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "req_detail_by__id.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		
 		var _template = result;
 
 		window.service.Request.req_GET_data__Callback(url,function(result){
 
-			if(result == 0) window.service.session.remove_deleteCookies_location_login();
+			if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 			var data = JSON.parse( result );
 
 			current_view_doc__data = data[ 0 ];
@@ -731,13 +731,13 @@ var make_sub_list = function( cd$notebook ){
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_sub_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		
 		var _template = result;
 
 		var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
 		window.service.Request.req_GET_data__Callback(url,function(result){
-			if(result == 0) window.service.session.remove_deleteCookies_location_login();
+			if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 			var data = JSON.parse( result )
 
@@ -909,7 +909,7 @@ var update_project = function( d ){
 	+ "&nm=" + encodeURIComponent( d.nm );
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		var data = JSON.parse( result );
 
 		console.log( data );
@@ -933,7 +933,7 @@ var update_notebook = function( d ){
 	+ "&nm=" + encodeURIComponent( d.nm );
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		var data = JSON.parse( result );
 
 		console.log( data );
@@ -1010,7 +1010,7 @@ var modify_doc = function(){
 	+ "&_id=" + notebook_id
 
 	window.service.Request.req_GET_data__Callback(url,function( result ){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 		console.log( result );
 		console.log( "--삭제완료--" )
@@ -1029,7 +1029,7 @@ var delete_notebook = function( notebook_id ){
 	+ "&_id=" + notebook_id
 
 	window.service.Request.req_GET_data__Callback(url,function( result ){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 		console.log( result );
 		console.log( "--삭제완료--" )
@@ -1087,7 +1087,7 @@ var add_doc = function(){
 	//thtml을 호출한다.
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 		/*
 		var markup = '<div><p>text here</p></div>';
 		var parser = new DOMParser()
