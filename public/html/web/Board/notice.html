@@ -309,8 +309,11 @@ var send_file = function( d ){
 		current_note_chat__data[ current_view_doc__data.cd ].data.push( JSON.parse( result ) );
 		
 		connection.send( JSON.stringify( sendObj ) );
-		document.getElementById( "doc_comment_textarea" ).value = "";
 
+		document.getElementById("doc_file_upload_input").value = "";
+		document.getElementById("doc_file_textarea").value = "";
+		window.service.element.removeChild_all( document.getElementById("upload_files") );
+		
 		$('#doc_chat_file_add_modal').modal('hide');
 	})
 }
