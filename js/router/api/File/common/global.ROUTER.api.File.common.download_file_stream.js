@@ -110,8 +110,6 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
 				var iconvLite = require('iconv-lite');
 
-				res.setHeader('Content-disposition', 'attachment; filename=' + getDownloadFilename(req, filename));
-
 				function getDownloadFilename(req, filename) {
 					var header = req.headers['user-agent'];
 
