@@ -329,7 +329,7 @@ var download_doc_chat_file = function( d ){
 			+ "&mid=" + window.service.cookie.getCookie('mid')
 			+ "&filePath=" + d ;
 
-	window.service.Request.req_GET_data__Callback(encodeURIComponent( url ),function(result){
+	window.service.Request.req_GET_data__Callback( url,function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
 
 		console.log( result )
