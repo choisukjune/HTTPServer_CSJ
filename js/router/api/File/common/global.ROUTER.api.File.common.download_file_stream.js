@@ -13,9 +13,10 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	
 	global.CSJLog.timeStamp( JSON.stringify( _q ) );
 
-	global.api.Session.session_check(req, res, _q.sid, function(){
+	global.api.Session.session_check(req, res, _q.sid, function( d ){
 
-			var	filestream = global.REQUIRES.fs.createReadStream("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG");
+		if( d == null ) return;	
+		var	filestream = global.REQUIRES.fs.createReadStream("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG");
 
 			filestream.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			filestream.on('end', function(){
