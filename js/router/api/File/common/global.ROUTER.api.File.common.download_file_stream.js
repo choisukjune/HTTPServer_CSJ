@@ -8,7 +8,7 @@
 global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ) );
-	var	resource = global.REQUIRES.fs.createReadStream(	_q.filePath );
+	var	resource = global.REQUIRES.fs.createReadStream(	"/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG" );
 
 	// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 	resource.on('end', function(){
