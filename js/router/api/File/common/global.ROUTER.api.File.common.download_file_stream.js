@@ -102,8 +102,12 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 		'zip': 'application/zip'
 	};
 	
-	res.writeHeader(200, {"Content-Type":	CONTENTTYPES[ extension ]})
-	resource.pipe(res);
+
+	res.setHeader('Content-disposition', 'attachment; filename=' + "asdf.jpg");
+	res.setHeader('Content-type',CONTENTTYPES[ extension ]);
+  
+	var filestream = fs.createReadStream(file);
+	filestream.pipe(res);
 
 	global.api.Response.res_200_ok_String( req, res, "asdf" )
 
