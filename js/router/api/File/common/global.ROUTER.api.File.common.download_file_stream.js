@@ -15,8 +15,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
 	global.api.Session.session_check(req, res, _q.sid, function( d ){
 
-		if( d == null ) console.log( " asdfas as dfdsa");	
-		var	filestream = global.REQUIRES.fs.createReadStream("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG");
+			var	filestream = global.REQUIRES.fs.createReadStream("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG");
 
 			filestream.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			filestream.on('end', function(){
