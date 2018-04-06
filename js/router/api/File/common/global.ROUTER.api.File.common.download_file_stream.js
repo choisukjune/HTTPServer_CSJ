@@ -11,7 +11,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	
 	var	_q = global.REQUIRES.querystring.parse(	global.REQUIRES.url.parse( decodeURIComponent(	req.url ) ).query );
 	
-	global.CSJLog.timeStamp(_q)
+	global.CSJLog.timeStamp( JSON.stringify( _q ) );
 
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
 		global.CSJLog.timeStamp( "세션체크결과 :: ",result )
