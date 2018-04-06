@@ -1144,7 +1144,9 @@ document.getElementById("doc_comment_container").addEventListener("click",functi
 			console.log( i )
 			if( window.service.element.match_el(e.target,"comment_file_download_btn","comment").id == "comment_file_download_btn")
 			{
-
+				var data_len = current_note_chat__data[ current_view_doc__data.cd ].data.length -1;
+				var data_index = data_len - i;
+				console.log( current_note_chat__data[ current_view_doc__data.cd ].datap[ data_index ] )
 				console.log( "comment_file_download_btn" )				
 				return;
 			}	
