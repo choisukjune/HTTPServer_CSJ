@@ -27,7 +27,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 				r.quit()
 				if( data == null )
 				{
-					global.api.Response.res_200_ok_String( req, res, 0 );
+					global.api.Response.res_200_ok_String( req, res, "0" );
 				}
 				else
 				{
