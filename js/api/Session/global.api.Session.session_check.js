@@ -23,17 +23,9 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 			{
 				//global.CSJLog.timeStamp( "sid : " + sid )
 				//global.CSJLog.timeStamp( data )
-				global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
+				global.CSJLog.timeStamp( "Session__data - ", data );
+				console.log( "asdfasdfasdfasdf",data )
 				r.quit()
-				if( data == "null" )
-				{
-					_cbFunction( "error" )
-				}
-				else
-				{
-					_cbFunction( data )
-				}
-			
 			}
 		});
 
