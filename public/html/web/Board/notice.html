@@ -1151,7 +1151,7 @@ document.getElementById("doc_comment_container").addEventListener("click",functi
 				var data_index = data_len - i;
 				
 				console.log( "comment_file_download_btn" )
-				download_doc_chat_file( _to.data[ data_index ].fileNm, _to.data[ data_index ].filePath, _to.data[ data_index ].fileExtend );			
+				download_doc_chat_file( _to[ data_index ].fileNm, _to[ data_index ].filePath, _to[ data_index ].fileExtend );			
 				return;
 			}	
 		}
