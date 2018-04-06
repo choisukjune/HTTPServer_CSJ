@@ -56,6 +56,7 @@
 								</div>
 							</div>
 						</div>
+						<div><button id="download_test">dididid</button>/div>
 						<div id="sub_list"  class="ui items"></div>
 					</div>
 					<div class="ten wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;margin : 0px;overflow-y: auto !important;padding : 0px !important;overflow-y: auto !important; max-height: 848px !important;">
@@ -335,7 +336,9 @@ var download_doc_chat_file = function( d ){
 	})
 }
 
-
+document.getElementById("download_test").addEventListener("click",function(){
+	download_doc_chat_file("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG")
+})
 /**
  * 채팅사이드바의 채팅리스트를 그린다.
 */
