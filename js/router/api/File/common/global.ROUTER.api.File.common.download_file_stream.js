@@ -111,7 +111,7 @@ console.log( _q )
 				console.log( typeof( _q.fileNm ))
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
-					, "Content-disposition" : "attachment; filename=" + _q.fileNm
+					, "Content-disposition" : "attachment; filename=" + "aaaa.jpg"
 				});
 			  
 				filestream.pipe(res);
