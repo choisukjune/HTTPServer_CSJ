@@ -970,7 +970,7 @@ var modify_doc = function(){
 	//thtml을 호출한다.
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
-		if(result == 0) window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
 		_el_div__view_container.insertAdjacentHTML( 'beforeend', result );
 
