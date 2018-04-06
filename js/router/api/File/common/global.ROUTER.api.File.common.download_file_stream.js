@@ -106,7 +106,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	res.setHeader('Content-disposition', 'attachment; filename=' + "asdf.jpg");
 	res.setHeader('Content-type',CONTENTTYPES[ extension ]);
   
-	var filestream = fs.createReadStream(file);
+	var filestream = global.REQUIRES.fs.createReadStream(file);
 	filestream.pipe(res);
 
 	global.api.Response.res_200_ok_String( req, res, "asdf" )
