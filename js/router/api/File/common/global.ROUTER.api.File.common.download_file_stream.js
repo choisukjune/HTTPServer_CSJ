@@ -7,11 +7,14 @@
  */
 global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
-	console.log( global.REQUIRES.url.parse( req.url ).query )
-	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ) );
-	console.log(_q)
+	global.CSJLog.timestamp( global.REQUIRES.url.parse( decodeURIComponent(	req.url ) ).query )
+	
+	var	_q = global.REQUIRES.querystring.parse(	global.REQUIRES.url.parse( decodeURIComponent(	req.url ) ).query );
+	
+	global.CSJLog.timestamp(_q)
+
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
-		console.log( "세션체크결과 :: ",result )
+		global.CSJLog.timestamp( "세션체크결과 :: ",result )
 		if( result == 0 )
 		{
 			global.api.Response.res_200_ok_String( req, res, result.toString());
