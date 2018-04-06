@@ -13,12 +13,11 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get( sid, function(err, data){
 
-			console.log( data )
+			console.log( "===>",data )
 
 			if( err )
 			{	
-				console.log( err )
-				_cbFunction( data )
+				global.CSJLog.timeStamp( err )
 			}
 			else
 			{
