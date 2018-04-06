@@ -108,27 +108,9 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 					'zip': 'application/zip'
 				};
 
-				var iconvLite = require('iconv-lite');
-
-				function getDownloadFilename(req, filename) {
-					var header = req.headers['user-agent'];
-
-					if (header.includes("MSIE") || header.includes("Trident")) { 
-						return encodeURIComponent(filename).replace(/\\+/gi, "%20");
-					} else if (header.includes("Chrome")) {
-						return iconvLite.decode(iconvLite.encode(filename, "UTF-8"), 'ISO-8859-1');
-					} else if (header.includes("Opera")) {
-						return iconvLite.decode(iconvLite.encode(filename, "UTF-8"), 'ISO-8859-1');
-					} else if (header.includes("Firefox")) {
-						return iconvLite.decode(iconvLite.encode(filename, "UTF-8"), 'ISO-8859-1');
-					}
-
-					return filename;
-				}
-				console.log( getDownloadFilename( req, _q.fileNm ))
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
-					, "Content-disposition" : "attachment; filename=" + getDownloadFilename( req, _q.fileNm )
+					, "Content-disposition" : "attachment; filename=" + global.api.File.getDownloadFilename( req, _q.fileNm )
 				});
 			  
 				filestream.pipe(res);
