@@ -109,6 +109,6 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
   
 	filestream.pipe(res);
 
-	global.api.Response.res_200_ok_String( req, res, "asdf" )
+	//global.api.Response.res_200_ok_String( req, res, "asdf" )
 
 }
