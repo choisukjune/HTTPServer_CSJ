@@ -326,15 +326,15 @@ var download_doc_chat_file = function( d ){
 
 	var url = "/api/File/common/download_file_stream?sid=" + window.service.cookie.getCookie('session') 
 			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&filePath=" + d;
+			+ "&filePath=" + d ;
 
-	window.service.Request.req_GET_data__Callback(url,function(result){
+	window.service.Request.req_GET_data__Callback(encodeURIComponent( url ),function(result){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login();
 
 		console.log( result )
 	})
 }
-
+/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG
 
 /**
  * 채팅사이드바의 채팅리스트를 그린다.
