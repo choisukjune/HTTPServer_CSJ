@@ -27,6 +27,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 				//global.CSJLog.timeStamp( "sid : " + sid )
 				//global.CSJLog.timeStamp( data )
 				console.log("1111111111111111111111")
+				console.log( data )
 				global.CSJLog.timeStamp( "Session__data - ", data );
 				r.quit()
 				return _cbFunction( data );
