@@ -103,8 +103,8 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	};
 	
 
-	res.writeHeader('Content-disposition', 'attachment; filename=' + "asdf.jpg");
-	res.writeHeader('Content-type',CONTENTTYPES[ extension ]);
+	res.setHeader('Content-disposition', 'attachment; filename=' + "asdf.jpg");
+	res.setHeader('Content-type',CONTENTTYPES[ extension ]);
   
 	filestream.pipe(res);
 
