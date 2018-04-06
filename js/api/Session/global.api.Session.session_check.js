@@ -14,6 +14,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 		r.get( sid, function(err, data){
 			if( err )
 			{	
+				console.log( err )
 				_cbFunction( 0 )
 			}
 			else
@@ -22,6 +23,7 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 				global.CSJLog.timeStamp( data )
 				//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
 			
+				console.log( data )
 				_cbFunction( JSON.stringify( data ) )
 			}
 		});
