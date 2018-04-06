@@ -18,7 +18,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	});
 	// resource.on('close',	function(){	console.log( "---------- close ----------" ); });
 
-
+	var extension = "jpg"
 	var CONTENTTYPES = {
 		'aac': 'audio/aac',
 		'ai': 'application/postscript',
