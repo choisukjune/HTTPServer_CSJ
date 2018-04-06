@@ -320,11 +320,13 @@ var send_file = function( d ){
 /**
  * 
 */
-var download_doc_chat_file = function( d ){
+var download_doc_chat_file = function( fileNm, filePath, fileExtend ){
 
 	var url = "/api/File/common/download_file_stream?sid=" + window.service.cookie.getCookie('session') 
 			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&filePath=" + d ;
+			+ "&filePath=" + filePath
+			+ "&fileExtend=" + fileExtend
+			+ "&fileNm=" + fileNm;
 
 	window.location = url;
 }
@@ -1144,10 +1146,12 @@ document.getElementById("doc_comment_container").addEventListener("click",functi
 			console.log( i )
 			if( window.service.element.match_el(e.target,"comment_file_download_btn","comment").id == "comment_file_download_btn")
 			{
-				var data_len = current_note_chat__data[ current_view_doc__data.cd ].data.length -1;
+				var _to = current_note_chat__data[ current_view_doc__data.cd ].data;
+				var data_len = _to.length -1;
 				var data_index = data_len - i;
-				console.log( current_note_chat__data[ current_view_doc__data.cd ].data[ data_index ] )
-				console.log( "comment_file_download_btn" )				
+				
+				console.log( "comment_file_download_btn" )
+				download_doc_chat_file( _to.data[ data_index ].fileNm, _to.data[ data_index ].filePath, _to.data[ data_index ].fileExtend );			
 				return;
 			}	
 		}

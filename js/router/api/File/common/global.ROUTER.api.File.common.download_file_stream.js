@@ -7,14 +7,12 @@
  */
 global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
-	global.CSJLog.timeStamp( global.REQUIRES.url.parse( decodeURIComponent(	req.url ) ).query )
-	
 	var	_q = global.REQUIRES.querystring.parse(	global.REQUIRES.url.parse( decodeURIComponent(	req.url ) ).query );
 	
 	global.CSJLog.timeStamp( JSON.stringify( _q ) );
 
 	global.api.Session.session_check(req, res, _q.sid, function( d ){
-			console.log( d )
+
 			if( d ){
 				var	filestream = global.REQUIRES.fs.createReadStream("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG");
 
