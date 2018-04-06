@@ -267,7 +267,6 @@ var file_uplode = new window.service.file_upload.file_upload__single_readAsArray
 
 //--------------------------------------------------function;
 
-file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button);
 file_uplode.file_upload_input = "doc_file_upload_input";
 file_uplode.upload_files = "upload_files";
 file_uplode.upload_end_cbFuntion = function( d ){
@@ -1266,7 +1265,9 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 _el_btn__doc_chat_file_add_btn.addEventListener("click", function(){
-	$('#doc_chat_file_add_modal').modal('show');
+	$('#doc_chat_file_add_modal').modal('show',function(){
+		file_uplode.addEvent( el_doc_chat__file_input, el_doc_chat__file_button);
+	});
 })
 
 _el_div__project_list.addEventListener("click",function(e){
