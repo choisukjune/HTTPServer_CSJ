@@ -19,8 +19,8 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 			if( data == null )
 			{
 				console.log("2222222222222222222222")
-				global.CSJLog.timeStamp( "Session__data - ", "데이터 없음." );
-				return _cbFunction( data );
+				global.CSJLog.timeStamp( "Session__data - 데이터 없음." );
+				return _cbFunction( 0 );
 			}
 			else
 			{
@@ -28,9 +28,9 @@ global.api.Session.session_check = function( req, res, sid, _cbFunction ){
 				//global.CSJLog.timeStamp( data )
 				console.log("1111111111111111111111")
 				console.log( data )
-				global.CSJLog.timeStamp( "Session__data - ", data );
+				global.CSJLog.timeStamp( "Session__data - " + data );
 				r.quit()
-				return _cbFunction( data );
+				return _cbFunction( 1 );
 			}
 		});
 
