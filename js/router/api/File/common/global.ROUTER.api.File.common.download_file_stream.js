@@ -15,7 +15,6 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 		//console.log( "---------- end ----------" );
 		res.end();
 		console.log("end")
-		global.api.Response.res_200_ok_String( req, res, "asdf" )
 	});
 	filestream.on('close',	function(){	console.log( "---------- close ----------" ); });
 
