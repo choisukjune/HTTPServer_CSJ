@@ -109,10 +109,10 @@ console.log( _q )
 				};
 				console.log( _q.fileNm )
 				console.log( typeof( _q.fileNm ))
-				var download_fileNm = _q.fileNm
+				var download_fileNm = _q.fileNm.toString('utf8')
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
-					, "Content-disposition" : "attachment; filename=" + "제휴뮨의.JPG"
+					, "Content-disposition" : "attachment; filename=" + download_fileNm
 				});
 			  
 				filestream.pipe(res);
