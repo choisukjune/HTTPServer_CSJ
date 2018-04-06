@@ -8,7 +8,7 @@
 global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ) );
-
+	console.log(_q)
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
 		console.log( "세션체크결과 :: ",result )
 		if( result == 0 )
