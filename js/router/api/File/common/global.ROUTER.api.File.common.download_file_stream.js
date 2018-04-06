@@ -7,7 +7,7 @@
  */
 global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
-	console.log( global.REQUIRES.url( req.url ).query )
+	console.log( global.REQUIRES.url.parse( req.url ).query )
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ) );
 	console.log(_q)
 	global.api.Session.session_check(req, res, _q.sid, function( result ){
