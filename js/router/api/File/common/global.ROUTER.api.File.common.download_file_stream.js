@@ -14,7 +14,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	global.api.Session.session_check(req, res, _q.sid, function( d ){
 
 			if( d ){
-				var	filestream = global.REQUIRES.fs.createReadStream("/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG");
+				var	filestream = global.REQUIRES.fs.createReadStream( _q.filePath );
 
 				filestream.on('finish', function(){ console.log( "---------- finish ----------" ) });
 				filestream.on('end', function(){
@@ -24,7 +24,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 				});
 				filestream.on('close',	function(){	console.log( "---------- close ----------" ); });
 			
-				var extension = "jpg"
+				var extension = _q.fileExtend;
 				var CONTENTTYPES = {
 					'aac': 'audio/aac',
 					'ai': 'application/postscript',
@@ -110,7 +110,7 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 				
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
-					, "Content-disposition" : "attachment; filename=" + "asdf.jpg"
+					, "Content-disposition" : "attachment; filename=" + _q.fileNm
 				});
 			  
 				filestream.pipe(res);
