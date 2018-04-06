@@ -8,10 +8,10 @@
 global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 
 	var	_q = global.REQUIRES.querystring.parse(	decodeURIComponent(	req.url ) );
-	var	resource = global.REQUIRES.fs.createReadStream(	"/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG" );
+	var	filestream = global.REQUIRES.fs.createReadStream(	"/home/ubuntu/github/httpServer_csj/upload/1522916747697_제휴문의.JPG" );
 
 	// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
-	resource.on('end', function(){
+	filestream.on('end', function(){
 		//console.log( "---------- end ----------" );
 		res.end();
 		console.log("end")
@@ -106,7 +106,6 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 	res.setHeader('Content-disposition', 'attachment; filename=' + "asdf.jpg");
 	res.setHeader('Content-type',CONTENTTYPES[ extension ]);
   
-	var filestream = global.REQUIRES.fs.createReadStream("asdf.jpg");
 	filestream.pipe(res);
 
 	global.api.Response.res_200_ok_String( req, res, "asdf" )
