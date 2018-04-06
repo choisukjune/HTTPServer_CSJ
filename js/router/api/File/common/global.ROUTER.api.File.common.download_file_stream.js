@@ -107,10 +107,30 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 					'xslt': 'application/xslt+xml',
 					'zip': 'application/zip'
 				};
-				
+
+				var iconvLite = require('iconv-lite');
+
+				res.setHeader('Content-disposition', 'attachment; filename=' + getDownloadFilename(req, filename));
+
+				function getDownloadFilename(req, filename) {
+					var header = req.headers['user-agent'];
+
+					if (header.includes("MSIE") || header.includes("Trident")) { 
+						return encodeURIComponent(filename).replace(/\\+/gi, "%20");
+					} else if (header.includes("Chrome")) {
+						return iconvLite.decode(iconvLite.encode(filename, "UTF-8"), 'ISO-8859-1');
+					} else if (header.includes("Opera")) {
+						return iconvLite.decode(iconvLite.encode(filename, "UTF-8"), 'ISO-8859-1');
+					} else if (header.includes("Firefox")) {
+						return iconvLite.decode(iconvLite.encode(filename, "UTF-8"), 'ISO-8859-1');
+					}
+
+					return filename;
+				}
+
 				res.writeHeader(200, {
 					"Content-Type":	CONTENTTYPES[ extension ]
-					, "Content-disposition" : "attachment; filename=" + "asdf.jpg"
+					, "Content-disposition" : "attachment; filename=" + getDownloadFilename( _q.fileNm )
 				});
 			  
 				filestream.pipe(res);
