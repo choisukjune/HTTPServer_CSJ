@@ -78,10 +78,6 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
     };
 
-    _this.initailize = function(){
-        document.getElementById( file_upload_input ).value = "";
-        fileDataInfo = null;
-    }
     var blob;
     var reader;
     _this.parseFile  = function( key ){
@@ -270,6 +266,11 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
         // imgByClassName.src = dataURL;
     }
 
+    _this.initailize = function(){
+        document.getElementById( file_upload_input ).value = "";
+        fileDataInfo = null;
+    }
+
     _this._evt_change__Input_File = function( e )
     {
 
@@ -298,7 +299,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
         var evt_change = function( e ){
             el_input.removeEventListener( "change", arguments.callee, false );
-
+            _this.initailize();
             keyInfo.key = _this._evt_change__Input_File( e );
 
             el_button.addEventListener( "click", function( e ){
@@ -316,7 +317,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
     _this.removeEvent = function( el_input, el_button )
     {
-
+        
     };
 
     
