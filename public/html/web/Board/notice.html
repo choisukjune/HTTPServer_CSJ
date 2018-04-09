@@ -498,14 +498,12 @@ var project_sub_nav_sidebar_open = function(){
 }
 
 document.getElementById("file_side_bar_open_btn").addEventListener("click",function(){
-	var project_sub_nav_sidebar_hide = function(){
 	$('#file_side_bar')
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
 	.sidebar('setting', 'closable', false)
 	.sidebar('hide')
-}
 })
 
 /**
