@@ -268,6 +268,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
     _this.initailize = function(){
         document.getElementById( file_upload_input ).value = "";
+        window.service.element.removeChild_all( document.getElementById( upload_files ) );
         fileDataInfo = null;
     }
 
