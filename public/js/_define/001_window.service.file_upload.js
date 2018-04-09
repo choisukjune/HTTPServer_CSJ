@@ -300,7 +300,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
         var evt_change = function( e ){
             el_input.removeEventListener( "change", arguments.callee, false );
             
-            fileDataInfo = null;//파일데이터를 초기화 한다.
+            _store = {};//파일데이터를 초기화 한다.
             
             keyInfo.key = _this._evt_change__Input_File( e );
 
