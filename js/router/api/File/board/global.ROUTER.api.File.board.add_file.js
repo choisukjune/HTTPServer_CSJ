@@ -45,7 +45,7 @@ global.ROUTER.api.File.board.add_file = function( doc ){
 				_to.cd = doc.cd$doc + "-FILE" + doc_idx;
 
 				db0.collection("board").insert(_to,function(d){
-					global.api.Response.res_200_ok_String( req, res, JSON.stringify( _to ) );
+					console.log("file add OK!")
 					db.close();
 				});
 			})
