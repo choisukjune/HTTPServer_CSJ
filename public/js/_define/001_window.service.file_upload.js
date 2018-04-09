@@ -268,7 +268,6 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
     _this.initailize = function(){
         document.getElementById( file_upload_input ).value = "";
-        window.service.element.removeChild_all( document.getElementById( upload_files ) );
         fileDataInfo = null;
     }
 
@@ -302,6 +301,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
             el_input.removeEventListener( "change", arguments.callee, false );
             
             _store = {};//파일데이터를 초기화 한다.
+            window.service.element.removeChild_all( document.getElementById( upload_files ) );
             
             keyInfo.key = _this._evt_change__Input_File( e );
 
