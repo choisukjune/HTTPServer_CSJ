@@ -268,6 +268,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
     _this.initailize = function(){
         document.getElementById( file_upload_input ).value = "";
+        window.service.element.removeChild_all( document.getElementById( upload_files ) );
         fileDataInfo = null;
     }
 
@@ -294,7 +295,6 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
     };
     _this.addEvent = function( el_input, el_button )
     {
-        window.service.element.removeChild_all( document.getElementById( upload_files ) );
         var keyInfo = { key : "" };
 
         var evt_change = function( e ){
