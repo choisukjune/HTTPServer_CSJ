@@ -246,8 +246,8 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
         // var text_prg = document.createTextNode( " - 0%" );
 
         //li__img.setAttribute("id", file.name)
-        span.setAttribute( "id", file.id +"_prg" );
-        div.setAttribute( "id", file.id );
+        span.setAttribute( "id", file.dateTime +"_prg" );
+        div.setAttribute( "id", file.dateTime );
 
             div0.setAttribute("class", "ui teal progress")
             //div0.setAttribute("data-percent","29")
