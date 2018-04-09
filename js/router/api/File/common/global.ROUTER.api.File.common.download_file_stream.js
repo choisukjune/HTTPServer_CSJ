@@ -105,7 +105,9 @@ global.ROUTER.api.File.common.download_file_stream = function( req, res, d ){
 					'xpm': 'image/x-xpixmap',
 					'xsl': 'application/xml',
 					'xslt': 'application/xslt+xml',
-					'zip': 'application/zip'
+					'zip': 'application/zip',
+					'torrent' : 'application/x-bittorrent'
+
 				};
 
 				res.writeHeader(200, {
