@@ -514,14 +514,18 @@ var project_sub_nav_sidebar_open = function(){
 	.sidebar('show')
 }
 
-document.getElementById("file_side_bar_open_btn").addEventListener("click",function(){
+/**
+ * 
+ */
+
+var file_side_bar_open = function(){
 	$('#file_side_bar')
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
 	.sidebar('setting', 'closable', true)
 	.sidebar('toggle')
-})
+}
 
 /**
  * 
@@ -1392,11 +1396,17 @@ _el_div__sub_list.addEventListener("click", function(e){
 				}
 				return;
 			}
-			if( window.service.element.match_el(e.target,"sub_list_modify_btn","list").id == "sub_list_modify_btn")
+			else if( window.service.element.match_el(e.target,"sub_list_modify_btn","list").id == "sub_list_modify_btn")
 			{
 				console.log('sub_list_modify_btn')
 				current_view_doc__data = notebook_detail_data[ i ]
 				modify_doc()
+				return;
+			}
+			else if( window.service.element.match_el(e.target,"file_side_bar_open_btn","list").id == "file_side_bar_open_btn")
+			{
+				console.log('file_side_bar_open_btn')
+				file_side_bar_open();
 				return;
 			}
 			else
