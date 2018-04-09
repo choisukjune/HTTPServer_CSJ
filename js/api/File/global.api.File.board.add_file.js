@@ -1,4 +1,4 @@
-global.ROUTER.api.File.board.add_file = function( doc ){
+global.api.File.board.add_file = function( doc ){
 
 	global.api.REQUIRES.MongoDB.MongoClient.connect(global.DB.CONFIG.driver_connect_url , function(err, db) {
 

@@ -101,7 +101,8 @@ global.ROUTER.api.Chat.board.write = function( req, res ){
 								doc.member.nm = member_info.first_Nm + " " + member_info.last_Nm;
 								doc.member.image = member_info.image;
 
-								global.ROUTER.api.File.board.add_file( doc )
+								global.api.File.board.add_file( doc );
+								
 								db0.collection("board").insert(doc,function(d){
 									global.api.Response.res_200_ok_String( req, res, JSON.stringify( doc ) );
 									db.close();
