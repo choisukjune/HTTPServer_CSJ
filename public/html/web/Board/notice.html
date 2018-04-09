@@ -12,7 +12,7 @@
 	</div>
 	<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;overflow-y: auto !important; min-height: 848px !important;height: 848px !important;">
 		<div id="app">
-			<div class="ui left wide sidebar">
+			<div class="ui left wide sidebar" id="project_side_bar">
 				<div class="ui grid" style="margin : 0px;padding : 0px; background-color:#fff;overflow-y: hidden !important;">
 					<div class="sixteen wide column" style="border-right : 1px solid rgba(34, 36, 38, 0.15) !important;padding : 0px !important;min-height: 848px !important;height: 848px !important;">
 						<div id="notebook_add_container" class="ui basic segment item">
@@ -485,7 +485,7 @@ var btn_control = function( o ){
  * 
  */
 var project_sub_nav_sidebar_open = function(){
-	$('#app .ui.sidebar')
+	$('#project_side_bar')
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
@@ -499,14 +499,14 @@ document.getElementById("file_side_bar_open_btn").addEventListener("click",funct
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
 	.sidebar('setting', 'closable', false)
-	.sidebar('hide')
+	.sidebar('show')
 })
 
 /**
  * 
  */
  var project_sub_nav_sidebar_hide = function(){
-	$('#app .ui.sidebar')
+	$('#project_side_bar')
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
