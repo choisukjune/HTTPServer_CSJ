@@ -25,6 +25,7 @@
 												<div class="header" id="project_title" style="max-width : 80%;"></div>
 												<div class="ui right floated mini icon button" id="notebook_add"><i class="plus icon"></i></div>
 												<div class="ui right floated mini icon button" id="project_title_modify_btn"><i class="file alternate icon"></i></div>
+												<div class="ui right floated mini icon button" id="file_side_bar_open_btn"><i class="file alternate icon"></i></div>
 												<div class="description" id="project_desc"></div>
 											</div>
 										</div>
@@ -104,6 +105,13 @@
 <!-- contents -->
 							
 <include>footer.html</include>
+
+
+<div class="ui left wide sidebar" id="file_side_bar">
+11111
+</div>
+
+
 
 <!--modal-->
 
@@ -488,6 +496,17 @@ var project_sub_nav_sidebar_open = function(){
 	.sidebar('setting', 'closable', false)
 	.sidebar('show')
 }
+
+document.getElementById("file_side_bar_open_btn").addEventListener("click",function(){
+	var project_sub_nav_sidebar_hide = function(){
+	$('#file_side_bar')
+	.sidebar({context:$('#app')})
+	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('setting', 'dimPage', true)
+	.sidebar('setting', 'closable', false)
+	.sidebar('hide')
+}
+})
 
 /**
  * 
