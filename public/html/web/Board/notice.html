@@ -1267,8 +1267,9 @@ _el_btn__notebook_add.addEventListener("click",function(){
 })
 
 _el_btn__doc_chat_file_add_btn.addEventListener("click", function(){
-	document.getElementById("doc_file_textarea").value = "";
+	
 	$('#doc_chat_file_add_modal').modal('show',function(){
+		document.getElementById("doc_file_textarea").value = "";
 		file_upload.initailize();
 		file_upload.addEvent( el_doc_chat__file_input, el_doc_chat__file_button);
 	});
