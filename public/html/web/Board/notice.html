@@ -39,7 +39,29 @@
 				</div>
 			</div>
 			<div class="ui left wide sidebar" id="file_side_bar">
-				11111
+				<div class="ui basic segment" id="chat_container" style="min-height : 848px;padding : 0px">
+					<div class="item" style="padding : 0px !important">
+						<div class="ui grid" style="margin : 0px !important;">
+							<div class="sixteen wide column" id="comment_sidebar_header" style="line-height : 36px">Comment
+									<div id="doc_chat_file_add_btn"style="float:right;cursor : pointer;"><i class="file alternate fitted icon"></i></div>
+							</div>
+							<div class="sixteen wide column" id="doc_comment_wrap" style="background-color : #fff;;min-height : 630px;max-height : 630px;overflow-y : auto;">
+								<div class="ui comments" id="doc_comment_container"></div>
+							</div>
+							<div class="sixteen wide column" id="">
+								<div class="ui form">
+									<div class="field">
+									<!--label>Short Text</label-->
+									<textarea rows="2" id="doc_comment_textarea"></textarea>
+									</div>
+									<div class="field">	  
+										<button class="ui button fluid" id="doc_comment_send_btn">send</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="pusher" id="pusher_container" style="display:none;">
 				<div class="ui grid container" style="padding:0px;margin:0px;">
@@ -498,8 +520,8 @@ document.getElementById("file_side_bar_open_btn").addEventListener("click",funct
 	.sidebar({context:$('#app')})
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('setting', 'dimPage', true)
-	.sidebar('setting', 'closable', false)
-	.sidebar('show')
+	.sidebar('setting', 'closable', true)
+	.sidebar('toggle')
 })
 
 /**
