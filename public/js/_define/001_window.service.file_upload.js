@@ -66,7 +66,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
             if( data.isEnd == 1 ){
                 console.log("end")
-                _this.write_OK_check( data.id )
+                _this.write_OK_check( data.dateTime )
                 upload_end_cbFuntion( data );
                 _this.initailize();
                 return;
@@ -247,7 +247,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
         //li__img.setAttribute("id", file.name)
         span.setAttribute( "id", file.dateTime +"_prg" );
-        div.setAttribute( "id", file.dateTime );
+        div.setAttribute( "id", file.ssdateTime );
 
             div0.setAttribute("class", "ui teal progress")
             //div0.setAttribute("data-percent","29")
