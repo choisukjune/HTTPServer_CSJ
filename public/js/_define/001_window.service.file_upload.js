@@ -66,9 +66,9 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
 
             if( data.isEnd == 1 ){
                 console.log("end")
-                _this.initailize();
                 _this.write_OK_check( data.id )
                 upload_end_cbFuntion( data );
+                _this.initailize();
                 return;
             }
 
