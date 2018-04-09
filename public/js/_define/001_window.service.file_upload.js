@@ -50,6 +50,7 @@ window.service.file_upload.file_upload__single_readAsArrayBuffer = function(){
         var url = "/api/File/common/file_upload__single_readAsArrayBuffer?fileNm=" + _store[ key ].file.name
             + "&totalBytes=" + _store[ key ].file.size
             + "&offset=" + _store[ key ].offset_count
+            + "&datetime=" + _store[ key ].datetime
             + "&total_offset=" + _store[ key ].total_offset
             + "&_storage_key=" + _store[ key ]._storage_key
             + "&file_id=" + _store[ key ].id;

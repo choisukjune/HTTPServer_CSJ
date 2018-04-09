@@ -59,6 +59,7 @@ global.ROUTER.api.File.common.file_upload__single_readAsArrayBuffer = function( 
 			target = _storage[ q._storage_key ]	= {};
 
 			target._storage_key	= q._storage_key;
+			target.datetime = q.datetime;
 			target.fileNm =	q.fileNm;
 			target.id =	q.file_id;
 			target.isEnd = 0;
