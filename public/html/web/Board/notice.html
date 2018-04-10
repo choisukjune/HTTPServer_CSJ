@@ -781,6 +781,7 @@ window.service.Request.req_GET_data__Callback(url1,function(result){
 
 			var html_include_data = _template.replace( "{{image}}", io.member.image )
 			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
+			.replace("{{file_nm}}", io.fileNm )
 			.replace("{{member_nm}}", io.member.nm );
 
 			_el_div__doc_file_sidebar_list.insertAdjacentHTML( 'beforeend', html_include_data );
