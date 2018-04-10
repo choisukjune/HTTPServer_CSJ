@@ -9,6 +9,8 @@
 		</div>
 		<div class="meta">
 			<a class="file"><i class="file alternate outline icon"></i>{{file_nm}}</a>
+		</div>
+		<div class="meta">
 			<a class="file" id="file_list_file_dowload">download</a>
 		</div>
 	</div>
