@@ -4,7 +4,6 @@
 
 <link rel='stylesheet' type="text/css" href='/css/notice.css'>								
 <!-- contents -->
-<button id="noti">Notify me!</button>
 <div class="ui grid">
 	<div class="sixteen wide column" id="project_list_container" style="width: 100%;">
 			<div class="ui basic segment">
@@ -207,28 +206,6 @@
 <include>_footer_info.html</include>
 
 <script type="text/javascript"> 
-
-if ('serviceWorker' in navigator) {
- console.log('Service Worker is supported');
- navigator.serviceWorker.register('sw.js').then(function(reg) {
-   console.log(':^)', reg);
-   // TODO
- }).catch(function(err) {
-   console.log(':^(', err);
- });
-}
-
-
-/*
-Application server keys are used to idenitfy your application server with a push service.
-
-Public Key
-
-BKTpRd-DQv5mJvgRTDrcFNYnKm658tFbxsnkEpkcRx67NyE3hzLanGW-r1Msip0xH3aiLFGSY7aRJBboLIpo-C0
-Private Key
-
-nFm-kErffsesrzkpZlzor6ZFIaEO-w8Fr1D7UutQq9U
-*/
 
 // secondary menu
 // $('.secondary.menu .ui.sidebar')
