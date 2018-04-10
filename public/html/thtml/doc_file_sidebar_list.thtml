@@ -1,0 +1,16 @@
+<div class="event">
+	<div class="label">
+		<img src="{{image}}">
+	</div>
+	<div class="content">
+		<div class="summary">
+			<a class="user">{{member_nm}}</a> added file
+			<div class="date">{{regist_date}}</div>
+		</div>
+		<div class="meta">
+			<a class="like">
+				<i class="like icon"></i> 4 Likes
+			</a>
+		</div>
+	</div>
+</div>
