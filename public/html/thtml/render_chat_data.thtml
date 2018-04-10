@@ -1,7 +1,7 @@
 <div class="comment" id="comment">
-	<a class="avatar">
-		<img src="{{image_url}}" style="height : 35px !important;">
-	</a>
+	<div class="label">
+		<img src="{{image}}">
+	</div>
 	<div class="content">
 		<a class="author">{{author}}</a>
 		<div class="metadata">
