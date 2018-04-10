@@ -8,8 +8,8 @@
 			<div class="date">{{regist_date}}</div>
 		</div>
 		<div class="meta">
-			<a class="file"><i class="like icon"></i>{{file_nm}}</a>
-			<a class="file" id="file_list_file_dowload"><i class="like icon"></i>download</a>
+			<a class="file"><i class="file alternate outline icon"></i>{{file_nm}}</a>
+			<a class="file" id="file_list_file_dowload">download</a>
 		</div>
 	</div>
 </div>
