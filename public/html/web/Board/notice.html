@@ -206,6 +206,19 @@
 <include>_footer_info.html</include>
 
 <script type="text/javascript"> 
+
+window.addEventListener('load', function () {
+  Notification.requestPermission(function (status) {
+    // This allows to use Notification.permission with Chrome/Safari
+    if (Notification.permission !== status) {
+      Notification.permission = status;
+    }
+  });
+});
+
+
+
+
 // secondary menu
 // $('.secondary.menu .ui.sidebar')
 //   .sidebar({ context: $('.bottom.segment') })
