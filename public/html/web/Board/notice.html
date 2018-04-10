@@ -753,9 +753,9 @@ var make_doc_file_list = function( cd$doc ){
 var _h = document.body.clientHeight;
 var header_h = document.getElementById("headerContainer").scrollHeight;
 var footer_h = document.getElementById("footer").scrollHeight;
-var note_add_h = document.getElementById("note_add_container").scrollHeight;
-document.getElementById("pusher_container").style.display = "block";
-document.getElementById("sub_list").style.height = _h - note_add_h - header_h - footer_h;
+var note_add_h = document.getElementById("doc_file_sidebar_header").scrollHeight;
+
+document.getElementById("doc_file_sidebar_container").style.height = _h - note_add_h - header_h - footer_h;
 //----- 리스트높이 자동조절;
 
 var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "doc_file_sidebar_list.thtml"
