@@ -208,63 +208,27 @@
 
 <script type="text/javascript"> 
 
-window.addEventListener('load', function () {
-  // At first, let's check if we have permission for notification
-  // If not, let's ask for it
-  if(Notification && Notification.permission !== "granted") {
-    Notification.requestPermission( function(status){
-      if(Notification.permission !== status){
-        Notification.permission = status;
-      }
-    });
-  }
-
-  var button = document.getElementById("noti")
-
-  button.addEventListener('click', function () {
-    // If the user agreed to get notified
-    // Let's try to send ten notification
-    if (Notification && Notification.permission === "granted") {
-      for (var i = 0; i < 10; i++) {
-        // Thanks to the tag, we should only see the "Hi! 10" notification
-        var n = new Notification("Hi! " + i, {tag: 'soManyNotification'});
-      }
-    }
-
-    // If the user haven't tell if he want to be notified or not
-    // Note: because of Chrome, we are not sure the permission property
-    // is set, therefore it's unsafe to check for the "default" value.
-    else if (Notification && Notification.permission !== "denied") {
-      Notification.requestPermission(function (status) {
-        if (Notification.permission !== status) {
-          Notification.permission = status;
-        }
-
-        // If the user said okay
-        if (status === "granted") {
-          for (var i = 0; i < 10; i++) {
-            // Thanks to the tag, we should only see the "Hi! 10" notification
-            var n = new Notification("Hi! " + i, {tag: 'soManyNotification'});
-          }
-        }
-
-        // Otherwise, we can fallback to a regular modal alert
-        else {
-          alert("Hi!");
-        }
-      });
-    }
-
-    // If the user refuse to get notified
-    else {
-      // We can fallback to a regular modal alert
-      alert("Hi!");
-    }
-  });
-});
+if ('serviceWorker' in navigator) {
+ console.log('Service Worker is supported');
+ navigator.serviceWorker.register('sw.js').then(function(reg) {
+   console.log(':^)', reg);
+   // TODO
+ }).catch(function(err) {
+   console.log(':^(', err);
+ });
+}
 
 
+/*
+Application server keys are used to idenitfy your application server with a push service.
 
+Public Key
+
+BKTpRd-DQv5mJvgRTDrcFNYnKm658tFbxsnkEpkcRx67NyE3hzLanGW-r1Msip0xH3aiLFGSY7aRJBboLIpo-C0
+Private Key
+
+nFm-kErffsesrzkpZlzor6ZFIaEO-w8Fr1D7UutQq9U
+*/
 
 // secondary menu
 // $('.secondary.menu .ui.sidebar')
