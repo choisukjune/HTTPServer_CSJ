@@ -200,7 +200,7 @@
 		</div>
 	</div>
 </div>
-
+<button>Notify me!</button>
 <!-- 노트북 추가 모달 -->
 <!--modal-->
 <include>_footer_info.html</include>
@@ -208,11 +208,56 @@
 <script type="text/javascript"> 
 
 window.addEventListener('load', function () {
-  Notification.requestPermission(function (status) {
-    // This allows to use Notification.permission with Chrome/Safari
-    if (Notification.permission !== status) {
-	  Notification.permission = status;
-	  console.log( Notification )
+  // At first, let's check if we have permission for notification
+  // If not, let's ask for it
+  if (Notification && Notification.permission !== "granted") {
+    Notification.requestPermission(function (status) {
+      if (Notification.permission !== status) {
+        Notification.permission = status;
+      }
+    });
+  }
+
+  var button = document.getElementsByTagName('button')[0];
+
+  button.addEventListener('click', function () {
+    // If the user agreed to get notified
+    // Let's try to send ten notification
+    if (Notification && Notification.permission === "granted") {
+      for (var i = 0; i < 10; i++) {
+        // Thanks to the tag, we should only see the "Hi! 10" notification
+        var n = new Notification("Hi! " + i, {tag: 'soManyNotification'});
+      }
+    }
+
+    // If the user haven't tell if he want to be notified or not
+    // Note: because of Chrome, we are not sure the permission property
+    // is set, therefore it's unsafe to check for the "default" value.
+    else if (Notification && Notification.permission !== "denied") {
+      Notification.requestPermission(function (status) {
+        if (Notification.permission !== status) {
+          Notification.permission = status;
+        }
+
+        // If the user said okay
+        if (status === "granted") {
+          for (var i = 0; i < 10; i++) {
+            // Thanks to the tag, we should only see the "Hi! 10" notification
+            var n = new Notification("Hi! " + i, {tag: 'soManyNotification'});
+          }
+        }
+
+        // Otherwise, we can fallback to a regular modal alert
+        else {
+          alert("Hi!");
+        }
+      });
+    }
+
+    // If the user refuse to get notified
+    else {
+      // We can fallback to a regular modal alert
+      alert("Hi!");
     }
   });
 });
