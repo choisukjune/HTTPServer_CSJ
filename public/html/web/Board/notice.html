@@ -335,7 +335,7 @@ var send_file = function( d ){
 /**
  * 
 */
-var download_doc_chat_file = function( fileNm, filePath, fileExtend ){
+var download_added_doc_file = function( fileNm, filePath, fileExtend ){
 
 	var url = "/api/File/common/download_file_stream?sid=" + window.service.cookie.getCookie('session') 
 			+ "&mid=" + window.service.cookie.getCookie('mid')
@@ -1233,7 +1233,7 @@ document.getElementById("doc_comment_container").addEventListener("click",functi
 				console.log( "comment_file_download_btn" )
 				console.log( _to[ data_index ].fileNm )
 				console.log( _to[ data_index ].filePath )
-				download_doc_chat_file( _to[ data_index ].fileNm, _to[ data_index ].filePath, _to[ data_index ].fileExtend );			
+				download_added_doc_file( _to[ data_index ].fileNm, _to[ data_index ].filePath, _to[ data_index ].fileExtend );			
 				return;
 			}	
 		}
@@ -1371,7 +1371,9 @@ _el_div__doc_file_sidebar_list.addEventListener("click",function(e){
 			{
 				console.log( i )
 				console.log('file_list_file_dowload')
-				console.log( current_doc_file__data[ i ] )
+				console.log( current_doc_file__data[ i ].filePath )
+				var _to = current_doc_file__data[ i ]
+				download_doc_chat_file( _to.fileNm, _to.filePath, _to.fileExtend ){
 				return;
 			}
 		}
