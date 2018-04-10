@@ -1,7 +1,7 @@
 <div class="event" id="doc_file_item">
-	<div class="label">
-		<img src="{{image}}">
-	</div>
+	<a class="avatar">
+		<img src="{{image}}" style="height : 35px !important;">
+	</a>
 	<div class="content">
 		<div class="summary">
 			<a class="user">{{member_nm}}</a> added file
