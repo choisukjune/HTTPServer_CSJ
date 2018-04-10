@@ -1,6 +1,6 @@
 <div class="comment" id="comment">
 	<div class="label">
-		<img src="{{image}}">
+		<img src="{{image_url}}">
 	</div>
 	<div class="content">
 		<a class="author">{{author}}</a>
