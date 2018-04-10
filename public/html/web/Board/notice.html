@@ -1359,7 +1359,7 @@ _el_div__doc_file_sidebar_list.addEventListener("click",function(e){
 	console.log( "click" )
 	debugger;
 	var pe = e.currentTarget.children
-	var te = window.service.element.match_el( e.target, "doc_file_sidebar_list", "doc_file_sidebar_container" )
+	var te = window.service.element.match_el( e.target, "doc_file_item", "doc_file_sidebar_container" )
 
 	var i = 0,iLen = pe.length,io;
 	for(;i < iLen;++i){
@@ -1367,7 +1367,7 @@ _el_div__doc_file_sidebar_list.addEventListener("click",function(e){
 		if( io == te )
 		{
 			console.log( i )
-			if( window.service.element.match_el(e.target,"file_list_file_dowload","doc_file_sidebar_list").id == "file_list_file_dowload")
+			if( window.service.element.match_el(e.target,"file_list_file_dowload","doc_file_item").id == "file_list_file_dowload")
 			{
 				console.log( i )
 				console.log('file_list_file_dowload')
