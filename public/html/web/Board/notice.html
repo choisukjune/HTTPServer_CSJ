@@ -1372,8 +1372,10 @@ _el_div__doc_file_sidebar_list.addEventListener("click",function(e){
 				console.log( i )
 				console.log('file_list_file_dowload')
 				console.log( current_doc_file__data[ i ].filePath )
+	
 				var _to = current_doc_file__data[ i ]
-				download_doc_chat_file( _to.fileNm, _to.filePath, _to.fileExtend ){
+				download_doc_chat_file( _to.fileNm, _to.filePath, _to.fileExtend )
+	
 				return;
 			}
 		}
