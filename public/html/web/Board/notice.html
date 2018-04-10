@@ -747,7 +747,7 @@ var req_detail_by__id = function( _id ){
  * 서브리스트를 만드는 함수
  * @return {[type]} [description]
  */
-var c = function( cd$doc ){
+var make_doc_file_list = function( cd$doc ){
 
 //----- 리스트높이 자동조절;
 var _h = document.body.clientHeight;
@@ -764,7 +764,7 @@ window.service.Request.req_GET_data__Callback(url1,function(result){
 	
 	var _template = result;
 
-	var url = "/api/File/board/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
+	var url = "/api/File/board/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$doc=" + cd$doc;
 	window.service.Request.req_GET_data__Callback(url,function(result){
 		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
 
@@ -989,7 +989,7 @@ var update_project = function( d ){
 	+ "&nm=" + encodeURIComponent( d.nm );
 
 	window.service.Request.req_POST_data__Callback(url,encodeURI( data ),function( result){
-		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
+		if(result == 0) return make_doc_file_listwindow.service.session.remove_deleteCookies_location_login();
 		var data = JSON.parse( result );
 
 		console.log( data );
@@ -1447,7 +1447,7 @@ _el_div__sub_list.addEventListener("click", function(e){
 			{
 				console.log('file_side_bar_open_btn')
 				file_side_bar_open();
-				make_doc_file_list();
+				make_doc_file_list( current_view_doc__data.cd );
 				return;
 			}
 			else
