@@ -4,7 +4,7 @@
 
 <link rel='stylesheet' type="text/css" href='/css/notice.css'>								
 <!-- contents -->
-<button>Notify me!</button>
+<button id="notiss">Notify me!</button>
 <div class="ui grid">
 	<div class="sixteen wide column" id="project_list_container" style="width: 100%;">
 			<div class="ui basic segment">
@@ -219,7 +219,7 @@ window.addEventListener('load', function () {
     });
   }
 
-  var button = document.getElementsByTagName('button')[0];
+  var button = document.getElementById("noti")
 
   button.addEventListener('click', function () {
     // If the user agreed to get notified
