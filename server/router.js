@@ -225,7 +225,8 @@ global.ROUTER.routerControl	= function(req,res)	{
 		'xpm': 'image/x-xpixmap',
 		'xsl': 'application/xml',
 		'xslt': 'application/xslt+xml',
-		'zip': 'application/zip'
+		'zip': 'application/zip',
+		'ico' : 'image/x-icon'
 	};
 
 	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
