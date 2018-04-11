@@ -233,7 +233,10 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var	extension  = req.url.substring((tmp	+ 1));
 	console.log( extension )
 	console.log( req.url )
-	if( req.url == "/robot.txt") return;
+	if( req.url == "/robot.txt"){
+		console.log( req.url )
+		return;
+	}
 	var resource_path_key = req.url.replace('/web',"")
 
 	if( extension.indexOf("?") != -1 ){
