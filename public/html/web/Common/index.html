@@ -346,14 +346,14 @@
 												</div>
 
 												<div class="form-group has-feedback has-feedback-left">
-													<input type="text" class="form-control" placeholder="Username" name="username" required="required">
+													<input type="text" class="form-control" placeholder="Username" name="username" required="required" id="id">
 													<div class="form-control-feedback">
 														<i class="icon-user text-muted"></i>
 													</div>
 												</div>
 
 												<div class="form-group has-feedback has-feedback-left">
-													<input type="password" class="form-control" placeholder="Password" name="password" required="required">
+													<input type="password" class="form-control" placeholder="Password" name="password" required="required" id="pwd">
 													<div class="form-control-feedback">
 														<i class="icon-lock2 text-muted"></i>
 													</div>
@@ -375,7 +375,7 @@
 												</div>
 
 												<div class="form-group">
-													<button type="submit" class="btn bg-blue btn-block">Login <i class="icon-arrow-right14 position-right"></i></button>
+													<button type="submit" class="btn bg-blue btn-block" id="login_btn">Login <i class="icon-arrow-right14 position-right"></i></button>
 												</div>
 											</form>
 
@@ -535,3 +535,35 @@
 
 </body>
 </html>
+
+
+<script>
+
+
+		var check_login = function(){
+		
+			var p0 = document.getElementById("id").value;
+			var p1 = document.getElementById("pwd").value;
+		
+			var url = "/api/Member/member_basic/login_check?"
+				+ "id=" + p0
+				+ "&pwd=" + p1;
+		
+			window.service.Request.req_GET_data__Callback( url, function( r ){
+		
+			console.log( r )
+			var _res_Object = JSON.parse( r )
+		
+			if( r != 0 ){
+				window.service.session.setSession( _res_Object.sid )
+				window.service.cookie.setCookie( "mid", _res_Object.id, 1000*60*15 )
+				window.service.cookie.setCookie( "sid_type", "original", 1000*60*15 )
+				location.href = "/"
+			}
+		})
+		
+		};
+		
+		document.getElementById("login_btn").addEventListener('click', function(){ check_login() })
+		</script>
+		
