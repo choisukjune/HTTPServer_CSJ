@@ -3,7 +3,7 @@ $(document).ready(function () {
 //btn클릭 이벤트 처리
 $('#side_open').click(function () {
 	//alert(‘버튼이 클릭되었습니다.’);
-	$('.ui.sidebar')
+	$('.ui.left.sidebar')
 	.sidebar('setting', 'transition', 'overlay')
 	.sidebar('toggle');
 });
@@ -31,10 +31,18 @@ word-break:break-all !important;
 {
 line-height: 1.5em !important;
 }
+#todo_sidebar_header
+{
+	background-color : #eee;
+}
+#comment_sidebar_header
+{
+	background-color : #eee;
+}
 </style>
 
 
-<div class="ui sidebar inverted vertical menu word-break">
+<div class="ui left sidebar inverted vertical menu word-break" id="global_LNB_sidebar">
 
 	<a class="item" href="./">ProjectName</a>
 
@@ -53,12 +61,378 @@ line-height: 1.5em !important;
 
 
 </div>
-<div class="ui right sidebar vertical inverted menu" style="">
-  <a class="header item">File Permissions</a>
-  <a class="item">Share on Social</a>
-  <a class="item">Share by E-mail</a>
-  <a class="item">Edit Permissions</a>
-  <a class="item">Delete Permanently</a>
+
+<div class="ui very wide right sidebar vertical menu todo_sidebar" style="overflow-y : hidden !importan;">
+	<div class="item" style="padding : 0px !important">
+		<div class="ui grid" style="margin : 0px !important;">
+			<div class="sixteen wide column" id="todo_sidebar_header">ToDo</div>
+			<div class="sixteen wide column" id="todo_wrap" style="background-color : #fff;;min-height : 664px;max-height : 664px;overflow-y : auto;">
+				<div class="ui divided items" id="todo_container">
+
+				</div>
+			</div>
+			<div class="sixteen wide column fixed bottom" id="">
+
+				<div class="ui form">
+					<div class="field">
+						<select multiple="" name="skills" class="ui fluid normal dropdown" id="multi-select">
+							<option value="">Skills</option>	
+							<option value="angular">Angular</option>
+							<option value="css">CSS</option>
+							<option value="design">Graphic Design</option>
+							<option value="ember">Ember</option>
+							<option value="html">HTML</option>
+							<option value="ia">Information Architecture</option>
+							<option value="javascript">Javascript</option>
+							<option value="mech">Mechanical Engineering</option>
+							<option value="meteor">Meteor</option>
+							<option value="node">NodeJS</option>
+							<option value="plumbing">Plumbing</option>
+							<option value="python">Python</option>
+							<option value="rails">Rails</option>
+							<option value="react">React</option>
+							<option value="repair">Kitchen Repair</option>
+							<option value="ruby">Ruby</option>
+							<option value="ui">UI Design</option>
+							<option value="ux">User Experience</option>
+						</select>
+					</div>
+					<div class="field">
+						<input class="ui fluid input" type="text" placeholder="Todo..." id="todo_input">
+					</div>
+					<div class="field">
+						<textarea rows="2" id="todo_textarea"></textarea>
+					</div>
+					<div class="field">
+						<button class="ui button fluid" id="todo_write_btn">send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-<div class="pusher"></div>
+<div class="ui very wide right sidebar vertical menu comment_sidebar" style="overflow-y : hidden !important;">
+	<div class="item" style="padding : 0px !important">
+		<div class="ui grid" style="margin : 0px !important;">
+			<div class="sixteen wide column" id="comment_sidebar_header">Comment</div>
+			<div class="sixteen wide column" id="comment_wrap" style="background-color : #fff;;min-height : 769px;max-height : 769px;overflow-y : auto;">
+				<div class="ui comments" id="comment_container">
+
+				</div>
+			</div>
+			<div class="sixteen wide column" id="">
+				<div class="ui form">
+				  <div class="field">
+					<!--label>Short Text</label-->
+					<textarea rows="2" id="comment_textarea"></textarea>
+				  </div>
+				  <div class="field">
+				  		<button class="ui button fluid" id="comment_send_btn">send</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+/**
+ * 채팅사이드바의 채팅리스트를 그린다.
+*/
+var render_chat_data = function( arr, cbFunction ){
+	var _el = document.getElementById("comment_container");
+
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
+
+		var i = 0,iLen = arr.length,io;
+		for(;i<iLen;++i)
+		{
+
+			io = arr[ i ];
+			var broadcast_msg = "";
+			var msg = io.content;
+			if( msg.indexOf("\n") != -1)
+			{
+				var _ta = msg.split("\n")
+				var j = 0,jLen = _ta.length,jo;
+				for(;j<jLen;++j)
+				{
+					jo = _ta[ j ];
+					broadcast_msg += "<p>" + jo + "</p>\n";
+				}
+
+			}
+			else
+			{
+				broadcast_msg = "<p>" + msg + "</p>";
+			};
+
+			var html_include_data = _template.replace( "{{image_url}}", io.member.image )
+			.replace( "{{author}}", io.member.nm )
+			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
+			.replace( "{{content}}", broadcast_msg );
+
+			_el.insertAdjacentHTML( 'beforeend', html_include_data );
+		}
+
+		cbFunction();
+	});
+};
+
+
+/**
+ * 채팅사이드바의 채팅리스트를 그린다.
+*/
+var render_todo_data = function( arr, cbFunction ){
+	var _el = document.getElementById("todo_container");
+
+	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_todo_data.thtml"
+	window.service.Request.req_GET_data__Callback(url1,function(result){
+		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
+		
+		var _template = result;
+
+		var i = 0,iLen = arr.length,io;
+		for(;i<iLen;++i)
+		{
+			io = arr[ i ];
+			
+			//------------------------------ tag;
+
+			var label_source = "<div class='ui label'>{{label}}</div>"
+			var include_source = "";
+			var j = 0,jLen = io.cd$tag.length,jo,label;
+			for(;j<jLen;++j)
+			{
+				
+				jo = io.cd$tag[ j ]
+				label = label_source
+				label = label.replace("{{label}}", jo )
+
+				include_source += label;
+
+				// _el_label.insertAdjacentHTML( 'beforeend', label );
+			
+			}
+			//------------------------------ tag;
+
+			
+			var html_include_data = _template.replace( "{{title}}", io.title )
+			.replace( "{{image_url}}", io.member.image )
+			.replace( "{{memberNm}}", io.member.nm )
+			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
+			.replace( "{{content}}", io.content )
+			.replace("{{label_con}}",include_source);
+
+			_el.insertAdjacentHTML( 'beforeend', html_include_data );
+
+		}
+
+		cbFunction();
+	});
+};
+
+
+/**
+ * 각문서의 채팅리스트를 가져온다
+*/
+var chat_board_get_list = function(){
+
+	var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session') 
+			+ "&cd$doc=" + current_view_doc__data.cd
+			+ "&limit=" + current_note_chat__data[ current_view_doc__data.cd ].limit
+			+ "&skip=" + current_note_chat__data[ current_view_doc__data.cd ].skip;
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login()
+
+		var data = JSON.parse( result );
+		
+		render_chat_data( data, function(){
+			
+			var objDiv = document.getElementById("comment_wrap")
+			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+
+			objDiv.scrollTop =  cur_objDiv_scrollHeight;
+			pre_objDiv_scrollHeight = objDiv.scrollHeight;
+		} );
+
+
+
+		current_note_chat__data[ current_view_doc__data.cd ].data.push( data );
+	})
+}
+
+
+/**
+ * 각문서의 채팅리스트를 가져온다
+*/
+var todo_board_get_list = function(){
+
+var url = "/api/Todo/board/get_list?sid=" + window.service.cookie.getCookie('session') 
+		+ "&cd$doc=" + current_view_doc__data.cd
+		+ "&limit=" + current_note_todo__data[ current_view_doc__data.cd ].limit
+		+ "&skip=" + current_note_todo__data[ current_view_doc__data.cd ].skip;
+
+	window.service.Request.req_GET_data__Callback(url,function(result){
+		if(result == 0) window.service.session.remove_deleteCookies_location_login()
+
+		var data = JSON.parse( result );
+		
+		render_todo_data( data, function(){
+			
+			var objDiv = document.getElementById("todo_wrap");
+			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+
+			objDiv.scrollTop =  cur_objDiv_scrollHeight;
+			pre_objDiv_scrollHeight = objDiv.scrollHeight;
+
+		} );;
+		// var objDiv = document.getElementById("todo_container")
+		// var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
+
+		// objDiv.scrollTop =  cur_objDiv_scrollHeight;
+		// pre_objDiv_scrollHeight = objDiv.scrollHeight;
+
+		current_note_todo__data[ current_view_doc__data.cd ].data.push( data );
+	})
+}
+
+
+var _t1 = document.getElementById( "comment_send_btn" );
+var _t2 = document.getElementById( "todo_write_btn" );
+
+/**
+ * 
+*/
+var write_todo = function(){
+
+
+	var d = {
+		mid : ""
+		, title : ""
+		, content : ""
+		, cd$project : ""
+		, cd$notebook : ""
+		, cd$doc : ""
+		, cd$tag : []
+	}
+
+	d.mid = window.service.cookie.getCookie('mid');
+	d.title = document.getElementById( "todo_input" ).value;
+	d.content = document.getElementById( "todo_textarea" ).value
+	d.cd$project = current_project__data.cd;
+	d.cd$notebook = current_notebook__data.cd;
+	d.cd$doc = current_view_doc__data.cd
+
+	var tags_arr = []
+	var _tmp0 = document.getElementById("multi-select").selectedOptions
+	var i = 0,iLen =  _tmp0.length,io
+	for(;i<iLen;++i)
+	{
+		io = _tmp0[ i ].value;
+		tags_arr.push( io )
+	}
+
+	d.cd$tag =  tags_arr;
+
+
+	var url = "/api/Todo/board/write"
+			+ "?sid=" + window.service.cookie.getCookie('session')
+			+ "&data=" + JSON.stringify( d );
+
+	window.service.Request.req_GET_data__Callback(url,function( result ){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+
+		var data = JSON.parse( result );
+		console.log( data );
+		console.log( "--등록완료--" );
+		var sendObj = {}
+		sendObj.destination = "todo"
+		sendObj.doc_cd = current_view_doc__data.cd
+		sendObj.data = result
+
+		connection.send( JSON.stringify( sendObj ) );
+
+		document.getElementById( "todo_input" ).value = "";
+		document.getElementById( "todo_textarea" ).value = "";
+		$('#multi-select').dropdown('clear');
+	})
+}
+
+/**
+ * 
+*/
+var write_chat = function(){
+
+	var htmlEntities =  function(str){
+		return String(str).replace(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g, '')
+		.replace(/^<table.*[">$]/g, '<table class="ui celled table">')
+		.replace(/<span >/g, '')
+		.replace(/<\/span>/g, '')
+		.replace(/<td >/g, '<td>')
+		.replace(/&nbsp;/g, '')
+		.toString("utf8")
+	//	.replace(//g, '<td>')
+	};
+
+	var url = "/api/Chat/board/write"
+
+	var data = "sid=" + window.service.cookie.getCookie('session')
+			+ "&mid=" + window.service.cookie.getCookie('mid')
+			+ "&content=" + document.getElementById( "comment_textarea" ).value 
+			+ "&cd$project=" + current_project__data.cd
+			+ "&cd$notebook=" + current_notebook__data.cd
+			+ "&cd$doc=" + current_view_doc__data.cd;
+
+	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
+		if(result == 0){
+			window.service.session.remove_deleteCookies()
+			location.href = "/Member/login";
+		}
+
+		var data = JSON.parse( result );
+		console.log( data );
+		console.log( "--등록완료--" );
+		var sendObj = {}
+		sendObj.destination = "chat"
+		sendObj.doc_cd = current_view_doc__data.cd
+		sendObj.data = result
+
+		connection.send( JSON.stringify( sendObj ) );
+		document.getElementById( "comment_textarea" ).value = "";
+	})
+}
+
+_t1.addEventListener("click",write_chat);
+_t2.addEventListener("click",write_todo);
+
+
+document.getElementById("comment_wrap").addEventListener("scroll",function(){
+	var comment_wrap = document.getElementById("comment_wrap");
+	if( comment_wrap.scrollTop == 0 )
+	{
+		current_note_chat__data[ current_view_doc__data.cd ].skip += 20
+		chat_board_get_list()
+	}
+})
+
+document.getElementById("todo_wrap").addEventListener("scroll",function(){
+	var todo_wrap = document.getElementById("todo_wrap");
+	if( todo_wrap.scrollTop == 0 )
+	{
+		current_note_todo__data[ current_view_doc__data.cd ].skip += 20
+		todo_board_get_list()
+	}
+})
+
+</script>
+<div class="pusher" style="overflow-y : hidden;">
