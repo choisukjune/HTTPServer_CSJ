@@ -233,7 +233,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var	extension  = req.url.substring((tmp	+ 1));
 	console.log( extension )
 	console.log( req.url )
-	if( req.url == "/robot.txt"){
+	if( req.url == "/robots.txt"){
 		console.log( req.url )
 		return;
 	}
