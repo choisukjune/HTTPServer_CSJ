@@ -232,6 +232,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var	tmp = req.url.lastIndexOf(".");
 	var	extension  = req.url.substring((tmp	+ 1));
 	console.log( extension )
+	console.log( req.url )
 	var resource_path_key = req.url.replace('/web',"")
 
 	if( extension.indexOf("?") != -1 ){
@@ -277,6 +278,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
+			console.log( resource_dir )
 			var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
