@@ -1,0 +1,185 @@
+
+<include>_header_info.html</include>
+<script>window.service.session.checkSession();</script>
+<include>navi.html</include>
+<style>
+	#container
+	{
+		left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
+	}
+	#content
+	{
+		left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important;
+	}
+	#list
+	{
+		cursor: pointer;
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+	}
+	#list:last-child
+	{
+		margin : 0px !important;border-bottom : 0 !important;
+	}
+	#notebook_list_item
+	{
+		cursor: pointer;
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+	}
+	#notebook_list_item:last-child
+	{
+		margin : 0px !important;border-bottom : 0 !important;
+	}
+	#notebook_add_container
+	{
+		cursor: pointer;
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+		background-color: #eee;
+	}
+	#notebook_add_container:last-child
+	{
+		margin : 0px !important;border-bottom : 0 !important;
+	}
+	#note_add_container
+	{
+		cursor: pointer;
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+		background-color: #eee;
+	}
+	#note_add_container:last-child
+	{
+		margin : 0px !important;border-bottom : 0 !important;
+	}
+	.bottom_line
+	{
+		margin : 0px !important;border-bottom : 1px solid rgba(34, 36, 38, 0.15) !important;
+	}
+	</style>
+<!-- <div class="ui centered grid">
+	<div class="twelve wide column pad_t_60 pad_b_60"> -->
+
+	<!----- contents ----->
+
+
+	<div id="container" class="ui container">
+		<!-- 2 -->
+		<div class="ui horizontal segments" style="left: 0px !important; right: 0px !important; bottom: 0px !important; top: 0px !important; position: absolute; margin: 0px;overflow-y: hidden !important;">
+
+			<!-- 3 -->
+			<div id="div-PIMS-menu-list" class="ui vertical icon menu segment" style="padding : 0px; min-width: 40px !important; max-width: 40px !important; overflow-y: auto !important;">
+				<a class="item" style="padding : 13px !important;" id="global_sidebar">
+					<i class="bars fitted icon"  style="margin : 0px !important;"></i>
+				</a>
+				<a class="item" style="padding : 13px !important;" id="project_add">
+					<i class="plus circle fitted icon"  style="margin : 0px !important;"></i>
+				</a>
+				<a class="item" style="padding : 13px !important;" id="test_sidebar1">
+					<i class="check square fitted icon"  style="margin : 0px !important;"></i>
+				</a>
+				<a class="item" style="padding : 13px !important;" id="test_sidebar">
+					<i class="comment fitted icon"  style="margin : 0px !important;"></i>
+				</a>
+			</div>
+
+			<!-- 좌측 레이아웃이 더필요하다면 사용; -->
+			<!--
+
+			<div id="div-PIMS-menu-list" class="ui vertical menu segment" style="padding : 0px; min-width: 270px !important; max-width: 270px !important; overflow-y: auto !important;">
+
+			</div>
+
+			-->
+			<!-- 좌측 레이아웃이 더필요하다면 사용; -->
+
+			<div id="div-PIMS-VerticalContainer" class="ui fluid basic segment" style="min-height: auto !important; max-height: 100% !important;overflow-y : hidden !important;">
+
+				<div id="div-PIMS-GridContainer" class="ui grid" style="height : auto !important;">
+					<div id="div-PIMS-HeaderContainer"class="sixteen wide fixed column" style="background-color : #eeeeee;">
+						<div class="ui red horizontal label">Notice!</div>
+						<a class="avatar">
+							<img class="ui avatar Mini image" src="https://semantic-ui.com/images/avatar/small/elliot.jpg">
+						</a>
+					</div>
+					<div class="sixteen wide column" id="div-PIMS-ViewContainer" style="min-height: 848px !important;">
+						<div class="ui grid">
+							<!--Content-->
+							
+								<div class="twelve wide column">
+								<!-- contents -->
+							
+									<div class="ui positive message">
+									<div class="header">You are eligible for a reward</div>
+											<p>Go to your <b>special offers</b> page to see now.</p>
+									</div>
+							
+									<table class="ui compact celled small stackable table" style="border-radius : 0 !important;">
+										<thead>
+											<tr>
+												<th>no</th>
+												<th>email</th>
+												<th>password</th>
+												<th>first name</th>
+												<th>last name</th>
+												<th>imges_url</th>
+												<th>session id</th>
+											</tr>
+										</thead>
+										<tbody id="data"></tbody>
+									</table>
+								<!-- contents -->
+								</div>
+
+							<!--Content-->
+						</div>
+					</div>
+					<!-- <div id="div-PIMS-FooterContainer" class="sixteen wide column"style="background-color : #eeeeee; bottom : 0px !important;position : relative !important;border-top : 1px solid rgba(34, 36, 38, 0.15) !important;">Copyright © B2LABS All Rights Reserved.</div> -->
+					<div class="ui footer basic segment" style="background-color: #eee !important;">
+							<div class="ui container">
+								<p>
+									Place sticky footer content here.
+								</p>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- contents -->
+<include>_footer_info.html</include>
+<script>
+window.service.render.dimmer( window.service.cookie.getCookie('mid') );
+//window.service.message.toaster("hello! " + window.service.cookie.getCookie('mid'))
+//alertify.alert("hello! " + window.service.cookie.getCookie('mid'));
+
+var _t0 = document.getElementById('data')
+var url = "/api/Common/common/get_list?sid=" + window.service.cookie.getCookie('session')
+
+window.service.Request.req_GET_data__Callback(url,function(result){
+	if(result == 0){
+		window.service.session.remove_deleteCookies()
+		location.href = "./Member/login";
+	}
+	var data = JSON.parse( result )
+	for(var i = 0; i < data.length; ++i){
+
+		var tr = document.createElement("tr");
+
+		for(var s in data[ i ]){
+
+			var td = document.createElement("td")
+			var text = document.createTextNode( data[ i ][ s ] );
+			//console.log( text )
+			td.appendChild(text)
+			tr.appendChild(td)
+		}
+
+		_t0.append(tr)
+
+	}
+})
+
+document.getElementById("global_sidebar").addEventListener("click",function(){
+	$('.ui.left.sidebar')
+	.sidebar('setting', 'transition', 'overlay')
+	.sidebar('toggle');
+})
+</script>
