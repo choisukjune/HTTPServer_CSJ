@@ -286,8 +286,9 @@ global.ROUTER.routerControl	= function(req,res)	{
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
-			console.log( "=====>" + resource_dir )
-			if( global.REQUIRES.fs.existsSync(resource_dir)){
+			
+			if( global.REQUIRES.fs.existsSync( resource_dir )){
+				console.log( "=====>" + resource_dir )
 				var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
@@ -316,6 +317,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 			}
 			else
 			{
+				console.log("d")
 				return;
 			}
 		//}
