@@ -281,11 +281,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 		var path = check_resource_res( _tmp0, "libs" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	else
-	{	
-		console.log( _tmp0 )
-		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
-	}
+
 
 	if ( CONTENTTYPES[ extension ] ) {
 		//
