@@ -279,6 +279,10 @@ global.ROUTER.routerControl	= function(req,res)	{
 		var path = check_resource_res( _tmp0, "libs" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
+	if( req.url == "/favicon.ico"){
+		console.log( req.url )
+		var resource_dir = global.ROOTPath + req.url
+	}
 
 	if ( CONTENTTYPES[ extension ] ) {
 		//
