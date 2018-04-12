@@ -287,7 +287,8 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 			var fileNm = req.url.split('/')
 			console.log( "=====>" + resource_dir )
-			var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
+			if( global.REQUIRES.fs.existsSync(path ){
+				var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			resource.on('end', function(){
@@ -312,6 +313,11 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 			resource.pipe(res);
 			return;
+			}
+			else
+			{
+				return;
+			}
 		//}
 	}
 
