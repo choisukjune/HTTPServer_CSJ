@@ -266,17 +266,24 @@ global.ROUTER.routerControl	= function(req,res)	{
 		return path;
 	}
 
-	if( _tmp0.indexOf("css") !== -1){
+	if( _tmp0.indexOf("css") !== -1)
+	{
 		var path = check_resource_res( _tmp0, "css" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	if( _tmp0.indexOf("js") !== -1){
-
+	else if( _tmp0.indexOf("js") !== -1)
+	{
 		var path = check_resource_res( _tmp0, "js" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	if( _tmp0.indexOf("libs") !== -1){
+	else if( _tmp0.indexOf("libs") !== -1)
+	{
 		var path = check_resource_res( _tmp0, "libs" )
+		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
+	}
+	else
+	{	
+		console.log( _tmp0 )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
 
