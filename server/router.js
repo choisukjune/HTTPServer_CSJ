@@ -318,6 +318,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 			{
 				return;
 			}
+		}
 		//}
 	}
 
