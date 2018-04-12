@@ -266,22 +266,19 @@ global.ROUTER.routerControl	= function(req,res)	{
 		return path;
 	}
 
-	if( _tmp0.indexOf("css") !== -1)
-	{
+	if( _tmp0.indexOf("css") !== -1){
 		var path = check_resource_res( _tmp0, "css" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	else if( _tmp0.indexOf("js") !== -1)
-	{
+	if( _tmp0.indexOf("js") !== -1){
+
 		var path = check_resource_res( _tmp0, "js" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	else if( _tmp0.indexOf("libs") !== -1)
-	{
+	if( _tmp0.indexOf("libs") !== -1){
 		var path = check_resource_res( _tmp0, "libs" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-
 
 	if ( CONTENTTYPES[ extension ] ) {
 		//
@@ -289,9 +286,8 @@ global.ROUTER.routerControl	= function(req,res)	{
 			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
 			var fileNm = req.url.split('/')
-			
-				console.log( "=====>" + resource_dir )
-				var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
+			console.log( "=====>" + resource_dir )
+			var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			resource.on('end', function(){
@@ -316,7 +312,6 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 			resource.pipe(res);
 			return;
-			}
 		//}
 	}
 
