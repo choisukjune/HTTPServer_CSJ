@@ -1,3 +1,40 @@
+<!-- Channel Plugin Scripts -->
+<script>
+        ;window.channelPluginSettings = {
+          "pluginKey": "3038e6fe-0cab-4b6f-a2b5-130eaa797ab8"
+        };
+        (function() {
+          var w = window;
+            if (w.ChannelIO) {
+            return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+          }
+          var d = window.document;
+          var ch = function() {
+            ch.c(arguments);
+          };
+          ch.q = [];
+          ch.c = function(args) {
+            ch.q.push(args);
+          };
+          w.ChannelIO = ch;
+          function l() {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+            s.charset = 'UTF-8';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+          }
+          if (window.attachEvent) {
+            window.attachEvent('onload', l);
+          } else {
+            window.addEventListener('DOMContentLoaded', l, false);
+          }
+        })();
+      </script>
+      <!-- End Channel Plugin -->
+
 <style type="text/css">
   body {
     background-color: #ffffff !important;
