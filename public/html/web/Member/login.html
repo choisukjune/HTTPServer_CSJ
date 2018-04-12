@@ -1,216 +1,553 @@
 <style type="text/css">
-body {
-	background-color: #ffffff !important;
-}
-body > .grid {
-	height: 100%;
-}
-.image {
-	margin-top: -100px;
-}
-.column {
-	max-width: 450px;
-}
-</style>
-
-<script>
-//569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com
-//24YPRuDtSWf2oo29PzRu7-8q
-  var YOUR_CLIENT_ID = '569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com';
-  var YOUR_REDIRECT_URI = 'http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/auth2callback';
-  var queryString = location.hash.substring(1);
-
-  // Parse query string to see if page request is coming from OAuth 2.0 server.
-  var params = {};
-  var regex = /([^&=]+)=([^&]*)/g, m;
-  while (m = regex.exec(queryString)) {
-    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-    // Try to exchange the param values for an access token.
-    exchangeOAuth2Token(params);
+  body {
+    background-color: #ffffff !important;
   }
-
-  // If there's an access token, try an API request.
-  // Otherwise, start OAuth 2.0 flow.
-  function trySampleRequest() {
-    var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
-    //debugger;
-	if (params && params['access_token']) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET',
-          'https://www.googleapis.com/drive/v3/about?fields=user&' +
-          'access_token=' + params['access_token']);
-      xhr.onreadystatechange = function (e) {
-        console.log(xhr.response);
-      };
-      xhr.send(null);
-    } else {
-      oauth2SignIn();
+  body > .grid {
+    height: 100%;
+  }
+  .image {
+    margin-top: -100px;
+  }
+  .column {
+    max-width: 450px;
+  }
+  </style>
+  
+  <script>
+  //569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com
+  //24YPRuDtSWf2oo29PzRu7-8q
+    var YOUR_CLIENT_ID = '569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com';
+    var YOUR_REDIRECT_URI = 'http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/auth2callback';
+    var queryString = location.hash.substring(1);
+  
+    // Parse query string to see if page request is coming from OAuth 2.0 server.
+    var params = {};
+    var regex = /([^&=]+)=([^&]*)/g, m;
+    while (m = regex.exec(queryString)) {
+      params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+      // Try to exchange the param values for an access token.
+      exchangeOAuth2Token(params);
     }
-  }
-
-  /*
-   * Create form to request access token from Google's OAuth 2.0 server.
-   */
-  function oauth2SignIn() {
-    // Google's OAuth 2.0 endpoint for requesting an access token
-    var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
-
-    // Create element to open OAuth 2.0 endpoint in new window.
-    var form = document.createElement('form');
-    form.setAttribute('method', 'GET'); // Send as a GET request.
-    form.setAttribute('action', oauth2Endpoint);
-
-    // Parameters to pass to OAuth 2.0 endpoint.
-    var params = {'client_id': YOUR_CLIENT_ID,
-                  'redirect_uri': YOUR_REDIRECT_URI,
-                  'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/spreadsheets.readonly',
-                  'state': 'try_sample_request',
-                  'include_granted_scopes': 'true',
-                  'response_type': 'token'};
-
-    // Add form parameters as hidden input values.
-    for (var p in params) {
-      var input = document.createElement('input');
-      input.setAttribute('type', 'hidden');
-      input.setAttribute('name', p);
-      input.setAttribute('value', params[p]);
-      form.appendChild(input);
+  
+    // If there's an access token, try an API request.
+    // Otherwise, start OAuth 2.0 flow.
+    function trySampleRequest() {
+      var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
+      //debugger;
+    if (params && params['access_token']) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET',
+            'https://www.googleapis.com/drive/v3/about?fields=user&' +
+            'access_token=' + params['access_token']);
+        xhr.onreadystatechange = function (e) {
+          console.log(xhr.response);
+        };
+        xhr.send(null);
+      } else {
+        oauth2SignIn();
+      }
     }
-
-    // Add form to page and submit it to open the OAuth 2.0 endpoint.
-    document.body.appendChild(form);
-    form.submit();
-  }
-
-  /* Verify the access token received on the query string. */
-  function exchangeOAuth2Token(params) {
-    var oauth2Endpoint = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
-    if (params['access_token']) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', oauth2Endpoint + '?access_token=' + params['access_token']);
-      xhr.onreadystatechange = function (e) {
-        var response = JSON.parse(xhr.response);
-        // When request is finished, verify that the 'aud' property in the
-        // response matches YOUR_CLIENT_ID.
-        if (xhr.readyState == 4 &&
-            xhr.status == 200 &&
-            response['aud'] &&
-            response['aud'] == YOUR_CLIENT_ID) {
-          // Store granted scopes in local storage to facilitate
-          // incremental authorization.
-          params['scope'] = response['scope'];
-          localStorage.setItem('oauth2-test-params', JSON.stringify(params) );
-          if (params['state'] == 'try_sample_request') {
-            trySampleRequest();
+  
+    /*
+     * Create form to request access token from Google's OAuth 2.0 server.
+     */
+    function oauth2SignIn() {
+      // Google's OAuth 2.0 endpoint for requesting an access token
+      var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
+  
+      // Create element to open OAuth 2.0 endpoint in new window.
+      var form = document.createElement('form');
+      form.setAttribute('method', 'GET'); // Send as a GET request.
+      form.setAttribute('action', oauth2Endpoint);
+  
+      // Parameters to pass to OAuth 2.0 endpoint.
+      var params = {'client_id': YOUR_CLIENT_ID,
+                    'redirect_uri': YOUR_REDIRECT_URI,
+                    'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/spreadsheets.readonly',
+                    'state': 'try_sample_request',
+                    'include_granted_scopes': 'true',
+                    'response_type': 'token'};
+  
+      // Add form parameters as hidden input values.
+      for (var p in params) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', p);
+        input.setAttribute('value', params[p]);
+        form.appendChild(input);
+      }
+  
+      // Add form to page and submit it to open the OAuth 2.0 endpoint.
+      document.body.appendChild(form);
+      form.submit();
+    }
+  
+    /* Verify the access token received on the query string. */
+    function exchangeOAuth2Token(params) {
+      var oauth2Endpoint = 'https://www.googleapis.com/oauth2/v3/tokeninfo';
+      if (params['access_token']) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', oauth2Endpoint + '?access_token=' + params['access_token']);
+        xhr.onreadystatechange = function (e) {
+          var response = JSON.parse(xhr.response);
+          // When request is finished, verify that the 'aud' property in the
+          // response matches YOUR_CLIENT_ID.
+          if (xhr.readyState == 4 &&
+              xhr.status == 200 &&
+              response['aud'] &&
+              response['aud'] == YOUR_CLIENT_ID) {
+            // Store granted scopes in local storage to facilitate
+            // incremental authorization.
+            params['scope'] = response['scope'];
+            localStorage.setItem('oauth2-test-params', JSON.stringify(params) );
+            if (params['state'] == 'try_sample_request') {
+              trySampleRequest();
+            }
+          } else if (xhr.readyState == 4) {
+            console.log('There was an error processing the token, another ' +
+                        'response was returned, or the token was invalid.')
           }
-        } else if (xhr.readyState == 4) {
-          console.log('There was an error processing the token, another ' +
-                      'response was returned, or the token was invalid.')
-        }
-      };
-      xhr.send(null);
+        };
+        xhr.send(null);
+      }
     }
+  
+  
+  function oauth_google_get_token(){
+    //569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com
+    //24YPRuDtSWf2oo29PzRu7-8q
+  var clientID ="569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com";
+  
+  var authorizationUrlBase="https://accounts.google.com/o/oauth2/auth";
+  
+  var redirectUri='http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/auth2callback';
+  
+  var scope1='https://www.googleapis.com/auth/calendar ';     //캘린더 접근 및 수정 권한 요청
+  var scope2='https://www.googleapis.com/auth/userinfo.profile ';     //유저 데이터 열람 요청
+  var scope3='http://www.google.com/m8/feeds/ ';
+  var scope4='https://www.googleapis.com/auth/userinfo.email '   //유저 이메일 주소 열람 요청
+  var scope5='https://mail.google.com/'   //유저 이메일 주소 열람 요청
+  
+  var state=Math.random()*new Date().getTime();
+  
+  var url=authorizationUrlBase;
+  
+  url+='?response_type=token'
+    +'&redirect_uri='+encodeURIComponent(redirectUri)
+    +'&client_id='+encodeURIComponent(clientID)
+    +'&scope='+encodeURIComponent(scope2)+encodeURIComponent(scope1)+encodeURIComponent(scope3)+encodeURIComponent(scope4)+encodeURIComponent(scope5)
+    +'&approval_prompt=force'
+    +'&state='+encodeURIComponent(state);
+  
+  
+  location.href=url;
+  //window.service.Request.req_GET_data__Callback(aaa, function(r){
+  //console.log(r )
+  //})
+  
+  //https://www.googleapis.com/plus/v1/people/101042294300396860652?access_token=ya29.GlvuBER26Yh67YPLdEgTgKGO3RGVMlOodBGQhftseup0EBZaYaqfDjylhzxoZIxSbgset1WTbUgeB7oA4QhEWOTBhQhxq1ApGy56INhPuClg3oJ_Cg0kCbLmgGzr
+  //https://www.googleapis.com/drive/v2/files?&access_token=ya29.GlvuBAUN_qm8VEelkkNkVuBIIc0qpAi-uXY6XzUM7pVhPShFJkVBgY4Tmzb_K_FRZ7Ir_ZnjgZBZxORUQDjVBy2nsUeetY3B5pd1BEyXKrsA5k2jZfRMhFbxe7CH
+  
   }
-
-
-function oauth_google_get_token(){
-	//569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com
-	//24YPRuDtSWf2oo29PzRu7-8q
-var clientID ="569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com";
-
-var authorizationUrlBase="https://accounts.google.com/o/oauth2/auth";
-
-var redirectUri='http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/auth2callback';
-
-var scope1='https://www.googleapis.com/auth/calendar ';     //캘린더 접근 및 수정 권한 요청
-var scope2='https://www.googleapis.com/auth/userinfo.profile ';     //유저 데이터 열람 요청
-var scope3='http://www.google.com/m8/feeds/ ';
-var scope4='https://www.googleapis.com/auth/userinfo.email '   //유저 이메일 주소 열람 요청
-var scope5='https://mail.google.com/'   //유저 이메일 주소 열람 요청
-
-var state=Math.random()*new Date().getTime();
-
-var url=authorizationUrlBase;
-
-url+='?response_type=token'
-	+'&redirect_uri='+encodeURIComponent(redirectUri)
-	+'&client_id='+encodeURIComponent(clientID)
-	+'&scope='+encodeURIComponent(scope2)+encodeURIComponent(scope1)+encodeURIComponent(scope3)+encodeURIComponent(scope4)+encodeURIComponent(scope5)
-	+'&approval_prompt=force'
-	+'&state='+encodeURIComponent(state);
-
-
-location.href=url;
-//window.service.Request.req_GET_data__Callback(aaa, function(r){
-//console.log(r )
-//})
-
-//https://www.googleapis.com/plus/v1/people/101042294300396860652?access_token=ya29.GlvuBER26Yh67YPLdEgTgKGO3RGVMlOodBGQhftseup0EBZaYaqfDjylhzxoZIxSbgset1WTbUgeB7oA4QhEWOTBhQhxq1ApGy56INhPuClg3oJ_Cg0kCbLmgGzr
-//https://www.googleapis.com/drive/v2/files?&access_token=ya29.GlvuBAUN_qm8VEelkkNkVuBIIc0qpAi-uXY6XzUM7pVhPShFJkVBgY4Tmzb_K_FRZ7Ir_ZnjgZBZxORUQDjVBy2nsUeetY3B5pd1BEyXKrsA5k2jZfRMhFbxe7CH
-
-}
-
-</script>
-
-<include>_header_info.html</include>
-<div class="ui middle aligned center aligned grid">
-	<div class="twelve wide column pad_t_60 pad_b_60">
-		<form class="ui large form">
-			<!-- 		<div class="ui segment"> -->
-			<div class="field">
-				<div class="ui left icon input">
-					<i class="user icon"></i>
-					<input type="text" name="email" placeholder="E-mail address" id="id" value="csj6311@naver.com">
-				</div>
-			</div>
-			<div class="field">
-				<div class="ui left icon input">
-					<i class="lock icon"></i>
-					<input type="password" name="password" placeholder="Password"id="pwd" value="a">
-				</div>
-			</div>
-			<!-- 		</div> -->
-			<div class="ui error message"></div>
-		</form>
-		<p class="ui"><div class="ui fluid large grey button" id="login_btn">Login</div></p>
-		<p class="ui"><div onclick="oauth2SignIn();" class="ui fluid google large button red ">
-			<i class="google icon "></i>Google Login</div>
-		</p>
-		<div class="ui message">
-			New to us? <a href="./Member/member_basic/sign_up">Sign Up</a>
-		</div>
-	</div>
-</div>
-
-<include>_footer_info.html</include>
-
-
-<script>
-
-
-var check_login = function(){
-
-	var p0 = document.getElementById("id").value;
-	var p1 = document.getElementById("pwd").value;
-
-	var url = "/api/Member/member_basic/login_check?"
-		+ "id=" + p0
-		+ "&pwd=" + p1;
-
-	window.service.Request.req_GET_data__Callback( url, function( r ){
-
-	console.log( r )
-	var _res_Object = JSON.parse( r )
-
-	if( r != 0 ){
-		window.service.session.setSession( _res_Object.sid )
-		window.service.cookie.setCookie( "mid", _res_Object.id, 1000*60*15 )
-		window.service.cookie.setCookie( "sid_type", "original", 1000*60*15 )
-		location.href = "/"
-	}
-})
-
-};
-
-document.getElementById("login_btn").addEventListener('click', function(){ check_login() })
-</script>
+  
+  </script>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="google-site-verification" content="wNcw9CFEc7uSGKA_6jhq6W4IvFbA6oGAomPWMHtrhN0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="google-signin-client_id" content="708197277050-5f4v5h3tbj9s968i3d0sb3h2vag5p5i6.apps.googleusercontent.com">
+    <title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
+  
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+  
+    <!-- Core JS files -->
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
+  
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/ui/prism.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/forms/validation/validate.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/forms/styling/uniform.min.js"></script>
+  
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/pages/login_validation.js"></script>
+    <!-- /theme JS files -->
+  
+  
+    <script src="/libs/alertify/dist/js/alertify.js"></script>
+    <link rel='stylesheet' type="text/css" href='/css/style.css'>
+  <!-- 	
+    <link rel="stylesheet" type="text/css" href="/libs/sementicUI/semantic.css">
+    <link rel='stylesheet' type="text/css" href='/libs/sementicUI/components/icon.min.css'> -->
+      
+    <!-- <script src="/libs/sementicUI/libs/jquery-3.2.1.min.js"></script>
+    <script src="/libs/sementicUI/semantic.js"></script> -->
+    <script src="/js/common/common.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  
+    <!-- <link rel="stylesheet" type="text/css" href="/libs/fullPage/dist/jquery.fullpage.css" />
+    <link rel="stylesheet" type="text/css" href="/libs/fullPage/examples/examples.css" />
+    <style>
+  
+    /* Style for our header texts
+    * --------------------------------------- */
+    h1{
+      font-size: 5em;
+      font-family: arial,helvetica;
+      color: #fff;
+      margin:0;
+      padding:0;
+    }
+    .intro p{
+      color: #fff;
+    }
+  
+    /* Centered texts in each section
+    * --------------------------------------- */
+    .section{
+      text-align:center;
+    }
+  
+    /* Fixed header and footer.
+    * --------------------------------------- */
+    #header, #footer{
+      position:fixed;
+      height: 50px;
+      display:block;
+      width: 100%;
+      background: #333;
+      z-index:9;
+      text-align:center;
+      color: #f2f2f2;
+      padding: 20px 0 0 0;
+    }
+  
+    #header{
+      top:0px;
+    }
+    #footer{
+      bottom:0px;
+    }
+  
+  
+    /* Bottom menu
+    * --------------------------------------- */
+    #infoMenu {
+      bottom: 80px;
+    }
+    #infoMenu li a {
+      color: #fff;
+      z-index: 999;
+    }
+  
+    </style> -->
+  
+    <!--[if IE]>
+      <script type="text/javascript">
+         var console = { log: function() {} };
+      </script>
+    <![endif]-->
+  
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+  
+    <script type="text/javascript" src="/libs/fullPage/vendors/scrolloverflow.js"></script>
+  
+    <script type="text/javascript" src="/libs/fullPage/dist/jquery.fullpage.js"></script>
+    <script type="text/javascript" src="/libs/fullPage/examples/examples.js"></script>
+  
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          anchors: ['firstPage', 'secondPage', '3rdPage'],
+          sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+          css3: true
+        });
+      });
+    </script>
+  
+  
+  <div id="header">Header
+      <button type="button" class="btn bg-blue btn-block" data-toggle="modal" data-target="#modal-tabbed"><i class="icon-comment position-left"></i> Launch modal</button>
+  </div>
+  <div id="footer">Footer</div>
+  
+  <div id="fullpage">
+    <div class="section " id="section0">
+      <div class="intro">
+        <h1>Fixed elements</h1>
+        <p>Create your own headers and footers</p>
+      </div>
+    </div>
+  </div> -->
+  
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      /*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+      background: #333;
+      background-attachment: fixed;
+      background-size: cover;
+      }
+      
+      /* The only rule that matters */
+      #video-background {
+      /*  making the video fullscreen  */
+      position: fixed;
+      right: 0; 
+      bottom: 0;
+      min-width: 100%; 
+      min-height: 100%;
+      width: auto; 
+      height: auto;
+      z-index: -100;
+      }
+      
+      /* These just style the content */
+      article {
+      /*  just a fancy border  */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 300px;
+      }
+      
+      h1 {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      font-size: 36px;
+      letter-spacing: 3px;
+      color: #fff;
+      text-align: center;
+      }
+  
+  </style>
+  <body class="login-container">
+  
+    <!-- Page container -->
+    <div class="page-container">
+  
+      <!-- Page content -->
+      <div class="page-content">
+  
+        <!-- Main content -->
+        <div class="content-wrapper">
+  
+          <!-- Content area -->
+          <div class="content pb-20">
+  
+            <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  
+            <!--  Content  -->
+            <article>
+               <h1>
+                <button type="button" class="btn bg-blue btn-block" data-toggle="modal" data-target="#modal-tabbed">Login</button>
+              </h1>
+              
+            </article>
+              
+            <!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
+            <video autoplay loop id="video-background" muted plays-inline>
+              <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
+            </video>
+  
+                  <!-- Tabbed form -->
+            <div id="modal-tabbed" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content login-form width-400">
+  
+                  <!-- Form -->
+                  <!-- <form action="index.html"> -->
+                    <ul class="nav nav-tabs nav-justified">
+                      <li class="active"><a href="#basic-tab1" data-toggle="tab"><h6>Sign in</h6></a></li>
+                      <li><a href="#basic-tab2" data-toggle="tab"><h6>Register</h6></a></li>
+                    </ul>
+  
+                    <div class="tab-content modal-body">
+                      <div class="tab-pane fade in active" id="basic-tab1">
+                        <!-- <form action="index.html"> -->
+                          <div class="text-center">
+                            <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+                            <h5 class="content-group">Login to your account <small class="display-block">Your credentials</small></h5>
+                          </div>
+  
+                          <div class="form-group has-feedback has-feedback-left">
+                            <input type="text" class="form-control" placeholder="Username" name="username" required="required" id="id">
+                            <div class="form-control-feedback">
+                              <i class="icon-user text-muted"></i>
+                            </div>
+                          </div>
+  
+                          <div class="form-group has-feedback has-feedback-left">
+                            <input type="password" class="form-control" placeholder="Password" name="password" required="required" id="pwd">
+                            <div class="form-control-feedback">
+                              <i class="icon-lock2 text-muted"></i>
+                            </div>
+                          </div>
+  
+                          <div class="form-group login-options">
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" class="styled" checked="checked">
+                                  Remember
+                                </label>
+                              </div>
+  
+                              <div class="col-sm-6 text-right">
+                                <a href="login_password_recover.html">Forgot password?</a>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="form-group">
+                            <button type="submit" class="btn bg-blue btn-block" id="login_btn">Login <i class="icon-arrow-right14 position-right"></i></button>
+                          </div>
+                        <!-- </form> -->
+  
+                        <div class="content-divider text-muted form-group"><span>or sign in with</span></div>
+                        <ul class="list-inline form-group list-inline-condensed text-center">
+                          <li><a href="#" class="btn border-indigo text-indigo btn-flat btn-icon btn-rounded"><i class="icon-facebook"></i></a></li>
+                          <li><a href="#" class="btn border-pink-300 text-pink-300 btn-flat btn-icon btn-rounded"><i class="icon-dribbble3"></i></a></li>
+                          <li><a href="#" class="btn border-slate-600 text-slate-600 btn-flat btn-icon btn-rounded"><i class="icon-github"></i></a></li>
+                          <li><a href="#" class="btn border-info text-info btn-flat btn-icon btn-rounded"><i class="icon-twitter"></i></a></li>
+                        </ul>
+  
+                        <span class="help-block text-center no-margin">By continuing, you're confirming that you've read our <a href="#">Terms &amp; Conditions</a> and <a href="#">Cookie Policy</a></span>
+                      </div>
+  
+                      <div class="tab-pane fade" id="basic-tab2">
+                        <!-- <form action="index.html"> -->
+                          <div class="text-center">
+                            <div class="icon-object border-success text-success"><i class="icon-plus3"></i></div>
+                            <h5 class="content-group">Create new account <small class="display-block">All fields are required</small></h5>
+                          </div>
+  
+                          <div class="form-group has-feedback has-feedback-left">
+                            <input type="text" class="form-control" placeholder="Your username">
+                            <div class="form-control-feedback">
+                              <i class="icon-user-check text-muted"></i>
+                            </div>
+                          </div>
+  
+                          <div class="form-group has-feedback has-feedback-left">
+                            <input type="password" class="form-control" placeholder="Create password">
+                            <div class="form-control-feedback">
+                              <i class="icon-user-lock text-muted"></i>
+                            </div>
+                          </div>
+  
+                          <div class="form-group has-feedback has-feedback-left">
+                            <input type="text" class="form-control" placeholder="Your email">
+                            <div class="form-control-feedback">
+                              <i class="icon-mention text-muted"></i>
+                            </div>
+                          </div>
+  
+                          <div class="content-divider text-muted form-group"><span>Additions</span></div>
+  
+                          <div class="form-group">
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" class="styled" checked="checked">
+                                Send me <a href="#">test account settings</a>
+                              </label>
+                            </div>
+  
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" class="styled" checked="checked">
+                                Subscribe to monthly newsletter
+                              </label>
+                            </div>
+  
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" class="styled">
+                                Accept <a href="#">terms of service</a>
+                              </label>
+                            </div>
+                          </div>
+  
+                          <button type="submit" class="btn bg-indigo-400 btn-block">Register <i class="icon-circle-right2 position-right"></i></button>
+                          <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+                        <!-- </form> -->
+                      </div>
+                    </div>
+                  <!-- </form> -->
+                  <!-- /form -->
+  
+                </div>
+              </div>
+            </div>
+            <!-- /tabbed recovery form -->
+  
+          </div>
+          <!-- /content area -->
+  
+        </div>
+        <!-- /main content -->
+  
+      </div>
+      <!-- /page content -->
+  
+    </div>
+    <!-- /page container -->
+  
+  </body>
+  </html>
+  
+  
+  <script>
+  
+  
+      var check_login = function(){
+      
+        var p0 = document.getElementById("id").value;
+        var p1 = document.getElementById("pwd").value;
+      
+        var url = "/api/Member/member_basic/login_check?"
+          + "id=" + p0
+          + "&pwd=" + p1;
+      
+        window.service.Request.req_GET_data__Callback( url, function( r ){
+      
+        console.log( r )
+        var _res_Object = JSON.parse( r )
+      
+        if( r != 0 ){
+          window.service.session.setSession( _res_Object.sid )
+          window.service.cookie.setCookie( "mid", _res_Object.id, 1000*60*15 )
+          window.service.cookie.setCookie( "sid_type", "original", 1000*60*15 )
+          location.href = "/"
+        }
+      })
+      
+      };
+      
+      document.getElementById("login_btn").addEventListener('click', function(){ check_login() })
+      </script>
+      
+  
