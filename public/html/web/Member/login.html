@@ -162,32 +162,42 @@
     <meta name="google-signin-client_id" content="708197277050-5f4v5h3tbj9s968i3d0sb3h2vag5p5i6.apps.googleusercontent.com">
     <title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
 
-   	<!-- Global stylesheets -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="/libs/limitless/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="/libs/limitless/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="/libs/limitless/assets/css/core.css" rel="stylesheet" type="text/css">
-	<link href="/libs/limitless/assets/css/components.css" rel="stylesheet" type="text/css">
-	<link href="/libs/limitless/assets/css/colors.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="/libs/limitless/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+  
+    <!-- Core JS files -->
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
+  
+    <!-- Theme JS files -->
 
-	<!-- Core JS files -->
-	<script type="text/javascript" src="/libs/limitless/assets/js/plugins/loaders/pace.min.js"></script>
-	<script type="text/javascript" src="/libs/limitless/assets/js/core/libraries/jquery.min.js"></script>
-	<script type="text/javascript" src="/libs/limitless/assets/js/core/libraries/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/libs/limitless/assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
 
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="/libs/limitless/assets/js/plugins/forms/styling/uniform.min.js"></script>
 
-	<script type="text/javascript" src="/libs/limitless/assets/js/core/app.js"></script>
-	<script type="text/javascript" src="/libs/limitless/assets/js/pages/login.js"></script>
+
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/ui/prism.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/forms/validation/validate.min.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/forms/styling/uniform.min.js"></script>
+  
+    <script type="text/javascript" src="/libs/limitless/assets/js/core/app.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/pages/login_validation.js"></script>
+    <script type="text/javascript" src="/libs/limitless/assets/js/plugins/forms/styling/uniform.min.js"></script>
+
+    <script type="text/javascript" src="/libs/limitless/assets/js/pages/login.js"></script>
     <!-- /theme JS files -->
   
   
     <script src="/libs/alertify/dist/js/alertify.js"></script>
-    <!-- <link rel='stylesheet' type="text/css" href='/css/style.css'> -->
+    <link rel='stylesheet' type="text/css" href='/css/style.css'>
   <!-- 	
     <link rel="stylesheet" type="text/css" href="/libs/sementicUI/semantic.css">
     <link rel='stylesheet' type="text/css" href='/libs/sementicUI/components/icon.min.css'> -->
@@ -295,7 +305,55 @@
   </div> -->
   
   
-
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      /*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+      background: #333;
+      background-attachment: fixed;
+      background-size: cover;
+      }
+      
+      /* The only rule that matters */
+      #video-background {
+      /*  making the video fullscreen  */
+      position: fixed;
+      right: 0; 
+      bottom: 0;
+      min-width: 100%; 
+      min-height: 100%;
+      width: auto; 
+      height: auto;
+      z-index: -100;
+      }
+      
+      /* These just style the content */
+      article {
+      /*  just a fancy border  */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 300px;
+      }
+      
+      h1 {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      font-size: 36px;
+      letter-spacing: 3px;
+      color: #fff;
+      text-align: center;
+      }
+  
+  </style>
+					<video autoplay loop id="video-background" muted plays-inline>
+              <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
+            </video>
               <body class="login-container login-cover">
 
                   <!-- Page container -->
