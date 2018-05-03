@@ -1,4 +1,3 @@
-
 global.DB = {}
 global.DB.Info = { mongoPath : "mongo", MongoDBServerURL : "127.0.0.1:55555/admin", ID : "tjrwns", PASS : "q1q1q1q1q1" }
 global.DB.CONFIG = {}
