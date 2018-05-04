@@ -18,4 +18,4 @@ require('./server/router');
 
 //server.start(router.routerControl);
 global.SERVER.serverStart( global.ROUTER.routerControl );
-console.log("깃헙멀티계정테스트---6")
+console.log("깃헙멀티계정테스트---7")
