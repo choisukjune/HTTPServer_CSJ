@@ -3,16 +3,16 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 //	var data = global.REQUIRES.querystring.parse( decodeURIComponent_Data )
 //	var _q = JSON.parse( data.data )
 //
+	var postBody = global.REQUIRES.queryString.stringify( o.data )
 	var options = {
 		hostname: o.host
 		, port: o.port
 		, path: o.path
 		, method: "POST"
-		//, headers: {
-		//   'Content-Type': 'application/x-www-form-urlencoded',
-		//   //'Content-Length': Buffer.byteLength(postData)
-		// }
-		, data : o.data || ""
+		, headers : {
+		   'Content-Type': 'application/x-www-form-urlencoded',
+		   'Content-Length': postBody.length
+		}
 	};
 
 	var req = global.REQUIRES.https.request(o, function( res ){
@@ -32,6 +32,6 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 	req.on('error', function(e){
 		global.CSJLog.error('problem with request: ${e.message}');
 	});
-
+	req.write( postBody );
 	req.end();
 };
