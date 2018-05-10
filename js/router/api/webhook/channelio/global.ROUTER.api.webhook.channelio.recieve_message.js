@@ -12,7 +12,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var ob = JSON.parse( body );
 
 		var o = global.ROUTER.api.webhook.channelio.CONFIG.options
-
+console.log( o )
 		o.path = o.path.replace("{{chatId}}",ob.entity.chatId)
 				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG.botname);
 
