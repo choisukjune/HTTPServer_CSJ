@@ -15,10 +15,18 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		global.CSJLog.timeStamp( JSON.stringify( _q ) )
 		console.log( body )
 		console.log( _q )
+//https://api.channel.io/open/user_chats/{userChatId}/messages
 		var o = {
-			host: ""//o.host
-			, port: ""//o.port
-			, path: ""//o.path
+			host: "https://api.channel.io"//o.host
+			, port: "443"//o.port
+			, path: "/690905/message"//o.path
+			, data : {
+				"message": "Your message",
+				"botOption": {
+					"actAsManager": false,
+					"silentToManager": false
+				}
+			}
 		}
 
 		/*
@@ -36,7 +44,9 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			//   b : "b"
 			// }
 		};*/
-		global.api.Request.request__POST
+		global.api.Request.request__POST(o,"utf8",function(d){
+			console.log( d )
+		})
 
 	})
 };

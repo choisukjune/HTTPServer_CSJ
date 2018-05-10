@@ -12,10 +12,7 @@ global.api.Request.request__POST = function( o, characterSet, _cb ){
 		//   'Content-Type': 'application/x-www-form-urlencoded',
 		//   //'Content-Length': Buffer.byteLength(postData)
 		// }
-		// , data : {
-		//   a : "a",
-		//   b : "b"
-		// }
+		, data : o.data || ""
 	};
 
 	var req = global.REQUIRES.http.request(o, function( res ){
