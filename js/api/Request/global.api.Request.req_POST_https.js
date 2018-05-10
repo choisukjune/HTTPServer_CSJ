@@ -13,10 +13,10 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 		, path: o.path
 		, method: "POST"
 		, headers : {
-		   'Content-Type': 'application/json',
-		   'Content-Length': postBody.length
-		   'X-Access-Key': '5af3fe773fcc2fa8',
-		   'X-Access-Secret': 'fbf0ce1cf97738667abbfbabc0ec0b36'
+		   'Content-Type': 'application/json'
+		   , 'Content-Length': postBody.length
+		   , 'X-Access-Key': '5af3fe773fcc2fa8'
+		   , 'X-Access-Secret': 'fbf0ce1cf97738667abbfbabc0ec0b36'
 		}
 	};
 
