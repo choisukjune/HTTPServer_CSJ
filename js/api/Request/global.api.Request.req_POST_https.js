@@ -30,7 +30,7 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 	//  }' 'https://api.channel.io/open/user_chats/690905/messages?botName=sdfsdfsd'
 
 
-	var req = global.REQUIRES.https.request(o, function( res ){
+	var req = global.REQUIRES.https.request(options, function( res ){
 
 		var chunks = [];
 
