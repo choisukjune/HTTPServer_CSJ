@@ -22,7 +22,7 @@ global.ROUTER.api.Request.common.request = function( req, res, d, pathname ){
 		//   b : "b"
 		// }
 	};
-
+	console.log( options )
 	global.api.Request.request__GET( options, _q.characterSet ,function( responseText ){
 	global.api.Response.res_200_ok_String( req, res, responseText )
 	});

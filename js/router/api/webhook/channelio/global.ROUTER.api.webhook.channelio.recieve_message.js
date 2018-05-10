@@ -15,6 +15,28 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		global.CSJLog.timeStamp( JSON.stringify( _q ) )
 		console.log( body )
 		console.log( _q )
+		var o = {
+			host: ""//o.host
+			, port: ""//o.port
+			, path: ""//o.path
+		}
+
+		/*
+		var options = {
+			hostname: o.host
+			, port: o.port
+			, path: o.path
+			, method: "POST"
+			//, headers: {
+			//   'Content-Type': 'application/x-www-form-urlencoded',
+			//   //'Content-Length': Buffer.byteLength(postData)
+			// }
+			// , data : {
+			//   a : "a",
+			//   b : "b"
+			// }
+		};*/
+		global.api.Request.request__POST
 
 	})
 };
