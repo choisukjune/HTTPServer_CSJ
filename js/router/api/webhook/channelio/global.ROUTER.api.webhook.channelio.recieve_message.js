@@ -35,7 +35,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			   , 'X-Access-Secret': X_Access_Secret
 			}
 			, data : {
-			    "message" : message
+			    "message" : message,
 			    "botOption": {
 			        "actAsManager": false,
 			        "silentToManager": false,
