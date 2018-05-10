@@ -20,6 +20,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
 
 		var ob = JSON.parse( body );
+		console.log( ob )
 		var o = {
 			host: "api.channel.io"//o.host
 			, port: "443"//o.port
