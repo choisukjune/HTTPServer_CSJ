@@ -24,7 +24,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var o = {
 			host: "api.channel.io"//o.host
 			, port: "443"//o.port
-			, path: "/open/user_chats/" + ob.entity.chatId + " /messages"//o.path
+			, path: "/open/user_chats/" + ob.entity.chatId + "/messages"//o.path
 			, headers : {
 			   'Content-Type': 'application/json'
 			   , 'Content-Length': -1
