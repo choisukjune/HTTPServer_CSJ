@@ -17,7 +17,7 @@ global.REQUIRES.child_process = require('child_process');
 global.REQUIRES.uglify = require("uglify-js");
 global.REQUIRES.redis = require("redis");
 global.REQUIRES.websocket = require("websocket").server;
-
+global.REQUIRES.https = require('https');
 //------------------------------;
 
 global.SERVER = {};
