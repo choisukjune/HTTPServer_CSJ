@@ -3,23 +3,16 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 //	var data = global.REQUIRES.querystring.parse( decodeURIComponent_Data )
 //	var _q = JSON.parse( data.data )
 //
-	console.log( o )
 	//var postBody = global.REQUIRES.querystring.escape(JSON.stringify(o.data));
 	var postBody = JSON.stringify(o.data);
-	console.log( JSON.stringify(o.data) )
 	var options = {
 		hostname: o.host
 		, port: o.port
 		, path: o.path
 		, method: "POST"
-		, headers : {
-		   'Content-Type': 'application/json'
-		   , 'Content-Length': postBody.length
-		   , 'X-Access-Key': '5af3fe773fcc2fa8'
-		   , 'X-Access-Secret': 'fbf0ce1cf97738667abbfbabc0ec0b36'
-		}
+		, headers : o.headers
 	};
-
+	options.headers[ 'Content-Length' ] = postBody.length;
 	// curl -X POST --header 'Content-Type: ' --header 'Accept: application/json' --header 'X-Access-Key: 5af3fe773fcc2fa8' --header 'X-Access-Secret: fbf0ce1cf97738667abbfbabc0ec0b36' -d '{ \
 	//      "message": "Your message", \
 	//      "botOption": { \

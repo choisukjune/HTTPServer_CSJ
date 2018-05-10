@@ -16,12 +16,20 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		console.log( body )
 		//console.log( _q )
 		//https://api.channel.io/open/user_chats/{userChatId}/messages
+		var X_Access_Key = "5af3fe773fcc2fa8";
+		var X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
 
-
+		var ob = JSON.parse( body );
 		var o = {
 			host: "api.channel.io"//o.host
 			, port: "443"//o.port
-			, path: "/open/user_chats/690905/messages?botName=sdfsdfsd"//o.path
+			, path: "/open/user_chats/" + ob.entity.chatId + " /messages"//o.path
+			, headers : {
+			   'Content-Type': 'application/json'
+			   , 'Content-Length': -1
+			   , 'X-Access-Key': X_Access_Key
+			   , 'X-Access-Secret': X_Access_Secret
+			}
 			, data : {
 			    "message": "Your message",
 			    "botOption": {
@@ -30,6 +38,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			        "silentToGuest": false
 			    }
 			}
+			,botname : "Choisukjune__AAA"
 		}
 
 		/*
@@ -49,7 +58,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		};*/
 		// console.log( typeof( body ))
 		// console.log( body.entity.personType )
-		if( JSON.parse( body ).entity.personType != "Bot" )
+		if( ob.entity.personType != "Bot" )
 		{
 			global.api.Request.request__POST_https(o,"utf8",function(d){
 				console.log( "=======================>",d )
