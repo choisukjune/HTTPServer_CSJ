@@ -11,10 +11,10 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		//var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 
-		console.log( global.REQUIRES.querystring.escape( decodeURI( body ) ))
-		global.CSJLog.timeStamp( JSON.stringify( _q ) )
+		//console.log( global.REQUIRES.querystring.escape( decodeURI( body ) ))
+		//global.CSJLog.timeStamp( JSON.stringify( _q ) )
 		console.log( body )
-		console.log( _q )
+		//console.log( _q )
 		//https://api.channel.io/open/user_chats/{userChatId}/messages
 
 
