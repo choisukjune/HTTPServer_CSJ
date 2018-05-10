@@ -21,7 +21,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
 		var botname =  "Choisukjune__AAA";
 		var path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + botname;
-
+		var message = "Your message is " + ob.entity.message.toString('utf8')
 
 		console.log( ob )
 		var o = {
@@ -35,7 +35,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			   , 'X-Access-Secret': X_Access_Secret
 			}
 			, data : {
-			    "message": "Your message is " + ob.entity.message,
+			    "message" : message
 			    "botOption": {
 			        "actAsManager": false,
 			        "silentToManager": false,
