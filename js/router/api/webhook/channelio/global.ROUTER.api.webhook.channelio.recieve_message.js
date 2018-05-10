@@ -51,7 +51,8 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 		global.api.Request.request__POST_https(o,"utf8",function(d){
 			console.log( "=======================>",d )
+			global.api.Response.res_200_ok_String( req, res, "OK");
 		})
-		global.api.Response.res_200_ok_String( req, res, "OK");
+
 	})
 };
