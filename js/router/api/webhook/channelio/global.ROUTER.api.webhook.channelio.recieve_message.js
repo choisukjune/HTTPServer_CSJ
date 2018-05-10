@@ -41,7 +41,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			}
 			,botname : "Choisukjune__AAA"
 		}
-
+		console.log( o )
 		/*
 		var options = {
 			hostname: o.host
