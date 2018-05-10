@@ -8,59 +8,16 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 	req.on('end', function () {
 
-		//var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
-
-		//console.log( global.REQUIRES.querystring.escape( decodeURI( body ) ))
-		//global.CSJLog.timeStamp( JSON.stringify( _q ) )
-		console.log( body )
 		var ob = JSON.parse( body );
-		//console.log( _q )
-		//https://api.channel.io/open/user_chats/{userChatId}/messages
-		var X_Access_Key = "5af3fe773fcc2fa8";
-		var X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
-		var botname =  "Choisukjune__AAA";
-		var path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + botname;
-		var message = encodeURIComponent( "Your message is " + ob.entity.message )
 
-		console.log( ob )
-		var o = {
-			host: "api.channel.io"//o.host
-			, port: "443"//o.port
-			, path: path//o.path
-			, headers : {
-			   'Content-Type': 'application/json'
-			   , 'Content-Length': -1
-			   , 'X-Access-Key': X_Access_Key
-			   , 'X-Access-Secret': X_Access_Secret
-			}
-			, data : {
-			    "message" : message,
-			    "botOption": {
-			        "actAsManager": false,
-			        "silentToManager": false,
-			        "silentToGuest": false
-			    }
-			}
-		}
-		console.log( o )
-		/*
-		var options = {
-			hostname: o.host
-			, port: o.port
-			, path: o.path
-			, method: "POST"
-			//, headers: {
-			//   'Content-Type': 'application/x-www-form-urlencoded',
-			//   //'Content-Length': Buffer.byteLength(postData)
-			// }
-			// , data : {
-			//   a : "a",
-			//   b : "b"
-			// }
-		};*/
-		// console.log( typeof( body ))
-		// console.log( body.entity.personType )
+		var o = global.ROUTER.api.webhook.channelio.CONFIG.options
+
+		o.path = o.path.replace("{{chatId}}",ob.entity.chatId)
+				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG..botname);
+
+		o.message = encodeURIComponent( "Your message is " + ob.entity.message )
+
 		if( ob.entity.personType != "Bot" )
 		{
 			global.api.Request.request__POST_https(o,"utf8",function(d){
