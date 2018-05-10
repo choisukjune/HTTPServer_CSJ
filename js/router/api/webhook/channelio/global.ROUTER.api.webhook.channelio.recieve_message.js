@@ -21,7 +21,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
 		var botname =  "Choisukjune__AAA";
 		var path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + botname;
-		var message = "Your message is " + ob.entity.message.toString('utf8')
+		var message = encodeURIComponent( "Your message is " + ob.entity.message )
 
 		console.log( ob )
 		var o = {
