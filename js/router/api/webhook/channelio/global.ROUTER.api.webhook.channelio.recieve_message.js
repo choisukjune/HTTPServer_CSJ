@@ -44,6 +44,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			//   b : "b"
 			// }
 		};*/
+		console.log( o )
 		global.api.Request.request__POST(o,"utf8",function(d){
 			console.log( d )
 		})
