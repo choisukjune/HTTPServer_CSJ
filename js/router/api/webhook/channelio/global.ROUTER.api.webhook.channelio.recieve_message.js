@@ -47,6 +47,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			//   b : "b"
 			// }
 		};*/
+		console.log( typeof( body ))
 		console.log( body.entity.personType )
 		if( body.entity.personType != "Bot" )
 		{
