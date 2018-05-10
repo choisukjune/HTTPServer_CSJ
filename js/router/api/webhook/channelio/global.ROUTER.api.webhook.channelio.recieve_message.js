@@ -15,7 +15,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		global.CSJLog.timeStamp( JSON.stringify( _q ) )
 		console.log( body )
 		console.log( _q )
-//https://api.channel.io/open/user_chats/{userChatId}/messages
+		//https://api.channel.io/open/user_chats/{userChatId}/messages
 
 
 		var o = {
@@ -49,7 +49,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		};*/
 		console.log( o )
 		global.api.Request.request__POST_https(o,"utf8",function(d){
-			console.log( d )
+			console.log( "=======================>",d )
 		})
 
 	})
