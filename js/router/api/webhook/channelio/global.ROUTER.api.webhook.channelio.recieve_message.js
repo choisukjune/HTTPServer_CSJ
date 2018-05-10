@@ -14,7 +14,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var o = global.ROUTER.api.webhook.channelio.CONFIG.options
 
 		o.path = o.path.replace("{{chatId}}",ob.entity.chatId)
-				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG..botname);
+				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG.botname);
 
 		o.message = encodeURIComponent( "Your message is " + ob.entity.message )
 
