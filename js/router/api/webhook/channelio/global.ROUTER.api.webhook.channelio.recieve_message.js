@@ -14,17 +14,20 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		//console.log( global.REQUIRES.querystring.escape( decodeURI( body ) ))
 		//global.CSJLog.timeStamp( JSON.stringify( _q ) )
 		console.log( body )
+		var ob = JSON.parse( body );
 		//console.log( _q )
 		//https://api.channel.io/open/user_chats/{userChatId}/messages
 		var X_Access_Key = "5af3fe773fcc2fa8";
 		var X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
+		var botname =  "Choisukjune__AAA";
+		var path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + botname;
 
-		var ob = JSON.parse( body );
+
 		console.log( ob )
 		var o = {
 			host: "api.channel.io"//o.host
 			, port: "443"//o.port
-			, path: "/open/user_chats/" + ob.entity.chatId + "/messages"//o.path
+			, path: path//o.path
 			, headers : {
 			   'Content-Type': 'application/json'
 			   , 'Content-Length': -1
@@ -32,14 +35,13 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			   , 'X-Access-Secret': X_Access_Secret
 			}
 			, data : {
-			    "message": "Your message is" + ob.entity.message,
+			    "message": "Your message is " + ob.entity.message,
 			    "botOption": {
 			        "actAsManager": false,
 			        "silentToManager": false,
 			        "silentToGuest": false
 			    }
 			}
-			,botname : "Choisukjune__AAA"
 		}
 		console.log( o )
 		/*
