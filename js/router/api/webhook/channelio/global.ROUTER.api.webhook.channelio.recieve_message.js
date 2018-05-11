@@ -16,7 +16,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		// var _channelio_port = "443";
 		// var _channelio_X_Access_Key = "5af3fe773fcc2fa8";
 		// var _channelio_X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
-		console.log( body )
+		console.log( userChatID )
 
 		var o = {
 		    host : global.ROUTER.api.webhook.channelio.CONFIG._channelio_host//o.host
