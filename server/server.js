@@ -144,7 +144,7 @@ global.SERVER.serverStart = function( routerControl ) {
     // global.ROUTER.Initialize_router();
     global.ROUTER.Initialize_router( "web" )
     global.ROUTER.Initialize_router( "api" )
-	global.SERVER.make_navi_resource();
+	//global.SERVER.make_navi_resource();
 
     //------------------------------ Logger Regist - Logic;
 

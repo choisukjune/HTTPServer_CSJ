@@ -1,7 +1,7 @@
 var electron = require('electron');
 var app = electron.app;  // Module to control application life.
 var BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-var ROOTPATH = "D:/sukjune_js_util/httpServer_csj";
+var ROOTPATH = global.process.cwd();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow;
@@ -107,5 +107,3 @@ app.on('ready', createWindow);
 app.on("activate", function(e) {
     if (win === null) createWindow();
 });
-
-

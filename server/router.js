@@ -36,30 +36,19 @@ global.ROUTER.Initialize_router	= function(	param ){
 	var t,s;
 	var	e =	function( name ){ return eval( name	) }
 
-    var k = 0,kLen = a2.length;
-    var ko;
-    for( ; k < kLen; ++k )
-    {
-        ko = a2[ k ]
-        console.log( "-[S]- Initialize_router_web__define -- " + path___define_web + ko );
-        t = global.REQUIRES.fs.readFileSync( path___define_web + ko,"utf8");
-        e( t );
-        console.log( "-[E]- Initialize_router_web__define -- " + path___define_web + ko );
-    }
-
-    var k = 0,kLen = a3.length;
-    var ko,_temp;
-    for( ; k < kLen; ++k )
-    {
-        ko = a3[ k ]
-        console.log( "-[S]- Initialize_api__define -- " + path___define_api + ko );
-        t = global.REQUIRES.fs.readFileSync( path___define_api + ko,"utf8");
-        e( t );
-        console.log( "-[E]- Initialize_api__define -- " + path___define_api + ko );
-    }
-
 	if(	"web" == param )
 	{
+		var k = 0,kLen = a2.length;
+	    var ko;
+	    for( ; k < kLen; ++k )
+	    {
+	        ko = a2[ k ]
+	        console.log( "-[S]- Initialize_router_web__define -- " + path___define_web + ko );
+	        t = global.REQUIRES.fs.readFileSync( path___define_web + ko,"utf8");
+	        e( t );
+	        console.log( "-[E]- Initialize_router_web__define -- " + path___define_web + ko );
+	    }
+
 		t =	global.REQUIRES.fs.readFileSync( global.ROOTPath + "/js/router/web/Common/global.ROUTER.web.Common.index.js","utf8");
 		global.ROUTER.INFO[ "/" ] = e( t );
 
@@ -97,6 +86,18 @@ global.ROUTER.Initialize_router	= function(	param ){
 
 	if( "api" == param )
 	{
+
+		var k = 0,kLen = a3.length;
+	    var ko,_temp;
+	    for( ; k < kLen; ++k )
+	    {
+	        ko = a3[ k ]
+	        console.log( "-[S]- Initialize_router_api__define -- " + path___define_api + ko );
+	        t = global.REQUIRES.fs.readFileSync( path___define_api + ko,"utf8");
+	        e( t );
+	        console.log( "-[E]- Initialize_router_api__define -- " + path___define_api + ko );
+	    }
+
 		var	i =0,iLen =	a0.length,_temp,routerNm;
 		var a1,a2,a4;
 		for( ; i < iLen; ++i )
@@ -106,8 +107,16 @@ global.ROUTER.Initialize_router	= function(	param ){
 			for(; j < jLen; ++j )
 			{
 				a4 = global.api.File.readdirSync__except_underscore_dir( path + '/' + a0[ i ] + '/' + a1[ j ] );
-				_define_api = "global.ROUTER.api." + a0[ i ] + "." + a1[ j ] + "= {};"
-				e( _define_api )
+
+				if( !global.ROUTER.api[ a0[ i ] ].hasOwnProperty( a1[ j ] ) )
+				{
+
+					_define_api = "global.ROUTER.api." + a0[ i ] + "." + a1[ j ] + "= {};"
+
+					e( _define_api )
+
+
+				}
 
 				var z = 0,zLen = a4.length;
 				for(;z<zLen; ++z)

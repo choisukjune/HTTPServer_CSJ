@@ -145,4 +145,4 @@ function kr_string( str ){
 //  });
 //
 //
-require('D:/sukjune_js_util/httpServer_csj/index.js')
+require('../index.js')
