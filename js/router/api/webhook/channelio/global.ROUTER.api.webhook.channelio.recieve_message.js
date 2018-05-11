@@ -18,8 +18,8 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			userChatID = ob.entity.chatId;
 			message = encodeURIComponent( "Your message is " + ob.entity.message )
 		}
-		
-		if( ob.type == "UserChat" ) userChatID = ob.entity.id;
+
+		if( ob.type == "UserChat" )
 		{
 			userChatID = ob.entity.id;
 			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
