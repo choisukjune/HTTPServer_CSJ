@@ -56,6 +56,35 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		{
 			global.api.Request.request__POST_https(o,"utf8",function(d){
 				global.CSJLog.log( d )
+
+
+				var o1 = {
+					host :"wh.jandi.com"//o.host
+					, port : "443"//o.port
+					, path : "/connect-api/webhook/11320800/a9e7cace9fe309afe9fc5759ea212e29"//o.path
+					, headers : {
+						"Accept" : "application/vnd.tosslab.jandi-v2+json"
+						"Content-Type" : "application/json"
+					}
+					, data : {
+						"body" : "[[PizzaHouse]](http://url_to_text) You have a new Pizza order.",
+						"connectColor" : "#FAC11B",
+						"connectInfo" : [{
+							"title" : "Topping",
+							"description" : "Pepperoni"
+						},
+						{
+							"title": "Location",
+							"description": "Empire State Building, 5th Ave, New York",
+							"imageUrl": "http://url_to_text"
+						}]
+					}
+				}
+				global.api.Request.request__POST_https(o1,"utf8",function(d){
+					global.CSJLog.log( "jandi===>",d )
+					global.api.Response.res_200_ok_String( req, res, "OK1");
+				})
+
 				global.api.Response.res_200_ok_String( req, res, "OK");
 			})
 		}
