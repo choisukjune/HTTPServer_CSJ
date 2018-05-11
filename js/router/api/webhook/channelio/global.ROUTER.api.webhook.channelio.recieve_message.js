@@ -67,15 +67,15 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"Content-Type" : "application/json"
 					}
 					, data : {
-						"body" : "[[PizzaHouse]](http://url_to_text) You have a new Pizza order.",
+						"body" : "B2B platform 에서 전송된 메세지",
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
-							"title" : "Topping",
-							"description" : "Pepperoni"
+							"title" : "Message",
+							"description" : userChatID
 						},
 						{
-							"title": "Location",
-							"description": "Empire State Building, 5th Ave, New York",
+							"title": "Message1",
+							"description": message,
 							"imageUrl": "http://url_to_text"
 						}]
 					}
