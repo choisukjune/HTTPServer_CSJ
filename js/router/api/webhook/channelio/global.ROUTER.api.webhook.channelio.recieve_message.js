@@ -67,7 +67,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"Content-Type" : "application/json"
 					}
 					, data : {
-						"body" : "B2B platform 에서 전송된 메세지",
+						"body" : "aaaa",
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
 							"title" : "Message",
