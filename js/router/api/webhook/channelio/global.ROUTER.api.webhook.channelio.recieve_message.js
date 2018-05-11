@@ -10,7 +10,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var ob = JSON.parse( body );
-		userChatID = ob.entity.chatId;
+		userChatID = ob.entity.id;
 		// var _channelio_botname =  "Choisukjune__AAA";
 		// var _channelio_host = "api.channel.io";
 		// var _channelio_port = "443";
