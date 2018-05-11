@@ -39,7 +39,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		}
 
 		o.data.message = encodeURIComponent( "Your message is " + ob.entity.message )
-		o.path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname//o.path
+		//o.path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname//o.path
 		global.CSJLog.log( JSON.stringify( o ) );
 
 		if( ob.entity.personType != "Bot" )
