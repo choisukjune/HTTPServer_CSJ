@@ -70,11 +70,11 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"body" : "[[PizzaHouse]](http://url_to_text) You have a new Pizza order.",
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
-							"title" : encodeURIComponent( "Your message is " + message ),
+							"title" : "Topping",
 							"description" : "Pepperoni"
 						},
 						{
-							"title": encodeURIComponent( "Your message is " + message ),
+							"title": "Location",
 							"description": "Empire State Building, 5th Ave, New York",
 							"imageUrl": "http://url_to_text"
 						}]
