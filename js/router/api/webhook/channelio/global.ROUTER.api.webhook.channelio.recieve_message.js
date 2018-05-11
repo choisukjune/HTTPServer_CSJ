@@ -81,7 +81,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 					}
 				}
 
-				o1.data.body = encodeURIComponent( "Your message is " + message )
+				// o1.data.body = encodeURIComponent( "Your message is " + message )
 
 				global.api.Request.request__POST_https(o1,"utf8",function(d){
 					global.CSJLog.log( "jandi===>",d )
