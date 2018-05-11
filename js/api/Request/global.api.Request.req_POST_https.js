@@ -26,7 +26,6 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 	var req = global.REQUIRES.https.request(options, function( res ){
 
 		var chunks = [];
-
 		//res.setEncoding('utf8');
 		res.on('data', function (chunk) {
 			chunks.push( new Buffer( chunk ));
