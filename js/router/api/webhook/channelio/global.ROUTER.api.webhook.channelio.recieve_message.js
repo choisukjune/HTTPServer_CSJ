@@ -1,7 +1,7 @@
 global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 	var	body = '';
-	var userChatID = ""l
+	var userChatID = "";
 	req.on('data', function	(data) {
 		body +=	data.toString();
 	})
