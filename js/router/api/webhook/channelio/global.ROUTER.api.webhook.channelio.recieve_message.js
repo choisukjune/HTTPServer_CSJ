@@ -67,19 +67,22 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"Content-Type" : "application/json"
 					}
 					, data : {
-						"body" : "ㅎㅎㅎㅎ",
+						"body" : "[[PizzaHouse]](http://url_to_text) You have a new Pizza order.",
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
-							"title" : "Topping",
+							"title" : encodeURIComponent( "Your message is " + message ),
 							"description" : "Pepperoni"
 						},
 						{
-							"title": "Location",
+							"title": encodeURIComponent( "Your message is " + message ),
 							"description": "Empire State Building, 5th Ave, New York",
 							"imageUrl": "http://url_to_text"
 						}]
 					}
 				}
+
+				o1.data.body = encodeURIComponent( "Your message is " + message )
+
 				global.api.Request.request__POST_https(o1,"utf8",function(d){
 					global.CSJLog.log( "jandi===>",d )
 					global.api.Response.res_200_ok_String( req, res, "OK1");
