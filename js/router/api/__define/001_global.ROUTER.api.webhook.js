@@ -7,9 +7,9 @@ global.ROUTER.api.webhook.channelio.CONFIG = {};
 
 // var X_Access_Key = "5af3fe773fcc2fa8";
 // var X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
-var botname =  "Choisukjune__AAA";
+var _botname =  "Choisukjune__AAA";
 
-var options = {
+var _options = {
     host: "api.channel.io"//o.host
     , port: "443"//o.port
     , path: "/open/user_chats/{{chatId}}/messages?botName={{botname}}"//o.path
@@ -29,6 +29,6 @@ var options = {
     }
 }
 
-var	_ =	global.ROUTER.api.webhook.channelio.CONFIG ;
-_.__defineGetter__(	"options", function(){ return options;	} );
-_.__defineGetter__(	"botname", function(){ return botname;	} );
+var	_ =	global.ROUTER.api.webhook.channelio.CONFIG;
+_.__defineGetter__(	"_options", function(){ return _options;	} );
+_.__defineGetter__(	"_botname", function(){ return _botname;	} );

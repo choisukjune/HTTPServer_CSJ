@@ -10,11 +10,11 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var ob = JSON.parse( body );
-console.log( global.ROUTER.api.Render.PATH.CONFIG._path );
-		var o = global.ROUTER.api.webhook.channelio.CONFIG.options
+
+		var o = global.ROUTER.api.webhook.channelio.CONFIG._options
 
 		o.path = o.path.replace("{{chatId}}",ob.entity.chatId)
-				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG.botname);
+				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG._botname);
 
 		o.message = encodeURIComponent( "Your message is " + ob.entity.message )
 
