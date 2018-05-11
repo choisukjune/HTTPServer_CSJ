@@ -24,8 +24,8 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		    , headers : {
 		       'Content-Type': 'application/json'
 		       , 'Content-Length': -1
-		       , 'X-Access-Key': global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname
-		       , 'X-Access-Secret': global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname
+		       , 'X-Access-Key': global.ROUTER.api.webhook.channelio.CONFIG._channelio_X_Access_Key
+		       , 'X-Access-Secret': global.ROUTER.api.webhook.channelio.CONFIG._channelio_X_Access_Secret
 		    }
 		    , data : {
 		        "message" : "",
