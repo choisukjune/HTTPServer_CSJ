@@ -20,7 +20,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var o = {
 		    host : global.ROUTER.api.webhook.channelio.CONFIG._channelio_host//o.host
 		    , port : global.ROUTER.api.webhook.channelio.CONFIG._channelio_port//o.port
-		    , path : "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname//o.path
+		    , path : ""
 		    , headers : {
 		       'Content-Type': 'application/json'
 		       , 'Content-Length': -1
@@ -38,9 +38,9 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		}
 
 		o.data.message = encodeURIComponent( "Your message is " + ob.entity.message )
-
+		o.path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname//o.path
 		global.CSJLog.log( JSON.stringify( o ) );
-		global.CSJLog.log( JSON.stringify( global.ROUTER.api.webhook.channelio.CONFIG._options ) );
+
 		if( ob.entity.personType != "Bot" )
 		{
 			global.api.Request.request__POST_https(o,"utf8",function(d){
