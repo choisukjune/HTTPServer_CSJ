@@ -16,7 +16,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		o.path = o.path.replace("{{chatId}}",ob.entity.chatId)
 				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG._botname);
 
-		o.message = encodeURIComponent( "Your message is " + ob.entity.message )
+		o.data.message = encodeURIComponent( "Your message is " + ob.entity.message )
 console.log( o )
 		if( ob.entity.personType != "Bot" )
 		{
