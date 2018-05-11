@@ -1,7 +1,9 @@
 global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
-	var	body = '';
+	var	body = "";
 	var userChatID = "";
+	var message = "";
+
 	req.on('data', function	(data) {
 		body +=	data.toString();
 	})
@@ -10,7 +12,18 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var ob = JSON.parse( body );
-		userChatID = ob.entity.id;
+
+		if( ob.type == "Message" )
+		{
+			userChatID = ob.entity.chatId;
+			message = encodeURIComponent( "Your message is " + ob.entity.message )
+		}
+		
+		if( ob.type == "UserChat" ) userChatID = ob.entity.id;
+		{
+			userChatID = ob.entity.id;
+			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
+		}
 		// var _channelio_botname =  "Choisukjune__AAA";
 		// var _channelio_host = "api.channel.io";
 		// var _channelio_port = "443";
@@ -39,7 +52,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		    }
 		}
 
-		o.data.message = encodeURIComponent( "Your message is " + ob.entity.message )
+		o.data.message = message;
 		//o.path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname//o.path
 		global.CSJLog.log( JSON.stringify( o ) );
 
