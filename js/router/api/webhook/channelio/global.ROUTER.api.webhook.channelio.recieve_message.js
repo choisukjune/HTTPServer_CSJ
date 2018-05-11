@@ -15,7 +15,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 				.replace("{{botname}}",global.ROUTER.api.webhook.channelio.CONFIG._botname);
 
 		o.data.message = encodeURIComponent( "Your message is " + ob.entity.message )
-global.CSJLog.log( o )
+		global.CSJLog.log( JSON.stringify( o ) );
 		if( ob.entity.personType != "Bot" )
 		{
 			global.api.Request.request__POST_https(o,"utf8",function(d){
