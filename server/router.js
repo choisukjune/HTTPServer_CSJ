@@ -110,12 +110,8 @@ global.ROUTER.Initialize_router	= function(	param ){
 
 				if( !global.ROUTER.api[ a0[ i ] ].hasOwnProperty( a1[ j ] ) )
 				{
-
 					_define_api = "global.ROUTER.api." + a0[ i ] + "." + a1[ j ] + "= {};"
-
 					e( _define_api )
-
-
 				}
 
 				var z = 0,zLen = a4.length;
