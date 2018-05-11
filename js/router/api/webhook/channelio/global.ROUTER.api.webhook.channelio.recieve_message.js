@@ -63,7 +63,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 					, port : "443"//o.port
 					, path : "/connect-api/webhook/11320800/a9e7cace9fe309afe9fc5759ea212e29"//o.path
 					, headers : {
-						"Accept" : "application/vnd.tosslab.jandi-v2+json"
+						"Accept" : "application/vnd.tosslab.jandi-v2+json",
 						"Content-Type" : "application/json"
 					}
 					, data : {
