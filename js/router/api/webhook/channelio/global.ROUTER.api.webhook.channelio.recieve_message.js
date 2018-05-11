@@ -24,13 +24,9 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			userChatID = ob.entity.id;
 			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
 		}
-		// var _channelio_botname =  "Choisukjune__AAA";
-		// var _channelio_host = "api.channel.io";
-		// var _channelio_port = "443";
-		// var _channelio_X_Access_Key = "5af3fe773fcc2fa8";
-		// var _channelio_X_Access_Secret = "fbf0ce1cf97738667abbfbabc0ec0b36"
-		console.log( userChatID )
-		console.log( body )
+
+		global.CSJLog.log( "userChatID : ", userChatID )
+		global.CSJLog.log( "data : ", body )
 
 		var o = {
 		    host : global.ROUTER.api.webhook.channelio.CONFIG._channelio_host//o.host
@@ -53,8 +49,8 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		}
 
 		o.data.message = message;
-		//o.path = "/open/user_chats/" + ob.entity.chatId + "/messages?botName=" + global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname//o.path
-		global.CSJLog.log( JSON.stringify( o ) );
+
+		global.CSJLog.log( "request data : ", JSON.stringify( o ) );
 
 		if( ob.entity.personType != "Bot" )
 		{
