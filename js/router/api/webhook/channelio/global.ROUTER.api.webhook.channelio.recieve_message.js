@@ -1,6 +1,7 @@
 global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 	var	body = '';
+	var userChatID = ""l
 	req.on('data', function	(data) {
 		body +=	data.toString();
 	})
@@ -9,7 +10,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var ob = JSON.parse( body );
-
+		userChatID = ob.entity.chatId;
 		// var _channelio_botname =  "Choisukjune__AAA";
 		// var _channelio_host = "api.channel.io";
 		// var _channelio_port = "443";
@@ -20,7 +21,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		var o = {
 		    host : global.ROUTER.api.webhook.channelio.CONFIG._channelio_host//o.host
 		    , port : global.ROUTER.api.webhook.channelio.CONFIG._channelio_port//o.port
-		    , path : ""
+		    , path : "/open/user_chats/" + userChatID + "/messages?botName=" + global.ROUTER.api.webhook.channelio.CONFIG._channelio_botname//o.path
 		    , headers : {
 		       'Content-Type': 'application/json'
 		       , 'Content-Length': -1
