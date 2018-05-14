@@ -25,7 +25,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
 		}
 
-		global.CSJLog.log( "userChatID : ", userChatID )
+		global.CSJLog.log( "userChatID : ", ob )
 		global.CSJLog.log( "data : ", body )
 
 		var o = {
@@ -68,15 +68,17 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 					, data : {
 						"body" : decodeURIComponent( message, 'utf-8' ),
 						"connectColor" : "#FAC11B",
-						"connectInfo" : [{
-							"title" : "ID",
-							"description" : decodeURIComponent( message, 'utf-8' ) + "\naaaaa" + "\naaaaa" + "\naaaaa" + "\naaaaa"
-						},
-						{
-							//"title": "Location",
-							"description": decodeURIComponent( message, 'utf-8' ),
-							"imageUrl": "http://url_to_text"
-						}]
+						"connectInfo" : [
+							{
+								"title" : "UserInfo",
+								"description" : decodeURIComponent( message, 'utf-8' ) + "\naaaaa" + "\naaaaa" + "\naaaaa" + "\naaaaa"
+							}
+							// , {
+							// //"title": "Location",
+							// "description": decodeURIComponent( message, 'utf-8' ),
+							// "imageUrl": "http://url_to_text"
+							// }
+						]
 					}
 				}
 
