@@ -4,8 +4,7 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 //	var _q = JSON.parse( data.data )
 //
 	//var postBody = global.REQUIRES.querystring.escape(JSON.stringify(o.data));
-	var req__o = decodeURIComponent( o );
-	var postBody = JSON.stringify( req__o.data );
+	var postBody = JSON.stringify(o.data);
 	var options = {
 		hostname: o.host
 		, port: o.port
@@ -40,6 +39,6 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 	req.on('error', function(e){
 		global.CSJLog.error('problem with request: ${e.message}');
 	});
-	req.write( postBody );
+	req.write( decodeURIComponent( postBody ) );
 	req.end();
 };

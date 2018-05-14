@@ -67,7 +67,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"Content-Type" : "application/json"
 					}
 					, data : {
-						"body" : ob.entity.message,
+						"body" : encodeURIComponent( ob.entity.message ),
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
 							"title" : "Topping",
@@ -83,7 +83,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 				// o1.data.body = encodeURIComponent( "Your message is " + message )
 
-				global.api.Request.request__POST_https(encodeURIComponent( o1 ),"utf8",function(d){
+				global.api.Request.request__POST_https( o1 ,"utf8",function(d){
 					global.CSJLog.log( "jandi===>",d )
 					global.api.Response.res_200_ok_String( req, res, "OK1");
 				})
