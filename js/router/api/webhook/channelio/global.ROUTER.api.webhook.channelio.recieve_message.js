@@ -71,7 +71,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"connectInfo" : [
 							{
 								"title" : "UserInfo",
-								"description" : decodeURIComponent( message, 'utf-8' ) + "\naaaaa" + "\naaaaa" + "\naaaaa" + "\naaaaa"
+								"description" : decodeURIComponent( message, 'utf-8' ) + "\n" + ob.refers.user.id + "\n" + ob.refers.user.name + "\n" + ob.refers.user.country + "\n" + ob.refers.user.city
 							}
 							// , {
 							// //"title": "Location",
