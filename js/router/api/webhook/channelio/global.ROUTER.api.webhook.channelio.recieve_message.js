@@ -16,13 +16,15 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		if( ob.type == "Message" )
 		{
 			userChatID = ob.entity.chatId;
-			message = encodeURIComponent( "Your message is " + ob.entity.message )
+			//message = encodeURIComponent( "Your message is " + ob.entity.message )
+			message = "Your message is " + ob.entity.message
 		}
 
 		if( ob.type == "UserChat" )
 		{
 			userChatID = ob.entity.id;
-			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
+			//message = encodeURIComponent( "Your message is " + ob.refers.message.message )
+			message = "Your message is " + ob.refers.message.message
 		}
 
 		global.CSJLog.log( "userChatID : ", userChatID )
