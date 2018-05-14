@@ -16,13 +16,13 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		if( ob.type == "Message" )
 		{
 			userChatID = ob.entity.chatId;
-			message = global.api.String.convert_encoding__KR( ob.entity.message, "utf-8" );
+			message = encodeURIComponent( "Your message is " + ob.entity.message )
 		}
 
 		if( ob.type == "UserChat" )
 		{
 			userChatID = ob.entity.id;
-			message = global.api.String.convert_encoding__KR( ob.refers.message.message, "utf-8" );
+			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
 		}
 
 		global.CSJLog.log( "userChatID : ", userChatID )
@@ -47,7 +47,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		        }
 		    }
 		}
-console.log(message)
+
 		o.data.message = message;
 
 		global.CSJLog.log( "request data : ", JSON.stringify( o ) );
@@ -67,7 +67,7 @@ console.log(message)
 						"Content-Type" : "application/json"
 					}
 					, data : {
-						"body" : "kkk",
+						"body" : message,
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
 							"title" : "Topping",
