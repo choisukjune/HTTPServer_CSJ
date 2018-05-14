@@ -67,7 +67,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"Content-Type" : "application/json"
 					}
 					, data : {
-						"body" : message,
+						"body" : "ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ",
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
 							"title" : "Topping",
