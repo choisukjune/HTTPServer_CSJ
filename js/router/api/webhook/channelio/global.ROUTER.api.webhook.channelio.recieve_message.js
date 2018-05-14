@@ -25,7 +25,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
 		}
 
-		global.CSJLog.log( "userChatID : ", ob )
+		global.CSJLog.log( "userChatID : ", JSON.stringify( ob ) )
 		global.CSJLog.log( "data : ", body )
 
 		var o = {
