@@ -13,7 +13,7 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 		, method: "POST"
 		, headers : o.headers
 	};
-	options.headers[ 'Content-Length' ] = Buffer.byteLength( o.data );
+	options.headers[ 'Content-Length' ] = Buffer.byteLength( JSON.stringify(o.data) );
 	// curl -X POST --header 'Content-Type: ' --header 'Accept: application/json' --header 'X-Access-Key: 5af3fe773fcc2fa8' --header 'X-Access-Secret: fbf0ce1cf97738667abbfbabc0ec0b36' -d '{ \
 	//      "message": "Your message", \
 	//      "botOption": { \
