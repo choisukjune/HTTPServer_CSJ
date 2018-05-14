@@ -5,6 +5,8 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 //
 	//var postBody = global.REQUIRES.querystring.escape(JSON.stringify(o.data));
 	var postBody = JSON.stringify(o.data);
+	console.log( postBody )
+	console.log( decodeURIComponent( postBody ) )
 	var options = {
 		hostname: o.host
 		, port: o.port
