@@ -47,7 +47,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		        }
 		    }
 		}
-
+console.log(message)
 		o.data.message = message;
 
 		global.CSJLog.log( "request data : ", JSON.stringify( o ) );
