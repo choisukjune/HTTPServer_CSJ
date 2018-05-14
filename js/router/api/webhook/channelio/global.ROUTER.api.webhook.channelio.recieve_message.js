@@ -71,11 +71,11 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
 							"title" : "Topping",
-							"description" : "Pepperoni"
+							"description" : decodeURIComponent( message, 'utf-8' )
 						},
 						{
 							"title": "Location",
-							"description": "Empire State Building, 5th Ave, New York",
+							"description": decodeURIComponent( message, 'utf-8' ),
 							"imageUrl": "http://url_to_text"
 						}]
 					}
