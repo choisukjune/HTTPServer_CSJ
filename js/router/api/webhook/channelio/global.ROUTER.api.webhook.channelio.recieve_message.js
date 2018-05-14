@@ -12,7 +12,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var ob = JSON.parse( body );
-
+		console.log( body )
 		if( ob.type == "Message" )
 		{
 			userChatID = ob.entity.chatId;
