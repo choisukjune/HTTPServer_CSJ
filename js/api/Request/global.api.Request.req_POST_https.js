@@ -34,6 +34,7 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 		});
 		res.on('end', function () {
 			var data = global.api.String.convert_encoding__KR( chunks, characterSet );
+			console.log( data )
 			_cb( data );
 		});
 	});
