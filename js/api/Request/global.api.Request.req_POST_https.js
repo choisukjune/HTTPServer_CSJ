@@ -5,8 +5,6 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 //
 	//var postBody = global.REQUIRES.querystring.escape(JSON.stringify(o.data));
 	var postBody = JSON.stringify(o.data);
-	console.log( postBody )
-	console.log( decodeURIComponent( postBody ) )
 	var options = {
 		hostname: o.host
 		, port: o.port
@@ -24,7 +22,7 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 	//      } \
 	//  }' 'https://api.channel.io/open/user_chats/690905/messages?botName=sdfsdfsd'
 
-	console.log( options )
+
 	var req = global.REQUIRES.https.request(options, function( res ){
 
 		var chunks = [];
@@ -41,6 +39,6 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 	req.on('error', function(e){
 		global.CSJLog.error('problem with request: ${e.message}');
 	});
-	req.write( o.data );
+	req.write( decodeURIComponent( postBody ) );
 	req.end();
 };
