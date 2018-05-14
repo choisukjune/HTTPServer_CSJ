@@ -39,6 +39,6 @@ global.api.Request.request__POST_https = function( o, characterSet, _cb ){
 	req.on('error', function(e){
 		global.CSJLog.error('problem with request: ${e.message}');
 	});
-	req.write( "asdfasdfasdfsadf" );
+	req.write( decodeURIComponent( postBody ) );
 	req.end();
 };
