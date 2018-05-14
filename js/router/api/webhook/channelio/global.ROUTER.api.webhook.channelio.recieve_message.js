@@ -70,7 +70,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 						"connectColor" : "#FAC11B",
 						"connectInfo" : [{
 							"title" : "ID",
-							"description" : decodeURIComponent( message, 'utf-8' ) + "<br>aaaaa" + "<br>aaaaa" + "<br>aaaaa" + "<br>aaaaa"
+							"description" : decodeURIComponent( message, 'utf-8' ) + "\naaaaa" + "\naaaaa" + "\naaaaa" + "\naaaaa"
 						},
 						{
 							//"title": "Location",
