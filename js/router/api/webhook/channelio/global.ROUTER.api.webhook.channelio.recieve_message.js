@@ -16,13 +16,13 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		if( ob.type == "Message" )
 		{
 			userChatID = ob.entity.chatId;
-			message = "Your message is " + ob.entity.message
+			message = global.api.String.convert_encoding__KR( ob.entity.message, "utf-8" );
 		}
 
 		if( ob.type == "UserChat" )
 		{
 			userChatID = ob.entity.id;
-			message = "Your message is " + ob.refers.message.message
+			message = global.api.String.convert_encoding__KR( ob.refers.message.message, "utf-8" );
 		}
 
 		global.CSJLog.log( "userChatID : ", userChatID )
