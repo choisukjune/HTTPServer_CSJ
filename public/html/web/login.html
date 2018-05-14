@@ -14,6 +14,54 @@ body > .grid {
 </style>
 
 <script>
+//Start Channel Plugin
+window.channelPluginSettings = {
+	"pluginKey": "28e9095f-0e00-4bb1-8731-35d0121e87c5",
+	"hideDefaultLauncher": false,
+	"zIndex": 1, //optional
+	"locale": "us", //optional
+	"user": {
+		"id": "csj@naver.com", //fill with user id
+		"name": "최석준", //fill with user name
+		"mobileNumber": "000100001000", //fill with user phone number
+		"meta": {
+			"Brand": "AHC", //any other custom meta data
+			"Product": "마사지크림"
+		}
+	}
+};
+(function() {
+	var w = window;
+	if (w.ChannelIO) {
+		return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+	}
+	var d = window.document;
+	var ch = function() {
+		ch.c(arguments);
+	};
+	ch.q = [];
+	ch.c = function(args) {
+		ch.q.push(args);
+	};
+	w.ChannelIO = ch;
+	function l() {
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.async = true;
+		s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+		s.charset = 'UTF-8';
+		var x = document.getElementsByTagName('script')[0];
+		x.parentNode.insertBefore(s, x);
+	}
+
+	if (window.attachEvent) {
+		window.attachEvent('onload', l);
+	} else {
+		window.addEventListener('DOMContentLoaded', l, false);
+	}
+})();
+
+
 //569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com
 //24YPRuDtSWf2oo29PzRu7-8q
   var YOUR_CLIENT_ID = '569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com';
@@ -191,10 +239,10 @@ location.href=url;
 
 	<script src="/libs/alertify/dist/js/alertify.js"></script>
 	<link rel='stylesheet' type="text/css" href='/css/style.css'>
-<!-- 	
+<!--
 	<link rel="stylesheet" type="text/css" href="/libs/sementicUI/semantic.css">
 	<link rel='stylesheet' type="text/css" href='/libs/sementicUI/components/icon.min.css'> -->
-		
+
 	<!-- <script src="/libs/sementicUI/libs/jquery-3.2.1.min.js"></script>
 	<script src="/libs/sementicUI/semantic.js"></script> -->
 	<script src="/js/common/common.min.js"></script>
@@ -307,20 +355,20 @@ location.href=url;
 		background-attachment: fixed;
 		background-size: cover;
 	  }
-	  
+
 	  /* The only rule that matters */
 	  #video-background {
 	  /*  making the video fullscreen  */
 		position: fixed;
-		right: 0; 
+		right: 0;
 		bottom: 0;
-		min-width: 100%; 
+		min-width: 100%;
 		min-height: 100%;
-		width: auto; 
+		width: auto;
 		height: auto;
 		z-index: -100;
 	  }
-	  
+
 	  /* These just style the content */
 	  article {
 	  /*  just a fancy border  */
@@ -332,7 +380,7 @@ location.href=url;
 		margin: auto;
 		width: 300px;
 	  }
-	  
+
 	  h1 {
 		position: absolute;
 		top: 50%;
@@ -365,9 +413,9 @@ location.href=url;
 					 	<h1>
 							<button type="button" class="btn bg-blue btn-block" data-toggle="modal" data-target="#modal-tabbed">Login</button>
 						</h1>
-					  
+
 					</article>
-					  
+
 					<!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
 					<video autoplay loop id="video-background" muted plays-inline>
 					  <source src="https://player.vimeo.com/external/158148793.hd.mp4?s=8e8741dbee251d5c35a759718d4b0976fbf38b6f&profile_id=119&oauth2_token_id=57447761" type="video/mp4">
@@ -524,19 +572,19 @@ location.href=url;
 
 
 		var check_login = function(){
-		
+
 			var p0 = document.getElementById("id").value;
 			var p1 = document.getElementById("pwd").value;
-		
+
 			var url = "/api/Member/member_basic/login_check?"
 				+ "id=" + p0
 				+ "&pwd=" + p1;
-		
+
 			window.service.Request.req_GET_data__Callback( url, function( r ){
-		
+
 			console.log( r )
 			var _res_Object = JSON.parse( r )
-		
+
 			if( r != 0 ){
 				window.service.session.setSession( _res_Object.sid )
 				window.service.cookie.setCookie( "mid", _res_Object.id, 1000*60*15 )
@@ -544,9 +592,8 @@ location.href=url;
 				location.href = "/"
 			}
 		})
-		
+
 		};
-		
+
 		document.getElementById("login_btn").addEventListener('click', function(){ check_login() })
 		</script>
-		
