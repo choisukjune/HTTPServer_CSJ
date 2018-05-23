@@ -29,7 +29,7 @@ global.api.Mail.send_mail = function(){
 	  var client_id = "119749462334-pl37367idi2q5p1egrs5b3ti78c8paee.apps.googleusercontent.com";
 	  var redirect_uris = "http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888";
 
-	  var oAuth2Client = new global.REQUIRES.google.auth.OAuth2( client_id, client_secret, redirect_uris[0] );
+	  var oAuth2Client = new global.REQUIRES.googleapis.auth.OAuth2( client_id, client_secret, redirect_uris[0] );
 
 	  // Check if we have previously stored a token.
 	  global.REQUIRES.fs.readFile(TOKEN_PATH, function(err, token){
@@ -76,7 +76,7 @@ global.api.Mail.send_mail = function(){
 	 * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
 	 */
 	function listLabels(auth) {
-	  var gmail = global.REQUIRES.google.gmail({version: 'v1', auth});
+	  var gmail = global.REQUIRES.googleapis.gmail({version: 'v1', auth});
 	  gmail.users.labels.list({
 	    userId: 'me',
 	}, function(err, {data}){
