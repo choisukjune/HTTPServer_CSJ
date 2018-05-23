@@ -12,7 +12,9 @@ global.api.Mail.send_mail = function(){
 	// Load client secrets from a local file.
 	global.REQUIRES.fs.readFile('sendMail__google_api_key.json', function(err, content){
 	  if (err) return console.log('Error loading client secret file:', err);
+	  console.log( JSON.parse(content) )
 	  authorize(JSON.parse(content), listLabels);
+
 	});
 
 	/**
