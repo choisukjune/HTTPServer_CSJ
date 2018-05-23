@@ -25,9 +25,9 @@ global.api.Mail.send_mail = function(){
 	 */
 	function authorize(credentials, callback) {
 
-	  var client_secret = credentials.installed.client_secret;
-	  var client_id = credentials.installed.client_id;
-	  var redirect_uris = credentials.installed.redirect_uris;
+	  var client_secret = "tlciIo1m5hqfDB75tmK_5N7g";
+	  var client_id = "119749462334-pl37367idi2q5p1egrs5b3ti78c8paee.apps.googleusercontent.com";
+	  var redirect_uris = "http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888";
 
 	  var oAuth2Client = new global.REQUIRES.google.auth.OAuth2( client_id, client_secret, redirect_uris[0] );
 
