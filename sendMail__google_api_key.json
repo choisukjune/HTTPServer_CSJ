@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "festive-idea-205123",
+  "private_key_id": "328a8ca93a52f4b8a242cb7f18e4ec727e7b3c5e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDb+CYT57grhuGV\nQtbIPWhrSTLx8BIP4hc+tnFQEsmf+NF8/cAJp3FpkxkdMtBycEkeYXiMYxRqmRGN\nL9PpV/zvyeVuFLW+hsNY3mHdrhPFCnN44t+Ega10AoZKbbass2/RdWQhmpHyNKQM\ntbPgsLe7BjP+WJhRYVuP6Bimora6skYS3PsQlTvp3D6hdTNG/wAA3xdA4C4kZxWd\n66iX77q32d8Hy6G9TFkjAp9g1CBt6ES+Qhz1koTNw8GavSXxv9m9kjY/NmjLFpA7\nbOU+lMzPISS1vAs126VcRRtST7Q5h9BfzPerDV7L3xGpVMLWDIj+ryQ/BiG1Z6fG\num/sL1kDAgMBAAECggEAFMT9c2uxrAp0Sk+hUA7cSSUENmvgiLdkUnuPf2wGtaAc\nx5x+AWtZ/gnxmRwvKl8HyGKTq02/o8EIMziM3b99FncNvrMd5ft7fmyg+PlyzGwM\nMyHY0P4djpKec3CgivX2XOSkq7eYiDIIO1r8vP5ymqofRqi+2RBEQPY9PZ6nekEm\nHC9XvS08uC+pO/ztFW7XpvB418poo8ogc9/fnw+T5hloGJRb1BEYb567DrhdadVf\nTfj2BTrRsSHYMJ2XlBpI7+hSRtYVe/GxUb5E++SfuIExmpxQzorUgAPhkxZ03Ofz\nl8YcOp4u1kweqPyvTPWebyztfSSMlmW+tI8ek2xN4QKBgQD2kauq0qAERKJrFIe1\nwfJY+Yaf/dGBGaa9A8TiOymh+xmjFJnz3ka7m27WOo0IclD4hswSC2LatcozkRxs\nsgWFtkjDwr/AMICuil7c7qrllL7Go0Fg8CVC65q/mm3+e8Us6aTAG5j1HGjxNL+h\naSyB8AZXl/nhoA3BgzlEmBi4LwKBgQDkYgWhJBo08Fa6FLLdkSH0Zn4KCIH/sRyC\nYt3722Z9xvTuloFsp2HEjbwNbvKxSxKIz1y5aD+YY558OrO++H5hgdtPxRhSI3kJ\nGX2epTxUO9XzrPWkXLq6BxKLwCeLkd++HY3SliPDW0ZDU4NpgdptIGRtlJhXdbr9\n1Q2Ijg2jbQKBgQDaXAFSg7tQbFQGTqUs0vjD0R9nWwoJseTXKZpX25swJ0b6BMme\nje/IP4u1zx6NJ2gL4JyjMlA2bp4GcvFgVXvMgbUJINRd6NZdPI9sSzUvoj4dfgDt\nT19AV5SxMJtOrt/cuYG82/PmxmUtj9BRqunOnPmQ4zdZmDv2bzbtR2FE4wKBgQDW\n3KWBMe756TcewAR7UWSJg7eGhvSO8zjoLk27+nEVWg3rPWusJlljyxil5sCrLf7U\n+Ym54SsbmnVrWOrseuqjn8EN7lbwR/FCL1ow3DHC6bxjEVDU/myqQacgFXre4zGF\nslZQTfJ9g6y6AKL8qy8tRbFWKtucROXUkxG1bDfGjQKBgFWtH2HP32Ryvg+KIOGs\n3AttEYsHJq74Kl+q5B26NaxyQgaQaCSXXewCQowjPL5yfweIjTlmMzspzqT9t5bl\nW+YXRItLL2bKt9yqkn7eyoNNCLX+eF+t5zYXIeRgY50C3SLJkHwyMdomYPveJpcK\nTDqx6bqV471Ig/ou95zbvXx9\n-----END PRIVATE KEY-----\n",
+  "client_email": "sendmail@festive-idea-205123.iam.gserviceaccount.com",
+  "client_id": "104296975112968053358",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sendmail%40festive-idea-205123.iam.gserviceaccount.com"
+}
