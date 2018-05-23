@@ -10,7 +10,7 @@ global.api.Mail.send_mail = function(){
 	const TOKEN_PATH = 'sendMail__google_api_key.json';
 
 	// Load client secrets from a local file.
-	fs.readFile('sendMail__google_api_key.json', function(err, content){
+	global.REQUIRES.fs.readFile('sendMail__google_api_key.json', function(err, content){
 	  if (err) return console.log('Error loading client secret file:', err);
 	  authorize(JSON.parse(content), listLabels);
 	});
@@ -22,16 +22,15 @@ global.api.Mail.send_mail = function(){
 	 * @param {function} callback The callback to call with the authorized client.
 	 */
 	function authorize(credentials, callback) {
-	  const {client_secret, client_id, redirect_uris} = credentials.installed;
 
 	  var client_secret = credentials.installed.client_secret;
 	  var client_id = credentials.installed.client_id;
 	  var redirect_uris = credentials.installed.redirect_uris;
 
-	  var oAuth2Client = new google.auth.OAuth2( client_id, client_secret, redirect_uris[0] );
+	  var oAuth2Client = new global.REQUIRES.google.auth.OAuth2( client_id, client_secret, redirect_uris[0] );
 
 	  // Check if we have previously stored a token.
-	  fs.readFile(TOKEN_PATH, function(err, token){
+	  global.REQUIRES.fs.readFile(TOKEN_PATH, function(err, token){
 	    if (err) return getNewToken(oAuth2Client, callback);
 	    oAuth2Client.setCredentials(JSON.parse(token));
 	    callback(oAuth2Client);
@@ -50,7 +49,7 @@ global.api.Mail.send_mail = function(){
 	    scope: SCOPES,
 	  });
 	  console.log('Authorize this app by visiting this url:', authUrl);
-	  const rl = readline.createInterface({
+	  const rl = global.REQUIRES.readline.createInterface({
 	    input: process.stdin,
 	    output: process.stdout,
 	  });
@@ -60,7 +59,7 @@ global.api.Mail.send_mail = function(){
 	      if (err) return callback(err);
 	      oAuth2Client.setCredentials(token);
 	      // Store the token to disk for later program executions
-	      fs.writeFile(TOKEN_PATH, JSON.stringify(token), function(err){
+	      global.REQUIRES.fs.writeFile(TOKEN_PATH, JSON.stringify(token), function(err){
 	        if (err) return console.error(err);
 	        console.log('Token stored to', TOKEN_PATH);
 	      });
@@ -75,7 +74,7 @@ global.api.Mail.send_mail = function(){
 	 * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
 	 */
 	function listLabels(auth) {
-	  var gmail = google.gmail({version: 'v1', auth});
+	  var gmail = global.REQUIRES.google.gmail({version: 'v1', auth});
 	  gmail.users.labels.list({
 	    userId: 'me',
 	}, function(err, {data}){
