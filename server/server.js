@@ -210,7 +210,7 @@ global.ws.clients = {};
 		var connection = request.accept(null, request.origin);
 		var clientID = getUniqueID();
 		global.ws.clients[ clientID + "_" + request.resourceURL.query.mid ] = connection;
-		console.log( request.resourceURL.query.mid )
+		//console.log( request.resourceURL.query.mid )
 		//---------- Redis;
 		var _con = {
 			port : global.REDIS.CONFIG.port
