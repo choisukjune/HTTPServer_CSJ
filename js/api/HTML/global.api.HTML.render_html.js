@@ -17,7 +17,7 @@ global.api.HTML.render_html	= function( req, res, chunks )
 	if(	"/"	!= _d )
 	{
 		tpl_nm = global.REQUIRES.url.parse(req.url).pathname.replace( "/", "" );
-		console.log(global.api.HTML.CONST.CONFIG.template_root	+ tpl_nm +'.html')
+		//console.log(global.api.HTML.CONST.CONFIG.template_root	+ tpl_nm +'.html')
 	}
 	else
 	{
