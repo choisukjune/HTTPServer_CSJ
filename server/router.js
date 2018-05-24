@@ -18,6 +18,91 @@ var	_ =	global.ROUTER.CONST.CONFIG ;
 	_.__defineGetter__(	"api", function(){ return _api;	} );
 
 //------------------------------ ROUTER	Config;
+//------------------------------ ROUTER	CONTENTTYPES;
+global.ROUTER.CONST.CONTENTTYPES = {
+	'aac': 'audio/aac',
+	'ai': 'application/postscript',
+	'appcache': 'text/cache-manifest',
+	'avi': 'video/avi',
+	'bin': 'application/octet-stream',
+	'bmp': 'image/bmp',
+	'coffee': 'text/coffeescript',
+	'css': 'text/css',
+	'csv': 'text/csv',
+	'doc': 'application/msword',
+	'docx': 'application/msword',
+	'dtd': 'application/xml-dtd',
+	'eps': 'application/postscript',
+	'exe': 'application/octet-stream',
+	'flac': 'audio/x-flac',
+	'geojson': 'application/json',
+	'gif': 'image/gif',
+	'gzip': 'application/x-gzip',
+	'htm': 'text/html',
+	'html': 'text/html',
+	'ico': 'image/x-icon',
+	'ics': 'text/calendar',
+	'ifb': 'text/calendar',
+	'jpe': 'image/jpeg',
+	'jpeg': 'image/jpeg',
+	'jpg': 'image/jpeg',
+	'js': 'text/javascript',
+	'json': 'application/json',
+	'jsx': 'text/jsx',
+	'less': 'text/css',
+	'm4a': 'audio/mp4a-latm',
+	'm4v': 'video/x-m4v',
+	'manifest': 'text/cache-manifest',
+	'md': 'text/x-markdown',
+	'mid': 'audio/midi',
+	'midi': 'audio/midi',
+	'mov': 'video/quicktime',
+	'mp3': 'audio/mpeg',
+	'mp4': 'video/mp4',
+	'mpe': 'video/mpeg',
+	'mpeg': 'video/mpeg',
+	'mpg': 'video/mpeg',
+	'mpga': 'audio/mpeg',
+	'mtl': 'text/plain',
+	'mv4': 'video/mv4',
+	'obj': 'text/plain',
+	'ogg': 'application/ogg',
+	'ogv': 'video/ogg',
+	'package': 'text/plain',
+	'pdf': 'application/pdf',
+	'png': 'image/png',
+	'ppt': 'application/vnd.ms-powerpoint',
+	'pptx': 'application/vnd.ms-powerpoint',
+	'ps': 'application/postscript',
+	'rar': 'application/x-rar-compressed',
+	'rtf': 'text/rtf',
+	'sass': 'text/css',
+	'scss': 'text/css',
+	'sh': 'application/x-sh',
+	'stl': 'application/sla',
+	'svg': 'image/svg+xml',
+	'swf': 'application/x-shockwave-flash',
+	'tar': 'application/x-tar',
+	'tif': 'image/tiff',
+	'tiff': 'image/tiff',
+	'txt': 'text/plain',
+	'wav': 'audio/x-wav',
+	'webm': 'video/webm',
+	'webp': 'image/webp',
+	'woff': 'application/font-woff',
+	'woff2': 'application/font-woff2',
+	'xht': 'application/xhtml+xml',
+	'xhtml': 'application/xhtml+xml',
+	'xls': 'application/vnd.ms-excel',
+	'xlsx': 'application/vnd.ms-excel',
+	'xml': 'application/xml',
+	'xpm': 'image/x-xpixmap',
+	'xsl': 'application/xml',
+	'xslt': 'application/xslt+xml',
+	'zip': 'application/zip',
+	'ico' : 'image/x-icon'
+};
+//------------------------------ ROUTER	CONTENTTYPES;
 
 global.ROUTER.INFO = {};
 
@@ -150,185 +235,84 @@ global.ROUTER.Initialize_router	= function(	param ){
 
 global.ROUTER.routerControl	= function(req,res)	{
 
-	var CONTENTTYPES = {
-		'aac': 'audio/aac',
-		'ai': 'application/postscript',
-		'appcache': 'text/cache-manifest',
-		'avi': 'video/avi',
-		'bin': 'application/octet-stream',
-		'bmp': 'image/bmp',
-		'coffee': 'text/coffeescript',
-		'css': 'text/css',
-		'csv': 'text/csv',
-		'doc': 'application/msword',
-		'docx': 'application/msword',
-		'dtd': 'application/xml-dtd',
-		'eps': 'application/postscript',
-		'exe': 'application/octet-stream',
-		'flac': 'audio/x-flac',
-		'geojson': 'application/json',
-		'gif': 'image/gif',
-		'gzip': 'application/x-gzip',
-		'htm': 'text/html',
-		'html': 'text/html',
-		'ico': 'image/x-icon',
-		'ics': 'text/calendar',
-		'ifb': 'text/calendar',
-		'jpe': 'image/jpeg',
-		'jpeg': 'image/jpeg',
-		'jpg': 'image/jpeg',
-		'js': 'text/javascript',
-		'json': 'application/json',
-		'jsx': 'text/jsx',
-		'less': 'text/css',
-		'm4a': 'audio/mp4a-latm',
-		'm4v': 'video/x-m4v',
-		'manifest': 'text/cache-manifest',
-		'md': 'text/x-markdown',
-		'mid': 'audio/midi',
-		'midi': 'audio/midi',
-		'mov': 'video/quicktime',
-		'mp3': 'audio/mpeg',
-		'mp4': 'video/mp4',
-		'mpe': 'video/mpeg',
-		'mpeg': 'video/mpeg',
-		'mpg': 'video/mpeg',
-		'mpga': 'audio/mpeg',
-		'mtl': 'text/plain',
-		'mv4': 'video/mv4',
-		'obj': 'text/plain',
-		'ogg': 'application/ogg',
-		'ogv': 'video/ogg',
-		'package': 'text/plain',
-		'pdf': 'application/pdf',
-		'png': 'image/png',
-		'ppt': 'application/vnd.ms-powerpoint',
-		'pptx': 'application/vnd.ms-powerpoint',
-		'ps': 'application/postscript',
-		'rar': 'application/x-rar-compressed',
-		'rtf': 'text/rtf',
-		'sass': 'text/css',
-		'scss': 'text/css',
-		'sh': 'application/x-sh',
-		'stl': 'application/sla',
-		'svg': 'image/svg+xml',
-		'swf': 'application/x-shockwave-flash',
-		'tar': 'application/x-tar',
-		'tif': 'image/tiff',
-		'tiff': 'image/tiff',
-		'txt': 'text/plain',
-		'wav': 'audio/x-wav',
-		'webm': 'video/webm',
-		'webp': 'image/webp',
-		'woff': 'application/font-woff',
-		'woff2': 'application/font-woff2',
-		'xht': 'application/xhtml+xml',
-		'xhtml': 'application/xhtml+xml',
-		'xls': 'application/vnd.ms-excel',
-		'xlsx': 'application/vnd.ms-excel',
-		'xml': 'application/xml',
-		'xpm': 'image/x-xpixmap',
-		'xsl': 'application/xml',
-		'xslt': 'application/xslt+xml',
-		'zip': 'application/zip',
-		'ico' : 'image/x-icon'
-	};
-
 	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
 	var	tmp = req.url.lastIndexOf(".");
 	var	extension  = req.url.substring((tmp	+ 1));
-	console.log( extension )
-	console.log( req.url )
-	if( req.url == "/robots.txt"){
-		console.log( req.url )
-		return;
-	}
 
-
+	if( req.url == "/robots.txt") return;
 	if( req.url.indexOf("/api/") == -1)
 	{
-		var resource_path_key = req.url.replace('/web',"")
 
-		if( extension.indexOf("?") != -1 ){
-			extension = extension.split("?")[0];
-		}
+		if( extension.indexOf("?") != -1 ) extension = extension.split("?")[0];
 
 		var resource_dir = global.ROOTPath + "/public"
-
-		var _tmp0 = req.url.split("/")
+		var _tmp0 = req.url.split("/");
 
 		var check_resource_res = function(arr, str){
-			var path = ""
+			var path = "";
 			var chk = 0;
 			for(var i = 0;i < arr.length;++i){
-					if( arr[i] == str){
-						chk = 1;
-					}
-					if( chk == 1 ){
-						path = path + "/" + arr[ i ];
-					}
-
+				if( arr[i] == str) chk = 1;
+				if( chk == 1 ) path = path + "/" + arr[ i ];
 			}
+
 			return path;
 		}
 
-		if( _tmp0.indexOf("css") !== -1){
-			var path = check_resource_res( _tmp0, "css" )
-			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
-		}
-		if( _tmp0.indexOf("js") !== -1){
-
-			var path = check_resource_res( _tmp0, "js" )
-			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
-		}
-		if( _tmp0.indexOf("libs") !== -1){
-			var path = check_resource_res( _tmp0, "libs" )
-			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
-		}
-		if( req.url == "/favicon.ico"){
-			console.log( req.url )
-			var resource_dir = global.ROOTPath + req.url
+		if( _tmp0.indexOf("css") !== -1)
+		{
+			var path = check_resource_res( _tmp0, "css" );
+			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
 		}
 
-		if ( CONTENTTYPES[ extension ] ) {
-			//
-			//if( req.url.indexOf( "?" ) == -1){
-				//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
+		if( _tmp0.indexOf("js") !== -1)
+		{
+			var path = check_resource_res( _tmp0, "js" );
+			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
+		}
 
-				var fileNm = req.url.split('/')
-				console.log( "=====>" + resource_dir )
-				var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
+		if( _tmp0.indexOf("libs") !== -1)
+		{
+			var path = check_resource_res( _tmp0, "libs" );
+			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
+		}
 
-				// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
-				resource.on('end', function(){
-					//console.log( "---------- end ----------" );
-					res.end();
-				});
-				// resource.on('close',	function(){	console.log( "---------- close ----------" ); });
+		if( req.url == "/favicon.ico") var resource_dir = global.ROOTPath + req.url;
 
-				res.writeHeader(200, {"Content-Type":	CONTENTTYPES[ extension ]})
+		if( global.ROUTER.CONST.CONTENTTYPES[ extension ] )
+		{
+			var fileNm = req.url.split('/')
+			var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
 
-				// set content type
-				// if (extension === 'html') res.writeHeader(200, {"Content-Type":	'text/html'});
-				// else if	(extension === 'htm') res.writeHeader(200, {"Content-Type":	'text/html'});
-				// else if	(extension === 'css') res.writeHeader(200, {"Content-Type":	'text/css'});
-				// else if	(extension === 'js') res.writeHeader(200, {"Content-Type": 'text/javascript'});
-				// else if	(extension === 'png') res.writeHeader(200, {"Content-Type":	'image/png'});
-				// else if	(extension === 'jpg') res.writeHeader(200, {"Content-Type":	'image/jpg'});
-				// else if	(extension === 'woff') res.writeHeader(200,	{"Content-Type": 'application/font-woff'});
-				// else if	(extension === 'woff2')	res.writeHeader(200, {"Content-Type": 'application/font-woff2'});
-				// else if	(extension === 'ttf') res.writeHeader(200, {"Content-Type":	'application/x-font-ttf'});
-				// else if	(extension === 'jpeg') res.writeHeader(200,	{"Content-Type": 'image/jpeg'});
+			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
+			resource.on('end', function(){
+				//console.log( "---------- end ----------" );
+				res.end();
+			});
+			// resource.on('close',	function(){	console.log( "---------- close ----------" ); });
 
-				resource.pipe(res);
-				return;
-			//}
+			res.writeHeader(200, {"Content-Type": global.ROUTER.CONST.CONTENTTYPES[ extension ]})
+
+			// set content type
+			// if (extension === 'html') res.writeHeader(200, {"Content-Type":	'text/html'});
+			// else if	(extension === 'htm') res.writeHeader(200, {"Content-Type":	'text/html'});
+			// else if	(extension === 'css') res.writeHeader(200, {"Content-Type":	'text/css'});
+			// else if	(extension === 'js') res.writeHeader(200, {"Content-Type": 'text/javascript'});
+			// else if	(extension === 'png') res.writeHeader(200, {"Content-Type":	'image/png'});
+			// else if	(extension === 'jpg') res.writeHeader(200, {"Content-Type":	'image/jpg'});
+			// else if	(extension === 'woff') res.writeHeader(200,	{"Content-Type": 'application/font-woff'});
+			// else if	(extension === 'woff2')	res.writeHeader(200, {"Content-Type": 'application/font-woff2'});
+			// else if	(extension === 'ttf') res.writeHeader(200, {"Content-Type":	'application/x-font-ttf'});
+			// else if	(extension === 'jpeg') res.writeHeader(200,	{"Content-Type": 'image/jpeg'});
+
+			resource.pipe(res);
+			return;
 		}
 
 	}
 
-
-	if ( global.ROUTER.INFO.hasOwnProperty(	pathname ) ){
+	if ( global.ROUTER.INFO.hasOwnProperty(	pathname ) )
+	{
 		if(	'GET' == req.method	)
 		{
 			global.CSJLog.timeStamp( "METHOD / " + req.method );
