@@ -275,18 +275,25 @@ global.ROUTER.routerControl	= function(req,res)	{
 		var path = check_resource_res( _tmp0, "css" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	if( _tmp0.indexOf("js") !== -1){
+	else if( _tmp0.indexOf("js") !== -1)
+	{
 
 		var path = check_resource_res( _tmp0, "js" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	if( _tmp0.indexOf("libs") !== -1){
+	else if( _tmp0.indexOf("libs") !== -1)
+	{
 		var path = check_resource_res( _tmp0, "libs" )
 		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
 	}
-	if( req.url == "/favicon.ico"){
+	else if( req.url == "/favicon.ico")
+	{
 		console.log( req.url )
 		var resource_dir = global.ROOTPath + req.url
+	}
+	else
+	{
+		return;
 	}
 
 	if ( CONTENTTYPES[ extension ] ) {
