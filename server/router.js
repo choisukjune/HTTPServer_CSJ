@@ -245,83 +245,86 @@ global.ROUTER.routerControl	= function(req,res)	{
 	}
 
 
+	if( req.url.indexOf("/api/") == -1)
+	{
+		var resource_path_key = req.url.replace('/web',"")
 
-	var resource_path_key = req.url.replace('/web',"")
-
-	if( extension.indexOf("?") != -1 ){
-		extension = extension.split("?")[0];
-	}
-
-	var resource_dir = global.ROOTPath + "/public"
-
-	var _tmp0 = req.url.split("/")
-
-	var check_resource_res = function(arr, str){
-		var path = ""
-		var chk = 0;
-		for(var i = 0;i < arr.length;++i){
-				if( arr[i] == str){
-					chk = 1;
-				}
-				if( chk == 1 ){
-					path = path + "/" + arr[ i ];
-				}
-
+		if( extension.indexOf("?") != -1 ){
+			extension = extension.split("?")[0];
 		}
-		return path;
-	}
 
-	if( _tmp0.indexOf("css") !== -1){
-		var path = check_resource_res( _tmp0, "css" )
-		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
-	}
-	if( _tmp0.indexOf("js") !== -1){
+		var resource_dir = global.ROOTPath + "/public"
 
-		var path = check_resource_res( _tmp0, "js" )
-		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
-	}
-	if( _tmp0.indexOf("libs") !== -1){
-		var path = check_resource_res( _tmp0, "libs" )
-		var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
-	}
-	if( req.url == "/favicon.ico"){
-		console.log( req.url )
-		var resource_dir = global.ROOTPath + req.url
-	}
+		var _tmp0 = req.url.split("/")
 
-	if ( CONTENTTYPES[ extension ] ) {
-		//
-		//if( req.url.indexOf( "?" ) == -1){
-			//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
+		var check_resource_res = function(arr, str){
+			var path = ""
+			var chk = 0;
+			for(var i = 0;i < arr.length;++i){
+					if( arr[i] == str){
+						chk = 1;
+					}
+					if( chk == 1 ){
+						path = path + "/" + arr[ i ];
+					}
 
-			var fileNm = req.url.split('/')
-			console.log( "=====>" + resource_dir )
-			var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
+			}
+			return path;
+		}
 
-			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
-			resource.on('end', function(){
-				//console.log( "---------- end ----------" );
-				res.end();
-			});
-			// resource.on('close',	function(){	console.log( "---------- close ----------" ); });
+		if( _tmp0.indexOf("css") !== -1){
+			var path = check_resource_res( _tmp0, "css" )
+			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
+		}
+		if( _tmp0.indexOf("js") !== -1){
 
-			res.writeHeader(200, {"Content-Type":	CONTENTTYPES[ extension ]})
+			var path = check_resource_res( _tmp0, "js" )
+			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
+		}
+		if( _tmp0.indexOf("libs") !== -1){
+			var path = check_resource_res( _tmp0, "libs" )
+			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0]
+		}
+		if( req.url == "/favicon.ico"){
+			console.log( req.url )
+			var resource_dir = global.ROOTPath + req.url
+		}
 
-			// set content type
-			// if (extension === 'html') res.writeHeader(200, {"Content-Type":	'text/html'});
-			// else if	(extension === 'htm') res.writeHeader(200, {"Content-Type":	'text/html'});
-			// else if	(extension === 'css') res.writeHeader(200, {"Content-Type":	'text/css'});
-			// else if	(extension === 'js') res.writeHeader(200, {"Content-Type": 'text/javascript'});
-			// else if	(extension === 'png') res.writeHeader(200, {"Content-Type":	'image/png'});
-			// else if	(extension === 'jpg') res.writeHeader(200, {"Content-Type":	'image/jpg'});
-			// else if	(extension === 'woff') res.writeHeader(200,	{"Content-Type": 'application/font-woff'});
-			// else if	(extension === 'woff2')	res.writeHeader(200, {"Content-Type": 'application/font-woff2'});
-			// else if	(extension === 'ttf') res.writeHeader(200, {"Content-Type":	'application/x-font-ttf'});
-			// else if	(extension === 'jpeg') res.writeHeader(200,	{"Content-Type": 'image/jpeg'});
+		if ( CONTENTTYPES[ extension ] ) {
+			//
+			//if( req.url.indexOf( "?" ) == -1){
+				//var resource = global.REQUIRES.fs.createReadStream(global.ROOTPath + "/public/" +	req.url, 'utf8');
 
-			resource.pipe(res);
-			return;
-		//}
+				var fileNm = req.url.split('/')
+				console.log( "=====>" + resource_dir )
+				var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
+
+				// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
+				resource.on('end', function(){
+					//console.log( "---------- end ----------" );
+					res.end();
+				});
+				// resource.on('close',	function(){	console.log( "---------- close ----------" ); });
+
+				res.writeHeader(200, {"Content-Type":	CONTENTTYPES[ extension ]})
+
+				// set content type
+				// if (extension === 'html') res.writeHeader(200, {"Content-Type":	'text/html'});
+				// else if	(extension === 'htm') res.writeHeader(200, {"Content-Type":	'text/html'});
+				// else if	(extension === 'css') res.writeHeader(200, {"Content-Type":	'text/css'});
+				// else if	(extension === 'js') res.writeHeader(200, {"Content-Type": 'text/javascript'});
+				// else if	(extension === 'png') res.writeHeader(200, {"Content-Type":	'image/png'});
+				// else if	(extension === 'jpg') res.writeHeader(200, {"Content-Type":	'image/jpg'});
+				// else if	(extension === 'woff') res.writeHeader(200,	{"Content-Type": 'application/font-woff'});
+				// else if	(extension === 'woff2')	res.writeHeader(200, {"Content-Type": 'application/font-woff2'});
+				// else if	(extension === 'ttf') res.writeHeader(200, {"Content-Type":	'application/x-font-ttf'});
+				// else if	(extension === 'jpeg') res.writeHeader(200,	{"Content-Type": 'image/jpeg'});
+
+				resource.pipe(res);
+				return;
+			//}
+		}
+
 	}
 
 
