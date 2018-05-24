@@ -6,8 +6,8 @@
  */
 global.api.Mail.send_mail = function(){
 
-	const SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
-	const TOKEN_PATH = 'sendMail__google_api_key.json';
+	var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
+	var TOKEN_PATH = 'sendMail__google_api_key.json';
 
 	// Load client secrets from a local file.
 	global.REQUIRES.fs.readFile('sendMail__google_api_key.json', function(err, content){
@@ -79,12 +79,12 @@ global.api.Mail.send_mail = function(){
 	  var gmail = global.REQUIRES.googleapis.gmail({version: 'v1', auth});
 	  gmail.users.labels.list({
 	    userId: 'me',
-	}, function(err, {data}){
+	}, function(err, data){
 	    if (err) return console.log('The API returned an error: ' + err);
 	    var labels = data.labels;
 	    if (labels.length) {
 	      console.log('Labels:');
-	      labels.forEach((label) => {
+	      labels.forEach(function(label){
 	        console.log(`- ${label.name}`);
 	      });
 	    } else {
