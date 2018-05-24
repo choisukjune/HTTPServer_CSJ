@@ -15,8 +15,8 @@ global.ROUTER.api.Member.member_session.session_check = function( req, res ){
 		r.auth( global.REDIS.CONFIG.pass );
 		// global.CSJLog.timeStamp( "Session - ", _p.sid);
 		r.get(_p.sid, function(err, data){
-			console.log( _p.sid )
-			console.log( data )
+			// console.log( _p.sid )
+			// console.log( data )
 			//global.CSJLog.timeStamp( "Session__data - ", JSON.stringify( data ));
 			global.api.Response.res_200_ok_String( req, res, JSON.stringify( data ))
 		});
