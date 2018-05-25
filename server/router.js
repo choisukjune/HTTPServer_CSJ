@@ -259,7 +259,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
 			// resource.on('close',	function(){	console.log( "---------- close ----------" ); });
-			resource.on('end', function(){ console.log( "---------- end ----------" ); res.end(); });
+			resource.on('end', function(){ res.end(); });
 
 			res.writeHeader(200, { "Content-Type": global.ROUTER.CONST.CONTENTTYPES[ extension ]})
 			resource.pipe(res);
