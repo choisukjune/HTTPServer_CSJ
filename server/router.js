@@ -277,6 +277,12 @@ global.ROUTER.routerControl	= function(req,res)	{
 			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
 		}
 
+		if( _tmp0.indexOf("temp") !== -1)
+		{
+			var path = check_resource_res( _tmp0, "libs" );
+			var resource_dir = global.ROOTPath + "/public/mapchart/";
+		}
+
 		if( req.url == "/favicon.ico") var resource_dir = global.ROOTPath + req.url;
 
 		if( global.ROUTER.CONST.CONTENTTYPES[ extension ] )
