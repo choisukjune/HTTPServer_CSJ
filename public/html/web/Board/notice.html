@@ -1,8 +1,8 @@
 <include>_header_info.html</include>
-<include>navi.html</include>	
+<include>navi.html</include>
 <include>header.html</include>
 
-<link rel='stylesheet' type="text/css" href='/css/notice.css'>								
+<link rel='stylesheet' type="text/css" href='/css/notice.css'>
 <!-- contents -->
 <div class="ui grid">
 	<div class="sixteen wide column" id="project_list_container" style="width: 100%;">
@@ -98,7 +98,7 @@
 											<!--label>Short Text</label-->
 											<textarea rows="2" id="doc_comment_textarea"></textarea>
 											</div>
-											<div class="field">	  
+											<div class="field">
 												<button class="ui button fluid" id="doc_comment_send_btn">send</button>
 											</div>
 										</div>
@@ -114,7 +114,7 @@
 </div>
 
 <!-- contents -->
-							
+
 <include>footer.html</include>
 
 <!--modal-->
@@ -205,7 +205,7 @@
 <!--modal-->
 <include>_footer_info.html</include>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 
 // secondary menu
 // $('.secondary.menu .ui.sidebar')
@@ -219,7 +219,7 @@ window.service.domStorage = {};
 //editor 라이브러리 로드;
 var sNew = document.createElement("script");
 sNew.async = true;
-sNew.src = "libs/ckeditor/ckeditor.js";
+sNew.src = "/libs/ckeditor/ckeditor.js";
 var s0 = document.getElementsByTagName('script')[0];
 s0.parentNode.insertBefore(sNew, s0);
 //editor 라이브러리 로드;
@@ -290,7 +290,7 @@ file_upload.upload_end_cbFuntion = function( d ){
 
 
 /**
- * 
+ *
 */
 var send_file = function( d ){
 
@@ -300,14 +300,14 @@ var send_file = function( d ){
 	var fileExtend = _tmp[ _tmp.length - 1 ].toLowerCase();
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&content=" + document.getElementById( "doc_file_textarea" ).value 
+			+ "&content=" + document.getElementById( "doc_file_textarea" ).value
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd
 			+ "&cd$doc=" + current_view_doc__data.cd
 			+ "&filePath=" + d.ws.path
 			+ "&fileNm=" + d.fileNm
 			+ "&fileExtend=" + fileExtend
-			
+
 
 	window.service.Request.req_POST_data__Callback(url,encodeURIComponent( data ),function( result ){
 		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
@@ -321,24 +321,24 @@ var send_file = function( d ){
 		sendObj.data = result
 
 		current_note_chat__data[ current_view_doc__data.cd ].data.push( JSON.parse( result ) );
-		
+
 		connection.send( JSON.stringify( sendObj ) );
 
 		document.getElementById("doc_file_upload_input").value = "";
 		document.getElementById("doc_file_textarea").value = "";
 		window.service.element.removeChild_all( document.getElementById("upload_files") );
-		
+
 		$('#doc_chat_file_add_modal').modal('hide');
 	})
 }
 
 
 /**
- * 
+ *
 */
 var download_added_doc_file = function( fileNm, filePath, fileExtend ){
 
-	var url = "/api/File/common/download_file_stream?sid=" + window.service.cookie.getCookie('session') 
+	var url = "/api/File/common/download_file_stream?sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
 			+ "&filePath=" + filePath
 			+ "&fileExtend=" + fileExtend
@@ -352,11 +352,11 @@ var download_added_doc_file = function( fileNm, filePath, fileExtend ){
 */
 var render_chat_data = function( arr, cbFunction ){
 	var _el = document.getElementById("doc_comment_container");
-	
+
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "render_chat_data.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
-		
+
 		var _template = result;
 
 		var i = 0,iLen = arr.length,io;
@@ -390,16 +390,16 @@ var render_chat_data = function( arr, cbFunction ){
 			{
 				var fileHtmlSource = "";
 			}
-			
-			
+
+
 			var html_include_data = _template.replace( "{{image_url}}", io.member.image )
 			.replace( "{{author}}", io.member.nm )
 			.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) )
 			.replace( "{{content}}", broadcast_msg )
 			.replace( "{{file}}", fileHtmlSource );
-			
+
 			/*
-			'beforebegin' element 앞에 
+			'beforebegin' element 앞에
 			'afterbegin'element 안에 가장 첫번째 child
 			'beforeend' element 안에 가장 마지막 child
 			'afterend' element 뒤에
@@ -417,7 +417,7 @@ var render_chat_data = function( arr, cbFunction ){
 */
 var chat_board_get_list = function(){
 
-	var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session') 
+	var url = "/api/Chat/board/get_list?sid=" + window.service.cookie.getCookie('session')
 			+ "&cd$doc=" + current_view_doc__data.cd
 			+ "&limit=" + current_note_chat__data[ current_view_doc__data.cd ].limit
 			+ "&skip=" + current_note_chat__data[ current_view_doc__data.cd ].skip;
@@ -426,9 +426,9 @@ var chat_board_get_list = function(){
 		if(result == 0) window.service.session.remove_deleteCookies_location_login()
 
 		var data = JSON.parse( result );
-		
+
 		render_chat_data( data, function(){
-			
+
 			var objDiv = document.getElementById("doc_comment_wrap")
 			var cur_objDiv_scrollHeight = objDiv.scrollHeight - pre_objDiv_scrollHeight;
 
@@ -445,7 +445,7 @@ var chat_board_get_list = function(){
 }
 
 /**
- * 
+ *
 */
 var write_chat = function(){
 
@@ -453,7 +453,7 @@ var write_chat = function(){
 
 	var data = "sid=" + window.service.cookie.getCookie('session')
 			+ "&mid=" + window.service.cookie.getCookie('mid')
-			+ "&content=" + document.getElementById( "doc_comment_textarea" ).value 
+			+ "&content=" + document.getElementById( "doc_comment_textarea" ).value
 			+ "&cd$project=" + current_project__data.cd
 			+ "&cd$notebook=" + current_notebook__data.cd
 			+ "&cd$doc=" + current_view_doc__data.cd
@@ -471,7 +471,7 @@ var write_chat = function(){
 		sendObj.destination = "chat"
 		sendObj.doc_cd = current_view_doc__data.cd
 		sendObj.data = result
-		
+
 		current_note_chat__data[ current_view_doc__data.cd ].data.push( JSON.parse( result ) );
 
 		connection.send( JSON.stringify( sendObj ) );
@@ -493,7 +493,7 @@ var btn_control = function( o ){
 }
 
 /**
- * 
+ *
  */
 var project_sub_nav_sidebar_open = function(){
 	$('#project_side_bar')
@@ -505,7 +505,7 @@ var project_sub_nav_sidebar_open = function(){
 }
 
 /**
- * 
+ *
  */
 
 var file_side_bar_open = function(){
@@ -518,7 +518,7 @@ var file_side_bar_open = function(){
 }
 
 /**
- * 
+ *
  */
  var project_sub_nav_sidebar_hide = function(){
 	$('#project_side_bar')
@@ -530,7 +530,7 @@ var file_side_bar_open = function(){
 }
 
 /**
- * 
+ *
 */
 var notebook_modify = function( d ){
 	$('#notebook_add_modal').modal('show');
@@ -547,13 +547,13 @@ var notebook_modify = function( d ){
 		_uo.nm = document.getElementById("modal_notebook_nm").value;
 		_uo.description = document.getElementById("modal_notebook_desc").value;
 		console.log( _uo )
-		
+
 		update_notebook( _uo );
 	})
 }
 
 /**
- * 
+ *
 */
 var project_modify = function( d ){
 	$('#project_add_modal').modal('show');
@@ -572,7 +572,7 @@ var project_modify = function( d ){
  * 프로젝트 리스트를 그린다.
 */
 var make_project_list = function(){
-	
+
 	_el_btn__project_add_write.removeEventListener("click",write_project);
 
 	document.getElementById("app").style.display = "none";
@@ -586,9 +586,9 @@ var make_project_list = function(){
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_project_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
-		
+
 		var _template = result;
-		
+
 		var url = "/api/Category/project/get_list?sid=" + window.service.cookie.getCookie('session');
 		window.service.Request.req_GET_data__Callback(url,function(result){
 			if(result == 0) return window.service.session.remove_deleteCookies_location_login();
@@ -608,7 +608,7 @@ var make_project_list = function(){
 			for(;i<iLen; ++i)
 			{
 				io = data[ i ];
-				
+
 				var html_include_data = _template.replace( "{{nm}}", io.nm )
 				.replace( "{{description}}", io.description )
 				.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) );
@@ -629,13 +629,13 @@ var make_notebook_list = function( cd$project ){
 	_el_btn__notebook_add_write.removeEventListener("click",write_notebook);
 
 	var _t0 = document.getElementById("notebook_list")
-	
+
 	if( _t0.firstChild ) while( _t0.firstChild ) _t0.removeChild( _t0.firstChild );
 
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_notebook_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
-		
+
 		var _template = result;
 
 		var url = "/api/Category/notebook/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$project=" + cd$project;
@@ -659,7 +659,7 @@ var make_notebook_list = function( cd$project ){
 			var header_h = document.getElementById("headerContainer").scrollHeight;
 			var footer_h = document.getElementById("footer").scrollHeight;
 			var notebook_add_h = document.getElementById("notebook_add_container").scrollHeight;
-			
+
 			document.getElementById("notebook_list").style.height = _h - notebook_add_h - header_h - footer_h;
 			//----- 리스트높이 자동조절;
 
@@ -669,7 +669,7 @@ var make_notebook_list = function( cd$project ){
 			for(;i<iLen; ++i)
 			{
 				io = data[ i ];
-				
+
 				var html_include_data = _template.replace( "{{nm}}", io.nm )
 				.replace( "{{description}}", io.description )
 				.replace( "{{regist_date}}", window.service.date.make_Array_dateFormat( io.regist_date ) );
@@ -685,7 +685,7 @@ var make_notebook_list = function( cd$project ){
 		})
 	})
 
-	
+
 }
 
 /**
@@ -698,7 +698,7 @@ var req_detail_by__id = function( _id ){
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "req_detail_by__id.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
-		
+
 		var _template = result;
 
 		window.service.Request.req_GET_data__Callback(url,function(result){
@@ -729,9 +729,9 @@ var req_detail_by__id = function( _id ){
 
 			document.getElementById("doc_comment_wrap").setAttribute("style","background-color : #fff;;min-height : 630px;max-height : 630px; height:630px;overflow-y : auto;")
 			pre_objDiv_scrollHeight = 0
-			
+
 			window.service.element.removeChild_all( _el_div__doc_comment_container );
-			
+
 			chat_board_get_list();
 			//button 이벤트 연결;
 			document.getElementById("modify").removeEventListener( "click",update_doc )
@@ -762,7 +762,7 @@ document.getElementById("doc_file_sidebar_container").style.height = _h - note_a
 var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "doc_file_sidebar_list.thtml"
 window.service.Request.req_GET_data__Callback(url1,function(result){
 	if(result == 0) return window.service.session.remove_deleteCookies_location_login();
-	
+
 	var _template = result;
 
 	var url = "/api/File/board/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$doc=" + cd$doc;
@@ -814,7 +814,7 @@ var make_sub_list = function( cd$notebook ){
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "make_sub_list.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
 		if(result == 0) return window.service.session.remove_deleteCookies_location_login();
-		
+
 		var _template = result;
 
 		var url = "/api/Board/notice/get_list?sid=" + window.service.cookie.getCookie('session') + "&cd$notebook=" + cd$notebook;
@@ -979,7 +979,7 @@ var update_doc = function( data ){
 }
 
 /**
- * 
+ *
 */
 
 var update_project = function( d ){
@@ -1003,7 +1003,7 @@ var update_project = function( d ){
 }
 
 /**
- * 
+ *
 */
 
 var update_notebook = function( d ){
@@ -1096,7 +1096,7 @@ var modify_doc = function(){
 
 		console.log( result );
 		console.log( "--삭제완료--" )
-		
+
 		make_project_list()
 	})
 }
@@ -1137,7 +1137,7 @@ var delete_doc = function( doc_id ){
 
 		make_sub_list( current_notebook__data.cd );
 		if( document.getElementById("view_document") ) document.getElementById("view_container").removeChild(document.getElementById("view_document"));
-	
+
 		//----------;
 		var btn_control_obj = {add : "block"}
 		btn_control( btn_control_obj );
@@ -1148,11 +1148,11 @@ var delete_doc = function( doc_id ){
 		$('#app .ui.sidebar').sidebar('is visible');
 		$('#app .ui.sidebar').sidebar('is hidden');
 		*/
-		
+
 		if( $('#app .ui.sidebar').sidebar('is hidden') ) project_sub_nav_sidebar_open();
 
 		document.getElementById("note_add").addEventListener("click", add_doc );
-	
+
 	})
 }
 
@@ -1165,7 +1165,7 @@ var add_doc = function(){
 	$('#app .ui.sidebar').sidebar({context:$('#app')}).sidebar('setting', 'transition', 'push').sidebar('setting', 'dimPage', false).sidebar('hide')
 
 	if( document.getElementById( "view_document" ) ) document.getElementById( "view_document" ).setAttribute("style","display : none;");
-	
+
 	//thtml을 호출한다.
 	var url1 = "/api/Render/thtml/include_thtml?sid=" + window.service.cookie.getCookie('session') + "&fileNm=" + "add_doc.thtml"
 	window.service.Request.req_GET_data__Callback(url1,function(result){
@@ -1230,13 +1230,13 @@ document.getElementById("doc_comment_container").addEventListener("click",functi
 				var _to = current_note_chat__data[ current_view_doc__data.cd ].data;
 				var data_len = _to.length -1;
 				var data_index = data_len - i;
-				
+
 				console.log( "comment_file_download_btn" )
 				console.log( _to[ data_index ].fileNm )
 				console.log( _to[ data_index ].filePath )
-				download_added_doc_file( _to[ data_index ].fileNm, _to[ data_index ].filePath, _to[ data_index ].fileExtend );			
+				download_added_doc_file( _to[ data_index ].fileNm, _to[ data_index ].filePath, _to[ data_index ].fileExtend );
 				return;
-			}	
+			}
 		}
 	}
 })
@@ -1264,7 +1264,7 @@ _el_div__notebook_list.addEventListener("click",function(e){
 				document.getElementById("project_list_container").style.display ="none";
 				document.getElementById("app").style.display = "block";
 				make_notebook_list( current_project__data.cd );
-				
+
 				return;
 			}
 			else if( window.service.element.match_el(e.target,"notebook_list_modify_btn","notebook_list_item").id == "notebook_list_modify_btn")
@@ -1272,7 +1272,7 @@ _el_div__notebook_list.addEventListener("click",function(e){
 				console.log('notebook_list_modify_btn')
 				notebook_modify( notebook_list_data[ i ] )
 				return;
-			}		
+			}
 			else
 			{
 				current_notebook__data = notebook_list_data[ i ]
@@ -1294,7 +1294,7 @@ _el_div__notebook_list.addEventListener("click",function(e){
 						}
 					}
 				}
-				
+
 				project_sub_nav_sidebar_hide();
 				//make_brcm_2();
 			}
@@ -1312,7 +1312,7 @@ _el_btn__project_update_btn.addEventListener("click",function(){
 	_uo.nm = document.getElementById("modal_project_nm").value;
 	_uo.description = document.getElementById("modal_project_desc").value;
 	console.log( _uo )
-	
+
 	update_project( _uo );
 })
 
@@ -1356,7 +1356,7 @@ _el_btn__doc_chat_file_add_btn.addEventListener("click", function(){
 
 
 _el_div__doc_file_sidebar_list.addEventListener("click",function(e){
-	
+
 	var pe = e.currentTarget.children
 	var te = window.service.element.match_el( e.target, "doc_file_item", "doc_file_sidebar_container" )
 
@@ -1371,10 +1371,10 @@ _el_div__doc_file_sidebar_list.addEventListener("click",function(e){
 				console.log( i )
 				console.log('file_list_file_dowload')
 				console.log( current_doc_file__data[ i ].filePath )
-	
+
 				var _to = current_doc_file__data[ i ]
 				download_added_doc_file( _to.fileNm, _to.filePath, _to.fileExtend )
-	
+
 				return;
 			}
 		}
@@ -1407,7 +1407,7 @@ _el_div__project_list.addEventListener("click",function(e){
 				project_modify( project_list_data[ i ] )
 
 				return;
-			}	
+			}
 			else
 			{
 			console.log( i )
