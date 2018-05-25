@@ -271,19 +271,19 @@ global.ROUTER.routerControl	= function(req,res)	{
 	{
 		if(	'GET' == req.method	)
 		{
-			global.CSJLog.timeStamp( "METHOD / " + req.method );
-			global.CSJLog.timeStamp( "Path / " + pathname);
-			global.CSJLog.timeStamp("IP	/ "	+ req.connection.remoteAddress + " | PORT /	" +	req.connection.remotePort);
-			global.CSJLog.timeStamp("IP	/ "	+ req.connection.localAddress +	" |	PORT / " + req.connection.localPort);
+			global.CSJLog.timeStamp( "METHOD : " + req.method );
+			global.CSJLog.timeStamp( "Path : " + pathname );
+			global.CSJLog.timeStamp("IP : "	+ req.connection.remoteAddress + " | PORT : " +	req.connection.remotePort);
+			global.CSJLog.timeStamp("IP : "	+ req.connection.localAddress +	" |	PORT : " + req.connection.localPort);
 
 			global.ROUTER.INFO[	pathname ](	req, res, encodeURIComponent( req.url ) )
 		}
 		else
 		{
-			global.CSJLog.timeStamp( "METHOD / " + req.method );
-			global.CSJLog.timeStamp( "Path / " + pathname);
-			global.CSJLog.timeStamp("IP	/ "	+ req.connection.remoteAddress + " | PORT /	" +	req.connection.remotePort);
-			global.CSJLog.timeStamp("IP	/ "	+ req.connection.localAddress +	" |	PORT / " + req.connection.localPort);
+			global.CSJLog.timeStamp( "METHOD : " + req.method );
+			global.CSJLog.timeStamp( "Path : " + pathname );
+			global.CSJLog.timeStamp("IP : "	+ req.connection.remoteAddress + " | PORT : " +	req.connection.remotePort);
+			global.CSJLog.timeStamp("IP : "	+ req.connection.localAddress +	" |	PORT : " + req.connection.localPort);
 
 			global.ROUTER.INFO[	pathname ](	req, res )
 		}
