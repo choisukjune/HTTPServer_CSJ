@@ -11,7 +11,7 @@ global.ROUTER.api.File.common.readdir = function( req, res, d ){
 	var q = global.REQUIRES.querystring.parse( _q );
 
 	var _tmp = global.REQUIRES.fs.readdirSync( global.ROUTER.api.File.PATH.CONFIG[ q.path ] )
-	console.log( _tmp )
+	global.CSJLog.timeStamp( "Files : " + JSON.stringify( _tmp ) )
 	global.api.Response.res_200_ok_String( req, res, JSON.stringify( _tmp )
 
 )}
