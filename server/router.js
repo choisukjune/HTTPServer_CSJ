@@ -86,6 +86,7 @@ global.ROUTER.CONST.CONTENTTYPES = {
 	'tif': 'image/tiff',
 	'tiff': 'image/tiff',
 	'txt': 'text/plain',
+	'tsv' : 'text/tab-separated-values',
 	'wav': 'audio/x-wav',
 	'webm': 'video/webm',
 	'webp': 'image/webp',
