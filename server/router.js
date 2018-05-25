@@ -281,6 +281,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 		{
 			var path = check_resource_res( _tmp0, "libs" );
 			var resource_dir = global.ROOTPath + "/public/libs/mapchart";
+			console.log( resource_dir )
 		}
 
 		if( req.url == "/favicon.ico") var resource_dir = global.ROOTPath + req.url;
