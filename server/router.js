@@ -246,39 +246,39 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 		if( extension.indexOf("?") != -1 ) extension = extension.split("?")[0];
 
-		var resource_dir = global.ROOTPath + "/public"
-		console.log( "=========>" + global.ROOTPath + "/public/" + pathname );
-		var _tmp0 = req.url.split("/");
-
-		var check_resource_res = function(arr, str){
-			var path = "";
-			var chk = 0;
-			for(var i = 0;i < arr.length;++i){
-				if( arr[i] == str) chk = 1;
-				if( chk == 1 ) path = path + "/" + arr[ i ];
-			}
-
-			return path;
-		}
-
-		if( _tmp0.indexOf("css") !== -1)
-		{
-			var path = check_resource_res( _tmp0, "css" );
-			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
-		}
-
-		if( _tmp0.indexOf("js") !== -1)
-		{
-			var path = check_resource_res( _tmp0, "js" );
-			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
-		}
-
-		if( _tmp0.indexOf("libs") !== -1)
-		{
-			var path = check_resource_res( _tmp0, "libs" );
-			console.log( _tmp0 )
-			var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
-		}
+		var resource_dir = global.ROOTPath + "/public" + pathnam
+		console.log( "=========>" + global.ROOTPath + "/public" + pathname );
+		// var _tmp0 = req.url.split("/");
+		//
+		// var check_resource_res = function(arr, str){
+		// 	var path = "";
+		// 	var chk = 0;
+		// 	for(var i = 0;i < arr.length;++i){
+		// 		if( arr[i] == str) chk = 1;
+		// 		if( chk == 1 ) path = path + "/" + arr[ i ];
+		// 	}
+		//
+		// 	return path;
+		// }
+		//
+		// if( _tmp0.indexOf("css") !== -1)
+		// {
+		// 	var path = check_resource_res( _tmp0, "css" );
+		// 	var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
+		// }
+		//
+		// if( _tmp0.indexOf("js") !== -1)
+		// {
+		// 	var path = check_resource_res( _tmp0, "js" );
+		// 	var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
+		// }
+		//
+		// if( _tmp0.indexOf("libs") !== -1)
+		// {
+		// 	var path = check_resource_res( _tmp0, "libs" );
+		// 	console.log( _tmp0 )
+		// 	var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
+		// }
 
 		if( _tmp0.indexOf("temp") !== -1)
 		{
