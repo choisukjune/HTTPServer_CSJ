@@ -8,6 +8,6 @@ global.api.DB_console.console_excute_command_js = function( dbjs, _cbFunction ){
 	var _tmp = _exec.stdout.toString('utf8')//.split("\n")
 	var r = _tmp//.slice(3, _tmp.length - 2).join("").replace(/\t/g, "").replace(/ : /g, ":")
 
-	global.CSJLog.timeStamp("Done")
+	global.CSJLog.timeStamp( "Result : OK")
 	_cbFunction( r );
 };
