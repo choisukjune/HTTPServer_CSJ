@@ -118,8 +118,8 @@ var path = d3.geoPath().projection(projection);
 svg.call(tip);
 
 queue()
-    .defer(d3.json, "world_countries.json")
-    .defer(d3.tsv, "world_population.tsv")
+    .defer(d3.json, "/libs/mapchart/world_countries.json")
+    .defer(d3.tsv, "/libs/mapchart/world_population.tsv")
     .await(ready);
 
 function ready(error, data, population) {
