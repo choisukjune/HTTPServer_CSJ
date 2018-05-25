@@ -5,7 +5,7 @@ global.ROUTER.api.Request.common.request = function( req, res, d, pathname ){
 	var _q = JSON.parse( data.data )
 
 
-    global.CSJLog.timeStamp( "_q : " + JSON.stringify( data,null,4 ) );
+    global.CSJLog.timeStamp( "query data : " + JSON.stringify( data ) );
 
 
 	var options = {
@@ -22,7 +22,7 @@ global.ROUTER.api.Request.common.request = function( req, res, d, pathname ){
 		//   b : "b"
 		// }
 	};
-	console.log( options )
+	global.CSJLog.timeStamp( "request option : " + JSON.stringify( options ) );
 	global.api.Request.request__GET( options, _q.characterSet ,function( responseText ){
 	global.api.Response.res_200_ok_String( req, res, responseText )
 	});
