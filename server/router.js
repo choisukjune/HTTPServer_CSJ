@@ -235,15 +235,12 @@ global.ROUTER.Initialize_router	= function(	param ){
 
 global.ROUTER.routerControl	= function(req,res)	{
 
-	var url_parse = global.REQUIRES.url.parse( req.url )
-
-	var	pathname = url_parse.pathname;
-	var req_uri = url_parse.protocol + "//" + url_parse.protocol + pathname
+	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
 	var	tmp = req.url.lastIndexOf(".");
 	var	extension  = req.url.substring((tmp	+ 1));
 
 	if( req.url == "/robots.txt") return;
-	if( !global.ROUTER.INFO[ req_uri ])
+	if( req.url.indexOf("/api/") == -1)
 	{
 
 		if( extension.indexOf("?") != -1 ) extension = extension.split("?")[0];
