@@ -247,6 +247,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 		if( extension.indexOf("?") != -1 ) extension = extension.split("?")[0];
 
 		var resource_dir = global.ROOTPath + "/public"
+		console.log( "=========>" + global.ROOTPath + "/public/" + pathname );
 		var _tmp0 = req.url.split("/");
 
 		var check_resource_res = function(arr, str){
