@@ -6,6 +6,6 @@
  */
 global.api.Mail.send_mail = function(){
 
-console.log("api=run")
+//console.log("api=run")
 
 }
