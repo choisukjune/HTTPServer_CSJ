@@ -281,7 +281,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 		{
 			var path = check_resource_res( _tmp0, "libs" );
 			console.log( path )
-			var resource_dir = global.ROOTPath + "/public/libs/mapchart/";
+			var resource_dir = global.ROOTPath + "/public/libs/mapchart/" + _tmp0[ _tmp0.length - 1];
 			console.log( resource_dir )
 		}
 
