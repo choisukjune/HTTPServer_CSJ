@@ -237,54 +237,16 @@ global.ROUTER.Initialize_router	= function(	param ){
 global.ROUTER.routerControl	= function(req,res)	{
 
 	var	pathname = global.REQUIRES.url.parse(req.url).pathname;
-	var	tmp = req.url.lastIndexOf(".");
-	var	extension  = req.url.substring((tmp	+ 1));
+	var	extension  = req.url.substring( req.url.lastIndexOf(".") + 1 );
 
 	if( req.url == "/robots.txt") return;
-	if( req.url.indexOf("/api/") == -1)
+	console.log( req.url )
+	if( !global.ROUTER.INFO.hasOwnProperty( pathname ) )
 	{
 
 		if( extension.indexOf("?") != -1 ) extension = extension.split("?")[0];
 
 		var resource_dir = global.ROOTPath + "/public" + pathname
-		console.log( "=========>" + global.ROOTPath + "/public" + pathname );
-		// var _tmp0 = req.url.split("/");
-		//
-		// var check_resource_res = function(arr, str){
-		// 	var path = "";
-		// 	var chk = 0;
-		// 	for(var i = 0;i < arr.length;++i){
-		// 		if( arr[i] == str) chk = 1;
-		// 		if( chk == 1 ) path = path + "/" + arr[ i ];
-		// 	}
-		//
-		// 	return path;
-		// }
-		//
-		// if( _tmp0.indexOf("css") !== -1)
-		// {
-		// 	var path = check_resource_res( _tmp0, "css" );
-		// 	var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
-		// }
-		//
-		// if( _tmp0.indexOf("js") !== -1)
-		// {
-		// 	var path = check_resource_res( _tmp0, "js" );
-		// 	var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
-		// }
-		//
-		// if( _tmp0.indexOf("libs") !== -1)
-		// {
-		// 	var path = check_resource_res( _tmp0, "libs" );
-		// 	console.log( _tmp0 )
-		// 	var resource_dir = global.ROOTPath + "/public/" + path.split("?")[0];
-		// }
-
-		// if( _tmp0.indexOf("temp") !== -1)
-		// {
-		// 	var resource_dir = global.ROOTPath + "/public/libs/mapchart/" + _tmp0[ _tmp0.length - 1];
-		// 	console.log( resource_dir )
-		// }
 
 		if( req.url == "/favicon.ico") var resource_dir = global.ROOTPath + req.url;
 
