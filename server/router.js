@@ -240,7 +240,9 @@ global.ROUTER.routerControl	= function(req,res)	{
 	var	extension  = req.url.substring( req.url.lastIndexOf(".") + 1 );
 
 	if( req.url == "/robots.txt") return;
-	console.log( req.url )
+
+	global.CSJLog.timeStamp( "Request URL : " +  req.url )
+
 	if( !global.ROUTER.INFO.hasOwnProperty( pathname ) )
 	{
 
@@ -248,7 +250,7 @@ global.ROUTER.routerControl	= function(req,res)	{
 
 		var resource_dir = global.ROOTPath + "/public" + pathname
 
-		if( req.url == "/favicon.ico") var resource_dir = global.ROOTPath + req.url;
+		if( req.url == "/favicon.ico") resource_dir = global.ROOTPath + req.url;
 
 		if( global.ROUTER.CONST.CONTENTTYPES[ extension ] )
 		{
@@ -256,30 +258,13 @@ global.ROUTER.routerControl	= function(req,res)	{
 			var	resource = global.REQUIRES.fs.createReadStream(	resource_dir );
 
 			// resource.on('finish', function(){ console.log( "---------- finish ----------" ) });
-			resource.on('end', function(){
-				//console.log( "---------- end ----------" );
-				res.end();
-			});
 			// resource.on('close',	function(){	console.log( "---------- close ----------" ); });
+			resource.on('end', function(){ console.log( "---------- end ----------" ); res.end(); });
 
-			res.writeHeader(200, {"Content-Type": global.ROUTER.CONST.CONTENTTYPES[ extension ]})
-
-			// set content type
-			// if (extension === 'html') res.writeHeader(200, {"Content-Type":	'text/html'});
-			// else if	(extension === 'htm') res.writeHeader(200, {"Content-Type":	'text/html'});
-			// else if	(extension === 'css') res.writeHeader(200, {"Content-Type":	'text/css'});
-			// else if	(extension === 'js') res.writeHeader(200, {"Content-Type": 'text/javascript'});
-			// else if	(extension === 'png') res.writeHeader(200, {"Content-Type":	'image/png'});
-			// else if	(extension === 'jpg') res.writeHeader(200, {"Content-Type":	'image/jpg'});
-			// else if	(extension === 'woff') res.writeHeader(200,	{"Content-Type": 'application/font-woff'});
-			// else if	(extension === 'woff2')	res.writeHeader(200, {"Content-Type": 'application/font-woff2'});
-			// else if	(extension === 'ttf') res.writeHeader(200, {"Content-Type":	'application/x-font-ttf'});
-			// else if	(extension === 'jpeg') res.writeHeader(200,	{"Content-Type": 'image/jpeg'});
-
+			res.writeHeader(200, { "Content-Type": global.ROUTER.CONST.CONTENTTYPES[ extension ]})
 			resource.pipe(res);
 			return;
 		}
-
 	}
 
 	if ( global.ROUTER.INFO.hasOwnProperty(	pathname ) )
