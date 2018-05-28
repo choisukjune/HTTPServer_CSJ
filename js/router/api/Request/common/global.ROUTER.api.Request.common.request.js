@@ -3,10 +3,7 @@ global.ROUTER.api.Request.common.request = function( req, res, d, pathname ){
 	var data = global.REQUIRES.querystring.parse( decodeURIComponent_Data )
 
 	var _q = JSON.parse( data.data )
-
-
     global.CSJLog.timeStamp( "query data : " + JSON.stringify( data ) );
-
 
 	var options = {
 		hostname: _q.host
@@ -22,8 +19,10 @@ global.ROUTER.api.Request.common.request = function( req, res, d, pathname ){
 		//   b : "b"
 		// }
 	};
+
 	global.CSJLog.timeStamp( "request option : " + JSON.stringify( options ) );
+
 	global.api.Request.request__GET( options, _q.characterSet ,function( responseText ){
-	global.api.Response.res_200_ok_String( req, res, responseText )
+		global.api.Response.res_200_ok_String( req, res, responseText )
 	});
 };
