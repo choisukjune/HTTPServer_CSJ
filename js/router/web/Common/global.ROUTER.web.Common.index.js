@@ -76,7 +76,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	 * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
 	 */
 	function listFiles(auth) {
-	  const drive = google.drive({version: 'v3', auth});
+	  var drive = google.google.drive({version: 'v3', auth});
 	  drive.files.list({
 	    pageSize: 10,
 	    fields: 'nextPageToken, files(id, name)',
