@@ -5,100 +5,41 @@ global.ROUTER.web.Common.index = function( req,res ){
 
 	var fs = require('fs');
 	var readline = require('readline');
-	var google = require('googleapis');
+	var googleapis = require('googleapis');
 
-	// If modifying these scopes, delete credentials.json.
-	var SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
-	var TOKEN_PATH = '/home/ubuntu/github/httpServer_csj/credentials.json';
 
-	// Load client secrets from a local file.
-	fs.readFile(TOKEN_PATH, function(err, content){
-	  if (err) return console.log('Error loading client secret file:', err);
-	  // Authorize a client with credentials, then call the Google Drive API.
-	  console.log( content )
-	  authorize(JSON.parse(content), listFiles);
+	  var client_secret = "o14DXv3LB8lW1ekIrJFeXnng";
+	  var client_id = "71338733897-md79pjard2r1gmraimvorc7mpqunqt9d.apps.googleusercontent.com";
+	  var redirect_uris = 'http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/oauth2callback';
+
+	var rl = readline.createInterface({
+	  input: process.stdin,
+	  output: process.stdout
 	});
 
-	/**
-	 * Create an OAuth2 client with the given credentials, and then execute the
-	 * given callback function.
-	 * @param {Object} credentials The authorization client credentials.
-	 * @param {function} callback The callback to call with the authorized client.
-	 */
-	function authorize(credentials, callback) {
-		console.log( credentials )
-	  var client_secret = credentials.web.client_secret;
-	  var client_id = credentials.web.client_id;
-	  var redirect_uris = credentials.web.redirect_uris;
-	  var oAuth2Client = new google.google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
+	var auth = new googleapis.OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
 
-	  // Check if we have previously stored a token.
-	  fs.readFile(TOKEN_PATH, function(err, token){
-	    if (err) return getAccessToken(oAuth2Client, callback);
-		console.log( JSON.parse(token) )
-	    oAuth2Client.setCredentials(token);
-	    callback(oAuth2Client);
-	  });
-	}
-
-	/**
-	 * Get and store new token after prompting for user authorization, and then
-	 * execute the given callback with the authorized OAuth2 client.
-	 * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
-	 * @param {getEventsCallback} callback The callback for the authorized client.
-	 */
-	function getAccessToken(oAuth2Client, callback) {
-	  const authUrl = oAuth2Client.generateAuthUrl({
-	    access_type: 'offline',
-	    scope: SCOPES,
-	  });
-	  console.log('Authorize this app by visiting this url:', authUrl);
-	  var rl = readline.createInterface({
-	    input: process.stdin,
-	    output: process.stdout,
-	  });
-	  rl.question('Enter the code from that page here: ', function(code){
-	    rl.close();
-	    oAuth2Client.getToken(code, function(err, token){
-	      if (err) return callback(err);
-	      oAuth2Client.setCredentials(token);
-	      // Store the token to disk for later program executions
-	      fs.writeFile(TOKEN_PATH, JSON.stringify(token), function(err){
-	        if (err) console.error(err);
-	        console.log('Token stored to', TOKEN_PATH);
-	      });
-	      callback(oAuth2Client);
+	googleapis.discover('drive', 'v2').execute(function(err, client) {
+	  var url = auth.generateAuthUrl({ scope: SCOPE });
+	  var getAccessToken = function(code) {
+	    auth.getToken(code, function(err, tokens) {
+	      if (err) {
+	        console.log('Error while trying to retrieve access token', err);
+	        return;
+	      }
+	      auth.credentials = tokens;
+	      upload();
 	    });
-	  });
-	}
-
-	/**
-	 * Lists the names and IDs of up to 10 files.
-	 * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
-	 */
-	function listFiles(auth) {
-		console.log( auth )
-	  var drive = google.google.drive({version: 'v3', auth});
-	  console.log( drive )
-	  drive.files.list({
-	    pageSize: 10,
-	    fields: 'nextPageToken, files(id, name)',
-	}, function(err, data){
-	    if (err){
-			console.log( data )
-			return console.log('The API returned an error: ' + err);
-		}
-	    var files = data.files;
-	    if (files.length) {
-	      console.log('Files:');
-	      files.map(function(file){
-	        console.log(`${file.name} (${file.id})`);
-	      });
-	    } else {
-	      console.log('No files found.');
-	    }
-	  });
-	}
+	  };
+	  var upload = function() {
+	    client.drive.files
+	      .insert({ title: 'My Document', mimeType: 'text/plain' })
+	      .withMedia('text/plain', 'Hello World!')
+	      .withAuthClient(auth).execute(console.log);
+	  };
+	  console.log('Visit the url: ', url);
+	  rl.question('Enter the code here:', getAccessToken);
+	});
 
 	global.api.HTML.render_html( req, res );
 
