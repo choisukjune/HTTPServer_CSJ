@@ -84,7 +84,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	    fields: 'nextPageToken, files(id, name)',
 	}, function(err, data){
 	    if (err){
-			getAccessToken(oAuth2Client, callback);
+			console.log( data )
 			return console.log('The API returned an error: ' + err);
 		}
 	    var files = data.files;
