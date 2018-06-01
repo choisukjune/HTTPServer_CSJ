@@ -36,7 +36,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	  fs.readFile(TOKEN_PATH, function(err, token){
 	    if (err) return getAccessToken(oAuth2Client, callback);
 		console.log( JSON.parse(token) )
-	    oAuth2Client.setCredentials(JSON.parse(token));
+	    oAuth2Client.setCredentials(token);
 	    callback(oAuth2Client);
 	  });
 	}
