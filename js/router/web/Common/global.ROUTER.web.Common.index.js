@@ -9,24 +9,14 @@ global.ROUTER.web.Common.index = function( req,res ){
 
 	// If modifying these scopes, delete credentials.json.
 	var SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
+	var TOKEN_PATH = 'credentials.json';
 
-	var clidential = {
-		"web":{
-			"client_id":"569461541815-9pqrabnuovhsa493fhp1v11nb9q53sl9.apps.googleusercontent.com"
-			,"project_id":"httpserver001-184805"
-			,"auth_uri":"https://accounts.google.com/o/oauth2/auth"
-			,"token_uri":"https://accounts.google.com/o/oauth2/token"
-			,"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"
-			,"client_secret":"24YPRuDtSWf2oo29PzRu7-8q"
-			,"redirect_uris":[
-				"http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888/auth2callback"
-			]
-			,"javascript_origins":["http://ec2-13-125-22-207.ap-northeast-2.compute.amazonaws.com:8888"]
-		}
-	}
-
-
-	authorize(JSON.parse(clidential), listFiles);
+	// Load client secrets from a local file.
+	fs.readFile('client_secret.json', function(err, content){
+	  if (err) return console.log('Error loading client secret file:', err);
+	  // Authorize a client with credentials, then call the Google Drive API.
+	  authorize(JSON.parse(content), listFiles);
+	});
 
 	/**
 	 * Create an OAuth2 client with the given credentials, and then execute the
