@@ -9,10 +9,10 @@ global.ROUTER.web.Common.index = function( req,res ){
 
 	// If modifying these scopes, delete credentials.json.
 	var SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
-	var TOKEN_PATH = 'credentials.json';
+	var TOKEN_PATH = '/js/google_clidentail/credentials.json';
 
 	// Load client secrets from a local file.
-	fs.readFile('client_secret.json', function(err, content){
+	fs.readFile(TOKEN_PATH, function(err, content){
 	  if (err) return console.log('Error loading client secret file:', err);
 	  // Authorize a client with credentials, then call the Google Drive API.
 	  authorize(JSON.parse(content), listFiles);
