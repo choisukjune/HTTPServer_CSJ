@@ -9,7 +9,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 
 	// If modifying these scopes, delete credentials.json.
 	var SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
-	var TOKEN_PATH = '/js/google_clidentail/credentials.json';
+	var TOKEN_PATH = 'credentials.json';
 
 	// Load client secrets from a local file.
 	fs.readFile(TOKEN_PATH, function(err, content){
