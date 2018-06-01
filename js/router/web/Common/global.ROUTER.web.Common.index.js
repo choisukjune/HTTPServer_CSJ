@@ -79,6 +79,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	function listFiles(auth) {
 		console.log( auth )
 	  var drive = google.google.drive({version: 'v3', auth});
+	  console.log( drive )
 	  drive.files.list({
 	    pageSize: 10,
 	    fields: 'nextPageToken, files(id, name)',
