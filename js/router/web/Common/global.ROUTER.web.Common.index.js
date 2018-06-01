@@ -35,9 +35,9 @@ global.ROUTER.web.Common.index = function( req,res ){
 	  // Check if we have previously stored a token.
 	  fs.readFile(TOKEN_PATH, function(err, token){
 	    if (err) return getAccessToken(oAuth2Client, callback);
-		console.log( token )
-	    oAuth2Client.setCredentials(JSON.parse(token));
-	    callback(oAuth2Client);
+		getAccessToken(oAuth2Client, callback);
+	    // oAuth2Client.setCredentials(JSON.parse(token));
+	    // callback(oAuth2Client);
 	  });
 	}
 
