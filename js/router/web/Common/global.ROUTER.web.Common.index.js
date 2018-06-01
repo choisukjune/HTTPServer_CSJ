@@ -15,6 +15,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	fs.readFile(TOKEN_PATH, function(err, content){
 	  if (err) return console.log('Error loading client secret file:', err);
 	  // Authorize a client with credentials, then call the Google Drive API.
+	  console.log( content )
 	  authorize(JSON.parse(content), listFiles);
 	});
 
@@ -25,6 +26,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	 * @param {function} callback The callback to call with the authorized client.
 	 */
 	function authorize(credentials, callback) {
+		console.log( credentials )
 	  var client_secret = credentials.installed.client_secret;
 	  var client_id = credentials.installed.client_id;
 	  var redirect_uris = credentials.installed.redirect_uris;
