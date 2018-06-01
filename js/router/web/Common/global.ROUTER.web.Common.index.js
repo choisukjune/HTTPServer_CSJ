@@ -27,9 +27,9 @@ global.ROUTER.web.Common.index = function( req,res ){
 	 */
 	function authorize(credentials, callback) {
 		console.log( credentials )
-	  var client_secret = credentials.installed.client_secret;
-	  var client_id = credentials.installed.client_id;
-	  var redirect_uris = credentials.installed.redirect_uris;
+	  var client_secret = credentials.web.client_secret;
+	  var client_id = credentials.web.client_id;
+	  var redirect_uris = credentials.web.redirect_uris;
 	  var oAuth2Client = new google.auth.OAuth2(
 	      client_id, client_secret, redirect_uris[0]);
 
