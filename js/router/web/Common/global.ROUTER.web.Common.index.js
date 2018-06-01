@@ -30,8 +30,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	  var client_secret = credentials.web.client_secret;
 	  var client_id = credentials.web.client_id;
 	  var redirect_uris = credentials.web.redirect_uris;
-	  var oAuth2Client = new google.auth.OAuth2(
-	      client_id, client_secret, redirect_uris[0]);
+	  var oAuth2Client = new google.oauth2_v2.Oauth2(client_id, client_secret, redirect_uris[0]);
 
 	  // Check if we have previously stored a token.
 	  fs.readFile(TOKEN_PATH, function(err, token){
