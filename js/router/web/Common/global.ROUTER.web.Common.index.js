@@ -17,7 +17,7 @@ global.ROUTER.web.Common.index = function( req,res ){
 	  output: process.stdout
 	});
 
-	var auth = new googleapis.OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL);
+	var auth = new googleapis.OAuth2Client(client_id, client_secret, redirect_uris);
 
 	googleapis.discover('drive', 'v2').execute(function(err, client) {
 	  var url = auth.generateAuthUrl({ scope: SCOPE });
