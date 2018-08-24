@@ -25,8 +25,8 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 			message = encodeURIComponent( "Your message is " + ob.refers.message.message )
 		}
 
-		global.CSJLog.log( "userChatID : " + JSON.stringify( ob ) )
-		global.CSJLog.log( "data : " + ob )
+		global.CSJLog.log( "userChatID : " + ob.refers.UserChat.id )
+		global.CSJLog.log( "data : " + JSON.stringify( ob ) )
 
 		var o = {
 		    host : global.ROUTER.api.webhook.channelio.CONFIG._channelio_host//o.host
@@ -54,7 +54,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		if( ob.entity.personType != "Bot" )
 		{
 			global.api.Request.request__POST_https(o,"utf8",function(d){
-				global.CSJLog.log( d )
+				global.CSJLog.log( "JANDI : " + d )
 
 
 				var o1 = {
