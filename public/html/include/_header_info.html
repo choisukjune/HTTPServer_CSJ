@@ -25,6 +25,49 @@
 <script src="/libs/alertify/dist/js/alertify.js"></script>
 <Script>
 
+window.channelPluginSettings = {
+  "pluginKey": "647defda-6a37-45eb-bbb9-ecf7322286c0"
+};
+(function() {
+  var w = window;
+  if (w.ChannelIO) {
+	return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+  }
+  var d = window.document;
+  var ch = function() {
+	ch.c(arguments);
+  };
+  ch.q = [];
+  ch.c = function(args) {
+	ch.q.push(args);
+  };
+  w.ChannelIO = ch;
+  function l() {
+	if (w.ChannelIOInitialized) {
+	  return;
+	}
+	w.ChannelIOInitialized = true;
+	var s = document.createElement('script');
+	s.type = 'text/javascript';
+	s.async = true;
+	s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+	s.charset = 'UTF-8';
+	var x = document.getElementsByTagName('script')[0];
+	x.parentNode.insertBefore(s, x);
+  }
+  debugger;
+  if (document.readyState === 'complete') {
+	l();
+  } else if (window.attachEvent) {
+	window.attachEvent('onload', l);
+  } else {
+	window.addEventListener('DOMContentLoaded', l, false);
+	window.addEventListener('load', l, false);
+  }
+})();
+
+
+
 var make_Array_dateFormat = function( arr ){
 	return arr[ 0 ] + "." + arr[ 1 ] + "."+ arr[ 2 ] + " "+ arr[ 3 ] + ":"+ arr[ 4 ] + ":"+ arr[ 5 ];
 }
@@ -149,44 +192,5 @@ if( window.service.cookie.getCookie('mid') ){
 	})
 }
 
-  window.channelPluginSettings = {
-    "pluginKey": "647defda-6a37-45eb-bbb9-ecf7322286c0"
-  };
-  (function() {
-    var w = window;
-    if (w.ChannelIO) {
-      return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
-    }
-    var d = window.document;
-    var ch = function() {
-      ch.c(arguments);
-    };
-    ch.q = [];
-    ch.c = function(args) {
-      ch.q.push(args);
-    };
-    w.ChannelIO = ch;
-    function l() {
-      if (w.ChannelIOInitialized) {
-        return;
-      }
-      w.ChannelIOInitialized = true;
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.async = true;
-      s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-      s.charset = 'UTF-8';
-      var x = document.getElementsByTagName('script')[0];
-      x.parentNode.insertBefore(s, x);
-    }
-	debugger;
-    if (document.readyState === 'complete') {
-      l();
-    } else if (window.attachEvent) {
-      window.attachEvent('onload', l);
-    } else {
-      window.addEventListener('DOMContentLoaded', l, false);
-      window.addEventListener('load', l, false);
-    }
-  })();
+
       </script>
