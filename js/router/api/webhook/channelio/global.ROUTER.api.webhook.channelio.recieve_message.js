@@ -12,11 +12,12 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 
 		var	_q = global.REQUIRES.querystring.parse(	decodeURI( body ) );
 		var ob = JSON.parse( body );
-		console.log( ob )
-		if( ob.refers.userChat.state == "remove")
-		{
-			return global.api.Response.res_200_ok_String( req, res, "Chat Removed");
-		}
+		// 
+		// if()
+		// {
+		//
+		//
+		// }
 
 		if( ob.type == "Message" )
 		{
