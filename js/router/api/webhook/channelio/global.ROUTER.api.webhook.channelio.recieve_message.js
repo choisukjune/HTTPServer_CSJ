@@ -15,7 +15,7 @@ global.ROUTER.api.webhook.channelio.recieve_message = function( req, res ){
 		console.log( ob )
 		if( ob.entity.log.action == "remove")
 		{
-			global.api.Response.res_200_ok_String( req, res, "Chat Removed");
+			return global.api.Response.res_200_ok_String( req, res, "Chat Removed");
 		}
 
 		if( ob.type == "Message" )
